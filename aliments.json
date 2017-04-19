@@ -1,0 +1,81 @@
+aliment {
+
+"picto":"",
+"categorie":"" ,
+"nom":"" ,
+"description":"" ,
+"portion": "",
+"suggestions":"" ,
+"compte":[]
+
+}
+
+{
+
+"picto":"",
+"categorie":"Légumes" ,
+"nom":"Carottes" ,
+"description":"Les lapins en raffolent, ça rend aimable et donne les fesses roses" ,
+"portion": "Comme tous les fruits et légumes il faut en manger au moins 5 portions par jour.",
+"suggestions":["crue", "cuit", "salade", "soupe", "gâteau", "purée", "vapeur"] ,
+"compte":[]
+
+}
+{
+
+"picto":"",
+"categorie":"Fruits" ,
+"nom":"Pommes" ,
+"description":"Fruit du pommier. Il en existe de plusieurs variétées, couleurs et goûts",
+"portion": "Comme tous les fruits et légumes il faut en manger au moins 5 portions par jour.",
+"suggestions":["crue", "cuit", "salade", "jus", "gâteau", "compote", "smoothie", "confiture"] ,
+"compte":[]
+
+}
+
+{
+
+"picto":"",
+"categorie":"Féculents" ,
+"nom":"Blé" ,
+"description":"C'est une céréale à partir de laquelle on fabrique de la farine. avec celle-ci on peut faire du pain, des gâteaux, des pâtes",
+"portion": "Il faut en manger plusieurs fois par jour sous différentes formes (pain, pâtes, pommes de terre).",
+"suggestions":["cuit","gâteau", "vapeur"] ,
+"compte":[]
+
+}
+
+{
+
+"picto":"",
+"categorie":"Viandes, Poissons, Oeufs" ,
+"nom":"Oeufs" ,
+"description":"Les poules en pondent généralement un par jour",
+"portion": "Il faut en manger 1 fois par jour, 2 maximum.",
+"suggestions":["cuit", "salade", "gâteau", "à la coque", "brouillés", "au plat", "omelette"] ,
+"compte":[]
+
+}
+
+{
+
+"picto":"",
+"categorie":"Produits laitiers" ,
+"nom":"Lait" ,
+"description":"Provient le plus souvent de la vache",
+"portion": "Il faut manger un produit laitier à chaque repas",
+"suggestions":["frais", "chaud"] ,
+"compte":[]
+
+}
+{
+
+"picto":"",
+"categorie":"Produits sucrés" ,
+"nom":"Chocolat" ,
+"description":"Fabriqué à partir de la fève de cacao il en existe de différentes couleurs et goûts",
+"portion": "Il faut en consommer avec modération",
+"suggestions":["gâteau", "liquide", "tablette", "poudre", "confiserie", "pâte à tartiner"] ,
+"compte":[]
+
+}
