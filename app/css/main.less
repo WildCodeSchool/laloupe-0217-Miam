@@ -159,10 +159,12 @@ section h2 {
     margin-bottom: 8%;
     filter: grayscale(100%);
     cursor: pointer;
+    color: grey;
 }
 
 .manger li.selected {
   filter: none;
+  color: #B3404A;
 }
 
 .manger li img {
@@ -187,11 +189,28 @@ section h2 {
     color: #B3404A;
 }
 
-.pagination li.active,
-.pagination li.disabled {
-    background-color: transparent;
-    border-color: transparent;
-    margin: 0;
-    padding: 0 5px;
-    color: #B3404A;
+nav .pagination {
+  margin-top: 8%;
+  padding: 0;
+}
+
+nav .pagination li a {
+  font-size: 18px;
+  color: #B3404A;
+  padding: 0 5px;
+  border: none;
+}
+
+nav .pagination li a:hover {
+  color: #F4B2B0;
+  border: none;
+  background-color: transparent;
+}
+
+nav .pagination li a .glyphicon-chevron-left {
+  padding-right: 20px;
+}
+
+nav .pagination li a .glyphicon-chevron-right {
+  padding-left: 20px;
 }
