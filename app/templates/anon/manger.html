@@ -19,8 +19,9 @@
 
     <section class="row">
         <h2>Fruits</h2>
-        <ul class="manger">
-            <li class="col-xs-4">
+        <ul id="manger" class="manger">
+          <!-- METTRE dans des div et voir http://infoheap.com/html-js-css-sandbox/code/12737-code2/ -->
+            <li class="col-xs-4" ng-model="selected" ng-change="styleVal= selected ? {opacity:'1'} : {opacity:'0'}">
                 <img src="../../img/pineapple.svg" alt="{{ }}" /> Ananas
             </li>
             <li class="col-xs-4">
