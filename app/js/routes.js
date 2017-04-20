@@ -27,7 +27,7 @@ angular.module('app')
                 views: {
                     'content@': {
                         templateUrl: 'anon/manger.html',
-                        controller: 'MainController'
+                        controller: 'MangerController'
                     }
                 }
             })
