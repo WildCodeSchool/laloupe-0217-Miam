@@ -22,6 +22,15 @@ angular.module('app')
                     }
                 }
             })
+            .state('anon.manger', {
+                url: '/manger',
+                views: {
+                    'content@': {
+                        templateUrl: 'anon/manger.html',
+                        controller: 'MangerController'
+                    }
+                }
+            })
             .state('anon.login', {
                 url: '/login',
                 views: {

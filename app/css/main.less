@@ -1,3 +1,210 @@
 // Main less file for your application.
 // Use `@import` to use other less files
 // relative to 'app/css' or 'vendor/css'.
+
+body,
+html {
+    font-family: Helvetica, sans-serif;
+    text-align: center;
+    color: black;
+    margin: 0;
+    padding: 0;
+}
+/* ------------------------------ BUBBLE ------------------------------ */
+
+/* °°°°°°°°° CENTER TEXT INSIDE BUBBLE °°°°°°°°° */
+.bubble {
+  display: flex;
+  align-items: center;
+}
+
+.bubble p {
+  margin: auto;
+}
+
+/* ////////////// BUBBLE LEFT ////////////// */
+.bubble.left {
+    position: relative;
+    height: 90px;
+    border: solid #B3404A 4px;
+    border-radius: 10px;
+}
+
+.bubble.left:before {
+    content: "";
+    position: absolute;
+    right: 100%;
+    top: 38%;
+    border-top: 13px solid transparent;
+    border-right: 18px solid #B3404A;
+    border-bottom: 13px solid transparent;
+}
+
+.bubble.left p {
+    font-size: 18px;
+    padding: 0 10px;
+}
+
+/* ////////////// BUBBLE RIGHT ////////////// */
+.bubble.right {
+    position: relative;
+    height: 90px;
+    border: solid #B3404A 4px;
+    border-radius: 10px;
+}
+
+.bubble.right:before {
+    content: "";
+    position: absolute;
+    left: 100%;
+    top: 38%;
+    border-top: 13px solid transparent;
+    border-left: 18px solid #B3404A;
+    border-bottom: 13px solid transparent;
+}
+
+.bubble.right p {
+    font-size: 18px;
+    padding: 0 10px;
+}
+
+/* ////////////// BUBBLE BOTTOM ////////////// */
+.bubble.bottom {
+    position: relative;
+    height: 90px;
+    border: solid #B3404A 4px;
+    border-radius: 10px;
+}
+
+.bubble.bottom:before {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 45%;
+    border-left: 13px solid transparent;
+    border-right: 13px solid transparent;
+    border-top: 13px solid #B3404A;
+}
+
+.bubble.bottom p {
+    font-size: 18px;
+    padding: 0 10px;
+}
+
+/* ////////////// BUBBLE TOP ////////////// */
+.bubble.top {
+    position: relative;
+    height: 90px;
+    border: solid #B3404A 4px;
+    border-radius: 10px;
+}
+
+.bubble.top:before {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 45%;
+    border-left: 13px solid transparent;
+    border-right: 13px solid transparent;
+    border-bottom: 13px solid #B3404A;
+}
+
+.bubble.top p {
+    font-size: 18px;
+    padding: 0 10px;
+}
+
+
+/* ------------------------------ JE MANGE DEJA ------------------------------ */
+header {
+    background-color: #F4B2B0;
+}
+
+header h1 {
+    font-size: 26px;
+    font-weight: bold;
+    color: white;
+    margin: 25px 0;
+    padding: 0;
+}
+
+.advice {
+  margin: 3% 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.avatar img {
+    height: 100px;
+    margin: 0;
+    padding: 0;
+}
+
+section h2 {
+    font-size: 26px;
+    font-weight: bold;
+    margin: 5% 0 8%;
+    padding: 0;
+}
+
+.manger {
+    list-style-type: none;
+    padding: 0;
+}
+
+.manger li {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 8%;
+    cursor: pointer;
+    color: #B3404A;
+}
+
+.manger li img {
+    margin-bottom: 8%;
+}
+
+.manger-valider button {
+    height: 70px;
+    font-size: 20px;
+    background-color: #B3404A;
+    border: none;
+    padding: 0;
+    letter-spacing: 0.6px;
+}
+
+.manger-valider button:hover,
+.manger-valider button:active,
+.manger-valider button:focus {
+    font-weight: bold;
+    background-color: white;
+    border: solid #B3404A 5px;
+    color: #B3404A;
+}
+
+nav .pagination {
+  margin-top: 8%;
+  padding: 0;
+}
+
+nav .pagination li a {
+  font-size: 18px;
+  color: #B3404A;
+  padding: 0 5px;
+  border: none;
+}
+
+nav .pagination li a:hover {
+  color: #F4B2B0;
+  border: none;
+  background-color: transparent;
+}
+
+nav .pagination li a .glyphicon-chevron-left {
+  padding-right: 20px;
+}
+
+nav .pagination li a .glyphicon-chevron-right {
+  padding-left: 20px;
+}
