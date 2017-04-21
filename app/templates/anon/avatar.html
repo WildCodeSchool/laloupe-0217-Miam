@@ -1,0 +1,24 @@
+<div class="container-fluid">
+    <div class="col-xs-12 advice">
+      <div class="col-xs-12 bubble bottom ">
+        <h1>Indique-moi ton prénom et choisi un avatar !</h1>
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 choice-avatar">
+            <button type="button" class="btn dart col-xs-3" ng-click="prev()"><</button>
+            <img class="avatar col-xs-6" ng-src="{{currentAvatar}}" alt="">
+            <button type="button" class="btn dart col-xs-3"ng-click="next()">></button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <input class="col-xs-offset-3 col-xs-6 inputName" type="text" placeholder="Dis moi ton nom" ng-model="userName">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 name">
+            <button class="col-xs-offset-4 col-xs-4 ok" type="submit" ng-click="validProfil">OK</button>
+        </div>
+    </div>
+</div>
