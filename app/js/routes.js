@@ -31,6 +31,15 @@ angular.module('app')
                     }
                 }
             })
+            .state('anon.avatar', {
+                url: '/avatar',
+                views: {
+                    'content@': {
+                        templateUrl: 'anon/avatar.html',
+                        controller: 'AvatarController'
+                    }
+                }
+            })
             .state('anon.login', {
                 url: '/login',
                 views: {
