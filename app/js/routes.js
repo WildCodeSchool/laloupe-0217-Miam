@@ -31,6 +31,15 @@ angular.module('app')
                     }
                 }
             })
+            .state('anon.gouter', {
+                url: '/gouter',
+                views: {
+                    'content@': {
+                        templateUrl: 'anon/gouter.html',
+                        controller: 'GouterController'
+                    }
+                }
+            })
             .state('anon.avatar', {
                 url: '/avatar',
                 views: {
