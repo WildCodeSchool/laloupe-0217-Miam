@@ -33,154 +33,99 @@ button:hover {
 
 /* ------------------------------ BUBBLE ------------------------------ */
 
-/* °°°°°°°°° CENTER TEXT INSIDE BUBBLE °°°°°°°°° */
+/* °°°°°°°°° CENTER TEXT INSIDE BUBBLE & GENERALITIES °°°°°°°°° */
 .bubble {
+    height: 90px;
     display: flex;
     align-items: center;
+    position: relative;
+    border: solid #B3404A 4px;
+    border-radius: 10px;
+}
+
+.bubble:before {
+  content: "";
+  position: absolute;
+  border-style: solid;
+  border-color: #B3404A transparent;
+}
+
+.bubble:after {
+  content: "";
+  position: absolute;
+  border-style: solid;
+  border-color: white transparent;
 }
 
 .bubble p {
     margin: auto;
-}
-
-/* ////////////// BUBBLE LEFT ////////////// */
-.bubble.left {
-    position: relative;
-    height: 90px;
-    border: solid #B3404A 4px;
-    border-radius: 10px;
-}
-
-.bubble.left:before {
-    content: "";
-    position: absolute;
-    right: 98%;
-    top: 43%;
-    border-width: 14px 14px 0;
-    border-style: solid;
-    border-color: #B3404A transparent;
-    transform: rotate(90deg);
-}
-
-.bubble.left:after {
-    content: "";
-    position: absolute;
-    right: 98%;
-    top: 45%;
-    border-width: 10px 10px 0;
-    border-style: solid;
-    border-color: white transparent;
-    transform: rotate(90deg);
-}
-
-.bubble.left p {
     font-size: 18px;
     padding: 0 10px;
 }
 
-/* ////////////// BUBBLE RIGHT ////////////// */
-.bubble.right {
-    position: relative;
-    height: 90px;
-    border: solid #B3404A 4px;
-    border-radius: 10px;
-}
-
+/* ////////////// TRIANGLE LEFT & RIGHT ////////////// */
+.bubble.left:before,
 .bubble.right:before {
-    content: "";
-    position: absolute;
-    left: 98%;
-    top: 43%;
-    border-width: 14px 14px 0;
-    border-style: solid;
-    border-color: #B3404A transparent;
-    transform: rotate(-90deg);
+  top: 43%;
+  border-width: 14px 14px 0;
 }
 
+.bubble.left:after,
 .bubble.right:after {
-    content: "";
-    position: absolute;
-    left: 98%;
-    top: 45%;
-    border-width: 10px 10px 0;
-    border-style: solid;
-    border-color: white transparent;
-    transform: rotate(-90deg);
+  top: 45%;
+  border-width: 10px 10px 0;
 }
 
-.bubble.right p {
-    font-size: 18px;
-    padding: 0 10px;
+/* ////////////// TRIANGLE LEFT ////////////// */
+.bubble.left:before,
+.bubble.left:after {
+  right: 98%;
+  transform: rotate(90deg);
 }
 
-/* ////////////// BUBBLE BOTTOM ////////////// */
-.bubble.bottom {
-    position: relative;
-    height: 160px;
-    border: solid #B3404A 4px;
-    border-radius: 10px;
+/* ////////////// TRIANGLE RIGHT ////////////// */
+.bubble.right:before,
+.bubble.right:after {
+  left: 98%;
+  transform: rotate(-90deg);
 }
 
+/* ////////////// TRIANGLE BOTTOM & TOP ////////////// */
+.bubble.bottom:before,
+.bubble.top:before {
+  left: 45%;
+}
+
+.bubble.bottom:after,
+.bubble.top:after {
+  left: 46%;
+}
+
+/* ////////////// TRIANGLE BOTTOM ////////////// */
 .bubble.bottom:before {
-    content: "";
-    position: absolute;
     top: 100%;
-    left: 45%;
     border-width: 14px 14px 0;
-    border-style: solid;
-    border-color: #B3404A transparent;
 }
 
 .bubble.bottom:after {
-    content: "";
-    position: absolute;
     top: 98%;
-    left: 46%;
     border-width: 10px 10px 0;
-    border-style: solid;
-    border-color: white transparent;
 }
 
-.bubble.bottom p {
-    font-size: 18px;
-    padding: 0 10px;
-}
-
-/* ////////////// BUBBLE TOP ////////////// */
-.bubble.top {
-    position: relative;
-    height: 90px;
-    border: solid #B3404A 4px;
-    border-radius: 10px;
-}
-
+/* ////////////// TRIANGLE TOP ////////////// */
 .bubble.top:before {
-    content: "";
-    position: absolute;
     bottom: 100%;
-    left: 45%;
     border-width: 0 14px 14px;
-    border-style: solid;
-    border-color: #B3404A transparent;
 }
 
 .bubble.top:after {
-    content: "";
-    position: absolute;
     bottom: 98%;
-    left: 46%;
     border-width: 0 10px 10px;
-    border-style: solid;
-    border-color: white transparent;
-}
-
-.bubble.top p {
-    font-size: 18px;
-    padding: 0 10px;
 }
 
 /* ------------------------------ ACCUEIL ------------------------------ */
 .bubble.bottom.home {
+  height: 160px;
   margin-bottom: 8%;
 }
 
