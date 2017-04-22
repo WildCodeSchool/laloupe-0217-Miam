@@ -7,6 +7,7 @@ html {
     font-family: Helvetica, sans-serif;
     text-align: center;
     color: black;
+    height: 100%;
     margin: 0;
     padding: 0;
 }
@@ -31,11 +32,23 @@ html {
 .bubble.left:before {
     content: "";
     position: absolute;
-    right: 100%;
-    top: 38%;
-    border-top: 13px solid transparent;
-    border-right: 18px solid #B3404A;
-    border-bottom: 13px solid transparent;
+    right: 98%;
+    top: 43%;
+    border-width: 14px 14px 0;
+    border-style: solid;
+    border-color: #B3404A transparent;
+    transform: rotate(90deg);
+}
+
+.bubble.left:after {
+    content: "";
+    position: absolute;
+    right: 98%;
+    top: 45%;
+    border-width: 10px 10px 0;
+    border-style: solid;
+    border-color: white transparent;
+    transform: rotate(90deg);
 }
 
 .bubble.left p {
@@ -53,12 +66,36 @@ html {
 .bubble.right:before {
     content: "";
     position: absolute;
-    left: 100%;
-    top: 38%;
-    border-top: 13px solid transparent;
-    border-left: 18px solid #B3404A;
-    border-bottom: 13px solid transparent;
+    left: 98%;
+    top: 43%;
+    border-width: 14px 14px 0;
+    border-style: solid;
+    border-color: #B3404A transparent;
+    transform: rotate(-90deg);
 }
+
+.bubble.right:after {
+    content: "";
+    position: absolute;
+    left: 98%;
+    top: 43%;
+    border-width: 14px 14px 0;
+    border-style: solid;
+    border-color: #B3404A transparent;
+    transform: rotate(-90deg);
+}
+
+//
+// .bubble.left:after {
+//     content: "";
+//     position: absolute;
+//     right: 98%;
+//     top: 45%;
+//     border-width: 10px 10px 0;
+//     border-style: solid;
+//     border-color: white transparent;
+//     transform: rotate(90deg);
+// }
 
 .bubble.right p {
     font-size: 18px;
@@ -67,7 +104,7 @@ html {
 /* ////////////// BUBBLE BOTTOM ////////////// */
 .bubble.bottom {
     position: relative;
-    height: 90px;
+    height: 160px;
     border: solid #B3404A 4px;
     border-radius: 10px;
 }
@@ -77,15 +114,26 @@ html {
     position: absolute;
     top: 100%;
     left: 45%;
-    border-left: 13px solid transparent;
-    border-right: 13px solid transparent;
-    border-top: 13px solid #B3404A;
+    border-width: 14px 14px 0;
+    border-style: solid;
+    border-color: #B3404A transparent;
+}
+
+.bubble.bottom:after {
+    content: "";
+    position: absolute;
+    top: 98%;
+    left: 46%;
+    border-width: 10px 10px 0;
+    border-style: solid;
+    border-color: white transparent;
 }
 
 .bubble.bottom p {
     font-size: 18px;
     padding: 0 10px;
 }
+
 /* ////////////// BUBBLE TOP ////////////// */
 .bubble.top {
     position: relative;
@@ -108,6 +156,40 @@ html {
     font-size: 18px;
     padding: 0 10px;
 }
+
+/* ------------------------------ ACCUEIL ------------------------------ */
+.bubble.bottom.home {
+  margin-bottom: 8%;
+}
+
+.avatar.home {
+  height: 300px;
+  margin: 0 0 8% 0;
+  padding: 0;
+}
+
+.discover button,
+.login button {
+  height: 80px;
+  font-size: 30px;
+  background-color: #B3404A;
+  border: none;
+  margin-bottom: 3%;
+  padding: 0;
+  letter-spacing: 0.6px;
+}
+
+.discover button:active,
+.discover button:focus,
+.discover button:hover,
+.login button:active,
+.login button:focus,
+.login button:hover {
+  background-color: white;
+  border: solid #B3404A 5px;
+  color: #B3404A;
+}
+
 /* ------------------------------ JE MANGE DEJA ------------------------------ */
 header {
     background-color: #F4B2B0;
@@ -170,7 +252,6 @@ section h2 {
 .manger-valider button:active,
 .manger-valider button:focus,
 .manger-valider button:hover {
-    font-weight: bold;
     background-color: white;
     border: solid #B3404A 5px;
     color: #B3404A;
