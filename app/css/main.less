@@ -66,21 +66,30 @@ button:hover {
 /* ////////////// TRIANGLE LEFT & RIGHT ////////////// */
 .bubble.left:before,
 .bubble.right:before {
-  top: 43%;
-  border-width: 14px 14px 0;
+  top: 50%;
+  margin-top: -14px;
+  border-color: transparent #B3404A;
 }
 
 .bubble.left:after,
 .bubble.right:after {
-  top: 45%;
-  border-width: 10px 10px 0;
+  top: 50%;
+  margin-top: -8px;
+  border-color: transparent white;
 }
 
 /* ////////////// TRIANGLE LEFT ////////////// */
+.bubble.left:before {
+  border-width: 14px 14px 14px 0;
+}
+
+.bubble.left:after {
+  border-width: 8px 8px 8px 0;
+}
+
 .bubble.left:before,
 .bubble.left:after {
-  right: 98%;
-  transform: rotate(90deg);
+  right: 100%;
 }
 
 /* ////////////// TRIANGLE RIGHT ////////////// */
@@ -93,12 +102,14 @@ button:hover {
 /* ////////////// TRIANGLE BOTTOM & TOP ////////////// */
 .bubble.bottom:before,
 .bubble.top:before {
-  left: 45%;
+  left: 50%;
+  margin-left: -14px;
 }
 
 .bubble.bottom:after,
 .bubble.top:after {
-  left: 46%;
+  left: 50%;
+  margin-left: -8px;
 }
 
 /* ////////////// TRIANGLE BOTTOM ////////////// */
@@ -108,8 +119,8 @@ button:hover {
 }
 
 .bubble.bottom:after {
-    top: 98%;
-    border-width: 10px 10px 0;
+    top: 100%;
+    border-width: 8px 8px 0;
 }
 
 /* ////////////// TRIANGLE TOP ////////////// */
@@ -119,8 +130,8 @@ button:hover {
 }
 
 .bubble.top:after {
-    bottom: 98%;
-    border-width: 0 10px 10px;
+    bottom: 100%;
+    border-width: 0 8px 8px;
 }
 
 /* ------------------------------ ACCUEIL ------------------------------ */
