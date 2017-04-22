@@ -7,13 +7,11 @@
         </div>
     </header>
 
-    <div class="col-xs-12 advice">
-        <div class="col-xs-12">
-            <ul class="nav nav-tabs nav-justified">
-                <li class="ongletsProfil" ng-click="modifier()">Modifier</li>
-                <li class="ongletsProfil" ng-click="mesRecompenses()">Mes récompenses</li>
-            </ul>
-        </div>
+    <div class="col-xs-12">
+        <ul class="nav nav-tabs nav-justified">
+            <li class="ongletsProfil col-xs-6" ng-click="modifier()">Modifier</li>
+            <li class="ongletsProfil col-xs-6" ng-click="mesRecompenses()">Mes récompenses</li>
+        </ul>
     </div>
 
     <div class="vueModifier" ng-hide="vueModifier">
@@ -26,8 +24,8 @@
         </div>
         <div class="row">
             <div class="col-xs-12">
-                <h2>{{namePlayer}}</h2>
-                <button type="button" class="changeName glyphicon glyphicon-pencil"></button>
+                <h2 class="col-xs-offset-4 col-xs-3 flex-center-vertically">Jean</h2>
+                <button type="button" class="col-xs-1 glyphicon glyphicon-pencil flex-center-vertically"></button>
             </div>
         </div>
         <div class="row">
@@ -39,14 +37,14 @@
     <div class="vueMesRecompenses" ng-hide="vueMesRecompenses">
         <div class="row">
             <div class="col-xs-12 challenge">
-                <img class="imgRecompense col-xs-2" src="img/chapeau1.png" alt="recompense">
-                <h3 class="col-xs-3">Cadeau 1</h3>
-                <p class="col-xs-4">Aimer un nouvel aliment</p>
+                <img class="col-xs-2 imgRecompense flex-center-vertically" src="img/chapeau1.png" alt="recompense">
+                <div class="col-xs-3 cadeau flex-center-vertically">Cadeau 1</div>
+                <div class="col-xs-4 ennonce flex-center-vertically">Aimer un nouvel aliment</div>
             </div>
             <div class="col-xs-12 challenge">
-                <img class="imgRecompense col-xs-2" src="img/chapeau2.jpg" alt="recompense">
-                <h3 class="col-xs-3">Cadeau 2</h3>
-                <p class="col-xs-4">Aimer un nouvel aliment</p>
+                <img class="imgRecompense col-xs-2 flex-center-vertically" src="img/chapeau2.jpg" alt="recompense">
+                <div class="col-xs-3 flex-center-vertically">Cadeau 2</div>
+                <div class="col-xs-4 flex-center-vertically">Aimer un nouvel aliment</div>
             </div>
         </div>
 
