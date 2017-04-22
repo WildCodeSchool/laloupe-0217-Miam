@@ -11,6 +11,26 @@ html {
     margin: 0;
     padding: 0;
 }
+
+/* ------------------------------ BUTTON ------------------------------ */
+
+/* Use of !important necessary for style to apply to all buttons in the application.
+By adding a specific class before the world "button", it is possible to adjust the height
+of the button, for example, for specific pages. (Example : Cmd + F ".discover button") */
+
+button {
+  background-color: #B3404A !important;
+  border: none !important;
+  padding: 0 !important;
+}
+button:active,
+button:focus,
+button:hover {
+  background-color: white !important;
+  border: solid #B3404A 5px !important;
+  color: #B3404A !important;
+}
+
 /* ------------------------------ BUBBLE ------------------------------ */
 
 /* °°°°°°°°° CENTER TEXT INSIDE BUBBLE °°°°°°°°° */
@@ -174,22 +194,7 @@ html {
 .login button {
   height: 80px;
   font-size: 30px;
-  background-color: #B3404A;
-  border: none;
   margin-bottom: 3%;
-  padding: 0;
-  letter-spacing: 0.6px;
-}
-
-.discover button:active,
-.discover button:focus,
-.discover button:hover,
-.login button:active,
-.login button:focus,
-.login button:hover {
-  background-color: white;
-  border: solid #B3404A 5px;
-  color: #B3404A;
 }
 
 /* ------------------------------ JE MANGE DEJA ------------------------------ */
@@ -244,9 +249,6 @@ section h2 {
 
 .manger-valider button {
     height: 70px;
-    background-color: #B3404A;
-    border: none;
-    padding: 0;
     letter-spacing: 0.6px;
 }
 
@@ -256,14 +258,6 @@ section h2 {
 
 .manger-valider .ok {
     font-size: 26px;
-}
-
-.manger-valider button:active,
-.manger-valider button:focus,
-.manger-valider button:hover {
-    background-color: white;
-    border: solid #B3404A 5px;
-    color: #B3404A;
 }
 
 nav .pagination {
@@ -319,16 +313,5 @@ nav .pagination li a .glyphicon-chevron-right {
 .name button {
     height: 60px;
     font-size: 26px;
-    background-color: #B3404A;
-    border: none;
     margin-top: 12%;
-    padding: 0;
-}
-
-.name button:active,
-.name button:focus,
-.name button:hover {
-  background-color: white;
-  border: solid #B3404A 5px;
-  color: #B3404A;
 }
