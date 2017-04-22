@@ -1,0 +1,54 @@
+<div class="container-fluid">
+    <header class="row">
+        <div class="col-xs-12">
+            <img class="miniAvatar col-xs-1" ng-src="{{currentAvatar}}" alt="avatar">
+            <h1 class="col-xs-10">Mon profil</h1>
+            <button type="button" class="btn addKids col-xs-1" ng-click="addKid()">+</button>
+        </div>
+    </header>
+
+    <div class="col-xs-12 advice">
+        <div class="col-xs-12">
+            <ul class="nav nav-tabs nav-justified">
+                <li class="ongletsProfil" ng-click="modifier()">Modifier</li>
+                <li class="ongletsProfil" ng-click="mesRecompenses()">Mes récompenses</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="vueModifier" ng-hide="vueModifier">
+        <div class="row">
+            <div class="col-xs-12 choice-avatar">
+                <button type="button" class="btn dart col-xs-3" ng-click="prev()"><</button>
+                <img class="avatar col-xs-6" ng-src="{{currentAvatar}}" alt="avatar">
+                <button type="button" class="btn dart col-xs-3" ng-click="next()">></button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <h2>{{namePlayer}}</h2>
+                <button type="button" class="changeName glyphicon glyphicon-pencil"></button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 name">
+                <button class="col-xs-offset-4 col-xs-4 deconnecter" type="submit" ng-click="deconnecter()">se déconnecter</button>
+            </div>
+        </div>
+    </div>
+    <div class="vueMesRecompenses" ng-hide="vueMesRecompenses">
+        <div class="row">
+            <div class="col-xs-12 challenge">
+                <img class="imgRecompense col-xs-2" src="img/chapeau1.jpg" alt="recompense">
+                <h3>Cadeau 1</h3>
+                <p>Aimer un nouvel aliment</p>
+            </div>
+            <div class="col-xs-12 challenge">
+                <img class="imgRecompense col-xs-2" src="img/chapeau2.jpg" alt="recompense">
+                <h3>Cadeau 2</h3>
+                <p>Aimer un nouvel aliment</p>
+            </div>
+        </div>
+
+    </div>
+</div>

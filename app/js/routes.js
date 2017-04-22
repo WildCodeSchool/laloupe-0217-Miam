@@ -40,6 +40,16 @@ angular.module('app')
                     }
                 }
             })
+
+            .state('anon.profil', {
+                url: '/profil',
+                views: {
+                    'content@': {
+                        templateUrl: 'anon/profil.html',
+                        controller: 'ProfilController'
+                    }
+                }
+            })
             .state('anon.login', {
                 url: '/login',
                 views: {
