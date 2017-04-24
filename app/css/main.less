@@ -7,106 +7,147 @@ html {
     font-family: Helvetica, sans-serif;
     text-align: center;
     color: black;
+    height: 100%;
     margin: 0;
     padding: 0;
 }
+/* ------------------------------ BUTTON ------------------------------ */
+/* Use of !important necessary for style to apply to all buttons in the application.
+By adding a specific class before the world "button", it is possible to adjust the height
+of the button, for example, for specific pages. (Example : Cmd + F ".discover button") */
+button {
+    background-color: #B3404A !important;
+    border: none !important;
+    padding: 0 !important;
+}
+
+button:active,
+button:focus,
+button:hover {
+    background-color: white !important;
+    border: solid #B3404A 5px !important;
+    color: #B3404A !important;
+}
 /* ------------------------------ BUBBLE ------------------------------ */
-/* °°°°°°°°° CENTER TEXT INSIDE BUBBLE °°°°°°°°° */
+/* °°°°°°°°° CENTER TEXT INSIDE BUBBLE & GENERALITIES °°°°°°°°° */
 .bubble {
+    height: 90px;
     display: flex;
     align-items: center;
+    position: relative;
+    border: solid #B3404A 4px;
+    border-radius: 10px;
+}
+
+.bubble:after,
+.bubble:before {
+    content: "";
+    position: absolute;
+    border-style: solid;
 }
 
 .bubble p {
     margin: auto;
+    font-size: 18px;
+    padding: 0 10px;
 }
-/* ////////////// BUBBLE LEFT ////////////// */
-.bubble.left {
-    position: relative;
-    height: 90px;
-    border: solid #B3404A 4px;
-    border-radius: 10px;
+/* ////////////// TRIANGLE LEFT & RIGHT ////////////// */
+.bubble.left:before,
+.bubble.right:before {
+    top: 50%;
+    margin-top: -14px;
+    border-color: transparent #B3404A;
+}
+
+.bubble.left:after,
+.bubble.right:after {
+    top: 50%;
+    margin-top: -8px;
+    border-color: transparent white;
+}
+/* ////////////// TRIANGLE LEFT ////////////// */
+.bubble.left:after,
+.bubble.left:before {
+    right: 100%;
 }
 
 .bubble.left:before {
-    content: "";
-    position: absolute;
-    right: 100%;
-    top: 38%;
-    border-top: 13px solid transparent;
-    border-right: 18px solid #B3404A;
-    border-bottom: 13px solid transparent;
+    border-width: 14px 14px 14px 0;
 }
 
-.bubble.left p {
-    font-size: 18px;
-    padding: 0 10px;
+.bubble.left:after {
+    border-width: 8px 8px 8px 0;
 }
-/* ////////////// BUBBLE RIGHT ////////////// */
-.bubble.right {
-    position: relative;
-    height: 90px;
-    border: solid #B3404A 4px;
-    border-radius: 10px;
+/* ////////////// TRIANGLE RIGHT ////////////// */
+.bubble.right:after,
+.bubble.right:before {
+    left: 100%;
 }
 
 .bubble.right:before {
-    content: "";
-    position: absolute;
-    left: 100%;
-    top: 38%;
-    border-top: 13px solid transparent;
-    border-left: 18px solid #B3404A;
-    border-bottom: 13px solid transparent;
+    border-width: 14px 0 14px 14px;
 }
 
-.bubble.right p {
-    font-size: 18px;
-    padding: 0 10px;
+.bubble.right:after {
+    border-width: 8px 0 8px 8px;
 }
-/* ////////////// BUBBLE BOTTOM ////////////// */
-.bubble.bottom {
-    position: relative;
-    height: 90px;
-    border: solid #B3404A 4px;
-    border-radius: 10px;
+/* ////////////// TRIANGLE BOTTOM & TOP ////////////// */
+.bubble.bottom:before,
+.bubble.top:before {
+    left: 50%;
+    margin-left: -14px;
+    border-color: #B3404A transparent;
+}
+
+.bubble.bottom:after,
+.bubble.top:after {
+    left: 50%;
+    margin-left: -8px;
+    border-color: white transparent;
+}
+/* ////////////// TRIANGLE BOTTOM ////////////// */
+.bubble.bottom:after,
+.bubble.bottom:before {
+    top: 100%;
 }
 
 .bubble.bottom:before {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 45%;
-    border-left: 13px solid transparent;
-    border-right: 13px solid transparent;
-    border-top: 13px solid #B3404A;
+    border-width: 14px 14px 0;
 }
 
-.bubble.bottom p {
-    font-size: 18px;
-    padding: 0 10px;
+.bubble.bottom:after {
+    border-width: 8px 8px 0;
 }
-/* ////////////// BUBBLE TOP ////////////// */
-.bubble.top {
-    position: relative;
-    height: 90px;
-    border: solid #B3404A 4px;
-    border-radius: 10px;
+/* ////////////// TRIANGLE TOP ////////////// */
+.bubble.top:after,
+.bubble.top:before {
+    bottom: 100%;
 }
 
 .bubble.top:before {
-    content: "";
-    position: absolute;
-    bottom: 100%;
-    left: 45%;
-    border-left: 13px solid transparent;
-    border-right: 13px solid transparent;
-    border-bottom: 13px solid #B3404A;
+    border-width: 0 14px 14px;
 }
 
-.bubble.top p {
-    font-size: 18px;
-    padding: 0 10px;
+.bubble.top:after {
+    border-width: 0 8px 8px;
+}
+/* ------------------------------ ACCUEIL ------------------------------ */
+.bubble.bottom.home {
+    height: 160px;
+    margin-bottom: 8%;
+}
+
+.avatar.home {
+    height: 300px;
+    margin: 0 0 8%;
+    padding: 0;
+}
+
+.discover button,
+.login button {
+    height: 80px;
+    font-size: 30px;
+    margin-bottom: 3%;
 }
 /* ------------------------------ JE MANGE DEJA ------------------------------ */
 header {
@@ -160,20 +201,15 @@ section h2 {
 
 .manger-valider button {
     height: 70px;
-    font-size: 20px;
-    background-color: #B3404A;
-    border: none;
-    padding: 0;
     letter-spacing: 0.6px;
 }
 
-.manger-valider button:active,
-.manger-valider button:focus,
-.manger-valider button:hover {
-    font-weight: bold;
-    background-color: white;
-    border: solid #B3404A 5px;
-    color: #B3404A;
+.manger-valider .all {
+    font-size: 20px;
+}
+
+.manger-valider .ok {
+    font-size: 26px;
 }
 
 nav .pagination {
@@ -202,11 +238,8 @@ nav .pagination li a .glyphicon-chevron-right {
     padding-left: 20px;
 }
 /* ------------------------------ AVATAR ------------------------------ */
-h1 {
-    text-align: center;
-    font-size: 18px;
-    color: #B3404A;
-    padding: 0 5px;
+.bubble.bottom.avatar {
+    height: 90px;
 }
 
 .dart {
@@ -228,13 +261,10 @@ h1 {
     border-radius: 10px;
 }
 
-.ok {
-    margin-top: 50px;
-    background-color: #B3404A;
-    color: white;
-    border-radius: 10px;
+.name button {
+    height: 60px;
     font-size: 26px;
-    padding-top: 7px;
+    margin-top: 12%;
 }
 /* ------------------------------ Profil ------------------------------ */
 .miniAvatar {
