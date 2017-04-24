@@ -1,0 +1,48 @@
+<div class="container-fluid">
+
+    <header class="row">
+        <div class="col-xs-12">
+            <h1>Contre-indication</h1>
+        </div>
+    </header>
+
+    <section class="row">
+        <div class="advice">
+            <div class="col-xs-4 avatar">
+                <img src="https://image.flaticon.com/icons/png/128/78/78373.png" alt="Avatar of the user" />
+            </div>
+            <div class="col-xs-8 bubble left">
+                <p>Dis-moi s'il y a des aliments que tu ne peux pas manger&nbsp;! <br> Demande l'aide d'un adulte pour ne rien oublier.
+                </p>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="row">
+
+        <form ng-submit="goSearch()">
+            <div class="col-xs-offset-1 col-xs-10 input-group">
+                <input class="searchbar form-control input-lg" id="textInput" placeholder="Rechercher" />
+
+                <span class="input-group-btn">
+                      <button class="btn btn-default btn-lg" type="button">
+                    <span class="glyphicon glyphicon-search"></span>
+                </button>
+                </span>
+            </div>
+            <p>Exemple : gluten, produits laitiers, porc...</p>
+        </form>
+
+        <div id="suggestion-container">
+            <ul id="suggestion"></ul>
+        </div>
+
+    </section>
+    <i class="fa fa-circle" aria-hidden="true" style="color: green;"></i>
+    <section class="row contreIndication-valider">
+
+        <button class="col-xs-offset-1 col-xs-4 btn btn-primary btn-lg ok" type="button" name="button">OK</button>
+    </section>
+
+</div>
