@@ -16,6 +16,18 @@
   border-radius: @radius;
 }
 
+.generalButton {
+  background-color: @mainColor;
+  border: none;
+  padding: 0;
+}
+
+.buttonInteraction {
+  background-color: white;
+  border: solid @mainColor 5px;
+  color: @mainColor;
+}
+
 
 /* -------------------------------------------------------------------- */
 
@@ -28,23 +40,8 @@ html {
     margin: 0;
     padding: 0;
 }
-/* ------------------------------ BUTTON ------------------------------ */
-/* Use of !important necessary for style to apply to all buttons in the application.
-By adding a specific class before the world "button", it is possible to adjust the height
-of the button, for example, for specific pages. (Example : Cmd + F ".discover button") */
-button {
-    background-color: @mainColor !important;
-    border: none !important;
-    padding: 0 !important;
-}
 
-button:active,
-button:focus,
-button:hover {
-    background-color: white !important;
-    border: solid @mainColor 5px !important;
-    color: @mainColor !important;
-}
+
 /* ------------------------------ BUBBLE ------------------------------ */
 /* °°°°°°°°° CENTER TEXT INSIDE BUBBLE & GENERALITIES °°°°°°°°° */
 .bubble {
@@ -163,10 +160,12 @@ button:hover {
 
 .discover button,
 .login button {
+  .generalButton !important;
     height: 80px;
     font-size: 30px;
     margin-bottom: 3%;
 }
+
 /* ------------------------------ JE MANGE DEJA ------------------------------ */
 header {
     background-color: @secondColor;
@@ -280,10 +279,18 @@ nav .pagination li a .glyphicon-chevron-right {
 }
 
 .name button {
+  .generalButton;
     height: 60px;
     font-size: 26px;
     margin-top: 12%;
 }
+
+.name button:active,
+.name button:focus,
+.name button:hover {
+  .buttonInteraction;
+}
+
 /* ------------------------------ Profil ------------------------------ */
 .miniAvatar {
   margin-top: 7px;
