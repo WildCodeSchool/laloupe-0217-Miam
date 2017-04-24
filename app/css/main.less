@@ -2,6 +2,23 @@
 // Use `@import` to use other less files
 // relative to 'app/css' or 'vendor/css'.
 
+@mainColor: #B3404A;
+@secondColor: #F4B2B0;
+@green: green;
+@red: red;
+
+.rounded (@radius: 10px) {
+  -moz-border-radius: @radius;
+  -webkit-border-radius: @radius;
+  -o-border-radius: @radius;
+  -khtml-border-radius: @radius;
+  -ms-border-radius: @radius;
+  border-radius: @radius;
+}
+
+
+/* -------------------------------------------------------------------- */
+
 body,
 html {
     font-family: Helvetica, sans-serif;
@@ -16,7 +33,7 @@ html {
 By adding a specific class before the world "button", it is possible to adjust the height
 of the button, for example, for specific pages. (Example : Cmd + F ".discover button") */
 button {
-    background-color: #B3404A !important;
+    background-color: @mainColor !important;
     border: none !important;
     padding: 0 !important;
 }
@@ -25,8 +42,8 @@ button:active,
 button:focus,
 button:hover {
     background-color: white !important;
-    border: solid #B3404A 5px !important;
-    color: #B3404A !important;
+    border: solid @mainColor 5px !important;
+    color: @mainColor !important;
 }
 /* ------------------------------ BUBBLE ------------------------------ */
 /* °°°°°°°°° CENTER TEXT INSIDE BUBBLE & GENERALITIES °°°°°°°°° */
@@ -35,8 +52,8 @@ button:hover {
     display: flex;
     align-items: center;
     position: relative;
-    border: solid #B3404A 4px;
-    border-radius: 10px;
+    border: solid @mainColor 4px;
+    .rounded();
 }
 
 .bubble:after,
@@ -56,7 +73,8 @@ button:hover {
 .bubble.right:before {
     top: 50%;
     margin-top: -14px;
-    border-color: transparent #B3404A;
+    border-top-color: transparent;
+    border-color: transparent @mainColor;
 }
 
 .bubble.left:after,
@@ -96,7 +114,7 @@ button:hover {
 .bubble.top:before {
     left: 50%;
     margin-left: -14px;
-    border-color: #B3404A transparent;
+    border-color: @mainColor transparent;
 }
 
 .bubble.bottom:after,
@@ -151,7 +169,7 @@ button:hover {
 }
 /* ------------------------------ JE MANGE DEJA ------------------------------ */
 header {
-    background-color: #F4B2B0;
+    background-color: @secondColor;
 }
 
 header h1 {
@@ -192,7 +210,7 @@ section h2 {
     font-size: 16px;
     margin-bottom: 8%;
     cursor: pointer;
-    color: #B3404A;
+    color: @mainColor;
 }
 
 .manger li img {
@@ -219,13 +237,13 @@ nav .pagination {
 
 nav .pagination li a {
     font-size: 18px;
-    color: #B3404A;
+    color: @mainColor;
     padding: 0 5px;
     border: none;
 }
 
 nav .pagination li a:hover {
-    color: #F4B2B0;
+    color: @secondColor;
     border: none;
     background-color: transparent;
 }
@@ -244,7 +262,7 @@ nav .pagination li a .glyphicon-chevron-right {
 
 .dart {
     margin-top: 100px;
-    background-color: #B3404A;
+    background-color: @mainColor;
     color: white;
     font-size: 100px;
     border-radius: 100%;
@@ -257,7 +275,7 @@ nav .pagination li a .glyphicon-chevron-right {
 
 .inputName {
     margin-top: 50px;
-    border: solid #B3404A 4px;
+    border: solid @mainColor 4px;
     border-radius: 10px;
 }
 
@@ -275,7 +293,7 @@ nav .pagination li a .glyphicon-chevron-right {
 
 .addKids {
     margin-top: 7px;
-    background-color: #B3404A;
+    background-color: @mainColor;
     color: white;
     font-size: 30px;
     border-radius: 100%;
@@ -283,8 +301,8 @@ nav .pagination li a .glyphicon-chevron-right {
 }
 .ongletsProfil {
   font-size: 20px;
-  color: #B3404A;
-border: solid #B3404A 4px;
+  color: @mainColor;
+border: solid @mainColor 4px;
 border-radius: 0 0 10px 10px;
 }
 
