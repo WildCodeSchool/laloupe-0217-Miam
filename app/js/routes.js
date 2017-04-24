@@ -40,6 +40,15 @@ angular.module('app')
                     }
                 }
             })
+            .state('anon.contreIndication', {
+                url: '/contreIndication',
+                views: {
+                    'content@': {
+                        templateUrl: 'anon/contreIndication.html',
+                        controller: 'ContreIndicationController'
+                    }
+                }
+            })
             .state('anon.avatar', {
                 url: '/avatar',
                 views: {
