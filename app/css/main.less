@@ -392,11 +392,19 @@ border-radius: 0 0 10px 10px;
 }
 
 /* ------------------------------ contreIndication ------------------------------ */
-.contreIndication-valider .ok {
+.contreIndication-valider button {
+  .generalButton;
   height: 90px;
   margin-top: 100px;
   margin-bottom: 20px;
 }
+
+.contreIndication-valider button:active,
+.contreIndication-valider button:focus,
+.contreIndication-valider button:hover {
+  .buttonInteraction;
+}
+
 .contreIndication-avatar {
   margin-top: 40px;
 }
