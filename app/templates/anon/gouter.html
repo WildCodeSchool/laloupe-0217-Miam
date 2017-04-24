@@ -8,75 +8,103 @@
 
     <section class="row searchbar">
         <form ng-submit="goSearch()">
-          <div class="col-xs-offset-1 col-xs-10 input-group">
-            <input class="form-control input-lg" placeholder="Rechercher" />
-            <span class="input-group-btn buttonSearch">
+            <div class="col-xs-offset-1 col-xs-10 input-group">
+                <input class="form-control input-lg" placeholder="Rechercher" />
+                <span class="input-group-btn buttonSearch">
               <button class="btn btn-default btn-lg" type="button">
                 <span class="glyphicon glyphicon-search"></span>
-              </button>
-            </span>
-          </div>
+                </button>
+                </span>
+            </div>
         </form>
     </section>
 
     <section class="row">
-      <h2>Fruits</h2>
-      <div class="gouter">
-        <div class="col-xs-4 gouterItem">
-          <img src="../../img/pineapple.svg" alt="{{ }}" />
-          <h3>Ananas</h3>
-          <div class="circleVote">
-            <i class="fa fa-circle" aria-hidden="true" style="color: green;"></i>
-            <i class="fa fa-circle-o" aria-hidden="true"></i>
-            <i class="fa fa-circle-o" aria-hidden="true"></i>
-          </div>
+        <h2>Fruits</h2>
+        <div class="gouter">
+            <div class="col-xs-4 gouterItem" data-toggle="modal" data-target="#modal1">
+                <img src="../../img/pineapple.svg" alt="{{ }}" />
+                <h3>Ananas</h3>
+                <div class="circleVote">
+                    <i class="fa fa-circle" aria-hidden="true" style="color: green;"></i>
+                    <i class="fa fa-circle-o" aria-hidden="true"></i>
+                    <i class="fa fa-circle-o" aria-hidden="true"></i>
+                </div>
+            </div>
+            <div class="col-xs-4 gouterItem">
+
+                <img src="../../img/banana.svg" alt="{{ }}" />
+                <h3>Banane</h3>
+                <div class="circleVote">
+                    <i class="fa fa-circle-o" aria-hidden="true"></i>
+                    <i class="fa fa-circle-o" aria-hidden="true"></i>
+                    <i class="fa fa-circle-o" aria-hidden="true"></i>
+                </div>
+            </div>
+            <div class="col-xs-4 gouterItem">
+                <img src="../../img/cherries.svg" alt="{{ }}" />
+                <h3>Cerise</h3>
+                <div class="circleVote">
+                    <i class="fa fa-circle-o" aria-hidden="true"></i>
+                    <i class="fa fa-circle-o" aria-hidden="true"></i>
+                    <i class="fa fa-circle-o" aria-hidden="true"></i>
+                </div>
+            </div>
+            <div class="col-xs-4 gouterItem">
+                <img src="../../img/strawberry.svg" alt="{{ }}" />
+                <h3>Fraise</h3>
+                <div class="circleVote">
+                    <i class="fa fa-circle-o" aria-hidden="true"></i>
+                    <i class="fa fa-circle-o" aria-hidden="true"></i>
+                    <i class="fa fa-circle-o" aria-hidden="true"></i>
+                </div>
+            </div>
+            <div class="col-xs-4 gouterItem">
+                <img src="../../img/orange.svg" alt="{{ }}" />
+                <h3>Orange</h3>
+                <div class="circleVote">
+                    <i class="fa fa-circle-o" aria-hidden="true"></i>
+                    <i class="fa fa-circle-o" aria-hidden="true"></i>
+                    <i class="fa fa-circle-o" aria-hidden="true"></i>
+                </div>
+            </div>
+            <div class="col-xs-4 gouterItem">
+                <img src="../../img/grapes.svg" alt="{{ }}" />
+                <h3>Raisin</h3>
+                <div class="circleVote">
+                    <i class="fa fa-circle-o" aria-hidden="true"></i>
+                    <i class="fa fa-circle-o" aria-hidden="true"></i>
+                    <i class="fa fa-circle-o" aria-hidden="true"></i>
+                </div>
+            </div>
         </div>
-        <div class="col-xs-4 gouterItem">
-          <img src="../../img/banana.svg" alt="{{ }}" />
-          <h3>Banane</h3>
-          <div class="circleVote">
-            <i class="fa fa-circle-o" aria-hidden="true"></i>
-            <i class="fa fa-circle-o" aria-hidden="true"></i>
-            <i class="fa fa-circle-o" aria-hidden="true"></i>
-          </div>
-        </div>
-        <div class="col-xs-4 gouterItem">
-          <img src="../../img/cherries.svg" alt="{{ }}" />
-          <h3>Cerise</h3>
-          <div class="circleVote">
-            <i class="fa fa-circle-o" aria-hidden="true"></i>
-            <i class="fa fa-circle-o" aria-hidden="true"></i>
-            <i class="fa fa-circle-o" aria-hidden="true"></i>
-          </div>
-        </div>
-        <div class="col-xs-4 gouterItem">
-          <img src="../../img/strawberry.svg" alt="{{ }}" />
-          <h3>Fraise</h3>
-          <div class="circleVote">
-            <i class="fa fa-circle-o" aria-hidden="true"></i>
-            <i class="fa fa-circle-o" aria-hidden="true"></i>
-            <i class="fa fa-circle-o" aria-hidden="true"></i>
-          </div>
-        </div>
-        <div class="col-xs-4 gouterItem">
-          <img src="../../img/orange.svg" alt="{{ }}" />
-          <h3>Orange</h3>
-          <div class="circleVote">
-            <i class="fa fa-circle-o" aria-hidden="true"></i>
-            <i class="fa fa-circle-o" aria-hidden="true"></i>
-            <i class="fa fa-circle-o" aria-hidden="true"></i>
-          </div>
-        </div>
-        <div class="col-xs-4 gouterItem">
-          <img src="../../img/grapes.svg" alt="{{ }}" />
-          <h3>Raisin</h3>
-          <div class="circleVote">
-            <i class="fa fa-circle-o" aria-hidden="true"></i>
-            <i class="fa fa-circle-o" aria-hidden="true"></i>
-            <i class="fa fa-circle-o" aria-hidden="true"></i>
-          </div>
-        </div>
-      </div>
     </section>
+
+
+
+               <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                    <h3 class="modal-title" id="image-gallery-title">Black & white</h3>
+                </div>
+                <div class="modal-body">
+                    <img id="image-gallery-image" class="img-responsive" src="http://www.fangcansports.com/photo/pl5208641-men_s_sports_socks_terry_background_breathe_freely_wear_well_socks.jpg">
+                </div>
+                <div class="modal-footer">
+                    <div class="col-md-8" id="image-gallery-caption">
+                        <p>Laborum aliquip amet qui proident occaecat et dolor ullamco culpa occaecat.</p>
+                    </div>
+                    <button type="button" class="btn btn-default btn-lg">
+            <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+          </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
 
 </div>
