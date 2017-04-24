@@ -160,10 +160,19 @@ html {
 
 .discover button,
 .login button {
-  .generalButton !important;
+  .generalButton;
     height: 80px;
     font-size: 30px;
     margin-bottom: 3%;
+}
+
+.discover button:active,
+.discover button:focus,
+.discover button:hover,
+.login button:active,
+.login button:focus,
+.login button:hover {
+  .buttonInteraction;
 }
 
 /* ------------------------------ JE MANGE DEJA ------------------------------ */
@@ -217,8 +226,15 @@ section h2 {
 }
 
 .manger-valider button {
+  .generalButton;
     height: 70px;
     letter-spacing: 0.6px;
+}
+
+.manger-valider button:active,
+.manger-valider button:focus,
+.manger-valider button:hover {
+  .buttonInteraction;
 }
 
 .manger-valider .all {
@@ -306,6 +322,7 @@ nav .pagination li a .glyphicon-chevron-right {
     border-radius: 100%;
     height: 60px;
 }
+
 .ongletsProfil {
   font-size: 20px;
   color: @mainColor;
@@ -357,4 +374,19 @@ border-radius: 0 0 10px 10px;
   color: @mainColor;
   margin: 5% 0 20% 0;
   padding: 0px;
+}
+
+.deconnecter button {
+  height: 30px;
+  background-color: @red;
+  border: none;
+  padding: 0px;
+}
+
+.deconnecter button:active,
+.deconnecter button:focus,
+.deconnecter button:hover {
+  background-color: white;
+  border: solid @red 5px;
+  color: @red;
 }
