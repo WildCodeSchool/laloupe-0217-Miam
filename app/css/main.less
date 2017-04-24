@@ -16,6 +16,18 @@
   border-radius: @radius;
 }
 
+.generalButton {
+  background-color: @mainColor;
+  border: none;
+  padding: 0;
+}
+
+.buttonInteraction {
+  background-color: white;
+  border: solid @mainColor 5px;
+  color: @mainColor;
+}
+
 
 /* -------------------------------------------------------------------- */
 
@@ -28,23 +40,8 @@ html {
     margin: 0;
     padding: 0;
 }
-/* ------------------------------ BUTTON ------------------------------ */
-/* Use of !important necessary for style to apply to all buttons in the application.
-By adding a specific class before the world "button", it is possible to adjust the height
-of the button, for example, for specific pages. (Example : Cmd + F ".discover button") */
-button {
-    background-color: @mainColor !important;
-    border: none !important;
-    padding: 0 !important;
-}
 
-button:active,
-button:focus,
-button:hover {
-    background-color: white !important;
-    border: solid @mainColor 5px !important;
-    color: @mainColor !important;
-}
+
 /* ------------------------------ BUBBLE ------------------------------ */
 /* °°°°°°°°° CENTER TEXT INSIDE BUBBLE & GENERALITIES °°°°°°°°° */
 .bubble {
@@ -163,10 +160,21 @@ button:hover {
 
 .discover button,
 .login button {
+  .generalButton;
     height: 80px;
     font-size: 30px;
     margin-bottom: 3%;
 }
+
+.discover button:active,
+.discover button:focus,
+.discover button:hover,
+.login button:active,
+.login button:focus,
+.login button:hover {
+  .buttonInteraction;
+}
+
 /* ------------------------------ JE MANGE DEJA ------------------------------ */
 header {
     background-color: @secondColor;
@@ -218,8 +226,15 @@ section h2 {
 }
 
 .manger-valider button {
+  .generalButton;
     height: 70px;
     letter-spacing: 0.6px;
+}
+
+.manger-valider button:active,
+.manger-valider button:focus,
+.manger-valider button:hover {
+  .buttonInteraction;
 }
 
 .manger-valider .all {
@@ -280,10 +295,18 @@ nav .pagination li a .glyphicon-chevron-right {
 }
 
 .name button {
+  .generalButton;
     height: 60px;
     font-size: 26px;
     margin-top: 12%;
 }
+
+.name button:active,
+.name button:focus,
+.name button:hover {
+  .buttonInteraction;
+}
+
 /* ------------------------------ Profil ------------------------------ */
 .miniAvatar {
   margin-top: 7px;
@@ -299,6 +322,7 @@ nav .pagination li a .glyphicon-chevron-right {
     border-radius: 100%;
     height: 60px;
 }
+
 .ongletsProfil {
   font-size: 20px;
   color: @mainColor;
@@ -350,4 +374,19 @@ border-radius: 0 0 10px 10px;
   color: @mainColor;
   margin: 5% 0 20% 0;
   padding: 0px;
+}
+
+.deconnecter button {
+  height: 30px;
+  background-color: @red;
+  border: none;
+  padding: 0px;
+}
+
+.deconnecter button:active,
+.deconnecter button:focus,
+.deconnecter button:hover {
+  background-color: white;
+  border: solid @red 5px;
+  color: @red;
 }
