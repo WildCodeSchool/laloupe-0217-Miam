@@ -7,20 +7,20 @@
     </header>
 
     <section class="row">
-        <div class="advice">
-            <div class="col-xs-4 avatar">
-                <img src="https://image.flaticon.com/icons/png/128/78/78373.png" alt="Avatar of the user" />
-            </div>
-            <div class="col-xs-8 bubble left">
-                <p>Dis-moi s'il y a des aliments que tu ne peux pas manger&nbsp;! <br> Demande l'aide d'un adulte pour ne rien oublier.
-                </p>
-            </div>
+        <div class="col-xs-offset-4 col-xs-4 contreIndication-avatar">
+            <img src="https://image.flaticon.com/icons/png/128/78/78373.png" alt="Avatar of the user" />
+        </div>
+    </section>
+
+    <section class="row">
+        <div class="col-xs-offset-3 col-xs-6 contreIndication bubble top">
+            <p>Dis-moi s'il y a des aliments que tu ne peux pas manger&nbsp;! <br> Demande l'aide d'un adulte pour ne rien oublier.
+            </p>
         </div>
     </section>
 
 
-    <section class="row">
-
+    <section class="row searchcontre">
         <form ng-submit="goSearch()">
             <div class="col-xs-offset-1 col-xs-10 input-group">
                 <input class="searchbar form-control input-lg" id="textInput" placeholder="Rechercher" />
@@ -31,18 +31,23 @@
                 </button>
                 </span>
             </div>
-            <p>Exemple : gluten, produits laitiers, porc...</p>
         </form>
-
+            <p>Exemple : gluten, produits laitiers, porc...</p>
         <div id="suggestion-container">
             <ul id="suggestion"></ul>
         </div>
-
     </section>
-    <i class="fa fa-circle" aria-hidden="true" style="color: green;"></i>
-    <section class="row contreIndication-valider">
 
-        <button class="col-xs-offset-1 col-xs-4 btn btn-primary btn-lg ok" type="button" name="button">OK</button>
+    <section class="row">
+      <div class="col-xs-2 circle">
+        <i class="fa fa-circle" aria-hidden="true" style="color: green;"></i>
+        <p>Lait</p>
+      </div>
+  </section>
+
+    <section class="row contreIndication-valider">
+        <button class="col-xs-offset-4 col-xs-4 btn btn-primary btn-lg ok" type="button" name="button">OK</button>
+
     </section>
 
 </div>
