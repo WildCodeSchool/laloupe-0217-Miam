@@ -16,18 +16,9 @@ const alimentSchema = new mongoose.Schema({
     suggestion: [{
       type: String
     }],
-    compte: {
-      type: Number,
-      min: 0,
-      max: 3
-    },
     composition: [{
       type: String
     }],
-    contreindication: {
-      type: Boolean,
-      default: false
-    }
 });
 
 let model = mongoose.model('Aliment', alimentSchema);
