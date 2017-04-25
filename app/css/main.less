@@ -29,6 +29,7 @@
 }
 
 
+
 /* -------------------------------------------------------------------- */
 
 body,
@@ -84,11 +85,13 @@ html {
 .bubble.left:after,
 .bubble.left:before {
     right: 100%;
+
 }
 
 .bubble.left:before {
     border-width: 14px 14px 14px 0;
 }
+
 
 .bubble.left:after {
     border-width: 8px 8px 8px 0;
@@ -156,7 +159,8 @@ html {
     height: 300px;
     margin: 0 0 8%;
     padding: 0;
-}
+
+
 
 .discover button,
 .login button {
@@ -175,6 +179,13 @@ html {
   .buttonInteraction;
 }
 
+
+.discover button,
+.login button {
+    height: 80px;
+    font-size: 30px;
+    margin-bottom: 3%;
+}
 /* ------------------------------ JE MANGE DEJA ------------------------------ */
 header {
     background-color: @secondColor;
@@ -215,9 +226,11 @@ section h2 {
 .mangerItem h3 {
     font-weight: bold;
     font-size: 16px;
+
     color: @mainColor;
     margin: 10% 0 20% 0;
     padding: 0;
+
 }
 
 .mangerItem img {
@@ -236,6 +249,7 @@ section h2 {
 .manger-valider button:hover {
   .buttonInteraction;
 }
+
 
 .manger-valider .all {
     font-size: 20px;
@@ -295,17 +309,21 @@ nav .pagination li a .glyphicon-chevron-right {
 }
 
 .name button {
+
   .generalButton;
+
     height: 60px;
     font-size: 26px;
     margin-top: 12%;
 }
+
 
 .name button:active,
 .name button:focus,
 .name button:hover {
   .buttonInteraction;
 }
+
 
 /* ------------------------------ Profil ------------------------------ */
 .miniAvatar {
@@ -344,6 +362,20 @@ border-radius: 0 0 10px 10px;
   flex-direction: column;
   height: 400px;
 }
+
+
+/* ------------------------------ login ------------------------------ */
+
+.bubble.top.login {
+
+  height: 600px;
+}
+
+.btn span.glyphicon {
+	opacity: 0;
+}
+.btn.active span.glyphicon {
+	opacity: 1;
 
 /* ------------------------------ J'AI GOUTER ------------------------------ */
 .searchbar {
@@ -441,4 +473,5 @@ border-radius: 0 0 10px 10px;
   margin-top: 20px;
   height: 190px;
   font-size: 1.7em;
+
 }

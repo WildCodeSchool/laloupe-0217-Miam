@@ -40,6 +40,8 @@ angular.module('app')
                     }
                 }
             })
+
+  
             .state('anon.gouter', {
                 url: '/gouter',
                 views: {
@@ -58,15 +60,7 @@ angular.module('app')
                     }
                 }
             })
-            .state('anon.fichealiment', {
-                url: '/fichealiment',
-                views: {
-                    'content@': {
-                        templateUrl: 'anon/fichealiment.html',
-                        controller: 'FicheAlimentController'
-                    }
-                }
-            })
+            
             .state('anon.avatar', {
                 url: '/avatar',
                 views: {
