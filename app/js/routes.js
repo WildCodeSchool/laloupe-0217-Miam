@@ -76,7 +76,6 @@ angular.module('app')
                     }
                 }
             })
-
             .state('anon.profil', {
                 url: '/profil',
                 views: {
