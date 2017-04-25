@@ -15,17 +15,14 @@
                 <form class="form" name="loginForm" novalidate ng-submit="login()">
                     <div ng-repeat="error in errors">{{error.error}}</div>
                     <div class="input-group col-xs-12">
-                        <input id="email" type="email" class="form-control" ng-model="user.email" required placeholder="écris ton mail">
+                        <input id="email" type="email" class="form-control" ng-model="user.email" required placeholder="Écris ton mail">
                     </div>
                     <div class="input-group col-xs-12">
-                        <input id="password" type="password" class="form-control" ng-model="user.password" required placeholder="choisis un mot de passe">
-                    </div>
-                    <div class="input-group col-xs-12">
-                        <input id="password" type="password" class="form-control" ng-model="user.confirmPassword" required placeholder="Confirme ce mot de passe">
+                        <input id="password" type="password" class="form-control" ng-model="user.password" required placeholder="Choisis un mot de passe">
                     </div>
                     <div class="col-xs-12">
                         <input type="checkbox" class="col-xs-1" ng-model="resterConnecter">
-                        <p class="col-xs-5">se souvenir de moi</p>
+                        <label>Se souvenir de moi</label>
                     </div>
                     <button type="submit" class="btn btn-primary btn-block">Login</button>
                 </form>
