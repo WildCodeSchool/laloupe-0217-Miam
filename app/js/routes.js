@@ -22,6 +22,15 @@ angular.module('app')
                     }
                 }
             })
+            .state('anon.tutoriel', {
+                url: '/tutoriel',
+                views: {
+                    'content@': {
+                        templateUrl: 'anon/tutoriel.html',
+                        controller: 'TutorielController'
+                    }
+                }
+            })
             .state('anon.manger', {
                 url: '/manger',
                 views: {
@@ -31,6 +40,27 @@ angular.module('app')
                     }
                 }
             })
+
+  
+            .state('anon.gouter', {
+                url: '/gouter',
+                views: {
+                    'content@': {
+                        templateUrl: 'anon/gouter.html',
+                        controller: 'GouterController'
+                    }
+                }
+            })
+            .state('anon.contreIndication', {
+                url: '/contreIndication',
+                views: {
+                    'content@': {
+                        templateUrl: 'anon/contreIndication.html',
+                        controller: 'ContreIndicationController'
+                    }
+                }
+            })
+            
             .state('anon.avatar', {
                 url: '/avatar',
                 views: {
