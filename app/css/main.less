@@ -2,115 +2,191 @@
 // Use `@import` to use other less files
 // relative to 'app/css' or 'vendor/css'.
 
+@mainColor: #B3404A;
+@secondColor: #F4B2B0;
+@green: green;
+@red: red;
+
+.rounded (@radius: 10px) {
+  -moz-border-radius: @radius;
+  -webkit-border-radius: @radius;
+  -o-border-radius: @radius;
+  -khtml-border-radius: @radius;
+  -ms-border-radius: @radius;
+  border-radius: @radius;
+}
+
+.generalButton {
+  background-color: @mainColor;
+  border: none;
+  padding: 0;
+}
+
+.buttonInteraction {
+  background-color: white;
+  border: solid @mainColor 5px;
+  color: @mainColor;
+}
+
+
+
+/* -------------------------------------------------------------------- */
+
 body,
 html {
     font-family: Helvetica, sans-serif;
     text-align: center;
     color: black;
+    height: 100%;
     margin: 0;
     padding: 0;
 }
+
+
 /* ------------------------------ BUBBLE ------------------------------ */
-/* °°°°°°°°° CENTER TEXT INSIDE BUBBLE °°°°°°°°° */
+/* °°°°°°°°° CENTER TEXT INSIDE BUBBLE & GENERALITIES °°°°°°°°° */
 .bubble {
+    height: 90px;
     display: flex;
     align-items: center;
+    position: relative;
+    border: solid @mainColor 4px;
+    .rounded();
+}
+
+.bubble:after,
+.bubble:before {
+    content: "";
+    position: absolute;
+    border-style: solid;
 }
 
 .bubble p {
     margin: auto;
+    font-size: 18px;
+    padding: 0 10px;
 }
-/* ////////////// BUBBLE LEFT ////////////// */
-.bubble.left {
-    position: relative;
-    height: 90px;
-    border: solid #B3404A 4px;
-    border-radius: 10px;
+/* ////////////// TRIANGLE LEFT & RIGHT ////////////// */
+.bubble.left:before,
+.bubble.right:before {
+    top: 50%;
+    margin-top: -14px;
+    border-top-color: transparent;
+    border-color: transparent @mainColor;
+}
+
+.bubble.left:after,
+.bubble.right:after {
+    top: 50%;
+    margin-top: -8px;
+    border-color: transparent white;
+}
+/* ////////////// TRIANGLE LEFT ////////////// */
+.bubble.left:after,
+.bubble.left:before {
+    right: 100%;
+
 }
 
 .bubble.left:before {
-    content: "";
-    position: absolute;
-    right: 100%;
-    top: 38%;
-    border-top: 13px solid transparent;
-    border-right: 18px solid #B3404A;
-    border-bottom: 13px solid transparent;
+    border-width: 14px 14px 14px 0;
 }
 
-.bubble.left p {
-    font-size: 18px;
-    padding: 0 10px;
+
+.bubble.left:after {
+    border-width: 8px 8px 8px 0;
 }
-/* ////////////// BUBBLE RIGHT ////////////// */
-.bubble.right {
-    position: relative;
-    height: 90px;
-    border: solid #B3404A 4px;
-    border-radius: 10px;
+/* ////////////// TRIANGLE RIGHT ////////////// */
+.bubble.right:after,
+.bubble.right:before {
+    left: 100%;
 }
 
 .bubble.right:before {
-    content: "";
-    position: absolute;
-    left: 100%;
-    top: 38%;
-    border-top: 13px solid transparent;
-    border-left: 18px solid #B3404A;
-    border-bottom: 13px solid transparent;
+    border-width: 14px 0 14px 14px;
 }
 
-.bubble.right p {
-    font-size: 18px;
-    padding: 0 10px;
+.bubble.right:after {
+    border-width: 8px 0 8px 8px;
 }
-/* ////////////// BUBBLE BOTTOM ////////////// */
-.bubble.bottom {
-    position: relative;
-    height: 90px;
-    border: solid #B3404A 4px;
-    border-radius: 10px;
+/* ////////////// TRIANGLE BOTTOM & TOP ////////////// */
+.bubble.bottom:before,
+.bubble.top:before {
+    left: 50%;
+    margin-left: -14px;
+    border-color: @mainColor transparent;
+}
+
+.bubble.bottom:after,
+.bubble.top:after {
+    left: 50%;
+    margin-left: -8px;
+    border-color: white transparent;
+}
+/* ////////////// TRIANGLE BOTTOM ////////////// */
+.bubble.bottom:after,
+.bubble.bottom:before {
+    top: 100%;
 }
 
 .bubble.bottom:before {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 45%;
-    border-left: 13px solid transparent;
-    border-right: 13px solid transparent;
-    border-top: 13px solid #B3404A;
+    border-width: 14px 14px 0;
 }
 
-.bubble.bottom p {
-    font-size: 18px;
-    padding: 0 10px;
+.bubble.bottom:after {
+    border-width: 8px 8px 0;
 }
-/* ////////////// BUBBLE TOP ////////////// */
-.bubble.top {
-    position: relative;
-    height: 90px;
-    border: solid #B3404A 4px;
-    border-radius: 10px;
+/* ////////////// TRIANGLE TOP ////////////// */
+.bubble.top:after,
+.bubble.top:before {
+    bottom: 100%;
 }
 
 .bubble.top:before {
-    content: "";
-    position: absolute;
-    bottom: 100%;
-    left: 45%;
-    border-left: 13px solid transparent;
-    border-right: 13px solid transparent;
-    border-bottom: 13px solid #B3404A;
+    border-width: 0 14px 14px;
 }
 
-.bubble.top p {
-    font-size: 18px;
-    padding: 0 10px;
+.bubble.top:after {
+    border-width: 0 8px 8px;
+}
+/* ------------------------------ ACCUEIL ------------------------------ */
+.bubble.bottom.home {
+    height: 160px;
+    margin-bottom: 8%;
+}
+
+.avatar.home {
+    height: 300px;
+    margin: 0 0 8%;
+    padding: 0;
+}
+
+.discover button,
+.login button {
+  .generalButton;
+    height: 80px;
+    font-size: 30px;
+    margin-bottom: 3%;
+}
+
+.discover button:active,
+.discover button:focus,
+.discover button:hover,
+.login button:active,
+.login button:focus,
+.login button:hover {
+  .buttonInteraction;
+}
+
+.discover button,
+.login button {
+    height: 80px;
+    font-size: 30px;
+    margin-bottom: 3%;
 }
 /* ------------------------------ JE MANGE DEJA ------------------------------ */
 header {
-    background-color: #F4B2B0;
+    background-color: @secondColor;
 }
 
 header h1 {
@@ -141,39 +217,41 @@ section h2 {
     padding: 0;
 }
 
-.manger {
-    list-style-type: none;
+.mangerItem {
+  cursor: pointer;
+}
+
+.mangerItem h3 {
+    font-weight: bold;
+    font-size: 16px;
+    color: @mainColor;
+    margin: 10% 0 20% 0;
     padding: 0;
 }
 
-.manger li {
-    font-weight: bold;
-    font-size: 16px;
-    margin-bottom: 8%;
-    cursor: pointer;
-    color: #B3404A;
-}
-
-.manger li img {
-    margin-bottom: 8%;
+.mangerItem img {
+    margin: 0;
+    padding: 0;
 }
 
 .manger-valider button {
+  .generalButton;
     height: 70px;
-    font-size: 20px;
-    background-color: #B3404A;
-    border: none;
-    padding: 0;
     letter-spacing: 0.6px;
 }
 
 .manger-valider button:active,
 .manger-valider button:focus,
 .manger-valider button:hover {
-    font-weight: bold;
-    background-color: white;
-    border: solid #B3404A 5px;
-    color: #B3404A;
+  .buttonInteraction;
+}
+
+.manger-valider .all {
+    font-size: 20px;
+}
+
+.manger-valider .ok {
+    font-size: 26px;
 }
 
 nav .pagination {
@@ -183,13 +261,13 @@ nav .pagination {
 
 nav .pagination li a {
     font-size: 18px;
-    color: #B3404A;
+    color: @mainColor;
     padding: 0 5px;
     border: none;
 }
 
 nav .pagination li a:hover {
-    color: #F4B2B0;
+    color: @secondColor;
     border: none;
     background-color: transparent;
 }
@@ -202,16 +280,13 @@ nav .pagination li a .glyphicon-chevron-right {
     padding-left: 20px;
 }
 /* ------------------------------ AVATAR ------------------------------ */
-h1 {
-    text-align: center;
-    font-size: 18px;
-    color: #B3404A;
-    padding: 0 5px;
+.bubble.bottom.avatar {
+    height: 90px;
 }
 
 .dart {
     margin-top: 100px;
-    background-color: #B3404A;
+    background-color: @mainColor;
     color: white;
     font-size: 100px;
     border-radius: 100%;
@@ -224,15 +299,169 @@ h1 {
 
 .inputName {
     margin-top: 50px;
-    border: solid #B3404A 4px;
+    border: solid @mainColor 4px;
     border-radius: 10px;
 }
 
-.ok {
-    margin-top: 50px;
-    background-color: #B3404A;
-    color: white;
-    border-radius: 10px;
+.name button {
+  .generalButton;
+    height: 60px;
     font-size: 26px;
-    padding-top: 7px;
+    margin-top: 12%;
+}
+
+.name button:active,
+.name button:focus,
+.name button:hover {
+  .buttonInteraction;
+}
+
+
+/* ------------------------------ Profil ------------------------------ */
+.miniAvatar {
+  margin-top: 7px;
+    height: 60px;
+    border-radius: 100%;
+}
+
+.addKids {
+    margin-top: 7px;
+    background-color: @mainColor;
+    color: white;
+    font-size: 30px;
+    border-radius: 100%;
+    height: 60px;
+}
+
+.ongletsProfil {
+  font-size: 20px;
+  color: @mainColor;
+border: solid @mainColor 4px;
+border-radius: 0 0 10px 10px;
+}
+
+.imgRecompense {
+  height: 150px;
+}
+
+.glyphicon {
+  background-color: white;
+}
+
+.flex-center-vertically {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 400px;
+}
+
+
+/* ------------------------------ login ------------------------------ */
+
+.login.bubble.top {
+  height: 600px;
+}
+
+.btn span.glyphicon {
+	opacity: 0;
+}
+.btn.active span.glyphicon {
+	opacity: 1;
+}
+/* ------------------------------ J'AI GOUTER ------------------------------ */
+.searchbar {
+  margin: 10% 0 5% 0;
+  padding: 0;
+}
+
+.gouterItem {
+  cursor: pointer;
+}
+
+.gouterItem h3 {
+    font-weight: bold;
+    font-size: 16px;
+    color: @mainColor;
+    margin: 10% 0 0 0;
+    padding: 0;
+}
+
+.gouterItem img {
+    margin: 0;
+    padding: 0;
+}
+
+.circleVote i {
+  font-weight: bold;
+  font-size: 18px;
+  color: @mainColor;
+  margin: 5% 0 20% 0;
+  padding: 0px;
+}
+
+.deconnecter button {
+  height: 30px;
+  background-color: @red;
+  border: none;
+  padding: 0px;
+}
+
+.deconnecter button:active,
+.deconnecter button:focus,
+.deconnecter button:hover {
+  background-color: white;
+  border: solid @red 5px;
+  color: @red;
+}
+
+/* ------------------------------ contreIndication ------------------------------ */
+.contreIndication-valider button {
+  .generalButton;
+  height: 90px;
+  margin-top: 100px;
+  margin-bottom: 20px;
+}
+
+.contreIndication-valider button:active,
+.contreIndication-valider button:focus,
+.contreIndication-valider button:hover {
+  .buttonInteraction;
+}
+
+.contreIndicationavatar {
+  margin-top: 40px;
+}
+.contreIndication.bubble.top {
+  margin-top: 50px;
+  height: 270px;
+  margin-bottom: 8%;
+  font-size: 1.7em;
+}
+.searchcontre {
+  margin-top: 80px;
+}
+.circle i {
+  font-size: 150px;
+  margin-top: 20px;
+}
+.circle p {
+  font-size: 40px;
+}
+/* ------------------------------ tutoriel ------------------------------ */
+.tutorielPage {
+  opacity: 0.5;
+}
+.searchtutoriel {
+  margin-top: 20px;
+}
+.tutoriel {
+  position: fixed; z-index: 1;
+}
+.tutorielavatar {
+  margin-top: 30px;
+}
+.tutoriel.bubble.top {
+  margin-top: 20px;
+  height: 190px;
+  font-size: 1.7em;
 }
