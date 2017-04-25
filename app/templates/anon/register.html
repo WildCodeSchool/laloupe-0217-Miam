@@ -1,34 +1,16 @@
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-xs-12">
-            <img class="avatar col-xs-offset-3 col-xs-6" ng-src="/img/avatar.jpg" alt="">
-        </div>
-
-    </div>
-    <div class="row">
-      <div class="col-xs-offset-2 col-xs-8 bubble top login">
-        <div class="col-xs-12">
-            <p class="col-xs-12">Pour inscrire votre enfant sur Miam !, il vous suffit d’indiquer une adresse mail et un mot de passe.</p>
-            <p class="col-xs-12">En cochant la case « se souvenir de moi », vous resterez connecté et n’aurez par conséquent plus besoin d’indiquer ces informations.</p>
-        <div class="row">
-            <div class="col-xs-12">
-              <form class="form" name="loginForm" novalidate ng-submit="register()">
-                  <div ng-repeat="error in errors">{{error.error}}</div>
-                  <div class="input-group col-xs-12">
-                      <input id="email" type="email" class="form-control" ng-model="user.email" required placeholder="Email Address">
-                  </div>
-                  <div class="input-group col-xs-12">
-                      <input id="password" type="password" class="form-control" ng-model="user.password" required placeholder="Password">
-                  </div>
-                    <div class="col-xs-12">
-                        <input type="checkbox" class="col-xs-1" ng-model="resterConnecter">
-                        <p class="col-xs-5">se souvenir de moi</p>
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-block">S'enregister</button>
-                </form>
+<div class="row">
+    <div class="col-xs-6 col-xs-offset-3">
+        <form class="form" name="loginForm" novalidate ng-submit="register()">
+            <div ng-repeat="error in errors">{{error.error}}</div>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <input id="email" type="email" class="form-control" ng-model="user.email" required placeholder="Email Address">
             </div>
-          </div>
-        </div>
-        </div>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                <input id="password" type="password" class="form-control" ng-model="user.password" required placeholder="Password">
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Register</button>
+        </form>
     </div>
 </div>
