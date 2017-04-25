@@ -19,31 +19,11 @@
 
     <section class="row">
       <!-- Voir http://infoheap.com/html-js-css-sandbox/code/12737-code2/ -->
-      <h2>Fruits</h2>
-      <div id="manger" class="manger">
+      <h2>{{aliment[categorie]}}</h2>
+      <div id="manger" class="manger"ng-repeat="aliment in aliments">
         <div class="col-xs-4 mangerItem" ng-model="selected" ng-change="styleVal= selected ? {opacity:'1'} : {opacity:'0'}">
-            <img src="../../img/pineapple.svg" alt="{{ }}" />
-            <h3>Ananas</h3>
-        </div>
-        <div class="col-xs-4 mangerItem">
-          <img src="../../img/banana.svg" alt="{{ }}" />
-          <h3>Banane</h3>
-        </div>
-        <div class="col-xs-4 mangerItem">
-          <img src="../../img/cherries.svg" alt="{{ }}" />
-          <h3>Cerise</h3>
-        </div>
-        <div class="col-xs-4 mangerItem">
-          <img src="../../img/strawberry.svg" alt="{{ }}" />
-          <h3>Fraise</h3>
-        </div>
-        <div class="col-xs-4 mangerItem">
-          <img src="../../img/orange.svg" alt="{{ }}" />
-          <h3>Orange</h3>
-        </div>
-        <div class="col-xs-4 mangerItem">
-          <img src="../../img/grapes.svg" alt="{{ }}" />
-          <h3>Raisin</h3>
+            <img src="../../img/{{aliment[nom]}}.svg" alt="{{aliment[nom]}}"/>
+            <h3>{{aliment[nom]}}</h3>
         </div>
       </div>
     </section>
