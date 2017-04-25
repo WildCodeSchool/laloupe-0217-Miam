@@ -1,5 +1,6 @@
 angular.module('app')
     .controller('ContreIndicationController', function($scope) {
+
       const textInput = document.getElementById('textInput');
       const suggestionUl = document.getElementById('suggestion');
       const suggestionContainer = document.getElementById('suggestion-container');

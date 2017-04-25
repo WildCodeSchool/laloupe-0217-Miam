@@ -40,8 +40,6 @@ angular.module('app')
                     }
                 }
             })
-
-  
             .state('anon.gouter', {
                 url: '/gouter',
                 views: {
@@ -60,7 +58,15 @@ angular.module('app')
                     }
                 }
             })
-            
+            .state('anon.connexionCompte', {
+                url: '/connexionCompte',
+                views: {
+                    'content@': {
+                        templateUrl: 'anon/connexionCompte.html',
+                        controller: 'ConnexionCompteController'
+                    }
+                }
+            })
             .state('anon.avatar', {
                 url: '/avatar',
                 views: {
