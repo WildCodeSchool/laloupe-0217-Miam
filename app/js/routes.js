@@ -142,7 +142,8 @@ angular.module('app')
                         templateUrl: 'user/avatar.html',
                         controller: 'AvatarController'
                     }
-                }
+                  }
+                })
             .state('user.home', {
                 url: '/home',
                 views: {
