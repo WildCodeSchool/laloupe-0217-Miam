@@ -7,14 +7,27 @@
                   <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                 </button>
 
-              </div>
-            </div>
-                <div class="overlay-content" ng-controller="NavbarController">
 
-                    <button class="col-xs-offset-11 col-xs-1" type="button" class="btn btn-default btn-md hamburger-menu" ng-click="openNav()">
+            <div class="row">
+                <div class="col-xs-12">
+                  <ul>
+                    <li class="menu"><a ui-sref="anon.home">Accueil</a></li>
+                    <li class="menu"><a ui-sref="anon.gouter">J'ai goûté</a></li>
+                    <li class="menu"><a ui-sref="anon.profil">Mon profil</a></li>
+                  </ul>
+
+                </div>
+</div>
+            </div>
+        </div>
+        <div class="overlay-content" ng-controller="NavbarController">
+
+
+            <button class="col-xs-offset-11 col-xs-1" type="button" class="btn btn-default btn-md hamburger-menu" ng-click="openNav()">
                       <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
                     </button>
 
         </div>
+
     </div>
 </nav>
