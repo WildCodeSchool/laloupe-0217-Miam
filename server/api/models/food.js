@@ -1,8 +1,14 @@
 import mongoose from 'mongoose';
 import User from './user.js';
+import Profile from './profile.js';
 
 const foodSchema = new mongoose.Schema({
-    name: {
+    profile: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Profile'
+    },
+    // FACTORY
+    nameFood: {
       type: String
     },
     countVote: [{
@@ -23,13 +29,15 @@ let model = mongoose.model('Food', foodSchema);
 export default class Food {
 
     findAll(req, res) {
-        model.find({}, (err, foods) => {
-            if (err || !foods) {
-                res.sendStatus(403);
-            } else {
-                res.json(foods);
-            }
-        });
+      model.find({})
+      .populate('profile')
+      .exec(function (err, foods) {
+        if (err || !foods) {
+          res.sendStatus(403);
+        } else {
+          res.json(foods);
+        }
+      });
     }
 
 }
