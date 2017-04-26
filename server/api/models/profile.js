@@ -19,12 +19,12 @@ let model = mongoose.model('Profile', profileSchema);
 export default class Profile {
 
     findAll(req, res) {
-        model.find({}, (err, profiles) => {
-            if (err || !profiles) {
-                res.sendStatus(403);
-            } else {
-                res.json(profiles);
-            }
+        model.find({}).populate('reward').exec(function (err, profiles) {
+          if (err || !profiles) {
+            res.sendStatus(403);
+          } else {
+            res.json(profiles);
+          }
         });
     }
 
