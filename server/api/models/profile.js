@@ -6,7 +6,7 @@ const profileSchema = new mongoose.Schema({
       type: String
     },
     // FACTORY
-    idAvatar: {
+    nameAvatar: {
       type: String
     },
     reward: {

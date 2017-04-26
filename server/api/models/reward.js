@@ -11,7 +11,7 @@ const rewardSchema = new mongoose.Schema({
       ref: 'Profile'
     },
     // FACTORY
-    idReward: {
+    nameReward: {
       type: String
     }
 });
