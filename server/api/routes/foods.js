@@ -8,7 +8,7 @@ module.exports = (app) => {
 
     var food = new Food();
 
-    router.get('/', food.findAll);
+    router.get('/', Auth.hasAuthorization, food.findAll);
 
     app.use('/foods', router);
 
