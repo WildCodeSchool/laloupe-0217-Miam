@@ -1,24 +1,18 @@
 import mongoose from 'mongoose';
 import User from './user.js';
-import Categorie from './categorie.js';
 
 const alimentSchema = new mongoose.Schema({
-    nom: {
-      type: String
-    },
-    categorie: {
+    user: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'Categorie'
+      ref: 'User'
     },
-    description: {
-      type: String
-    },
-    suggestion: [{
-      type: String
+    compte: [{
+      type: Boolean
     }],
-    composition: [{
-      type: String
-    }],
+    contreindication: {
+      type: Boolean,
+      default: false
+    }
 });
 
 let model = mongoose.model('Aliment', alimentSchema);
