@@ -1,15 +1,15 @@
 import express from 'express';
-import Aliment from '../models/aliment.js';
+import Food from '../models/food.js';
 import Auth from '../middlewares/authorization.js';
 
 let router = express.Router();
 
 module.exports = (app) => {
 
-    var aliment = new Aliment();
+    var food = new Food();
 
-    router.get('/', aliment.findAll);
+    router.get('/', food.findAll);
 
-    app.use('/aliments', router);
+    app.use('/foods', router);
 
 };
