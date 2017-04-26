@@ -1,26 +1,5 @@
 <div class="container-fluid">
 
-    <header class="row">
-        <div class="col-xs-12">
-            <div class="dropdown">
-
-                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                  avatar<img class="miniAvatar col-xs-1" ng-src="{{currentAvatar}}" alt="avatar">
-
-                  <span class="caret"></span>
-                </button>
-
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                    <li><a ui-sref="user.home">photo<img class="miniAvatar col-xs-1" ng-src="{{currentAvatar}}" alt="avatar"></a></li>
-                    <li><a ui-sref="user.home">photo<img class="miniAvatar col-xs-1" ng-src="{{currentAvatar}}" alt="avatar"></a></li>
-                    <li><a ui-sref="anon.avatar"><button type="button" class="btn addKids col-xs-1" ng-click="addKid()">+</button></a></li>
-                </ul>
-            </div>
-            <h1>Mon profil</h1>
-        </div>
-    </header>
-    <!--<h1 class="col-xs-10">Mon profil</h1>
-    <button type="button" class="btn addKids col-xs-1" ng-click="addKid()">+</button>-->
     <div class="col-xs-12">
         <ul class="nav nav-tabs nav-justified">
             <li class="ongletsProfil col-xs-6" ng-click="modifier()">Modifier</li>
