@@ -135,6 +135,15 @@ angular.module('app')
                     }
                 }
             })
+            .state('user.avatar', {
+                url: '/avatar',
+                views: {
+                    'content@': {
+                        templateUrl: 'user/avatar.html',
+                        controller: 'AvatarController'
+                    }
+                  }
+                })
             .state('user.home', {
                 url: '/home',
                 views: {
