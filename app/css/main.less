@@ -492,3 +492,32 @@ border-radius: 0 0 10px 10px;
 .compte button:hover {
   .buttonInteraction;
 }
+
+/* NAVBAR ANON */
+
+.overlay {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    right: 0;
+    background-color: @mainColor;
+    overflow-x: hidden;
+    transition: 0.5s;
+}
+
+.overlay-content {
+    position: relative;
+    top: 30%;
+    width: 100%;
+    color: white;
+}
+
+.overlay-content h2 {
+    font-size: 1.8em;
+}
+
+.glyphicon-menu-hamburger, .glyphicon-remove {
+    opacity: 0.6;
+}
