@@ -134,6 +134,15 @@ angular.module('app')
                         controller: 'ProfileController'
                     }
                 }
+            })
+            .state('user.home', {
+                url: '/home',
+                views: {
+                    'content@': {
+                        templateUrl: 'user/home.html',
+                        controller: 'HomeController'
+                    }
+                }
             });
         $urlRouterProvider.otherwise('/');
     });
