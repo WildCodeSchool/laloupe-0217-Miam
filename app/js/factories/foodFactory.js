@@ -86,8 +86,8 @@ angular.module('app')
 
     });
 
-      //     get: function(aliments) {
-      //         return food;
-      //
-      //
-      // }
+//     get: function(aliments) {
+//         return food;
+//
+//
+// }
