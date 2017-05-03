@@ -25,11 +25,11 @@
       <div id="manger" class="manger">
         <div class="col-xs-4 mangerItem" ng-model="selected" ng-change="styleVal= selected ? {opacity:'1'} : {opacity:'0'}">
             <img src="../../img/pineapple.svg" alt="{{ }}" />
-            <h3>Ananas</h3>
+            <h3>{{categories[0].fruits.aliments[0].name}}</h3>
         </div>
         <div class="col-xs-4 mangerItem">
           <img src="../../img/banana.svg" alt="{{ }}" />
-          <h3>Banane</h3>
+          <h3>{{categories[0].fruits.aliments[1].name}}</h3>
         </div>
         <div class="col-xs-4 mangerItem">
           <img src="../../img/cherries.svg" alt="{{ }}" />
