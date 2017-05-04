@@ -1,26 +1,25 @@
 angular.module('app')
     .factory('AvatarFactory', function() {
         return [{
-          famille: {
-              avatar1:[{
+            categorie: "Familles",
+            avatars: [{
                     name: "",
                     picto: "",
                     isCurrent: "",
                     isLocked: ""
-                }],
-              avatar2:[{
+                },
+                {
                     name: "",
                     picto: "",
                     isCurrent: "",
                     isLocked: ""
-                }],
-
-              avatar3:[{
+                },
+                {
                     name: "",
                     picto: "",
                     isCurrent: "",
                     isLocked: ""
-                }],
-            },
-    }];
-});
+                },
+            ]
+        }];
+    });
