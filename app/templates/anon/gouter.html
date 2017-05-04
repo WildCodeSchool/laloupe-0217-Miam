@@ -26,11 +26,11 @@
 
 
     <section class="row" ng-repeat="categorie in categories">
-      <h2>{{ categorie.fruits.categorie }}</h2>
+      <h2>{{ categorie.categorie }}</h2>
       <div class="gouter">
-        <div class="col-xs-4 gouterItem" data-toggle="modal" data-target="#modal1">
-            <img src="{{ categorie.fruits.aliments[0].picto }}" alt="{{ categorie.fruits.aliments[0].name }}" />
-            <h3>{{ categorie.fruits.aliments[0].name }}</h3>
+        <div class="col-xs-4 gouterItem" ng-repeat="food in categorie.aliments track by $index" data-toggle="modal" data-target="#modal1">
+            <img src="{{ food.picto }}" alt="{{ food.name }}" />
+            <h3>{{ food.name }}</h3>
             <div class="circleVote">
                 <i class="fa fa-circle" aria-hidden="true" style="color: green;"></i>
                 <i class="fa fa-circle-o" aria-hidden="true"></i>
@@ -39,71 +39,7 @@
         </div>
       </div>
     </section>
-<!-- "../../img/{{ categorie.fruits.aliments[0].name }}.svg"  -->
-
-
-    <section class="row">
-        <h2>Fruits</h2>
-        <div class="gouter">
-            <div class="col-xs-4 gouterItem" data-toggle="modal" data-target="#modal1">
-                <img src="../../img/pineapple.svg" alt="{{ }}" />
-                <h3>Ananas</h3>
-                <div class="circleVote">
-                    <i class="fa fa-circle" aria-hidden="true" style="color: green;"></i>
-                    <i class="fa fa-circle-o" aria-hidden="true"></i>
-                    <i class="fa fa-circle-o" aria-hidden="true"></i>
-                </div>
-            </div>
-            <div class="col-xs-4 gouterItem">
-
-                <img src="../../img/banana.svg" alt="{{ }}" />
-                <h3>Banane</h3>
-                <div class="circleVote">
-                    <i class="fa fa-circle-o" aria-hidden="true"></i>
-                    <i class="fa fa-circle-o" aria-hidden="true"></i>
-                    <i class="fa fa-circle-o" aria-hidden="true"></i>
-                </div>
-            </div>
-            <div class="col-xs-4 gouterItem">
-                <img src="../../img/cherries.svg" alt="{{ }}" />
-                <h3>Cerise</h3>
-                <div class="circleVote">
-                    <i class="fa fa-circle-o" aria-hidden="true"></i>
-                    <i class="fa fa-circle-o" aria-hidden="true"></i>
-                    <i class="fa fa-circle-o" aria-hidden="true"></i>
-                </div>
-            </div>
-            <div class="col-xs-4 gouterItem">
-                <img src="../../img/strawberry.svg" alt="{{ }}" />
-                <h3>Fraise</h3>
-                <div class="circleVote">
-                    <i class="fa fa-circle-o" aria-hidden="true"></i>
-                    <i class="fa fa-circle-o" aria-hidden="true"></i>
-                    <i class="fa fa-circle-o" aria-hidden="true"></i>
-                </div>
-            </div>
-            <div class="col-xs-4 gouterItem">
-                <img src="../../img/orange.svg" alt="{{ }}" />
-                <h3>Orange</h3>
-                <div class="circleVote">
-                    <i class="fa fa-circle-o" aria-hidden="true"></i>
-                    <i class="fa fa-circle-o" aria-hidden="true"></i>
-                    <i class="fa fa-circle-o" aria-hidden="true"></i>
-                </div>
-            </div>
-            <div class="col-xs-4 gouterItem">
-                <img src="../../img/grapes.svg" alt="{{ }}" />
-                <h3>Raisin</h3>
-                <div class="circleVote">
-                    <i class="fa fa-circle-o" aria-hidden="true"></i>
-                    <i class="fa fa-circle-o" aria-hidden="true"></i>
-                    <i class="fa fa-circle-o" aria-hidden="true"></i>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
+    
 
     <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
