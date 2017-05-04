@@ -1,5 +1,6 @@
 angular.module('app')
-    .controller('AvatarController', function($scope) {
+    .controller('AvatarController', function($scope, AvatarFactory) {
+        $scope.famille=AvatarFactory;
         var i = 0;
 
         var avatars = [
