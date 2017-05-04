@@ -32,6 +32,18 @@ angular.module('app')
             },
           ]
         },
+        feculents: {
+          categorie: "Féculents",
+          portion: "Il faut en manger plusieurs fois par jour sous différentes formes (pain, pâtes, pommes de terre).",
+          aliments: [{
+              name: "Riz",
+              picto: "/img/rice.svg",
+              description: "On en mange beaucoup en Asie; Il en existe de multiples variétées.",
+              suggestions: ["cuit","gâteau", "vapeur"],
+              composition: [""]
+            },
+          ]
+        },
         
       }];
     });
@@ -40,14 +52,8 @@ angular.module('app')
 
 
         //   feculents: {
-        //     categorie: "Féculents",
-        //     portion: "Il faut en manger plusieurs fois par jour sous différentes formes (pain, pâtes, pommes de terre).",
         //     Riz: {
-        //       name: "Riz",
-        //       picto: "/img/rice.svg",
-        //       description: "On en mange beaucoup en Asie; Il en existe de multiples variétées.",
-        //       suggestions: ["cuit","gâteau", "vapeur"],
-        //       composition: [""]
+
         //     }
         //   },
         //   viandes: {
