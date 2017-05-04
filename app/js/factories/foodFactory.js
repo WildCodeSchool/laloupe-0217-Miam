@@ -10,15 +10,15 @@ angular.module('app')
             description: "Fruit de l'oranger. Il en existe de plusieurs variétées, couleurs et goûts",
             suggestions: ["crue", "salade", "jus", "gâteau", "smoothie", "confiture"],
             composition: [""]
-          },
-          {
-            name: "Banane",
-            picto: "/img/banana.svg",
-            description: "C'est très bon les singes les adorent",
-            suggestions: ["crue", "salade", "jus", "gâteau", "smoothie", "confiture"],
-            composition: [""]
-          }
-          ]
+            },
+            {
+              name: "Banane",
+              picto: "/img/banana.svg",
+              description: "C'est très bon les singes les adorent",
+              suggestions: ["crue", "salade", "jus", "gâteau", "smoothie", "confiture"],
+              composition: [""]
+            }
+            ]
         },
       }];
     });

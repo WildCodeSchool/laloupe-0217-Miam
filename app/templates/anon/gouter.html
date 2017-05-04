@@ -24,6 +24,24 @@
         </form>
     </section>
 
+
+    <section class="row" ng-repeat="categorie in categories">
+      <h2>{{ categorie.fruits.categorie }}</h2>
+      <div class="gouter">
+        <div class="col-xs-4 gouterItem" data-toggle="modal" data-target="#modal1">
+            <img src="../../img/{{ categorie.fruits.aliments[0].name }}.svg" alt="{{ categorie.fruits.aliments[0].name }}" />
+            <h3>{{ categorie.fruits.aliments[0].name }}</h3>
+            <div class="circleVote">
+                <i class="fa fa-circle" aria-hidden="true" style="color: green;"></i>
+                <i class="fa fa-circle-o" aria-hidden="true"></i>
+                <i class="fa fa-circle-o" aria-hidden="true"></i>
+            </div>
+        </div>
+      </div>
+    </section>
+
+
+
     <section class="row">
         <h2>Fruits</h2>
         <div class="gouter">
