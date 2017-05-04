@@ -29,7 +29,7 @@
       <h2>{{ categorie.fruits.categorie }}</h2>
       <div class="gouter">
         <div class="col-xs-4 gouterItem" data-toggle="modal" data-target="#modal1">
-            <img src="../../img/{{ categorie.fruits.aliments[0].name }}.svg" alt="{{ categorie.fruits.aliments[0].name }}" />
+            <img src="{{ categorie.fruits.aliments[0].picto }}" alt="{{ categorie.fruits.aliments[0].name }}" />
             <h3>{{ categorie.fruits.aliments[0].name }}</h3>
             <div class="circleVote">
                 <i class="fa fa-circle" aria-hidden="true" style="color: green;"></i>
@@ -39,7 +39,7 @@
         </div>
       </div>
     </section>
-
+<!-- "../../img/{{ categorie.fruits.aliments[0].name }}.svg"  -->
 
 
     <section class="row">

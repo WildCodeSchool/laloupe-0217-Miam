@@ -1,5 +1,6 @@
 angular.module('app')
     .factory('FoodFactory', function() {
+
       return [{
         fruits: {
           categorie: "Fruits",
