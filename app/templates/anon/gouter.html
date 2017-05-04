@@ -81,7 +81,7 @@
                                 <p>{{ arrayToString(food.suggestions) }}</p>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row" ng-hide="!(arrayToString(food.composition)).length">
                             <div class="col-xs-12 composition">
                                 <h2>Composition</h2>
                                 <p>{{ arrayToString(food.composition) }}</p>
