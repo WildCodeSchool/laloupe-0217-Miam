@@ -68,22 +68,18 @@ angular.module('app')
             },
           ]
         },
-
+        sucre: {
+          categorie: "Produits sucrés",
+          portion: "Il faut en consommer avec modération",
+          aliments: [{
+              name: "Gâteau",
+              picto: "/img/muffin.svg",
+              description: "Aux fruits, chocolats crème... il y a l'embarras du choix",
+              suggestions: ["gâteau"],
+              composition: [""]
+            },
+          ]
+        },
       }];
+
     });
-
-
-        //   sucre: {
-        //     categorie: "Produits sucrés",
-        //     portion: "Il faut en consommer avec modération",
-        //     Gâteau: {
-        //       name: "Gâteau",
-        //       picto: "/img/muffin.svg",
-        //       description: "Aux fruits, chocolats crème... il y a l'embarras du choix",
-        //       suggestions: ["gâteau"],
-        //       composition: [""]
-        //     }
-        //   }
-        // };
-
-    // });
