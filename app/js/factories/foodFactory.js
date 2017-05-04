@@ -56,24 +56,23 @@ angular.module('app')
             },
           ]
         },
+        lait: {
+          categorie: "Produits laitiers",
+          portion: "Il faut manger un produit laitier à chaque repas",
+          aliments: [{
+              name: "Lait",
+              picto: "/img/milk-bottle.svg",
+              description: "Provient le plus souvent de la vache",
+              suggestions: ["frais", "chaud"],
+              composition: [""]
+            },
+          ]
+        },
 
       }];
     });
 
 
-
-        //   
-        //   lait: {
-        //     categorie: "Produits laitiers",
-        //     portion: "Il faut manger un produit laitier à chaque repas",
-        //     Lait: {
-        //       name: "Lait",
-        //       picto: "/img/milk-bottle.svg",
-        //       description: "Provient le plus souvent de la vache",
-        //       suggestions: ["frais", "chaud"],
-        //       composition: [""]
-        //     }
-        //   },
         //   sucre: {
         //     categorie: "Produits sucrés",
         //     portion: "Il faut en consommer avec modération",
