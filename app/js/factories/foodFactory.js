@@ -1,8 +1,8 @@
 angular.module('app')
     .factory('FoodFactory', function() {
 
-      return [{
-        fruits: {
+      return [
+        {
           categorie: "Fruits",
           portion: "Comme tous les fruits et légumes il faut en manger au moins 5 portions par jour.",
           aliments: [{
@@ -21,7 +21,7 @@ angular.module('app')
             }
           ]
         },
-        legumes: {
+        {
           categorie: "Légumes",
           portion: "Comme tous les fruits et légumes il faut en manger au moins 5 portions par jour.",
           aliments: [{
@@ -33,7 +33,7 @@ angular.module('app')
             },
           ]
         },
-        feculents: {
+        {
           categorie: "Féculents",
           portion: "Il faut en manger plusieurs fois par jour sous différentes formes (pain, pâtes, pommes de terre).",
           aliments: [{
@@ -45,7 +45,7 @@ angular.module('app')
             },
           ]
         },
-        viandes: {
+        {
           categorie: "Viandes, poissons, œufs",
           portion: "Il faut en manger 1 fois par jour, 2 maximum.",
           aliments: [{
@@ -57,7 +57,7 @@ angular.module('app')
             },
           ]
         },
-        lait: {
+        {
           categorie: "Produits laitiers",
           portion: "Il faut manger un produit laitier à chaque repas",
           aliments: [{
@@ -69,7 +69,7 @@ angular.module('app')
             },
           ]
         },
-        sucre: {
+        {
           categorie: "Produits sucrés",
           portion: "Il faut en consommer avec modération",
           aliments: [{
@@ -80,7 +80,8 @@ angular.module('app')
               composition: [""]
             },
           ]
-        },
-      }];
+        }
+
+      ];
 
     });
