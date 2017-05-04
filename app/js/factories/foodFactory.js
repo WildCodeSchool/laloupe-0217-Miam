@@ -44,29 +44,25 @@ angular.module('app')
             },
           ]
         },
-        
+        viandes: {
+          categorie: "Viandes, poissons, œufs",
+          portion: "Il faut en manger 1 fois par jour, 2 maximum.",
+          aliments: [{
+              name: "Poisson",
+              picto: "/img/fish.svg",
+              description: "De mer ou de rivière, il existe une quantité impressionnante d'espèces.",
+              suggestions: ["cuit", "crue"],
+              composition: [""]
+            },
+          ]
+        },
+
       }];
     });
 
 
 
-
-        //   feculents: {
-        //     Riz: {
-
-        //     }
-        //   },
-        //   viandes: {
-        //     categorie: "Viandes, poissons, œufs",
-        //     portion: "Il faut en manger 1 fois par jour, 2 maximum.",
-        //     Poisson: {
-        //       name: "Poisson",
-        //       picto: "/img/fish.svg",
-        //       description: "De mer ou de rivière, il existe une quantité impressionnante d'espèces.",
-        //       suggestions: ["cuit", "crue"],
-        //       composition: [""]
-        //     }
-        //   },
+        //   
         //   lait: {
         //     categorie: "Produits laitiers",
         //     portion: "Il faut manger un produit laitier à chaque repas",
