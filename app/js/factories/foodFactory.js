@@ -5,11 +5,11 @@ angular.module('app')
           categorie: "Fruits",
           portion: "Comme tous les fruits et légumes il faut en manger au moins 5 portions par jour.",
           aliments: [{
-            name: "Orange",
-            picto: "/img/orange.svg",
-            description: "Fruit de l'oranger. Il en existe de plusieurs variétées, couleurs et goûts",
-            suggestions: ["crue", "salade", "jus", "gâteau", "smoothie", "confiture"],
-            composition: [""]
+              name: "Orange",
+              picto: "/img/orange.svg",
+              description: "Fruit de l'oranger. Il en existe de plusieurs variétées, couleurs et goûts",
+              suggestions: ["crue", "salade", "jus", "gâteau", "smoothie", "confiture"],
+              composition: [""]
             },
             {
               name: "Banane",
@@ -18,35 +18,27 @@ angular.module('app')
               suggestions: ["crue", "salade", "jus", "gâteau", "smoothie", "confiture"],
               composition: [""]
             }
-            ]
+          ]
         },
+        legumes: {
+          categorie: "Légumes",
+          portion: "Comme tous les fruits et légumes il faut en manger au moins 5 portions par jour.",
+          aliments: [{
+              name: "Carotte",
+              picto: "/img/carrot.svg",
+              description: "Les lapins en raffolent, ça rend aimable et donne les fesses roses",
+              suggestions: ["crue", "cuit", "salade", "soupe", "gâteau", "purée", "vapeur"],
+              composition: [""]
+            },
+          ]
+        },
+        
       }];
     });
 
 
-        // var food = {
-        //   fruits: {
-        //     categorie: "Fruits",
-        //     portion: "Comme tous les fruits et légumes il faut en manger au moins 5 portions par jour.",
-        //     Orange: {
-        //       name: "Orange",
-        //       picto: "/img/orange.svg",
-        //       description: "Fruit de l'oranger. Il en existe de plusieurs variétées, couleurs et goûts",
-        //       suggestions: ["crue", "salade", "jus", "gâteau", "smoothie", "confiture"],
-        //       composition: [""]
-        //     }
-        //   },
-        //   legumes: {
-        //     categorie: "Légumes",
-        //     portion: "Comme tous les fruits et légumes il faut en manger au moins 5 portions par jour.",
-        //     Carotte: {
-        //       name: "Carotte",
-        //       picto: "/img/carrot.svg",
-        //       description: "Les lapins en raffolent, ça rend aimable et donne les fesses roses",
-        //       suggestions: ["crue", "cuit", "salade", "soupe", "gâteau", "purée", "vapeur"],
-        //       composition: [""]
-        //     }
-        //   },
+
+
         //   feculents: {
         //     categorie: "Féculents",
         //     portion: "Il faut en manger plusieurs fois par jour sous différentes formes (pain, pâtes, pommes de terre).",
