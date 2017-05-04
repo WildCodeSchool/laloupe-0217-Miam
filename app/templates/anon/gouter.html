@@ -1,14 +1,12 @@
 <div class="container-fluid">
 
     <header class="row">
-
         <div class="col-xs-12">
             <a ui-sref="anon.profil">
             <img class="miniAvatar col-xs-1" ng-src="{{currentAvatar}}" alt="avatar">
           </a>
             <h1 class="col-xs-10">J'ai goûté</h1>
         </div>
-
     </header>
 
     <section class="row searchbar">
@@ -24,7 +22,6 @@
         </form>
     </section>
 
-
     <section class="row" ng-repeat="categorie in categories">
       <h2>{{ categorie.categorie }}</h2>
       <div class="gouter" ng-repeat="food in categorie.aliments track by $index">
@@ -37,8 +34,7 @@
                 <i class="fa fa-circle-o" aria-hidden="true"></i>
             </div>
         </div>
-
-
+        <!-- MODAL -->
         <div class="modal fade" id="{{ food.name }}" ng-repeat="food in categorie.aliments track by $index" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -76,7 +72,7 @@
                         <div class="row">
                             <div class="col-xs-12 portion">
                                 <h2>Portion</h2>
-                                <p>{{ food.portion }}</p>
+                                <p>{{ categorie.portion }}</p>
                             </div>
                         </div>
                         <div class="row">
@@ -112,13 +108,7 @@
                 </div>
             </div>
         </div>
-
-
       </div>
     </section>
-
-
-
-
 
 </div>
