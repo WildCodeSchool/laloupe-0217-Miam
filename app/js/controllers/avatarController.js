@@ -1,7 +1,9 @@
 angular.module('app')
     .controller('AvatarController', function($scope, AvatarFactory) {
+
         $scope.famille=AvatarFactory;
         console.log($scope.familles);
+
         var i = 0;
 
         var avatars = [
