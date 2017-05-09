@@ -5,20 +5,14 @@ angular.module('app')
                 avatars: [{
                         name: "",
                         picto: "",
-                        isCurrent: "",
-                        isLocked: ""
                     },
                     {
                         name: "",
                         picto: "",
-                        isCurrent: "",
-                        isLocked: ""
                     },
                     {
                         name: "",
                         picto: "",
-                        isCurrent: "",
-                        isLocked: ""
                     },
                 ]
             },
@@ -27,20 +21,14 @@ angular.module('app')
                 avatars: [{
                         name: "",
                         picto: "",
-                        isCurrent: "",
-                        isLocked: ""
                     },
                     {
                         name: "",
                         picto: "",
-                        isCurrent: "",
-                        isLocked: ""
                     },
                     {
                         name: "",
                         picto: "",
-                        isCurrent: "",
-                        isLocked: ""
                     },
                 ]
             } {
@@ -48,20 +36,14 @@ angular.module('app')
                 avatars: [{
                         name: "",
                         picto: "",
-                        isCurrent: "",
-                        isLocked: ""
                     },
                     {
                         name: "",
                         picto: "",
-                        isCurrent: "",
-                        isLocked: ""
                     },
                     {
                         name: "",
                         picto: "",
-                        isCurrent: "",
-                        isLocked: ""
                     },
                 ]
             }
