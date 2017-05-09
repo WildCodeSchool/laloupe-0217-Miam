@@ -4,47 +4,48 @@ angular.module('app')
                 famille: "",
                 avatars: [{
                         name: "",
-                        picto: "",
+                        picto: ""
                     },
                     {
                         name: "",
-                        picto: "",
+                        picto: ""
                     },
                     {
                         name: "",
-                        picto: "",
-                    },
+                        picto: ""
+                    }
                 ]
             },
             {
                 famille: "",
                 avatars: [{
                         name: "",
-                        picto: "",
+                        picto: ""
                     },
                     {
                         name: "",
-                        picto: "",
+                        picto: ""
                     },
                     {
                         name: "",
-                        picto: "",
-                    },
+                        picto: ""
+                    }
                 ]
-            } {
+            },
+             {
                 famille: "",
                 avatars: [{
                         name: "",
-                        picto: "",
+                        picto: ""
                     },
                     {
                         name: "",
-                        picto: "",
+                        picto: ""
                     },
                     {
                         name: "",
-                        picto: "",
-                    },
+                        picto: ""
+                    }
                 ]
             }
 
