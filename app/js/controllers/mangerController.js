@@ -1,13 +1,21 @@
 angular.module('app')
     .controller('MangerController', function($scope, FoodFactory) {
+      var i = 0;
+      $scope.categories = FoodFactory;
 
-$scope.categories = FoodFactory;
-// var i;
-// for (i = 0; i < fruit.length; i++) {
-//   $scope.fruit = $scope.categories[0].fruits.aliments[i].name;
-// }
+      $scope.currentCategorie = $scope.categories[i].categorie;
+      $scope.currentsAliments = $scope.categories[i].aliments;
+      console.log($scope.currentsAliments);
+      $scope.nextCategorie = function(){
+        i++;
+        $scope.currentCategorie = $scope.categories[i].categorie;
+        $scope.currentsAliments = $scope.categories[i].aliments;
 
-  console.log($scope.categories[0]);
-    console.log($scope.categories[0].fruits.categorie);
-
+        console.log(i);
+      };
+      $scope.prevCategorie = function(){
+        i--;
+        $scope.currentCategorie = $scope.categories[i].categorie;
+        $scope.currentsAliments = $scope.categories[i].aliments;
+      };
   });
