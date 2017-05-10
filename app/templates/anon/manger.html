@@ -21,7 +21,7 @@
       <section class="row" ng-repeat="categorie in categories | limitTo : 1">
         <h2>{{ currentCategorie }}</h2>
         <div class="manger" ng-repeat="food in currentsAliments track by $index">
-          <div class="col-xs-4 mangerItem" ng-click="selectFood = !selectFood" ng-class="{'colorFood' : selectFood}">
+          <div class="col-xs-4 mangerItem" ng-click="myFunct($index)" ng-class="{'colorFood' : selectFood}">
               <img src="{{ food.picto }}" alt="{{ food.name }}" />
               <h3>{{ food.name }}</h3>
           </div>

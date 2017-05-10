@@ -18,6 +18,10 @@ const foodSchema = new mongoose.Schema({
       type: Boolean,
       default: false
     },
+    isEating: {
+      type: Boolean,
+      default: false
+    },
     toTaste: {
       type: Boolean,
       default: false
