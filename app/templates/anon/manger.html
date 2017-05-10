@@ -24,8 +24,8 @@
       <section class="row" ng-repeat="categorie in categories | limitTo : 1">
         <h2>{{ currentCategorie }}</h2>
         <div class="gouter" ng-repeat="food in currentsAliments track by $index">
-          <div class="col-xs-4 gouterItem" >
-              <img src="{{ food.picto }}" alt="{{ food.name }}" />
+          <div class="col-xs-4 gouterItem">
+              <img src="{{ food.picto }}" alt="{{ food.name }}" ng-click="selectFood = !selectFood" ng-class="{'colorFood' : selectFood}"/>
               <h3>{{ food.name }}</h3>
 
           </div>
@@ -51,39 +51,25 @@
                 </a>
               </li>
               <li class="page-item">
-                <a class="page-link" href="#">
                   <i class="fa fa-circle-o" aria-hidden="true"></i>
-                </a>
               </li>
               <li class="page-item">
-                <a class="page-link" href="#">
                   <i class="fa fa-circle" aria-hidden="true"></i>
-                </a>
               </li>
               <li class="page-item">
-                <a class="page-link" href="#">
                   <i class="fa fa-circle" aria-hidden="true"></i>
-                </a>
               </li>
               <li class="page-item">
-                <a class="page-link" href="#">
                   <i class="fa fa-circle" aria-hidden="true"></i>
-                </a>
               </li>
               <li class="page-item">
-                <a class="page-link" href="#">
                   <i class="fa fa-circle" aria-hidden="true"></i>
-                </a>
               </li>
               <li class="page-item">
-                <a class="page-link" href="#">
                   <i class="fa fa-circle" aria-hidden="true"></i>
-                </a>
               </li>
               <li class="page-item">
-                <a class="page-link" href="#">
                   <i class="fa fa-circle" aria-hidden="true"></i>
-                </a>
               </li>
               <li class="page-item" ng-click="nextCategorie()">
                 <a class="page-link" aria-label="Next">
