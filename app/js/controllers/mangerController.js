@@ -2,18 +2,15 @@ angular.module('app')
     .controller('MangerController', function($scope, FoodFactory) {
         var i = 0;
         $scope.AlimentsEatens = [];
+        var AlimentsEatens = $scope.AlimentsEatens;
         $scope.categories = FoodFactory;
-
-
 
         $scope.currentCategorie = $scope.categories[i].categorie;
         $scope.currentsAliments = $scope.categories[i].aliments;
-        console.log($scope.currentsAliments);
         $scope.nextCategorie = function() {
             i++;
             $scope.currentCategorie = $scope.categories[i].categorie;
             $scope.currentsAliments = $scope.categories[i].aliments;
-
         };
         $scope.prevCategorie = function() {
             i--;
@@ -21,16 +18,21 @@ angular.module('app')
             $scope.currentsAliments = $scope.categories[i].aliments;
         };
 
-
-        $scope.myFunct = function(index) {
-            console.log(index);
+        $scope.myFunct = function(food) {
+          var foodIndex = $scope.AlimentsEatens.map(
+            function(aliment){return aliment.nameFood;}
+          ).indexOf(food.name);
+          if(foodIndex != -1) {
+            $scope.AlimentsEatens.splice(foodIndex, 1);
+          } else {
             var alreadyEaten = {
-                nameFood: $scope.currentsAliments[index].name,
+                nameFood: food.name,
                 countVote: [true, true, true],
-            };
-            $scope.AlimentsEatens.push(alreadyEaten);
-            console.log(alreadyEaten);
-            console.log($scope.AlimentsEatens);
+              };
+              $scope.AlimentsEatens.push(alreadyEaten);
+          }
+
+          console.log($scope.AlimentsEatens);
         };
 
 
