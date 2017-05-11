@@ -3,7 +3,7 @@
 // relative to 'app/css' or 'vendor/css'.
 
 @mainColor: #FC4A1A;
-@secondColor: #F4B2B0;
+@secondColor: #fc7a1d;
 @h2Color: #4ABDAC;
 @background: #F7B733;
 @green: green;
@@ -82,7 +82,7 @@ html {
 .bubble.right:after {
     top: 50%;
     margin-top: -8px;
-    border-color: transparent white;
+    border-color: transparent @background;
 }
 /* ////////////// TRIANGLE LEFT ////////////// */
 .bubble.left:after,
@@ -124,7 +124,7 @@ html {
 .bubble.top:after {
     left: 50%;
     margin-left: -8px;
-    border-color: white transparent;
+    border-color: @background transparent;
 }
 /* ////////////// TRIANGLE BOTTOM ////////////// */
 .bubble.bottom:after,
@@ -276,11 +276,16 @@ nav .pagination {
     padding: 0;
 }
 
+nav .pagination li a i {
+    background-color: @background;
+}
+
 nav .pagination li a {
     font-size: 18px;
     color: @mainColor;
     padding: 0 5px;
     border: none;
+    background-color: @background;
 }
 
 nav .pagination li a:hover {
