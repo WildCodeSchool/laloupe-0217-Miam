@@ -1,4 +1,6 @@
-<div class="container-fluid">
+<div class="container-fluid vertical-center">
+
+  <div class="container">
 
     <header class="row">
         <div class="col-xs-12">
@@ -9,7 +11,7 @@
     <section class="row">
       <div class="advice">
         <div class="col-xs-4 avatar">
-          <img src="https://image.flaticon.com/icons/png/128/78/78373.png" alt="Avatar of the user" />
+          <img ng-src="/img/penguin.svg" alt="Mon avatar" />
         </div>
         <div class="col-xs-8 bubble left">
           <p>Dis-moi ce que tu manges déjà&nbsp;!</p>
@@ -17,18 +19,15 @@
       </div>
     </section>
 
-
-      <section class="row" ng-repeat="categorie in categories | limitTo : 1">
+    <section class="row" ng-repeat="categorie in categories | limitTo : 1">
         <h2>{{ currentCategorie }}</h2>
         <div class="manger" ng-repeat="food in currentsAliments track by $index">
           <div class="col-xs-4 mangerItem" ng-click="selectFood(food)" ng-class="{'color-food': isSelected(food)}">
               <img src="{{ food.picto }}" alt="{{ food.name }}" />
               <h3>{{ food.name }}</h3>
           </div>
-          </div>
+        </div>
     </section>
-
-    <!-- Utiliser pour chaque page / familles d'aliment un ng-hide/ng-show -->
 
     <section class="row manger-valider">
         <button class="col-xs-offset-1 col-xs-5 btn btn-primary btn-lg all" type="button" name="button">Tout <br /> sélectionner</button>
@@ -76,5 +75,7 @@
             </ul>
         </nav>
     </footer>
+
+  </div>
 
 </div>
