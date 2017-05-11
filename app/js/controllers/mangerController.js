@@ -19,16 +19,18 @@ angular.module('app')
             $scope.currentsAliments = $scope.categories[i].aliments;
         };
 
-        var foodIndex = function (food) {
-          return $scope.AlimentsEatens.map(function(aliment) {return aliment.nameFood;}).indexOf(food.name);
+        var foodIndex = function(food) {
+            return $scope.AlimentsEatens.map(function(aliment) {
+                return aliment.nameFood;
+            }).indexOf(food.name);
         };
 
-        $scope.isSelected = function (food) {
-          return foodIndex(food) != -1;
+        $scope.isSelected = function(food) {
+            return foodIndex(food) != -1;
         };
 
         $scope.selectFood = function(food) {
-          // element.all(by.repeater('food in currentsAliments')).get(index).click();
+            // element.all(by.repeater('food in currentsAliments')).get(index).click();
 
             if ($scope.isSelected(food)) {
                 $scope.AlimentsEatens.splice(foodIndex(food), 1);
@@ -42,22 +44,20 @@ angular.module('app')
         };
 
         $scope.validCategorie = function() {
-          if (i<$scope.categories.length) {
-            i++;
-            $scope.currentCategorie = $scope.categories[i].categorie;
-            $scope.currentsAliments = $scope.categories[i].aliments;
-          }
-          else {
-            MangerService.create(nameFood, countVote).then(function(res){
-              $state.go('anon.gouter');
-            }, function(err){});
-              $state.go('anon.gouter');
-          }
+            if (i < $scope.categories.length) {
+                i++;
+                $scope.currentCategorie = $scope.categories[i].categorie;
+                $scope.currentsAliments = $scope.categories[i].aliments;
+            } else {
+                MangerService.create(nameFood, countVote).then(function(res) {
+                    $state.go('anon.gouter');
+                }, function(err) {});
+                $state.go('anon.gouter');
+            }
         };
-$scope.selectAll = function(){
+        $scope.selectAll = function() {
+            $scope.AlimentsEatens.push($scope.currentsAliments);
+        };
 
-};
-
-        console.log($scope.AlimentsEatens);
 
     });
