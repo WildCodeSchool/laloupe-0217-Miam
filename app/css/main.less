@@ -7,12 +7,15 @@
 @compColor: #4ABDAC;
 @darkCompColor: #1f564e;
 @background: #ffd27f;
+// #ffd27f
+// #ffdfa3
 // #FFFBD0
 // #ffd27f
 // #FDF06F
 // #FFD101
-@green: green;
-@red: red;
+@green: #589424;
+// #659c35;
+@red: #d13834;
 
 .titleFont {
   font-family: 'Baloo', cursive;
@@ -38,7 +41,6 @@
   border: solid @mainColor 5px;
   color: @mainColor;
 }
-
 
 
 /* -------------------------------------------------------------------- */
@@ -485,9 +487,13 @@ border-radius: 0 0 10px 10px;
   padding-bottom: 0;
 }
 
+.modal-body {
+  padding: 10px 30px;
+}
+
 .modal-body h2 {
   font-size: 25px;
-  color: @compColor;
+  color: @mainColor;
   margin: 3% 0 1% 0;
   padding: 0;
 }
@@ -518,12 +524,26 @@ border-radius: 0 0 10px 10px;
   margin: 3% 0;
 }
 
+.aGouter button {
+  .generalButton;
+  font-size: 26px;
+  height: 60px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.aGouter button:active,
+.aGouter button:focus,
+.aGouter button:hover {
+  .buttonInteraction
+}
+
 /* ------------------------------ DECONNECTION ------------------------------ */
 .deconnecter button {
   height: 30px;
   background-color: @red;
   border: none;
-  padding: 0px;
+  padding: 0;
 }
 
 .deconnecter button:active,
