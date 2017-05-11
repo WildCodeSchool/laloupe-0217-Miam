@@ -9,6 +9,10 @@
 @green: green;
 @red: red;
 
+.titleFont {
+  font-family: 'Baloo', cursive;
+}
+
 .rounded (@radius: 10px) {
   -moz-border-radius: @radius;
   -webkit-border-radius: @radius;
@@ -43,6 +47,8 @@ html {
     margin: 0;
     padding: 0;
     background-color: @background;
+
+    .titleFont();
 }
 
 
