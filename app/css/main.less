@@ -54,6 +54,10 @@ html {
     .titleFont();
 }
 
+header h1 {
+  color: @mainColor;
+}
+
 /* ------------------------------ VERTICALLY CENTER PAGES ------------------------------ */
 .vertical-center {
   min-height: 100vh;
@@ -200,10 +204,6 @@ html {
 }
 
 /* ------------------------------ JE MANGE DEJA ------------------------------ */
-
-header h1 {
-  color: @compColor;
-}
 
 .navbar-default {
     background-color: @secondColor;
@@ -491,11 +491,25 @@ border-radius: 0 0 10px 10px;
 }
 
 /* ------------------------------ contreIndication ------------------------------ */
+.contreIndicationavatar {
+  margin-top: 40px;
+}
+
+.contreIndication.bubble.top {
+  margin-top: 20px;
+  height: 180px;
+}
+
+.searchcontre {
+  margin: 10% 0;
+}
+
 .contreIndication-valider button {
   .generalButton;
-  height: 90px;
-  margin-top: 100px;
-  margin-bottom: 20px;
+  height: 80px;
+  font-size: 30px;
+  margin-top: 10%;
+  margin-bottom: 10%;
 }
 
 .contreIndication-valider button:active,
@@ -504,25 +518,6 @@ border-radius: 0 0 10px 10px;
   .buttonInteraction;
 }
 
-.contreIndicationavatar {
-  margin-top: 40px;
-}
-.contreIndication.bubble.top {
-  margin-top: 50px;
-  height: 270px;
-  margin-bottom: 8%;
-  font-size: 1.7em;
-}
-.searchcontre {
-  margin-top: 80px;
-}
-.circle i {
-  font-size: 150px;
-  margin-top: 20px;
-}
-.circle p {
-  font-size: 40px;
-}
 /* ------------------------------ tutoriel ------------------------------ */
 .tutorielPage {
   opacity: 0.5;
