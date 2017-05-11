@@ -39,9 +39,16 @@ angular.module('app')
           aliments: [{
               name: "Riz",
               picto: "/img/rice.svg",
-              description: "On en mange beaucoup en Asie; Il en existe de multiples variétées.",
+              description: "On en mange beaucoup en Asie. Il en existe de multiples variétées.",
               suggestions: ["cuit","gâteau", "vapeur"],
               composition: [""]
+            },
+            {
+              name: "Pain",
+              picto: "/img/bread.svg",
+              description: "Aux céréales, nature, en boule… Il en existe de toutes les sortes !",
+              suggestions: ["nature","grillé", "avec de la confiture", "avec du beurre"],
+              composition: ["Gluten"]
             },
           ]
         },
