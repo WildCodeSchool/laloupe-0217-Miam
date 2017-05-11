@@ -54,7 +54,9 @@ angular.module('app')
               $state.go('anon.gouter');
           }
         };
+$scope.selectAll = function(){
 
+};
 
         console.log($scope.AlimentsEatens);
 
