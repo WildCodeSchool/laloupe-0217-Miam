@@ -2,8 +2,10 @@
 // Use `@import` to use other less files
 // relative to 'app/css' or 'vendor/css'.
 
-@mainColor: #B3404A;
+@mainColor: #FC4A1A;
 @secondColor: #F4B2B0;
+@h2Color: #4ABDAC;
+@background: #F7B733;
 @green: green;
 @red: red;
 
@@ -40,6 +42,7 @@ html {
     height: 100%;
     margin: 0;
     padding: 0;
+    background-color: @background;
 }
 
 
@@ -185,6 +188,11 @@ html {
     margin-bottom: 3%;
 }
 /* ------------------------------ JE MANGE DEJA ------------------------------ */
+
+header h1 {
+  color: @h2Color;
+}
+
 .navbar-default {
     background-color: @secondColor;
 }
@@ -214,6 +222,7 @@ html {
 section h2 {
     font-size: 26px;
     font-weight: bold;
+    color: @h2Color;
     margin: 5% 0 8%;
     padding: 0;
 }
