@@ -8,11 +8,11 @@ angular.module('app')
 
         var avatars = [
             {
-                1: '/img/avatar.jpg',
+                1: '/img/penguin.svg',
                 2: '/img/avatar1.2.jpg'
             },
             {
-                1: '/img/avatar2.jpg',
+                1: '/img/miam-logo.svg',
                 2: '/img/avatar1.2.jpg'
             }
         ];
