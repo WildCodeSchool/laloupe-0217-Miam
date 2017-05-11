@@ -4,7 +4,7 @@ angular.module('app')
       return [
         {
           categorie: "Fruits",
-          portion: "Comme tous les fruits et légumes il faut en manger au moins 5 portions par jour.",
+          portion: "Comme tous les fruits et légumes, il faut en manger au moins 5 portions par jour.",
           aliments: [{
               name: "Orange",
               picto: "/img/orange.svg",
@@ -23,7 +23,7 @@ angular.module('app')
         },
         {
           categorie: "Légumes",
-          portion: "Comme tous les fruits et légumes il faut en manger au moins 5 portions par jour.",
+          portion: "Comme tous les fruits et légumes, il faut en manger au moins 5 portions par jour.",
           aliments: [{
               name: "Carotte",
               picto: "/img/carrot.svg",
@@ -35,7 +35,7 @@ angular.module('app')
         },
         {
           categorie: "Féculents",
-          portion: "Il faut en manger plusieurs fois par jour sous différentes formes (pain, pâtes, pommes de terre).",
+          portion: "Il faut manger des féculents plusieurs fois par jour sous différentes formes (pain, pâtes, pommes de terre).",
           aliments: [{
               name: "Riz",
               picto: "/img/rice.svg",
