@@ -183,7 +183,7 @@ html {
 }
 
 .discover button,
-.login button {
+.connect button {
   .generalButton;
     height: 80px;
     font-size: 30px;
@@ -193,18 +193,12 @@ html {
 .discover button:active,
 .discover button:focus,
 .discover button:hover,
-.login button:active,
-.login button:focus,
-.login button:hover {
+.connect button:active,
+.connect button:focus,
+.connect button:hover {
   .buttonInteraction;
 }
 
-.discover button,
-.login button {
-    height: 80px;
-    font-size: 30px;
-    margin-bottom: 3%;
-}
 /* ------------------------------ JE MANGE DEJA ------------------------------ */
 
 header h1 {
@@ -402,30 +396,48 @@ border-radius: 0 0 10px 10px;
   margin-top: 60px;
 }
 
-/* ------------------------------ login ------------------------------ */
+/* ------------------------------ LOGIN & REGISTER ------------------------------ */
 
+.login label,
+.register label {
+  color: white;
+}
+
+.login .textRemember,
+.register .textRemember {
+  margin: 20px 0;
+}
+
+.login .remember,
+.register .remember {
+  text-align: left;
+}
+
+.login button,
+.register button {
+  .generalButton;
+    height: 80px;
+    font-size: 30px;
+    margin-bottom: 3%;
+}
+
+.login button:active,
+.login button:focus,
+.login button:hover,
+.register button:active,
+.register button:focus,
+.register button:hover {
+  .buttonInteraction;
+}
+
+/* ------------------------------ LOGIN ------------------------------ */
 .login.bubble.top {
   height: 620px;
 }
 
-.login label {
-  color: white;
-}
-
-.btn span.glyphicon {
-	opacity: 0;
-}
-
-.btn.active span.glyphicon {
-	opacity: 1;
-}
-
-.login .textRemember {
-  margin: 20px 0;
-}
-
-.login .remember {
-  text-align: left;
+/* ------------------------------ REGISTER ------------------------------ */
+.register.bubble.top {
+  height: 680px;
 }
 
 /* ------------------------------ J'AI GOUTER ------------------------------ */
