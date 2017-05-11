@@ -1,6 +1,7 @@
 angular.module('app')
     .controller('MangerController', function($scope, FoodFactory, MangerService) {
         $scope.isActive = false;
+        var isSelected = false;
         var i = 0;
         $scope.AlimentsEatens = [];
         $scope.categories = FoodFactory;
@@ -30,8 +31,6 @@ angular.module('app')
         };
 
         $scope.selectFood = function(food) {
-            // element.all(by.repeater('food in currentsAliments')).get(index).click();
-
             if ($scope.isSelected(food)) {
                 $scope.AlimentsEatens.splice(foodIndex(food), 1);
             } else {
@@ -56,7 +55,19 @@ angular.module('app')
             }
         };
         $scope.selectAll = function() {
+
+          if (isSelected === false) {
+            $scope.AlimentsEatens = [];
             $scope.AlimentsEatens.push($scope.currentsAliments);
+            console.log($scope.AlimentsEatens);
+            isSelected = true;
+          }
+          else {
+            $scope.AlimentsEatens = [];
+            isSelected = false;
+            console.log($scope.AlimentsEatens);
+
+          }
         };
 
 
