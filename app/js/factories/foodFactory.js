@@ -8,7 +8,7 @@ angular.module('app')
           aliments: [{
               name: "Orange",
               picto: "/img/orange.svg",
-              description: "Fruit de l'oranger. Il en existe de plusieurs variétées, couleurs et goûts",
+              description: "Fruit de l'oranger. Il en existe de plusieurs variétées, couleurs et goûts.",
               suggestions: ["crue", "salade", "jus", "gâteau", "smoothie", "confiture"],
               composition: [""]
             },
@@ -27,7 +27,7 @@ angular.module('app')
           aliments: [{
               name: "Carotte",
               picto: "/img/carrot.svg",
-              description: "Les lapins en raffolent, ça rend aimable et donne les fesses roses",
+              description: "Les lapins en raffolent, ça rend aimable et donne les fesses roses.",
               suggestions: ["crue", "cuit", "salade", "soupe", "gâteau", "purée", "vapeur"],
               composition: [""]
             },
@@ -59,7 +59,7 @@ angular.module('app')
         },
         {
           categorie: "Produits laitiers",
-          portion: "Il faut manger un produit laitier à chaque repas",
+          portion: "Il faut manger un produit laitier à chaque repas.",
           aliments: [{
               name: "Lait",
               picto: "/img/milk.svg",
@@ -71,11 +71,11 @@ angular.module('app')
         },
         {
           categorie: "Produits sucrés",
-          portion: "Il faut en consommer avec modération",
+          portion: "Il faut en consommer avec modération.",
           aliments: [{
               name: "Gâteau",
               picto: "/img/cake.svg",
-              description: "Aux fruits, chocolats crème... il y a l'embarras du choix",
+              description: "Aux fruits, chocolats crème... il y a l'embarras du choix.",
               suggestions: ["gâteau"],
               composition: [""]
             },
@@ -85,9 +85,3 @@ angular.module('app')
       ];
 
     });
-
-//     get: function(aliments) {
-//         return food;
-//
-//
-// }

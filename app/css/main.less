@@ -5,6 +5,7 @@
 @mainColor: #FC4A1A;
 @secondColor: #fc7a1d;
 @compColor: #4ABDAC;
+@darkCompColor: #1f564e;
 @background: #ffd27f;
 // #FFFBD0
 // #ffd27f
@@ -449,8 +450,7 @@ border-radius: 0 0 10px 10px;
 }
 
 .gouterItem h3 {
-    // font-weight: bold;
-    font-size: 16px;
+    font-size: 20px;
     color: @mainColor;
     margin: 10% 0 0 0;
     padding: 0;
@@ -469,6 +469,56 @@ border-radius: 0 0 10px 10px;
   padding: 0px;
 }
 
+/* ------------------------------ MODAL ------------------------------ */
+.modal-content {
+  background-color: @background;
+}
+
+.modal-header h1 {
+  font-size: 35px;
+  color: @mainColor;
+  margin: 10px 0 0 0;
+  padding: 0;
+}
+
+.modal-header {
+  padding-bottom: 0;
+}
+
+.modal-body h2 {
+  font-size: 25px;
+  color: @compColor;
+  margin: 3% 0 1% 0;
+  padding: 0;
+}
+
+.modal-body p {
+  font-size: 18px;
+  line-height: 22px;
+  color: @darkCompColor;
+}
+
+.vote .green i,
+.vote .red i {
+  font-size: 80px;
+}
+
+.vote .green i,
+.vote .green h3 {
+  color: @green;
+}
+
+.vote .red i,
+.vote .red h3 {
+  color: @red;
+}
+
+.vote h3 {
+  font-size: 20px;
+  margin: 3% 0;
+}
+
+/* ------------------------------ DECONNECTION ------------------------------ */
 .deconnecter button {
   height: 30px;
   background-color: @red;

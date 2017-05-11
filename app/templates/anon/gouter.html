@@ -1,11 +1,10 @@
-<div class="container-fluid">
+<div class="container-fluid vertical-center">
+
+  <div class="container">
 
     <header class="row">
         <div class="col-xs-12">
-            <a ui-sref="anon.profil">
-            <img class="miniAvatar col-xs-1" ng-src="{{currentAvatar}}" alt="avatar">
-          </a>
-            <h1 class="col-xs-10">J'ai goûté</h1>
+            <h1>J'ai goûté</h1>
         </div>
     </header>
 
@@ -29,7 +28,7 @@
             <img src="{{ food.picto }}" alt="{{ food.name }}" />
             <h3>{{ food.name }}</h3>
             <div class="circleVote">
-                <i class="fa fa-circle" aria-hidden="true" style="color: green;"></i>
+                <i class="fa fa-circle-o" aria-hidden="true"></i>
                 <i class="fa fa-circle-o" aria-hidden="true"></i>
                 <i class="fa fa-circle-o" aria-hidden="true"></i>
             </div>
@@ -41,7 +40,7 @@
                     <div class="modal-header">
                         <div class="row">
                             <div class="col-xs-12">
-                                <img class="col-xs-offset-2 col-xs-8" src="{{ food.picto }}" alt="{{ food.name }}" />
+                                <img class="col-xs-offset-3 col-xs-6" src="{{ food.picto }}" alt="{{ food.name }}" />
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                   <span aria-hidden="true">×</span>
                                 </button>
@@ -52,13 +51,13 @@
                         </div>
                         <div class="row">
                             <div class="col-xs-offset-3 col-xs-6">
-                                <div class="col-xs-12">
+                                <!-- <div class="col-xs-12"> -->
                                     <div class="circleVote">
-                                        <i class="fa fa-circle" aria-hidden="true" style="color: green;"></i>
+                                        <i class="fa fa-circle-o" aria-hidden="true"></i>
                                         <i class="fa fa-circle-o" aria-hidden="true"></i>
                                         <i class="fa fa-circle-o" aria-hidden="true"></i>
                                     </div>
-                                </div>
+                                <!-- </div> -->
                             </div>
                         </div>
                     </div>
@@ -88,13 +87,13 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-xs-offset-1 col-xs-10">
-                                <div class="col-xs-6">
-                                    <i class="fa fa-circle" aria-hidden="true" style="color: green; font-size: 50px;"></i>
+                            <div class="col-xs-offset-1 col-xs-10 vote">
+                                <div class="col-xs-6 green">
+                                    <i class="fa fa-circle" aria-hidden="true"></i>
                                     <h3>J'ai aimé</h3>
                                 </div>
-                                <div class="col-xs-6">
-                                    <i class="fa fa-circle" aria-hidden="true" style="color: red; font-size: 50px;"></i>
+                                <div class="col-xs-6 red">
+                                    <i class="fa fa-circle" aria-hidden="true"></i>
                                     <h3>Je n'ai pas aimé</h3>
                                 </div>
                             </div>
@@ -110,5 +109,7 @@
         </div>
       </div>
     </section>
+
+  </div>
 
 </div>
