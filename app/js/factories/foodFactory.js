@@ -62,7 +62,7 @@ angular.module('app')
           portion: "Il faut manger un produit laitier à chaque repas",
           aliments: [{
               name: "Lait",
-              picto: "/img/milk-bottle.svg",
+              picto: "/img/milk.svg",
               description: "Provient le plus souvent de la vache",
               suggestions: ["frais", "chaud"],
               composition: [""]
@@ -74,7 +74,7 @@ angular.module('app')
           portion: "Il faut en consommer avec modération",
           aliments: [{
               name: "Gâteau",
-              picto: "/img/muffin.svg",
+              picto: "/img/cake.svg",
               description: "Aux fruits, chocolats crème... il y a l'embarras du choix",
               suggestions: ["gâteau"],
               composition: [""]
