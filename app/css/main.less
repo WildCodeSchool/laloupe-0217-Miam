@@ -220,9 +220,15 @@ section h2 {
 
 .mangerItem {
   cursor: pointer;
+  -webkit-filter: grayscale(1);
+  filter: grayscale(1);
 }
 
-.mangerItem h3 {
+.color-food {
+  filter: none;
+}
+
+.manger-item h3 {
     font-weight: bold;
     font-size: 16px;
     color: @mainColor;
@@ -234,6 +240,7 @@ section h2 {
     margin: 0;
     padding: 0;
 }
+
 
 .manger-valider button {
   .generalButton;
@@ -280,6 +287,7 @@ nav .pagination li a .glyphicon-chevron-left {
 nav .pagination li a .glyphicon-chevron-right {
     padding-left: 20px;
 }
+
 /* ------------------------------ AVATAR ------------------------------ */
 .bubble.bottom.avatar {
     height: 90px;
