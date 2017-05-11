@@ -32,6 +32,21 @@ let model = mongoose.model('Food', foodSchema);
 
 export default class Food {
 
+  create(req, res) {
+    model.create(req.body,(err, food) => {
+if(err || !food) {
+  console.log("error", err.message);
+  res.status(500).send(err.message);
+  }
+  else{
+    res.json({
+      success: true, food: food
+    });
+  }
+});
+  }
+
+
     findAll(req, res) {
       model.find({})
       .populate('profile')

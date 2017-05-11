@@ -1,12 +1,9 @@
 angular.module('app')
-    .service('mangerService', function($http) {
+    .service('MangerService', function($http) {
         return {
-            getAll: function() {
-                return $http.get('/fichesAliments');
-            },
-            update: function(id, user) {
-                return $http.put('/fichesAliments');
-            },
+            create: function(nameFood, countVote){
+              return $http.post('/foods', {nameFood: nameFood, countVote: countVote});
+            }
 
         };
     });

@@ -21,7 +21,7 @@
       <section class="row" ng-repeat="categorie in categories | limitTo : 1">
         <h2>{{ currentCategorie }}</h2>
         <div class="manger" ng-repeat="food in currentsAliments track by $index">
-          <div class="col-xs-4 mangerItem" ng-click="myFunct(food)" ng-class="{'colorFood' : selectFood}">
+          <div class="col-xs-4 mangerItem" ng-click="selectFood(food)" ng-class="{'color-food': isSelected(food)}">
               <img src="{{ food.picto }}" alt="{{ food.name }}" />
               <h3>{{ food.name }}</h3>
           </div>
@@ -33,7 +33,7 @@
     <section class="row manger-valider">
         <button class="col-xs-offset-1 col-xs-5 btn btn-primary btn-lg all" type="button" name="button">Tout <br /> sélectionner</button>
         <a>
-        <button class="col-xs-offset-1 col-xs-4 btn btn-primary btn-lg ok" type="button" name="button" ng-click="nextCategorie()">OK</button
+        <button class="col-xs-offset-1 col-xs-4 btn btn-primary btn-lg ok" type="button" name="button" ng-click="validCategorie()">OK</button
         </a>
     </section>
 

@@ -1,8 +1,8 @@
 angular.module('app')
-    .controller('MangerController', function($scope, FoodFactory) {
+    .controller('MangerController', function($scope, FoodFactory, MangerService) {
+        $scope.isActive = false;
         var i = 0;
         $scope.AlimentsEatens = [];
-        var AlimentsEatens = $scope.AlimentsEatens;
         $scope.categories = FoodFactory;
 
         $scope.currentCategorie = $scope.categories[i].categorie;
@@ -12,28 +12,50 @@ angular.module('app')
             $scope.currentCategorie = $scope.categories[i].categorie;
             $scope.currentsAliments = $scope.categories[i].aliments;
         };
+
         $scope.prevCategorie = function() {
             i--;
             $scope.currentCategorie = $scope.categories[i].categorie;
             $scope.currentsAliments = $scope.categories[i].aliments;
         };
 
-        $scope.myFunct = function(food) {
-          var foodIndex = $scope.AlimentsEatens.map(
-            function(aliment){return aliment.nameFood;}
-          ).indexOf(food.name);
-          if(foodIndex != -1) {
-            $scope.AlimentsEatens.splice(foodIndex, 1);
-          } else {
-            var alreadyEaten = {
-                nameFood: food.name,
-                countVote: [true, true, true],
-              };
-              $scope.AlimentsEatens.push(alreadyEaten);
-          }
-
-          console.log($scope.AlimentsEatens);
+        var foodIndex = function (food) {
+          return $scope.AlimentsEatens.map(function(aliment) {return aliment.nameFood;}).indexOf(food.name);
         };
 
+        $scope.isSelected = function (food) {
+          return foodIndex(food) != -1;
+        };
+
+        $scope.selectFood = function(food) {
+          // element.all(by.repeater('food in currentsAliments')).get(index).click();
+
+            if ($scope.isSelected(food)) {
+                $scope.AlimentsEatens.splice(foodIndex(food), 1);
+            } else {
+                var alreadyEaten = {
+                    nameFood: food.name,
+                    countVote: [true, true, true],
+                };
+                $scope.AlimentsEatens.push(alreadyEaten);
+            }
+        };
+
+        $scope.validCategorie = function() {
+          if (i<$scope.categories.length) {
+            i++;
+            $scope.currentCategorie = $scope.categories[i].categorie;
+            $scope.currentsAliments = $scope.categories[i].aliments;
+          }
+          else {
+            MangerService.create(nameFood, countVote).then(function(res){
+              $state.go('anon.gouter');
+            }, function(err){});
+              $state.go('anon.gouter');
+          }
+        };
+
+
+        console.log($scope.AlimentsEatens);
 
     });
