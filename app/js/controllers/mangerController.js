@@ -39,6 +39,7 @@ angular.module('app')
                     countVote: [true, true, true],
                 };
                 $scope.AlimentsEatens.push(alreadyEaten);
+                console.log(alreadyEaten);
             }
         };
 
@@ -58,7 +59,16 @@ angular.module('app')
 
           if (isSelected === false) {
             $scope.AlimentsEatens = [];
-            $scope.AlimentsEatens.push($scope.currentsAliments);
+
+              for (j = 0; j < $scope.currentsAliments.length; j++) {
+
+                var alreadyEaten = {
+                  nameFood: $scope.categories[i].aliments[j].name,
+                  countVote: [true, true, true],
+                };
+                $scope.AlimentsEatens.push(alreadyEaten);
+              }
+
             console.log($scope.AlimentsEatens);
             isSelected = true;
           }
