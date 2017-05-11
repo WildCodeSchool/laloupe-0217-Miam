@@ -2,10 +2,10 @@
 // Use `@import` to use other less files
 // relative to 'app/css' or 'vendor/css'.
 
-@mainColor: #FC4A1A;
-@secondColor: #fc7a1d;
-@compColor: #4ABDAC;
-@darkCompColor: #1f564e;
+@main-color: #FC4A1A;
+@second-color: #fc7a1d;
+@comp-color: #4ABDAC;
+@dark-comp-color: #1f564e;
 @background: #ffd27f;
 // #ffd27f
 // #ffdfa3
@@ -17,7 +17,7 @@
 // #659c35;
 @red: #d13834;
 
-.titleFont {
+.title-font {
   font-family: 'Baloo', cursive;
 }
 
@@ -30,16 +30,16 @@
   border-radius: @radius;
 }
 
-.generalButton {
-  background-color: @mainColor;
+.general-button {
+  background-color: @main-color;
   border: none;
   padding: 0;
 }
 
-.buttonInteraction {
+.button-interaction {
   background-color: white;
-  border: solid @mainColor 5px;
-  color: @mainColor;
+  border: solid @main-color 5px;
+  color: @main-color;
 }
 
 
@@ -54,11 +54,11 @@ html {
     margin: 0;
     padding: 0;
     background-color: @background;
-    .titleFont();
+    .title-font();
 }
 
 header h1 {
-  color: @mainColor;
+  color: @main-color;
 }
 
 /* ------------------------------ VERTICALLY CENTER PAGES ------------------------------ */
@@ -75,8 +75,8 @@ header h1 {
     display: flex;
     align-items: center;
     position: relative;
-    border: solid @compColor 4px;
-    background-color: @compColor;
+    border: solid @comp-color 4px;
+    background-color: @comp-color;
     .rounded();
 }
 
@@ -99,14 +99,14 @@ header h1 {
     top: 50%;
     margin-top: -14px;
     border-top-color: transparent;
-    border-color: transparent @compColor;
+    border-color: transparent @comp-color;
 }
 
 .bubble.left:after,
 .bubble.right:after {
     top: 50%;
     margin-top: -8px;
-    border-color: transparent @compColor;
+    border-color: transparent @comp-color;
 }
 /* ////////////// TRIANGLE LEFT ////////////// */
 .bubble.left:after,
@@ -141,14 +141,14 @@ header h1 {
 .bubble.top:before {
     left: 50%;
     margin-left: -14px;
-    border-color: @compColor transparent;
+    border-color: @comp-color transparent;
 }
 
 .bubble.bottom:after,
 .bubble.top:after {
     left: 50%;
     margin-left: -8px;
-    border-color: @compColor transparent;
+    border-color: @comp-color transparent;
 }
 /* ////////////// TRIANGLE BOTTOM ////////////// */
 .bubble.bottom:after,
@@ -191,7 +191,7 @@ header h1 {
 
 .discover button,
 .connect button {
-  .generalButton;
+  .general-button;
     height: 80px;
     font-size: 30px;
     margin-bottom: 3%;
@@ -203,18 +203,18 @@ header h1 {
 .connect button:active,
 .connect button:focus,
 .connect button:hover {
-  .buttonInteraction;
+  .button-interaction;
 }
 
 /* ------------------------------ JE MANGE DEJA ------------------------------ */
 
 .navbar-default {
-    background-color: @secondColor;
+    background-color: @second-color;
 }
 
 .overlay-content h1 {
     font-size: 26px;
-    color: @mainColor;
+    color: @main-color;
     margin: 25px 0;
     padding: 0;
 }
@@ -229,7 +229,7 @@ header h1 {
 section h2 {
     font-size: 30px;
     // font-weight: bold;
-    color: @compColor;
+    color: @comp-color;
     margin: 5% 0 8%;
     padding: 0;
 }
@@ -246,7 +246,7 @@ section h2 {
 
 .mangerItem h3 {
     font-size: 20px;
-    color: @mainColor;
+    color: @main-color;
     margin: 10% 0 20% 0;
     padding: 0;
 }
@@ -261,7 +261,7 @@ section h2 {
 }
 
 .manger-valider button {
-  .generalButton;
+  .general-button;
     height: 70px;
     letter-spacing: 0.6px;
 }
@@ -269,7 +269,7 @@ section h2 {
 .manger-valider button:active,
 .manger-valider button:focus,
 .manger-valider button:hover {
-  .buttonInteraction;
+  .button-interaction;
 }
 
 .manger-valider .all {
@@ -291,14 +291,14 @@ nav .pagination li a i {
 
 nav .pagination li a {
     font-size: 18px;
-    color: @mainColor;
+    color: @main-color;
     padding: 0 5px;
     border: none;
     background-color: @background;
 }
 
 nav .pagination li a:hover {
-    color: @secondColor;
+    color: @second-color;
     border: none;
     background-color: transparent;
 }
@@ -323,7 +323,7 @@ nav .pagination li a .glyphicon-chevron-right {
   width: 80px;
   height: 80px;
   border-radius: 40px;
-  background-color: @mainColor;
+  background-color: @main-color;
 }
 
 .choice-avatar {
@@ -336,12 +336,12 @@ nav .pagination li a .glyphicon-chevron-right {
 .inputName {
     height: 50px;
     margin-top: 40px;
-    border: solid @mainColor 4px;
+    border: solid @main-color 4px;
     border-radius: 10px;
 }
 
 .name button {
-  .generalButton;
+  .general-button;
     height: 60px;
     font-size: 26px;
     margin-top: 12%;
@@ -350,7 +350,7 @@ nav .pagination li a .glyphicon-chevron-right {
 .name button:active,
 .name button:focus,
 .name button:hover {
-  .buttonInteraction;
+  .button-interaction;
 }
 
 /* ------------------------------ Profil ------------------------------ */
@@ -362,7 +362,7 @@ nav .pagination li a .glyphicon-chevron-right {
 
 .addKids {
     margin-top: 7px;
-    background-color: @mainColor;
+    background-color: @main-color;
     color: white;
     font-size: 30px;
     border-radius: 100%;
@@ -371,8 +371,8 @@ nav .pagination li a .glyphicon-chevron-right {
 
 .ongletsProfil {
   font-size: 20px;
-  color: @mainColor;
-border: solid @mainColor 4px;
+  color: @main-color;
+border: solid @main-color 4px;
 border-radius: 0 0 10px 10px;
 }
 
@@ -416,7 +416,7 @@ border-radius: 0 0 10px 10px;
 
 .login button,
 .register button {
-  .generalButton;
+  .general-button;
     height: 80px;
     font-size: 30px;
     margin-bottom: 3%;
@@ -428,7 +428,7 @@ border-radius: 0 0 10px 10px;
 .register button:active,
 .register button:focus,
 .register button:hover {
-  .buttonInteraction;
+  .button-interaction;
 }
 
 /* ------------------------------ LOGIN ------------------------------ */
@@ -453,7 +453,7 @@ border-radius: 0 0 10px 10px;
 
 .gouterItem h3 {
     font-size: 20px;
-    color: @mainColor;
+    color: @main-color;
     margin: 10% 0 0 0;
     padding: 0;
 }
@@ -466,7 +466,7 @@ border-radius: 0 0 10px 10px;
 .circleVote i {
   font-weight: bold;
   font-size: 18px;
-  color: @mainColor;
+  color: @main-color;
   margin: 5% 0 20% 0;
   padding: 0px;
 }
@@ -478,7 +478,7 @@ border-radius: 0 0 10px 10px;
 
 .modal-header h1 {
   font-size: 35px;
-  color: @mainColor;
+  color: @main-color;
   margin: 10px 0 0 0;
   padding: 0;
 }
@@ -493,7 +493,7 @@ border-radius: 0 0 10px 10px;
 
 .modal-body h2 {
   font-size: 25px;
-  color: @mainColor;
+  color: @main-color;
   margin: 3% 0 1% 0;
   padding: 0;
 }
@@ -501,7 +501,7 @@ border-radius: 0 0 10px 10px;
 .modal-body p {
   font-size: 18px;
   line-height: 22px;
-  color: @darkCompColor;
+  color: @dark-comp-color;
 }
 
 .vote .green i,
@@ -525,7 +525,7 @@ border-radius: 0 0 10px 10px;
 }
 
 .aGouter button {
-  .generalButton;
+  .general-button;
   font-size: 26px;
   height: 60px;
   border-top-left-radius: 0;
@@ -535,7 +535,7 @@ border-radius: 0 0 10px 10px;
 .aGouter button:active,
 .aGouter button:focus,
 .aGouter button:hover {
-  .buttonInteraction
+  .button-interaction
 }
 
 /* ------------------------------ DECONNECTION ------------------------------ */
@@ -569,7 +569,7 @@ border-radius: 0 0 10px 10px;
 }
 
 .contreIndication-valider button {
-  .generalButton;
+  .general-button;
   height: 80px;
   font-size: 30px;
   margin-top: 10%;
@@ -579,7 +579,7 @@ border-radius: 0 0 10px 10px;
 .contreIndication-valider button:active,
 .contreIndication-valider button:focus,
 .contreIndication-valider button:hover {
-  .buttonInteraction;
+  .button-interaction;
 }
 
 /* ------------------------------ tutoriel ------------------------------ */
@@ -610,7 +610,7 @@ border-radius: 0 0 10px 10px;
 }
 
 .compte button {
-  .generalButton;
+  .general-button;
     height: 90px;
     width: 220px;
     font-size: 26px;
@@ -620,7 +620,7 @@ border-radius: 0 0 10px 10px;
 .compte button:active,
 .compte button:focus,
 .compte button:hover {
-  .buttonInteraction;
+  .button-interaction;
 }
 
 /* ------------------------------  NAVBAR ANON  ------------------------------ */
@@ -632,7 +632,7 @@ border-radius: 0 0 10px 10px;
     z-index: 3;
     top: 0;
     right: 0;
-    background-color: @mainColor;
+    background-color: @main-color;
     overflow-x: hidden;
     transition: 0.5s;
 }
