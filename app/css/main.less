@@ -4,7 +4,7 @@
 
 @mainColor: #FC4A1A;
 @secondColor: #fc7a1d;
-@h2Color: #4ABDAC;
+@compColor: #4ABDAC;
 @background: #ffd27f;
 // #FFFBD0
 // #ffd27f
@@ -51,10 +51,15 @@ html {
     margin: 0;
     padding: 0;
     background-color: @background;
-
     .titleFont();
 }
 
+/* ------------------------------ VERTICALLY CENTER PAGES ------------------------------ */
+.vertical-center {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
 
 /* ------------------------------ BUBBLE ------------------------------ */
 /* °°°°°°°°° CENTER TEXT INSIDE BUBBLE & GENERALITIES °°°°°°°°° */
@@ -63,7 +68,8 @@ html {
     display: flex;
     align-items: center;
     position: relative;
-    border: solid @mainColor 4px;
+    border: solid @compColor 4px;
+    background-color: @compColor;
     .rounded();
 }
 
@@ -78,6 +84,7 @@ html {
     margin: auto;
     font-size: 20px;
     padding: 0 10px;
+    color: white;
 }
 /* ////////////// TRIANGLE LEFT & RIGHT ////////////// */
 .bubble.left:before,
@@ -85,14 +92,14 @@ html {
     top: 50%;
     margin-top: -14px;
     border-top-color: transparent;
-    border-color: transparent @mainColor;
+    border-color: transparent @compColor;
 }
 
 .bubble.left:after,
 .bubble.right:after {
     top: 50%;
     margin-top: -8px;
-    border-color: transparent @background;
+    border-color: transparent @compColor;
 }
 /* ////////////// TRIANGLE LEFT ////////////// */
 .bubble.left:after,
@@ -127,14 +134,14 @@ html {
 .bubble.top:before {
     left: 50%;
     margin-left: -14px;
-    border-color: @mainColor transparent;
+    border-color: @compColor transparent;
 }
 
 .bubble.bottom:after,
 .bubble.top:after {
     left: 50%;
     margin-left: -8px;
-    border-color: @background transparent;
+    border-color: @compColor transparent;
 }
 /* ////////////// TRIANGLE BOTTOM ////////////// */
 .bubble.bottom:after,
@@ -163,11 +170,6 @@ html {
     border-width: 0 8px 8px;
 }
 /* ------------------------------ ACCUEIL ------------------------------ */
-.center-home {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-}
 
 .bubble.bottom.home {
     height: 190px;
@@ -206,7 +208,7 @@ html {
 /* ------------------------------ JE MANGE DEJA ------------------------------ */
 
 header h1 {
-  color: @h2Color;
+  color: @compColor;
 }
 
 .navbar-default {
@@ -216,7 +218,7 @@ header h1 {
 
 .overlay-content h1 {
     font-size: 26px;
-    font-weight: bold;
+    // font-weight: bold;
     color: @mainColor;
     margin: 25px 0;
     padding: 0;
@@ -237,8 +239,8 @@ header h1 {
 
 section h2 {
     font-size: 26px;
-    font-weight: bold;
-    color: @h2Color;
+    // font-weight: bold;
+    color: @compColor;
     margin: 5% 0 8%;
     padding: 0;
 }
@@ -423,7 +425,7 @@ border-radius: 0 0 10px 10px;
 }
 
 .gouterItem h3 {
-    font-weight: bold;
+    // font-weight: bold;
     font-size: 16px;
     color: @mainColor;
     margin: 10% 0 0 0;
