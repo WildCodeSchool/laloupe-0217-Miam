@@ -4,6 +4,7 @@ angular.module('app')
         var isSelected = false;
         var i = 0;
         $scope.AlimentsEatens = [];
+        $scope.AlimentsInCat = [];
         $scope.categories = FoodFactory;
 
         $scope.currentCategorie = $scope.categories[i].categorie;
@@ -50,6 +51,16 @@ angular.module('app')
                 $scope.currentsAliments = $scope.categories[i].aliments;
             } else {
                 MangerService.create(nameFood, countVote).then(function(res) {
+
+
+
+
+
+
+
+
+
+
                     $state.go('anon.gouter');
                 }, function(err) {});
                 $state.go('anon.gouter');
@@ -58,7 +69,7 @@ angular.module('app')
         $scope.selectAll = function() {
 
           if (isSelected === false) {
-            $scope.AlimentsEatens = [];
+            $scope.AlimentsInCat[i] = [];
 
               for (j = 0; j < $scope.currentsAliments.length; j++) {
 
@@ -66,14 +77,14 @@ angular.module('app')
                   nameFood: $scope.categories[i].aliments[j].name,
                   countVote: [true, true, true],
                 };
-                $scope.AlimentsEatens.push(alreadyEaten);
+                $scope.AlimentsInCat[i].push(alreadyEaten);
               }
 
-            console.log($scope.AlimentsEatens);
+            console.log($scope.AlimentsInCat[i]);
             isSelected = true;
           }
           else {
-            $scope.AlimentsEatens = [];
+            $scope.AlimentsInCat[i] = [];
             isSelected = false;
             console.log($scope.AlimentsEatens);
 
