@@ -2,10 +2,24 @@
 // Use `@import` to use other less files
 // relative to 'app/css' or 'vendor/css'.
 
-@mainColor: #B3404A;
-@secondColor: #F4B2B0;
-@green: green;
-@red: red;
+@main-color: #FC4A1A;
+@second-color: #fc7a1d;
+@comp-color: #4ABDAC;
+@dark-comp-color: #1f564e;
+@background: #ffd27f;
+// #ffd27f
+// #ffdfa3
+// #FFFBD0
+// #ffd27f
+// #FDF06F
+// #FFD101
+@green: #589424;
+// #659c35;
+@red: #d13834;
+
+.title-font {
+  font-family: 'Baloo', cursive;
+}
 
 .rounded (@radius: 10px) {
   -moz-border-radius: @radius;
@@ -16,18 +30,17 @@
   border-radius: @radius;
 }
 
-.generalButton {
-  background-color: @mainColor;
+.general-button {
+  background-color: @main-color;
   border: none;
   padding: 0;
 }
 
-.buttonInteraction {
+.button-interaction {
   background-color: white;
-  border: solid @mainColor 5px;
-  color: @mainColor;
+  border: solid @main-color 5px;
+  color: @main-color;
 }
-
 
 
 /* -------------------------------------------------------------------- */
@@ -40,8 +53,20 @@ html {
     height: 100%;
     margin: 0;
     padding: 0;
+    background-color: @background;
+    .title-font();
 }
 
+header h1 {
+  color: @main-color;
+}
+
+/* ------------------------------ VERTICALLY CENTER PAGES ------------------------------ */
+.vertical-center {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
 
 /* ------------------------------ BUBBLE ------------------------------ */
 /* °°°°°°°°° CENTER TEXT INSIDE BUBBLE & GENERALITIES °°°°°°°°° */
@@ -50,7 +75,8 @@ html {
     display: flex;
     align-items: center;
     position: relative;
-    border: solid @mainColor 4px;
+    border: solid @comp-color 4px;
+    background-color: @comp-color;
     .rounded();
 }
 
@@ -63,8 +89,9 @@ html {
 
 .bubble p {
     margin: auto;
-    font-size: 18px;
+    font-size: 20px;
     padding: 0 10px;
+    color: white;
 }
 /* ////////////// TRIANGLE LEFT & RIGHT ////////////// */
 .bubble.left:before,
@@ -72,14 +99,14 @@ html {
     top: 50%;
     margin-top: -14px;
     border-top-color: transparent;
-    border-color: transparent @mainColor;
+    border-color: transparent @comp-color;
 }
 
 .bubble.left:after,
 .bubble.right:after {
     top: 50%;
     margin-top: -8px;
-    border-color: transparent white;
+    border-color: transparent @comp-color;
 }
 /* ////////////// TRIANGLE LEFT ////////////// */
 .bubble.left:after,
@@ -114,14 +141,14 @@ html {
 .bubble.top:before {
     left: 50%;
     margin-left: -14px;
-    border-color: @mainColor transparent;
+    border-color: @comp-color transparent;
 }
 
 .bubble.bottom:after,
 .bubble.top:after {
     left: 50%;
     margin-left: -8px;
-    border-color: white transparent;
+    border-color: @comp-color transparent;
 }
 /* ////////////// TRIANGLE BOTTOM ////////////// */
 .bubble.bottom:after,
@@ -150,8 +177,9 @@ html {
     border-width: 0 8px 8px;
 }
 /* ------------------------------ ACCUEIL ------------------------------ */
+
 .bubble.bottom.home {
-    height: 160px;
+    height: 190px;
     margin-bottom: 8%;
 }
 
@@ -162,8 +190,8 @@ html {
 }
 
 .discover button,
-.login button {
-  .generalButton;
+.connect button {
+  .general-button;
     height: 80px;
     font-size: 30px;
     margin-bottom: 3%;
@@ -172,28 +200,21 @@ html {
 .discover button:active,
 .discover button:focus,
 .discover button:hover,
-.login button:active,
-.login button:focus,
-.login button:hover {
-  .buttonInteraction;
+.connect button:active,
+.connect button:focus,
+.connect button:hover {
+  .button-interaction;
 }
 
-.discover button,
-.login button {
-    height: 80px;
-    font-size: 30px;
-    margin-bottom: 3%;
-}
 /* ------------------------------ JE MANGE DEJA ------------------------------ */
-.navbar-default {
-    background-color: @secondColor;
-}
 
+.navbar-default {
+    background-color: @second-color;
+}
 
 .overlay-content h1 {
     font-size: 26px;
-    font-weight: bold;
-    color: @mainColor;
+    color: @main-color;
     margin: 25px 0;
     padding: 0;
 }
@@ -205,20 +226,15 @@ html {
     align-items: center;
 }
 
-.avatar img {
-    height: 100px;
-    margin: 0;
-    padding: 0;
-}
-
 section h2 {
-    font-size: 26px;
-    font-weight: bold;
+    font-size: 30px;
+    // font-weight: bold;
+    color: @comp-color;
     margin: 5% 0 8%;
     padding: 0;
 }
 
-.mangerItem {
+.manger-item {
   cursor: pointer;
   -webkit-filter: grayscale(1);
   filter: grayscale(1);
@@ -229,21 +245,23 @@ section h2 {
 }
 
 .manger-item h3 {
-    font-weight: bold;
-    font-size: 16px;
-    color: @mainColor;
+    font-size: 20px;
+    color: @main-color;
     margin: 10% 0 20% 0;
     padding: 0;
 }
 
-.mangerItem img {
+.manger-item img {
     margin: 0;
     padding: 0;
 }
 
+.manger-valider {
+  margin: 6% 0;
+}
 
 .manger-valider button {
-  .generalButton;
+  .general-button;
     height: 70px;
     letter-spacing: 0.6px;
 }
@@ -251,11 +269,11 @@ section h2 {
 .manger-valider button:active,
 .manger-valider button:focus,
 .manger-valider button:hover {
-  .buttonInteraction;
+  .button-interaction;
 }
 
 .manger-valider .all {
-    font-size: 20px;
+    font-size: 22px;
 }
 
 .manger-valider .ok {
@@ -267,15 +285,20 @@ nav .pagination {
     padding: 0;
 }
 
+nav .pagination li a i {
+    background-color: @background;
+}
+
 nav .pagination li a {
     font-size: 18px;
-    color: @mainColor;
+    color: @main-color;
     padding: 0 5px;
     border: none;
+    background-color: @background;
 }
 
 nav .pagination li a:hover {
-    color: @secondColor;
+    color: @second-color;
     border: none;
     background-color: transparent;
 }
@@ -290,30 +313,35 @@ nav .pagination li a .glyphicon-chevron-right {
 
 /* ------------------------------ AVATAR ------------------------------ */
 .bubble.bottom.avatar {
-    height: 90px;
+    height: 100px;
 }
 
-.dart {
-    margin-top: 100px;
-    background-color: @mainColor;
-    color: white;
-    font-size: 100px;
-    border-radius: 100%;
-    height: 250px;
+.btn-circle.btn-xl {
+  font-size: 60px;
+  line-height: 1;
+  color: white;
+  width: 80px;
+  height: 80px;
+  border-radius: 40px;
+  background-color: @main-color;
 }
 
 .choice-avatar {
     margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.inputName {
-    margin-top: 50px;
-    border: solid @mainColor 4px;
+.input-name {
+    height: 50px;
+    margin-top: 40px;
+    border: solid @main-color 4px;
     border-radius: 10px;
 }
 
 .name button {
-  .generalButton;
+  .general-button;
     height: 60px;
     font-size: 26px;
     margin-top: 12%;
@@ -322,34 +350,33 @@ nav .pagination li a .glyphicon-chevron-right {
 .name button:active,
 .name button:focus,
 .name button:hover {
-  .buttonInteraction;
+  .button-interaction;
 }
 
-
 /* ------------------------------ Profil ------------------------------ */
-.miniAvatar {
+.mini-avatar {
   margin-top: 7px;
     height: 60px;
     border-radius: 100%;
 }
 
-.addKids {
+.add-kids {
     margin-top: 7px;
-    background-color: @mainColor;
+    background-color: @main-color;
     color: white;
     font-size: 30px;
     border-radius: 100%;
     height: 60px;
 }
 
-.ongletsProfil {
+.onglets-profil {
   font-size: 20px;
-  color: @mainColor;
-border: solid @mainColor 4px;
+  color: @main-color;
+border: solid @main-color 4px;
 border-radius: 0 0 10px 10px;
 }
 
-.imgRecompense {
+.img-recompense {
   height: 150px;
 }
 
@@ -370,54 +397,153 @@ border-radius: 0 0 10px 10px;
   margin-top: 60px;
 }
 
-/* ------------------------------ login ------------------------------ */
+/* ------------------------------ LOGIN & REGISTER ------------------------------ */
 
+.login label,
+.register label {
+  color: white;
+}
+
+.login .textRemember,
+.register .textRemember {
+  margin: 20px 0;
+}
+
+.login .remember,
+.register .remember {
+  text-align: left;
+}
+
+.login button,
+.register button {
+  .general-button;
+    height: 80px;
+    font-size: 30px;
+    margin-bottom: 3%;
+}
+
+.login button:active,
+.login button:focus,
+.login button:hover,
+.register button:active,
+.register button:focus,
+.register button:hover {
+  .button-interaction;
+}
+
+/* ------------------------------ LOGIN ------------------------------ */
 .login.bubble.top {
-  height: 600px;
+  height: 620px;
 }
 
-.btn span.glyphicon {
-	opacity: 0;
+/* ------------------------------ REGISTER ------------------------------ */
+.register.bubble.top {
+  height: 680px;
 }
-.btn.active span.glyphicon {
-	opacity: 1;
-}
+
 /* ------------------------------ J'AI GOUTER ------------------------------ */
 .searchbar {
   margin: 10% 0 5% 0;
   padding: 0;
 }
 
-.gouterItem {
+.gouter-item {
   cursor: pointer;
 }
 
-.gouterItem h3 {
-    font-weight: bold;
-    font-size: 16px;
-    color: @mainColor;
+.gouter-item h3 {
+    font-size: 20px;
+    color: @main-color;
     margin: 10% 0 0 0;
     padding: 0;
 }
 
-.gouterItem img {
+.gouter-item img {
     margin: 0;
     padding: 0;
 }
 
-.circleVote i {
+.circle-vote i {
   font-weight: bold;
   font-size: 18px;
-  color: @mainColor;
+  color: @main-color;
   margin: 5% 0 20% 0;
   padding: 0px;
 }
 
+/* ------------------------------ MODAL ------------------------------ */
+.modal-content {
+  background-color: @background;
+}
+
+.modal-header h1 {
+  font-size: 35px;
+  color: @main-color;
+  margin: 10px 0 0 0;
+  padding: 0;
+}
+
+.modal-header {
+  padding-bottom: 0;
+}
+
+.modal-body {
+  padding: 10px 30px;
+}
+
+.modal-body h2 {
+  font-size: 25px;
+  color: @main-color;
+  margin: 3% 0 1% 0;
+  padding: 0;
+}
+
+.modal-body p {
+  font-size: 18px;
+  line-height: 22px;
+  color: @dark-comp-color;
+}
+
+.vote .green i,
+.vote .red i {
+  font-size: 80px;
+}
+
+.vote .green i,
+.vote .green h3 {
+  color: @green;
+}
+
+.vote .red i,
+.vote .red h3 {
+  color: @red;
+}
+
+.vote h3 {
+  font-size: 20px;
+  margin: 3% 0;
+}
+
+.a-gouter button {
+  .general-button;
+  font-size: 26px;
+  height: 60px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.a-gouter button:active,
+.a-gouter button:focus,
+.a-gouter button:hover {
+  .button-interaction
+}
+
+/* ------------------------------ DECONNECTION ------------------------------ */
 .deconnecter button {
   height: 30px;
   background-color: @red;
   border: none;
-  padding: 0px;
+  padding: 0;
 }
 
 .deconnecter button:active,
@@ -429,49 +555,44 @@ border-radius: 0 0 10px 10px;
 }
 
 /* ------------------------------ contreIndication ------------------------------ */
-.contreIndication-valider button {
-  .generalButton;
-  height: 90px;
-  margin-top: 100px;
-  margin-bottom: 20px;
-}
-
-.contreIndication-valider button:active,
-.contreIndication-valider button:focus,
-.contreIndication-valider button:hover {
-  .buttonInteraction;
-}
-
-.contreIndicationavatar {
+.contre-indicationavatar {
   margin-top: 40px;
 }
-.contreIndication.bubble.top {
-  margin-top: 50px;
-  height: 270px;
-  margin-bottom: 8%;
-  font-size: 1.7em;
-}
-.searchcontre {
-  margin-top: 80px;
-}
-.circle i {
-  font-size: 150px;
+
+.contre-indication.bubble.top {
   margin-top: 20px;
+  height: 180px;
 }
-.circle p {
-  font-size: 40px;
+
+.search-contre {
+  margin: 10% 0;
 }
+
+.contre-indication-valider button {
+  .general-button;
+  height: 80px;
+  font-size: 30px;
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+
+.contre-indication-valider button:active,
+.contre-indication-valider button:focus,
+.contre-indication-valider button:hover {
+  .button-interaction;
+}
+
 /* ------------------------------ tutoriel ------------------------------ */
-.tutorielPage {
+.tutoriel-page {
   opacity: 0.5;
 }
-.searchtutoriel {
+.search-tutoriel {
   margin-top: 20px;
 }
 .tutoriel {
   position: fixed; z-index: 1;
 }
-.tutorielavatar {
+.tutoriel-avatar {
   margin-top: 30px;
 }
 .tutoriel.bubble.top {
@@ -485,11 +606,11 @@ border-radius: 0 0 10px 10px;
 }
 /* ------------------------------ acceder à mon compte ------------------------------ */
 .compte.bubble.top {
-  height: 300px;
+  height: 350px;
 }
 
 .compte button {
-  .generalButton;
+  .general-button;
     height: 90px;
     width: 220px;
     font-size: 26px;
@@ -499,7 +620,7 @@ border-radius: 0 0 10px 10px;
 .compte button:active,
 .compte button:focus,
 .compte button:hover {
-  .buttonInteraction;
+  .button-interaction;
 }
 
 /* ------------------------------  NAVBAR ANON  ------------------------------ */
@@ -511,7 +632,7 @@ border-radius: 0 0 10px 10px;
     z-index: 3;
     top: 0;
     right: 0;
-    background-color: @mainColor;
+    background-color: @main-color;
     overflow-x: hidden;
     transition: 0.5s;
 }
@@ -531,7 +652,7 @@ border-radius: 0 0 10px 10px;
     opacity: 0.6;
 }
 
-.menu a{
+.menu a {
   color: white;
   font-size: 50px
 }

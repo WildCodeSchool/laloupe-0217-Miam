@@ -2,17 +2,17 @@
 <html ng-app="app">
 
 <head>
-    <title>
-        <%= pkg.name %>
-    </title>
+    <title>Miam!</title>
+    <link rel="icon" type="image/png" href="../img/miam-logo_favicon.png" />
 
     <link rel="stylesheet" type="text/css" href="<%= css %>" media="all" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Baloo" rel="stylesheet">
 </head>
 
 <body>
 
-    <div ui-view='navbar'></div>
+    <!-- <div ui-view='navbar'></div> -->
     <div ui-view='content'></div>
 
     <script type="text/javascript" src="<%= js %>"></script>
