@@ -5,9 +5,9 @@ angular.module('app')
         var i = 0;
         $scope.AlimentsInCatCurrent = [];
         $scope.AlimentsInCat = [];
-        $scope.AlimentsInCat.i = [];
+        $scope['AlimentsInCat' + i] = [];
 
-        $scope.AlimentsInCatCurrent = $scope.AlimentsInCat.i;
+        $scope.AlimentsInCatCurrent = $scope['AlimentsInCat' + i];
         console.log($scope.AlimentsInCatCurrent);
         $scope.categories = FoodFactory;
 
