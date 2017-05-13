@@ -3,8 +3,12 @@ angular.module('app')
         $scope.isActive = false;
         var isSelected = false;
         var i = 0;
-        $scope.AlimentsEatens = [];
+        $scope.AlimentsInCatCurrent = [];
         $scope.AlimentsInCat = [];
+        $scope.AlimentsInCat.i = [];
+
+        $scope.AlimentsInCatCurrent = $scope.AlimentsInCat.i;
+        console.log($scope.AlimentsInCatCurrent);
         $scope.categories = FoodFactory;
 
         $scope.currentCategorie = $scope.categories[i].categorie;
@@ -22,25 +26,25 @@ angular.module('app')
         };
 
         var foodIndex = function(food) {
-            return $scope.AlimentsEatens.map(function(aliment) {
+            return $scope.AlimentsInCatCurrent.map(function(aliment) {
                 return aliment.nameFood;
             }).indexOf(food.name);
         };
-
         $scope.isSelected = function(food) {
             return foodIndex(food) != -1;
         };
 
         $scope.selectFood = function(food) {
             if ($scope.isSelected(food)) {
-                $scope.AlimentsEatens.splice(foodIndex(food), 1);
+                $scope.AlimentsInCatCurrent.splice(foodIndex(food), 1);
+                console.log("isSelected", $scope.AlimentsInCatCurrent);
             } else {
                 var alreadyEaten = {
                     nameFood: food.name,
                     countVote: [true, true, true],
                 };
-                $scope.AlimentsEatens.push(alreadyEaten);
-                console.log(alreadyEaten);
+                $scope.AlimentsInCatCurrent.push(alreadyEaten);
+                console.log("!isSelected", $scope.AlimentsInCatCurrent);
             }
         };
 
@@ -54,13 +58,6 @@ angular.module('app')
 
 
 
-
-
-
-
-
-
-
                     $state.go('anon.gouter');
                 }, function(err) {});
                 $state.go('anon.gouter');
@@ -69,7 +66,7 @@ angular.module('app')
         $scope.selectAll = function() {
 
           if (isSelected === false) {
-            $scope.AlimentsInCat[i] = [];
+            $scope.AlimentsInCatCurrent = [];
 
               for (j = 0; j < $scope.currentsAliments.length; j++) {
 
@@ -77,16 +74,16 @@ angular.module('app')
                   nameFood: $scope.categories[i].aliments[j].name,
                   countVote: [true, true, true],
                 };
-                $scope.AlimentsInCat[i].push(alreadyEaten);
+                $scope.AlimentsInCatCurrent.push(alreadyEaten);
               }
 
-            console.log($scope.AlimentsInCat[i]);
+            console.log("false", $scope.AlimentsInCatCurrent);
             isSelected = true;
           }
           else {
-            $scope.AlimentsInCat[i] = [];
+            $scope.AlimentsInCatCurrent = [];
             isSelected = false;
-            console.log($scope.AlimentsEatens);
+            console.log("true", $scope.AlimentsInCatCurrent);
 
           }
         };
