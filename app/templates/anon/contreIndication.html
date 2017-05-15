@@ -34,9 +34,18 @@
             </div>
         </form>
         <p>Exemple : gluten, produits laitiers, porc...</p>
-        <div id="suggestion-container">
+
+        <!-- <div id="suggestion-container">
             <ul id="suggestion"></ul>
+        </div> -->
+
+        <div>
+          <input type="text" ng-model="searchString"  ng-change="searching()" ng-keydown="changecursor($event)" id="input" autofocus><br>
+          <select id="select" ng-style="vis" ng-model="txt" ng-click="copy($event)" ng-keypress="copy($event)" ng-keydown="changecursor($event)" multiple>
+            <option ng-repeat="i in items | filtersearch:searchString">{{i.string}}</option>
+          </select>
         </div>
+
     </section>
 
     <section class="row">

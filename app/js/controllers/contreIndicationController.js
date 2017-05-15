@@ -1,81 +1,58 @@
 angular.module('app')
+
+    .filter('filtersearch', function() {
+        return function(arr, searchString) {
+            if (!searchString) {
+                return arr;
+            }
+            var result = [];
+            angular.forEach(arr, function(item) {
+                if (item.string.indexOf(searchString) !== -1) {
+                    result.push(item);
+                }
+            });
+            return result;
+        };
+    })
+
     .controller('ContreIndicationController', function($scope) {
 
-      const textInput = document.getElementById('textInput');
-      const suggestionUl = document.getElementById('suggestion');
-      const suggestionContainer = document.getElementById('suggestion-container');
-      let picker = -1;
-      let picked = false;
+            $scope.items = [{
+                    string: 'mia'
+                },
+            ];
+            $scope.searching = function() {
+                if ($scope.searchString.length > 0) {
+                    $scope.vis = {
+                        'visibility': 'visible'
+                    };
+                } else {
+                    $scope.vis = {
+                        'visibility': 'hidden'
+                    };
+                }
+                $scope.changecursor = function($event) {
+                    if ($event.keyCode == 40) {
+                        document.getElementById("select").focus();
+                        if (document.getElementById("select").selectedIndex > 0) {} else {
+                            document.getElementById("select").selectedIndex = 0;
+                        }
+                    }
+                    if ($event.keyCode == 38) {
+                        if (document.getElementById("select").selectedIndex === 0) {
+                            document.getElementById("input").focus();
+                        }
+                    }
+                };
+                $scope.copy = function($event) {
+                    if ($event.keycode == 38) {} else if ($event.keycode == 40) {} else {
+                        $scope.searchString = $scope.txt;
+                        document.getElementById("input").focus();
+                    }
+                    $scope.vis = {
+                        'visibility': 'hidden'
+                    };
+                };
 
-      const fruits = ["Apple", "Apricot", "Avocado", "Banana", "Bilberry", "Blackberry", "Blackcurrant", "Blueberry", "Boysenberry", "Currant", "Cherry", "Cherimoya", "Cloudberry", "Coconut", "Cranberry", "Custard apple", "Damson", "Date", "Dragonfruit", "Durian", "Elderberry", "Feijoa", "Fig", "Fruit", "Goji berry", "Gooseberry", "Grape", "Grapefruit", "Guava", "Honeyberry", "Huckleberry", "Jabuticaba", "Jackfruit", "Jambul", "Jujube", "Juniper berry", "Kiwifruit", "Kumquat", "Lemon", "Lime", "Loquat", "Longan", "Lychee", "Mango", "Marionberry", "Melon", "Cantaloupe", "Honeydew","Watermelon", "Miracle fruit", "Mulberry", "Nectarine", "Nance", "Olive", "Orange","Blood orange","Clementine","Mandarine","Tangerine", "Papaya", "Passionfruit", "Peach", "Pear", "Persimmon", "Physalis", "Plantain", "Plum","Prune (dried plum)", "Pineapple", "Plumcot (or Pluot)", "Pomegranate", "Pomelo", "Purple mangosteen", "Quince", "Raspberry","Salmonberry", "Rambutan", "Redcurrant", "Salal berry", "Salak", "Satsuma", "Star fruit", "Strawberry", "Tamarillo", "Tamarind", "Tomato", "Ugli fruit", "Yuzu"];
-
-      suggestionContainer.hidden = true;
-      textInput.addEventListener('input', suggestionBox);
-
-      function suggestionBox(e) {
-        const input = e.target.value;
-
-        if (input === "") {
-          suggestionUl.innerHTML = "";
-          suggestionContainer.hidden = true;
-        } else {
-          let list = "";
-          let matchedFruits = fruits.filter(fruit => input.slice(0, input.length).toLowerCase() === fruit.toLowerCase().slice(0, input.length));
-
-          if (matchedFruits.length === 0) {
-            suggestionContainer.hidden = true;
-          } else {
-            for (let i = 0; i < matchedFruits.length; i++) {
-              list = list.concat('<li>' + matchedFruits[i] + '</li>');
-            }
-
-            suggestionContainer.hidden = false;
-            suggestionUl.innerHTML = list;
-
-            let suggestions = document.getElementsByTagName('LI');
-            let mapped = Array.from(suggestions).forEach((suggestion) => {
-              suggestion.addEventListener('click', populateInput);
-            });
-           }
-        }
-
-        picker = -1;
-      }
-
-      function populateInput(e) {
-        const selectedFruit = e.target.innerHTML;
-        textInput.value = selectedFruit;
-      }
-
-      document.addEventListener('keydown', function(e){
-        let suggestions = Array.from(document.getElementsByTagName('LI'));
-
-        if (e.keyCode === 9) {
-          e.preventDefault();
-
-          picker++;
-
-          if (picker < suggestions.length) {
-            suggestions.forEach(suggestion => {
-              if (suggestion.style.backgroundColor === 'slategray') {
-                suggestion.style.backgroundColor = '';
-                suggestion.style.color = 'black';
-              }
-            });
-
-            let style = suggestions[picker].style;
-            style.backgroundColor = 'slategray';
-            style.color = 'white';
-          } else {
-            picker = -1;
-          }
-        } else if (e.keyCode === 13) {
-          e.preventDefault();
-          if (suggestions[picker]) {
-            textInput.value = suggestions[picker].innerHTML;
-            suggestionUl.innerHTML = "";
-            suggestionContainer.hidden = true;
-          }
-        }
-      }, false);
-    });
+            };
+          });
