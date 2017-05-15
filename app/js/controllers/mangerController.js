@@ -2,6 +2,7 @@ angular.module('app')
     .controller('MangerController', function($scope, FoodFactory, MangerService) {
         $scope.isActive = false;
         var isSelected = false;
+          var selectedCat=false;
         var i = 0;
         $scope.AlimentsInCatCurrent = [];
         $scope.AlimentsInCat = [];
@@ -40,6 +41,7 @@ angular.module('app')
                 console.log("isSelected", $scope.AlimentsInCatCurrent);
             } else {
                 var alreadyEaten = {
+                    categorie: $scope.currentCategorie,
                     nameFood: food.name,
                     countVote: [true, true, true],
                 };
@@ -48,28 +50,46 @@ angular.module('app')
             }
         };
 
+        // var categorieIndex = function(categorie) {
+        //     return $scope.AlimentsInCatCurrent.map(function(aliment) {
+        //         return aliment.categorie;
+        //     }).indexOf($scope.currentCategorie);
+        // };
+        // $scope.isSelectedCat = function(categorie) {
+        //     return categorieIndex(categorie) != -1;
+        // };
+
         $scope.selectAll = function() {
 
-            if (isSelected === false) {
-                $scope.AlimentsInCatCurrent = [];
-
+            if (selectedCat === false) {
+              console.log("coucou");
                 for (j = 0; j < $scope.currentsAliments.length; j++) {
 
                     var alreadyEaten = {
+                        categorie: $scope.currentCategorie,
                         nameFood: $scope.categories[i].aliments[j].name,
                         countVote: [true, true, true],
                     };
                     $scope.AlimentsInCatCurrent.push(alreadyEaten);
                 }
-
-                console.log("false", $scope.AlimentsInCatCurrent);
-                isSelected = true;
+                console.log($scope.AlimentsInCatCurrent);
+                selectedCat = true;
+                console.log(selectedCat);
             } else {
-                $scope.AlimentsInCatCurrent = [];
-                isSelected = false;
-                console.log("true", $scope.AlimentsInCatCurrent);
+                for (var k = 0; k < $scope.AlimentsInCatCurrent.length; k++) {
+                  console.log($scope.AlimentsInCatCurrent.length);
+                    var currentAlimCat = $scope.AlimentsInCatCurrent[k].categorie;
+
+                    if (currentAlimCat === $scope.currentCategorie) {
+                        $scope.AlimentsInCatCurrent.splice(foodIndex([k]), 1);
+                    }
+                }
+                selectedCat = false;
+                console.log( $scope.AlimentsInCatCurrent);
+
             }
         };
+
         $scope.validCategorie = function() {
             if (i < $scope.categories.length) {
                 i++;
