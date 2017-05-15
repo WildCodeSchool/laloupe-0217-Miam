@@ -70,7 +70,7 @@ angular.module('app')
               composition: ["Viande"]
             },
             {
-              name: "Œuf",
+              name: "Oeuf",
               picto: "/img/egg.svg",
               description: "On mange le plus souvent ceux pondus par les poules.",
               suggestions: ["cocotte", "à la coque", "dur", "sur le plat", "mimosa"],

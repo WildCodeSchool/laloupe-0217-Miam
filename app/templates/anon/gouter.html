@@ -24,7 +24,7 @@
     <section class="row" ng-repeat="categorie in categories">
       <h2>{{ categorie.categorie }}</h2>
       <div class="gouter" ng-repeat="food in categorie.aliments track by $index">
-        <div class="col-xs-4 gouter-item" data-toggle="modal" data-target="#{{ food.suggestions[0] }}">
+        <div class="col-xs-4 gouter-item" data-toggle="modal" data-target="#{{ food.name }}">
             <img src="{{ food.picto }}" alt="{{ food.name }}" />
             <h3>{{ food.name }}</h3>
             <div class="circle-vote">
@@ -34,7 +34,7 @@
             </div>
         </div>
         <!-- MODAL -->
-        <div class="modal fade" id="{{ food.suggestions[0] }}" ng-repeat="food in categorie.aliments track by $index" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal fade" id="{{ food.name }}" ng-repeat="food in categorie.aliments track by $index" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
