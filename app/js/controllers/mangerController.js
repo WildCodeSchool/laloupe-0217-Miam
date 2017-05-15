@@ -48,6 +48,28 @@ angular.module('app')
             }
         };
 
+        $scope.selectAll = function() {
+
+            if (isSelected === false) {
+                $scope.AlimentsInCatCurrent = [];
+
+                for (j = 0; j < $scope.currentsAliments.length; j++) {
+
+                    var alreadyEaten = {
+                        nameFood: $scope.categories[i].aliments[j].name,
+                        countVote: [true, true, true],
+                    };
+                    $scope.AlimentsInCatCurrent.push(alreadyEaten);
+                }
+
+                console.log("false", $scope.AlimentsInCatCurrent);
+                isSelected = true;
+            } else {
+                $scope.AlimentsInCatCurrent = [];
+                isSelected = false;
+                console.log("true", $scope.AlimentsInCatCurrent);
+            }
+        };
         $scope.validCategorie = function() {
             if (i < $scope.categories.length) {
                 i++;
@@ -55,38 +77,10 @@ angular.module('app')
                 $scope.currentsAliments = $scope.categories[i].aliments;
             } else {
                 MangerService.create(nameFood, countVote).then(function(res) {
-
-
-
                     $state.go('anon.gouter');
                 }, function(err) {});
                 $state.go('anon.gouter');
             }
         };
-        $scope.selectAll = function() {
-
-          if (isSelected === false) {
-            $scope.AlimentsInCatCurrent = [];
-
-              for (j = 0; j < $scope.currentsAliments.length; j++) {
-
-                var alreadyEaten = {
-                  nameFood: $scope.categories[i].aliments[j].name,
-                  countVote: [true, true, true],
-                };
-                $scope.AlimentsInCatCurrent.push(alreadyEaten);
-              }
-
-            console.log("false", $scope.AlimentsInCatCurrent);
-            isSelected = true;
-          }
-          else {
-            $scope.AlimentsInCatCurrent = [];
-            isSelected = false;
-            console.log("true", $scope.AlimentsInCatCurrent);
-
-          }
-        };
-
 
     });
