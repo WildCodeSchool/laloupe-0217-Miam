@@ -508,28 +508,54 @@ border-radius: 0 0 10px 10px;
   color: @dark-comp-color;
 }
 
-.green button {
+.vote .green button {
   background-color: @green;
 }
 
-// .vote .green i,
-// .vote .red i {
-//   font-size: 80px;
-// }
-//
-// .vote .green i,
-// .vote .green h3 {
-//   color: @green;
-// }
-//
-// .vote .red i,
-// .vote .red h3 {
-//   color: @red;
-// }
+.vote .red button {
+  background-color: @red;
+}
+
+.vote button i {
+  opacity: 1;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.vote .green button:active,
+.vote .green button:focus,
+.vote .green button:hover,
+.vote .red button:active,
+.vote .red button:focus,
+.vote .red button:hover {
+  font-size: 30px;
+  background-color: white;
+}
+
+.vote .green button:active,
+.vote .green button:focus,
+.vote .green button:hover {
+  color: @green;
+  border: solid 5px @green;
+}
+
+.vote .red button:active,
+.vote .red button:focus,
+.vote .red button:hover {
+  color: @red;
+  border: solid 5px @red;
+}
 
 .vote h3 {
   font-size: 20px;
   margin: 3% 0;
+}
+
+.green h3 {
+  color: @green;
+}
+
+.red h3 {
+  color: @red;
 }
 
 .a-gouter button {
