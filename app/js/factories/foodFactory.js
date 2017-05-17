@@ -60,7 +60,21 @@ angular.module('app')
               picto: "/img/fish.svg",
               description: "De mer ou de rivière, il existe une quantité impressionnante d'espèces.",
               suggestions: ["cuit", "crue"],
-              composition: [""]
+              composition: ["Poisson"]
+            },
+            {
+              name: "Viande",
+              picto: "/img/steak.svg",
+              description: "Viande rouge ou viande blanche, il y en a pour tous les goûts !",
+              suggestions: ["cuite", "en tartare", "chaude", "froide"],
+              composition: ["Viande"]
+            },
+            {
+              name: "Oeuf",
+              picto: "/img/egg.svg",
+              description: "On mange le plus souvent ceux pondus par les poules.",
+              suggestions: ["cocotte", "à la coque", "dur", "sur le plat", "mimosa"],
+              composition: ["Œuf"]
             },
           ]
         },
