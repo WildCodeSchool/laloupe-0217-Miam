@@ -95,5 +95,28 @@ angular.module('app')
             }
         };
         return foodList;
+      });
 
-    });
+    //   function SimpleFood (name, categorie, composition) {
+    //     this.aliments.name = name;
+    //     this.categorie = categorie;
+    //     this.aliments.composition = composition;
+    //   }
+    //
+    //   SimpleFood.prototype = new Food;
+    //   var apple = new SimpleFood("Pomme", "Fruit", [""]);
+    //
+    // });
+
+    // .factory('SimpleFoodFactory', function() {
+    //
+    //   var simpleCategories = FoodFactory;
+    //   console.log(simpleCategories);
+    //
+    //   return [
+    //     {
+    //       categorie: $scope.categorie,
+    //     }
+    //   ];
+    //
+    // });

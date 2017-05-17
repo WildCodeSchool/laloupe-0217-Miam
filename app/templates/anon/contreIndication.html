@@ -42,7 +42,7 @@
         <div>
           <input type="text" ng-model="searchString"  ng-change="searching()" ng-keydown="changecursor($event)" id="input" autofocus><br>
           <select id="select" ng-style="vis" ng-model="txt" ng-click="copy($event)" ng-keypress="copy($event)" ng-keydown="changecursor($event)" multiple>
-            <option ng-repeat="i in items | filtersearch:searchString">{{i.string}}</option>
+            <option ng-repeat="i in items | filtersearch:searchString">{{i.categ}}</option>
           </select>
         </div>
 
