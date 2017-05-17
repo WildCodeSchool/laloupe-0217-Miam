@@ -94,4 +94,6 @@ angular.module('app')
                 }, ]
             }
         };
+        return foodList;
+
     });
