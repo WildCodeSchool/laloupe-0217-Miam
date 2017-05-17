@@ -94,4 +94,9 @@ angular.module('app')
                 }, ]
             }
         };
+        return {
+          foodList :  function (){
+            return  foodList;
+          }
+        };
     });

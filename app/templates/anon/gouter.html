@@ -21,7 +21,7 @@
         </form>
     </section>
 
-    <section class="row" ng-repeat="categorie in categories">
+    <section class="row" ng-repeat="categorie in foodList">
       <h2>{{ categorie.categorie }}</h2>
       <div class="gouter" ng-repeat="food in categorie.aliments track by $index">
         <div class="col-xs-4 gouter-item" data-toggle="modal" data-target="#{{ food.name }}">
