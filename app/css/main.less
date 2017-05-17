@@ -316,14 +316,18 @@ nav .pagination li a .glyphicon-chevron-right {
     height: 100px;
 }
 
-.btn-circle.btn-xl {
-  font-size: 60px;
-  line-height: 1;
+.btn-circle.btn-lg {
+  font-size: 45px;
+  line-height: 0;
   color: white;
   width: 80px;
   height: 80px;
   border-radius: 40px;
   background-color: @main-color;
+}
+
+.choice-avatar button i {
+  background-color: rgba(255, 255, 255, 0);
 }
 
 .choice-avatar {
@@ -504,24 +508,54 @@ border-radius: 0 0 10px 10px;
   color: @dark-comp-color;
 }
 
-.vote .green i,
-.vote .red i {
-  font-size: 80px;
+.vote .green button {
+  background-color: @green;
 }
 
-.vote .green i,
-.vote .green h3 {
+.vote .red button {
+  background-color: @red;
+}
+
+.vote button i {
+  opacity: 1;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.vote .green button:active,
+.vote .green button:focus,
+.vote .green button:hover,
+.vote .red button:active,
+.vote .red button:focus,
+.vote .red button:hover {
+  font-size: 30px;
+  background-color: white;
+}
+
+.vote .green button:active,
+.vote .green button:focus,
+.vote .green button:hover {
   color: @green;
+  border: solid 5px @green;
 }
 
-.vote .red i,
-.vote .red h3 {
+.vote .red button:active,
+.vote .red button:focus,
+.vote .red button:hover {
   color: @red;
+  border: solid 5px @red;
 }
 
 .vote h3 {
   font-size: 20px;
   margin: 3% 0;
+}
+
+.green h3 {
+  color: @green;
+}
+
+.red h3 {
+  color: @red;
 }
 
 .a-gouter button {
