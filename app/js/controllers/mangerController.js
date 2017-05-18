@@ -4,6 +4,8 @@ angular.module('app')
         $scope.foodList = FoodFactory;
         console.log($scope.foodList);
         console.log(Object.keys($scope.foodList));
+        $scope.limitNext = false;
+        $scope.limitPrev = true;
         var categories = Object.keys($scope.foodList);
         var i = 0;
         var j = 0;
@@ -48,13 +50,13 @@ angular.module('app')
                 }
             }
             if (currentAlimsCount === $scope.currentAliments.length) {
-              $scope.alimentsForDatabase = $scope.alimentsForDatabase.filter(function (aliment) {
-                return aliment.categorie != $scope.currentCategorie;
-              });
+                $scope.alimentsForDatabase = $scope.alimentsForDatabase.filter(function(aliment) {
+                    return aliment.categorie != $scope.currentCategorie;
+                });
             } else {
-              $scope.alimentsForDatabase = $scope.alimentsForDatabase.filter(function (aliment) {
-                return aliment.categorie != $scope.currentCategorie;
-              });
+                $scope.alimentsForDatabase = $scope.alimentsForDatabase.filter(function(aliment) {
+                    return aliment.categorie != $scope.currentCategorie;
+                });
                 for (l = 0; l < $scope.currentAliments.length; l++) {
                     var alreadyEaten = {
                         categorie: $scope.currentCategorie,
@@ -64,76 +66,24 @@ angular.module('app')
                     $scope.alimentsForDatabase.push(alreadyEaten);
                     console.log("add", $scope.alimentsForDatabase);
 
-
                 }
             }
+        };
 
+        $scope.validCategorie = function() {
+          if (i >= categories.length-1) {
+            console.log("send");
+          }
+            i++;
+            $scope.currentCategorie = categories[i];
+            console.log(i);
         };
 
 
-
-
-
-
-
-
-
-        // if ($scope.alimentsForDatabase.length === 0) {
-        //     for (j = 0; j < $scope.currentAliments.length; j++) {
-        //
-        //         var alreadyEaten = {
-        //           categorie: $scope.currentCategorie,
-        //             nameFood: $scope.currentAliments[j].name,
-        //             countVote: [true, true, true],
-        //         };
-        //         $scope.alimentsForDatabase.push(alreadyEaten);
-        //         console.log("add === 0", $scope.alimentsForDatabase);
-        //     }
-        // } else {
-        //     for (k = 0; k < $scope.alimentsForDatabase.length; k++) {
-        //         if ($scope.currentAliments.length != $scope.alimentsForDatabase.length) {
-        //             console.log("dfsdf");
-        //         }
-        //     }
-        //
-        // }
-
-
-
-
-
-
-
-
-
-        // $scope.selectFood = function(food) {
-        //
-        //     var alreadyEaten = {
-        //         nameFood: food.name,
-        //         countVote: [true, true, true],
-        //     };
-        //     console.log($scope.alimentsForDatabase.length);
-        //
-        //     if ($scope.alimentsForDatabase.length === 0) {
-        //         $scope.alimentsForDatabase.push(alreadyEaten);
-        //         console.log("add === 0", $scope.alimentsForDatabase);
-        //     } else {
-        //         for (j = 0; j < $scope.alimentsForDatabase.length; j++) {
-        //             if (food.name === $scope.alimentsForDatabase[j].nameFood) {
-        //               $scope.alimentsForDatabase.splice($scope.alimentsForDatabase[j], 1);
-        //               console.log("deleted", $scope.alimentsForDatabase);
-        //             } else {
-        //               $scope.alimentsForDatabase.push(alreadyEaten);
-        //               console.log("add in loop", $scope.alimentsForDatabase);
-        //             }
-        //         }
-        //     }
-        // };
-
-
         $scope.nextCategorie = function() {
-            if (i >= $scope.currentCategorie.length) {
-                //Desable ng-click
+            console.log($scope.limitNext);
+            if (i >= categories.length-1) {
+                $scope.limitNext = true;
             }
             i++;
             $scope.currentCategorie = categories[i];
@@ -141,8 +91,9 @@ angular.module('app')
         };
 
         $scope.prevCategorie = function() {
+            console.log($scope.limitPrev);
             if (i === 0) {
-                //Desable ng-click
+                $scope.limiPrev = true;
             }
             i--;
             $scope.currentCategorie = categories[i];
