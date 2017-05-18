@@ -42,8 +42,6 @@ angular.module('app')
         $scope.selectAll = function() {
             $scope.currentAliments = $scope.foodList[$scope.currentCategorie].aliments;
             var currentAlimsCount = 0;
-            console.log($scope.currentCategorie);
-            console.log("aliments", $scope.currentAliments);
             for (j = 0; j < $scope.alimentsForDatabase.length; j++) {
                 if ($scope.alimentsForDatabase[j].categorie === $scope.currentCategorie) {
                     currentAlimsCount++;
@@ -54,12 +52,9 @@ angular.module('app')
                 return aliment.categorie != $scope.currentCategorie;
               });
             } else {
-                for (k = 0; k < $scope.alimentsForDatabase.length; k++) {
-                    if ($scope.alimentsForDatabase[k].categorie === $scope.currentCategorie) {
-                        $scope.alimentsForDatabase.splice(k, 1);
-                        console.log("splice to add", $scope.alimentsForDatabase);
-                    }
-                }
+              $scope.alimentsForDatabase = $scope.alimentsForDatabase.filter(function (aliment) {
+                return aliment.categorie != $scope.currentCategorie;
+              });
                 for (l = 0; l < $scope.currentAliments.length; l++) {
                     var alreadyEaten = {
                         categorie: $scope.currentCategorie,
