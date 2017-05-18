@@ -94,7 +94,7 @@ angular.module('app')
 
 
 
-        $scope.set_color = function (payment) {
+        $scope.set_color = function (currentcatsymbol) {
           if ($scope.currentCategorie) {
             return { color: "bleu" };
           }
