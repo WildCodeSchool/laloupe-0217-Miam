@@ -2,8 +2,6 @@ angular.module('app')
     .controller('MangerController', function($scope, FoodFactory) {
 
         $scope.foodList = FoodFactory;
-        console.log($scope.foodList);
-        console.log(Object.keys($scope.foodList));
         $scope.limitNext = false;
         $scope.limitPrev = true;
         var categories = Object.keys($scope.foodList);
@@ -14,7 +12,6 @@ angular.module('app')
         $scope.filterLimit = 3;
         $scope.currentCategorie = categories[i];
         $scope.currentAliments = $scope.foodList[$scope.currentCategorie].aliments;
-        console.log($scope.currentAliments);
         $scope.alimentsForDatabase = [];
 
         var foodIndex = function(food) {
@@ -65,15 +62,26 @@ angular.module('app')
                     };
                     $scope.alimentsForDatabase.push(alreadyEaten);
                     console.log("add", $scope.alimentsForDatabase);
-
                 }
             }
         };
 
+
+        // $scope.limitNext = function() {
+        //     if (i >= categories.length - 1) {
+        //         return true;
+        //     }
+        //     return false;
+        // };
+        //
+        // $scope.limitPrev = function() {
+        //     if (i <= 0) {
+        //         return true;
+        //     }
+        //     return false;
+        // };
+
         $scope.validCategorie = function() {
-          if (i >= categories.length-1) {
-            console.log("send");
-          }
             i++;
             $scope.currentCategorie = categories[i];
             console.log(i);
@@ -81,22 +89,22 @@ angular.module('app')
 
 
         $scope.nextCategorie = function() {
-            console.log($scope.limitNext);
-            if (i >= categories.length-1) {
-                $scope.limitNext = true;
-            }
+          if (i>= categories.length - 1) {
+            return true;
+          }
             i++;
             $scope.currentCategorie = categories[i];
+            return false;
 
         };
 
         $scope.prevCategorie = function() {
-            console.log($scope.limitPrev);
-            if (i === 0) {
-                $scope.limiPrev = true;
+            if (i <= 0) {
+                return true;
             }
             i--;
             $scope.currentCategorie = categories[i];
+            return false;
 
         };
     });
