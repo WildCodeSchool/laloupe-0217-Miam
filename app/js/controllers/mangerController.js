@@ -1,27 +1,21 @@
 angular.module('app')
-    .controller('MangerController', function($scope, FoodFactory, MangerService) {
-        $scope.isActive = false;
-        var isSelected = false;
+    .controller('MangerController', function($scope, FoodFactory) {
+
+        $scope.foodList = FoodFactory;
+        $scope.limitNext = false;
+        $scope.limitPrev = true;
+        $scope.categories = Object.keys($scope.foodList);
         var i = 0;
-        $scope.AlimentsEatens = [];
-        $scope.categories = FoodFactory;
-
-        $scope.currentCategorie = $scope.categories[i].categorie;
-        $scope.currentsAliments = $scope.categories[i].aliments;
-        $scope.nextCategorie = function() {
-            i++;
-            $scope.currentCategorie = $scope.categories[i].categorie;
-            $scope.currentsAliments = $scope.categories[i].aliments;
-        };
-
-        $scope.prevCategorie = function() {
-            i--;
-            $scope.currentCategorie = $scope.categories[i].categorie;
-            $scope.currentsAliments = $scope.categories[i].aliments;
-        };
+        var j = 0;
+        var k = 0;
+        var l = 0;
+        $scope.filterLimit = 3;
+        $scope.currentCategorie = $scope.categories[i];
+        $scope.currentAliments = $scope.foodList[$scope.currentCategorie].aliments;
+        $scope.alimentsForDatabase = [];
 
         var foodIndex = function(food) {
-            return $scope.AlimentsEatens.map(function(aliment) {
+            return $scope.alimentsForDatabase.map(function(aliment) {
                 return aliment.nameFood;
             }).indexOf(food.name);
         };
@@ -32,53 +26,83 @@ angular.module('app')
 
         $scope.selectFood = function(food) {
             if ($scope.isSelected(food)) {
-                $scope.AlimentsEatens.splice(foodIndex(food), 1);
+                $scope.alimentsForDatabase.splice(foodIndex(food), 1);
+                console.log($scope.alimentsForDatabase);
             } else {
                 var alreadyEaten = {
+                    categorie: $scope.currentCategorie,
                     nameFood: food.name,
                     countVote: [true, true, true],
                 };
-                $scope.AlimentsEatens.push(alreadyEaten);
-                console.log(alreadyEaten);
+                $scope.alimentsForDatabase.push(alreadyEaten);
+                console.log($scope.alimentsForDatabase);
+            }
+        };
+        $scope.selectAll = function() {
+            $scope.currentAliments = $scope.foodList[$scope.currentCategorie].aliments;
+            var currentAlimsCount = 0;
+            for (j = 0; j < $scope.alimentsForDatabase.length; j++) {
+                if ($scope.alimentsForDatabase[j].categorie === $scope.currentCategorie) {
+                    currentAlimsCount++;
+                }
+            }
+            if (currentAlimsCount === $scope.currentAliments.length) {
+                $scope.alimentsForDatabase = $scope.alimentsForDatabase.filter(function(aliment) {
+                    return aliment.categorie != $scope.currentCategorie;
+                });
+            } else {
+                $scope.alimentsForDatabase = $scope.alimentsForDatabase.filter(function(aliment) {
+                    return aliment.categorie != $scope.currentCategorie;
+                });
+                for (l = 0; l < $scope.currentAliments.length; l++) {
+                    var alreadyEaten = {
+                        categorie: $scope.currentCategorie,
+                        nameFood: $scope.currentAliments[l].name,
+                        countVote: [true, true, true],
+                    };
+                    $scope.alimentsForDatabase.push(alreadyEaten);
+                    console.log("add", $scope.alimentsForDatabase);
+                }
             }
         };
 
         $scope.validCategorie = function() {
-            if (i < $scope.categories.length) {
-                i++;
-                $scope.currentCategorie = $scope.categories[i].categorie;
-                $scope.currentsAliments = $scope.categories[i].aliments;
-            } else {
-                MangerService.create(nameFood, countVote).then(function(res) {
-                    $state.go('anon.gouter');
-                }, function(err) {});
-                $state.go('anon.gouter');
+            i++;
+            $scope.currentCategorie = $scope.categories[i];
+            console.log(i);
+        };
+
+
+        $scope.nextCategorie = function() {
+          if (i>= $scope.categories.length - 1) {
+            return true;
+          }
+            i++;
+            $scope.currentCategorie = $scope.categories[i];
+            return false;
+
+        };
+
+        $scope.prevCategorie = function() {
+            if (i <= 0) {
+                return true;
             }
+            i--;
+            $scope.currentCategorie = $scope.categories[i];
+            return false;
         };
-        $scope.selectAll = function() {
 
-          if (isSelected === false) {
-            $scope.AlimentsEatens = [];
 
-              for (j = 0; j < $scope.currentsAliments.length; j++) {
 
-                var alreadyEaten = {
-                  nameFood: $scope.categories[i].aliments[j].name,
-                  countVote: [true, true, true],
-                };
-                $scope.AlimentsEatens.push(alreadyEaten);
-              }
-
-            console.log($scope.AlimentsEatens);
-            isSelected = true;
-          }
-          else {
-            $scope.AlimentsEatens = [];
-            isSelected = false;
-            console.log($scope.AlimentsEatens);
-
+        $scope.set_color = function (currentcatsymbol) {
+          if ($scope.currentCategorie) {
+            return { color: "bleu" };
           }
         };
+
+
+
+
 
 
     });

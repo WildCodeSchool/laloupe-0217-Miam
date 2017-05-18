@@ -19,14 +19,17 @@
       </div>
     </section>
 
-    <section class="row" ng-repeat="categorie in categories | limitTo : 1">
+    <section class="row" ng-repeat="categorie in currentCategorie | limitTo : 1">
         <h2>{{ currentCategorie }}</h2>
-        <div class="manger" ng-repeat="food in currentsAliments track by $index">
+
+        <div class="manger" ng-repeat="food in foodList[currentCategorie].aliments track by $index">
           <div class="col-xs-4 manger-item" ng-click="selectFood(food)" ng-class="{'color-food': isSelected(food)}">
               <img src="{{ food.picto }}" alt="{{ food.name }}" />
               <h3>{{ food.name }}</h3>
           </div>
         </div>
+
+
     </section>
 
     <section class="row manger-valider">
@@ -36,55 +39,23 @@
 
     <footer>
         <nav class="row">
-            <ul class="pagination">
-              <li class="page-item">
-                <a class="page-link" aria-label="Previous" ng-click="prevCategorie()">
+
+                <div class="page-link col-xs-2" aria-label="Previous" ng-click="prevCategorie()" ng-disabled="limitPrev">
                   <i class="glyphicon glyphicon-chevron-left" aria-hidden="true"></i>
                   <span class="sr-only">Previous</span>
-                </a>
-              </li>
-              <li class="page-item">
-                <a>
-                  <i class="fa fa-circle-o" aria-hidden="true"></i>
-                </a>
-              </li>
-              <li class="page-item">
-                <a>
-                  <i class="fa fa-circle" aria-hidden="true"></i>
-                </a>
-              </li>
-              <li class="page-item">
-                <a>
-                  <i class="fa fa-circle" aria-hidden="true"></i>
-                </a>
-              </li>
-              <li class="page-item">
-                <a>
-                  <i class="fa fa-circle" aria-hidden="true"></i>
-                </a>
-              </li>
-              <li class="page-item">
-                <a>
-                  <i class="fa fa-circle" aria-hidden="true"></i>
-                </a>
-              </li>
-              <li class="page-item">
-                <a>
-                  <i class="fa fa-circle" aria-hidden="true"></i>
-                </a>
-              </li>
-              <li class="page-item">
-                <a>
-                  <i class="fa fa-circle" aria-hidden="true"></i>
-                </a>
-              </li>
-              <li class="page-item" ng-click="nextCategorie()">
-                <a class="page-link" aria-label="Next">
+                </div>
+
+              <div class="page-item col-xs-8" ng-repeat="categorie in categories">
+                <div class="currentclass" ng-style="set_color(currentcatsymbol)">{{categorie}}</div>
+              </div>
+
+
+                <div class="page-link col-xs-2" aria-label="Next" ng-click="nextCategorie()" ng-disabled="limitNext">
                   <i class="glyphicon glyphicon-chevron-right" aria-hidden="true"></i>
                   <span class="sr-only">Next</span>
-                </a>
-              </li>
-            </ul>
+                </div>
+
+
         </nav>
     </footer>
 
