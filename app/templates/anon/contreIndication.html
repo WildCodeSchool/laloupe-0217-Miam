@@ -25,7 +25,18 @@
     <section class="row search-contre">
         <form ng-submit="goSearch()">
             <div class="col-xs-offset-1 col-xs-10 input-group">
-                <input class="form-control input-lg" id="textInput" placeholder="Rechercher" />
+
+                <input class="form-control input-lg" type="text" placeholder="Rechercher" list="counters" ng-model="counter" />
+                <datalist id="counters">
+                  <datalist>
+                    <option ng-repeat="food in value.aliments" value="{{ food.name }}"></option>
+                    <option ng-repeat="food in value.aliments" value="{{ food.composition }}"></option>
+                  </datalist>
+                  <option ng-repeat="(key, value) in foodList" value="{{ key }}"></option>
+                </datalist>
+                <!-- <option data-ng-repeat="food in foodList[currentCategorie].aliments" value="{{ currentCategorie }}">{{ food.name }}</option> -->
+                <!-- arrayToString(food.composition) -->
+
                 <span class="input-group-btn">
                     <button class="btn btn-default btn-lg" type="button">
                       <span class="glyphicon glyphicon-search"></span>
@@ -34,18 +45,6 @@
             </div>
         </form>
         <p>Exemple : gluten, produits laitiers, porc...</p>
-
-        <!-- <div id="suggestion-container">
-            <ul id="suggestion"></ul>
-        </div> -->
-
-        <div>
-          <input type="text" ng-model="searchString"  ng-change="searching()" ng-keydown="changecursor($event)" id="input" autofocus><br>
-          <select id="select" ng-style="vis" ng-model="txt" ng-click="copy($event)" ng-keypress="copy($event)" ng-keydown="changecursor($event)" multiple>
-            <option ng-repeat="i in items | filtersearch:searchString">{{i.categ}}</option>
-          </select>
-        </div>
-
     </section>
 
     <section class="row">
