@@ -10,7 +10,7 @@ angular.module('app')
         var k = 0;
         var l = 0;
         $scope.filterLimit = 3;
-        $scope.currentCategorie = categories[0];
+        $scope.currentCategorie = categories[i];
         $scope.currentAliments = $scope.foodList[$scope.currentCategorie].aliments;
         console.log($scope.currentAliments);
         $scope.alimentsForDatabase = [];
@@ -40,72 +40,68 @@ angular.module('app')
             }
         };
         $scope.selectAll = function() {
-          var currentAlimsCount = 0;
-
+            $scope.currentAliments = $scope.foodList[$scope.currentCategorie].aliments;
+            var currentAlimsCount = 0;
+            console.log($scope.currentCategorie);
+            console.log("aliments", $scope.currentAliments);
             for (j = 0; j < $scope.alimentsForDatabase.length; j++) {
                 if ($scope.alimentsForDatabase[j].categorie === $scope.currentCategorie) {
                     currentAlimsCount++;
-                    console.log(currentAlimsCount);
                 }
-                  }
-                if (currentAlimsCount === $scope.currentAliments.length) {
-                    for (k = 0; k < $scope.alimentsForDatabase.length; k++) {
-                        if ($scope.alimentsForDatabase[k].categorie === $scope.currentCategorie) {
-                            $scope.alimentsForDatabase.splice($scope.alimentsForDatabase[k], 1);
-                            console.log("splice", $scope.alimentsForDatabase);
-                            currentAlimsCount = 0;
-                        }
+            }
+            if (currentAlimsCount === $scope.currentAliments.length) {
+              $scope.alimentsForDatabase = $scope.alimentsForDatabase.filter(function (aliment) {
+                return aliment.categorie != $scope.currentCategorie;
+              });
+            } else {
+                for (k = 0; k < $scope.alimentsForDatabase.length; k++) {
+                    if ($scope.alimentsForDatabase[k].categorie === $scope.currentCategorie) {
+                        $scope.alimentsForDatabase.splice(k, 1);
+                        console.log("splice to add", $scope.alimentsForDatabase);
                     }
                 }
-                else {
-                  for (k = 0; k < $scope.alimentsForDatabase.length; k++) {
-                      if ($scope.alimentsForDatabase[k].categorie === $scope.currentCategorie) {
-                          $scope.alimentsForDatabase.splice($scope.alimentsForDatabase[k], 1);
-                          console.log("splice to add", $scope.alimentsForDatabase);
-                      }
-                  }
-                  for (l = 0; l < $scope.currentAliments.length; l++) {
+                for (l = 0; l < $scope.currentAliments.length; l++) {
                     var alreadyEaten = {
-                             categorie: $scope.currentCategorie,
-                               nameFood: $scope.currentAliments[l].name,
-                               countVote: [true, true, true],
-                           };
-                      $scope.alimentsForDatabase.push(alreadyEaten);
-                      console.log("add", $scope.alimentsForDatabase);
+                        categorie: $scope.currentCategorie,
+                        nameFood: $scope.currentAliments[l].name,
+                        countVote: [true, true, true],
+                    };
+                    $scope.alimentsForDatabase.push(alreadyEaten);
+                    console.log("add", $scope.alimentsForDatabase);
 
 
-                  }
                 }
+            }
 
-          };
-
-
-
+        };
 
 
 
 
 
 
-            // if ($scope.alimentsForDatabase.length === 0) {
-            //     for (j = 0; j < $scope.currentAliments.length; j++) {
-            //
-            //         var alreadyEaten = {
-            //           categorie: $scope.currentCategorie,
-            //             nameFood: $scope.currentAliments[j].name,
-            //             countVote: [true, true, true],
-            //         };
-            //         $scope.alimentsForDatabase.push(alreadyEaten);
-            //         console.log("add === 0", $scope.alimentsForDatabase);
-            //     }
-            // } else {
-            //     for (k = 0; k < $scope.alimentsForDatabase.length; k++) {
-            //         if ($scope.currentAliments.length != $scope.alimentsForDatabase.length) {
-            //             console.log("dfsdf");
-            //         }
-            //     }
-            //
-            // }
+
+
+
+        // if ($scope.alimentsForDatabase.length === 0) {
+        //     for (j = 0; j < $scope.currentAliments.length; j++) {
+        //
+        //         var alreadyEaten = {
+        //           categorie: $scope.currentCategorie,
+        //             nameFood: $scope.currentAliments[j].name,
+        //             countVote: [true, true, true],
+        //         };
+        //         $scope.alimentsForDatabase.push(alreadyEaten);
+        //         console.log("add === 0", $scope.alimentsForDatabase);
+        //     }
+        // } else {
+        //     for (k = 0; k < $scope.alimentsForDatabase.length; k++) {
+        //         if ($scope.currentAliments.length != $scope.alimentsForDatabase.length) {
+        //             console.log("dfsdf");
+        //         }
+        //     }
+        //
+        // }
 
 
 
