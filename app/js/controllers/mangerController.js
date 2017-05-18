@@ -4,13 +4,13 @@ angular.module('app')
         $scope.foodList = FoodFactory;
         $scope.limitNext = false;
         $scope.limitPrev = true;
-        var categories = Object.keys($scope.foodList);
+        $scope.categories = Object.keys($scope.foodList);
         var i = 0;
         var j = 0;
         var k = 0;
         var l = 0;
         $scope.filterLimit = 3;
-        $scope.currentCategorie = categories[i];
+        $scope.currentCategorie = $scope.categories[i];
         $scope.currentAliments = $scope.foodList[$scope.currentCategorie].aliments;
         $scope.alimentsForDatabase = [];
 
@@ -66,34 +66,19 @@ angular.module('app')
             }
         };
 
-
-        // $scope.limitNext = function() {
-        //     if (i >= categories.length - 1) {
-        //         return true;
-        //     }
-        //     return false;
-        // };
-        //
-        // $scope.limitPrev = function() {
-        //     if (i <= 0) {
-        //         return true;
-        //     }
-        //     return false;
-        // };
-
         $scope.validCategorie = function() {
             i++;
-            $scope.currentCategorie = categories[i];
+            $scope.currentCategorie = $scope.categories[i];
             console.log(i);
         };
 
 
         $scope.nextCategorie = function() {
-          if (i>= categories.length - 1) {
+          if (i>= $scope.categories.length - 1) {
             return true;
           }
             i++;
-            $scope.currentCategorie = categories[i];
+            $scope.currentCategorie = $scope.categories[i];
             return false;
 
         };
@@ -103,8 +88,21 @@ angular.module('app')
                 return true;
             }
             i--;
-            $scope.currentCategorie = categories[i];
+            $scope.currentCategorie = $scope.categories[i];
             return false;
-
         };
+
+
+
+        $scope.set_color = function (payment) {
+          if ($scope.currentCategorie) {
+            return { color: "bleu" };
+          }
+        };
+
+
+
+
+
+
     });
