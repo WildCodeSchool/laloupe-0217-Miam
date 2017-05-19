@@ -1,5 +1,6 @@
 angular.module('app')
     .controller('MangerController', function($scope, FoodFactory) {
+      var currentAlimsCount=0;
 
         $scope.foodList = FoodFactory;
         $scope.limitNext = false;
@@ -20,6 +21,24 @@ angular.module('app')
             }).indexOf(food.name);
         };
 
+
+
+        var init = function () {
+          if (currentAlimsCount !== $scope.currentAliments.length) {
+            $scope.showSelectAll = false;
+            $scope.showUnSelectAll = true;
+            console.log("unselected");
+          }
+          else {
+            $scope.showSelectAll = true;
+            $scope.showUnSelectAll = false;
+            console.log("selected");
+          }
+
+        };
+
+    init();
+
         $scope.isSelected = function(food) {
             return foodIndex(food) != -1;
         };
@@ -38,16 +57,20 @@ angular.module('app')
                 console.log($scope.alimentsForDatabase);
             }
         };
+
         $scope.selectAll = function() {
+          init();
+          currentAlimsCount=0;
             $scope.currentAliments = $scope.foodList[$scope.currentCategorie].aliments;
-            var currentAlimsCount = 0;
             for (j = 0; j < $scope.alimentsForDatabase.length; j++) {
                 if ($scope.alimentsForDatabase[j].categorie === $scope.currentCategorie) {
                     currentAlimsCount++;
+                    console.log(currentAlimsCount);
                 }
             }
             if (currentAlimsCount === $scope.currentAliments.length) {
                 $scope.alimentsForDatabase = $scope.alimentsForDatabase.filter(function(aliment) {
+
                     return aliment.categorie != $scope.currentCategorie;
                 });
             } else {
@@ -60,11 +83,15 @@ angular.module('app')
                         nameFood: $scope.currentAliments[l].name,
                         countVote: [true, true, true],
                     };
+
                     $scope.alimentsForDatabase.push(alreadyEaten);
+
                     console.log("add", $scope.alimentsForDatabase);
+                    console.log(currentAlimsCount);
                 }
             }
         };
+
 
         $scope.validCategorie = function() {
             i++;
@@ -74,6 +101,7 @@ angular.module('app')
 
 
         $scope.nextCategorie = function() {
+init();
           if (i>= $scope.categories.length - 1) {
             return true;
           }
@@ -84,6 +112,7 @@ angular.module('app')
         };
 
         $scope.prevCategorie = function() {
+init();
             if (i <= 0) {
                 return true;
             }
@@ -92,17 +121,10 @@ angular.module('app')
             return false;
         };
 
-
-
         $scope.set_color = function (currentcatsymbol) {
           if ($scope.currentCategorie) {
             return { color: "bleu" };
           }
         };
-
-
-
-
-
 
     });
