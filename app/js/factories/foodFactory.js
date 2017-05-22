@@ -152,9 +152,9 @@ angular.module('app')
                 aliments: [{
                     name: "Gâteau",
                     picto: "/img/cake.svg",
-                    description: "Aux fruits, chocolats crème... il y a l'embarras du choix.",
+                    description: "Au fruit, au chocolat, à la crème... il y a l'embarras du choix.",
                     suggestions: ["gâteau"],
-                    composition: [""]
+                    composition: ["Gluten"]
                 }, ]
             }
         };
