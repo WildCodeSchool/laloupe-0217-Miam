@@ -25,28 +25,16 @@ angular.module('app')
             console.log("currentAliment", $scope.currentAliment);
 
 
-              //
-              // $scope.counterSearch = function (food) {
-              //   if($scope.query === "") {
-              //
-              //   } else {
-              //     console.log($scope.query);
-              //     return (angular.lowercase(food.name).indexOf(angular.lowercase($scope.query) || '') !== -1 ||
-              //             angular.lowercase(food.composition).indexOf(angular.lowercase($scope.query) || '') !== -1);
-              //   }
-              // };
 
-              $scope.items = [];
+              $scope.counterSearch = function (food) {
+                if($scope.query === "") {
 
-              $scope.query = "";
-              $scope.addItem = function () {
-                if($scope.query.length > 0) {
-                  var emptySearch = {done: false, value: ""};
-                  emptySearch.value = $scope.query;
-                  $scope.items.push(emptySearch);
-                  $scope.query = "";
+                } else {
+                  return (angular.lowercase(food.name).indexOf(angular.lowercase($scope.query) || '') !== -1 ||
+                          angular.lowercase(food.composition).indexOf(angular.lowercase($scope.query) || '') !== -1);
                 }
               };
+
 
 
 
