@@ -1,6 +1,6 @@
 angular.module('app')
 
-    .controller('ContreIndicationController', function($scope, $stateParams, FoodFactory) {
+    .controller('ContreIndicationController', function($scope, $filter, $interval, FoodFactory) {
 
             $scope.foodList = FoodFactory;
             console.log($scope.foodList);
@@ -24,7 +24,37 @@ angular.module('app')
             console.log("currentCategorie", $scope.currentCategorie);
             console.log("currentAliment", $scope.currentAliment);
 
-            $scope.counterSearch = "";
+
+              //
+              // $scope.counterSearch = function (food) {
+              //   if($scope.query === "") {
+              //
+              //   } else {
+              //     console.log($scope.query);
+              //     return (angular.lowercase(food.name).indexOf(angular.lowercase($scope.query) || '') !== -1 ||
+              //             angular.lowercase(food.composition).indexOf(angular.lowercase($scope.query) || '') !== -1);
+              //   }
+              // };
+
+              $scope.items = [];
+
+              $scope.query = "";
+              $scope.addItem = function () {
+                if($scope.query.length > 0) {
+                  var emptySearch = {done: false, value: ""};
+                  emptySearch.value = $scope.query;
+                  $scope.items.push(emptySearch);
+                  $scope.query = "";
+                }
+              };
+
+
+
+
+
+
+
+
 
             // $scope.notEatingForDatabase = [];
             //
@@ -40,7 +70,7 @@ angular.module('app')
             //   return $scope.currentAliment;
             // }
 
-            
+
 
 
 
