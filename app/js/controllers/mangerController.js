@@ -1,6 +1,6 @@
 angular.module('app')
-    .controller('MangerController', function($scope, FoodFactory) {
-      var currentAlimsCount=0;
+    .controller('MangerController', function($scope, FoodFactory, LocalService) {
+        $scope.currentAlimsCount = 0;
 
         $scope.foodList = FoodFactory;
         $scope.limitNext = false;
@@ -22,31 +22,43 @@ angular.module('app')
         };
 
 
+        // function SelectedAll() {
+        //     $scope.IsSelectedAll = $scope.currentAlimsCount === $scope.currentAliments.length;
+        //   }
 
-        var init = function () {
-          if (currentAlimsCount !== $scope.currentAliments.length) {
-            $scope.showSelectAll = false;
-            $scope.showUnSelectAll = true;
-            console.log("unselected");
-          }
-          else {
-            $scope.showSelectAll = true;
-            $scope.showUnSelectAll = false;
-            console.log("selected");
-          }
+          $scope.IsSelectedAll = $scope.currentAlimsCount === $scope.currentAliments.length;
 
-        };
 
-    init();
+          console.log($scope.IsSelectedAll, $scope.currentAlimsCount, $scope.currentAliments.length);
+
+
+
+        $scope.$watch(function() {
+            $scope.currentAliments = $scope.foodList[$scope.currentCategorie].aliments;
+          return $scope.currentCategorie;
+        }, function() {
+          $scope.IsSelectedAll = $scope.currentAlimsCount === $scope.currentAliments.length;
+          console.log("apres chgt categorie", $scope.IsSelectedAll, '-- currentAliments.length',$scope.currentAliments.length, '-- currentAlimCount', $scope.currentAlimsCount);
+        });
+        $scope.$watch(function() {
+            $scope.currentAliments = $scope.foodList[$scope.currentCategorie].aliments;
+          return $scope.currentAlimsCount;
+        }, function() {
+          $scope.IsSelectedAll = $scope.currentAlimsCount === $scope.currentAliments.length;
+          console.log("apres chgt alimCount", $scope.IsSelectedAll, '-- currentAliments.length',$scope.currentAliments.length, '-- currentAlimCount', $scope.currentAlimsCount);
+        });
 
         $scope.isSelected = function(food) {
-            return foodIndex(food) != -1;
+            return foodIndex(food) !== -1;
         };
 
         $scope.selectFood = function(food) {
             if ($scope.isSelected(food)) {
                 $scope.alimentsForDatabase.splice(foodIndex(food), 1);
-                console.log($scope.alimentsForDatabase);
+                $scope.currentAlimsCount--;
+                console.log("delete single alimCount", $scope.IsSelectedAll, '-- currentAliments.length',$scope.currentAliments.length, '-- currentAlimCount', $scope.currentAlimsCount);
+
+
             } else {
                 var alreadyEaten = {
                     categorie: $scope.currentCategorie,
@@ -54,28 +66,31 @@ angular.module('app')
                     countVote: [true, true, true],
                 };
                 $scope.alimentsForDatabase.push(alreadyEaten);
-                console.log($scope.alimentsForDatabase);
+                $scope.currentAlimsCount++;
+                console.log("add single alimCount", $scope.IsSelectedAll, '-- currentAliments.length',$scope.currentAliments.length, '-- currentAlimCount', $scope.currentAlimsCount);
+
             }
         };
 
         $scope.selectAll = function() {
-          init();
-          currentAlimsCount=0;
+
+        $scope.currentAlimsCount = 0;
             $scope.currentAliments = $scope.foodList[$scope.currentCategorie].aliments;
             for (j = 0; j < $scope.alimentsForDatabase.length; j++) {
                 if ($scope.alimentsForDatabase[j].categorie === $scope.currentCategorie) {
-                    currentAlimsCount++;
-                    console.log(currentAlimsCount);
+                    $scope.currentAlimsCount++;
                 }
             }
-            if (currentAlimsCount === $scope.currentAliments.length) {
+            if ($scope.currentAlimsCount === $scope.currentAliments.length) {
                 $scope.alimentsForDatabase = $scope.alimentsForDatabase.filter(function(aliment) {
+                  console.log($scope.IsSelectedAll, $scope.currentAlimsCount, $scope.currentAliments.length);
 
-                    return aliment.categorie != $scope.currentCategorie;
+                    return aliment.categorie !== $scope.currentCategorie;
                 });
             } else {
                 $scope.alimentsForDatabase = $scope.alimentsForDatabase.filter(function(aliment) {
-                    return aliment.categorie != $scope.currentCategorie;
+
+                    return aliment.categorie !== $scope.currentCategorie;
                 });
                 for (l = 0; l < $scope.currentAliments.length; l++) {
                     var alreadyEaten = {
@@ -85,13 +100,11 @@ angular.module('app')
                     };
 
                     $scope.alimentsForDatabase.push(alreadyEaten);
-
-                    console.log("add", $scope.alimentsForDatabase);
-                    console.log(currentAlimsCount);
                 }
+                console.log("selectAll", $scope.IsSelectedAll, $scope.currentAlimsCount, $scope.currentAliments.length);
+
             }
         };
-
 
         $scope.validCategorie = function() {
             i++;
@@ -101,30 +114,49 @@ angular.module('app')
 
 
         $scope.nextCategorie = function() {
-init();
-          if (i>= $scope.categories.length - 1) {
-            return true;
-          }
-            i++;
-            $scope.currentCategorie = $scope.categories[i];
-            return false;
 
+            if (i >= $scope.categories.length) {
+              i++;
+
+                console.log("if", i);
+            }
+            else if (i === $scope.categories.length-1){
+              $scope.limitNext = true;
+              i++;
+              console.log("else if", i);
+            }
+            else {
+              $scope.limitNext = false;
+              i++;
+                $scope.currentCategorie = $scope.categories[i];
+                console.log("else", i);
+            }
         };
 
         $scope.prevCategorie = function() {
-init();
             if (i <= 0) {
-                return true;
+                return false;
             }
+            else {
             i--;
+              $scope.limitNext = false;
             $scope.currentCategorie = $scope.categories[i];
-            return false;
-        };
-
-        $scope.set_color = function (currentcatsymbol) {
-          if ($scope.currentCategorie) {
-            return { color: "bleu" };
+            return true;
           }
         };
 
+        $scope.ok = function () {
+          LocalService.set(JSON.stringify($scope.alimentsForDatabase)).then(function(res) {
+
+                  }, function(err) {});
+
+        };
+
+        $scope.set_color = function(currentcatsymbol) {
+            if ($scope.currentCategorie) {
+                return {
+                    color: "bleu"
+                };
+            }
+        };
     });
