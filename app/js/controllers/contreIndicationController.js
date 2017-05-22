@@ -1,6 +1,6 @@
 angular.module('app')
 
-    .controller('ContreIndicationController', function($scope, FoodFactory) {
+    .controller('ContreIndicationController', function($scope, $stateParams, FoodFactory) {
 
             $scope.foodList = FoodFactory;
             console.log($scope.foodList);
@@ -9,7 +9,7 @@ angular.module('app')
               return string.join(", ");
             };
 
-            // $scope.counters = null;
+            // $scope.counterSearch = null;
 
             // TRIE ALIMENTS
             var i = 0;
@@ -24,34 +24,85 @@ angular.module('app')
             console.log("currentCategorie", $scope.currentCategorie);
             console.log("currentAliment", $scope.currentAliment);
 
+            $scope.counterSearch = "";
 
-            $scope.alimentsForDatabase = [];
+            // $scope.notEatingForDatabase = [];
+            //
+            // if ($scope.counterSearch === $scope.currentAliment) {
+            //   var notEating = {
+            //     nameFood: food.name,
+            //     doNotEat: true,
+            //   };
+            //   $scope.notEatingForDatabase.push(notEating);
+            //   console.log($scope.notEatingForDatabase);
+            //
+            //   console.log("counterSearch", $scope.counterSearch);
+            //   return $scope.currentAliment;
+            // }
 
-            var foodIndex = function(food) {
-                return $scope.alimentsForDatabase.map(function(aliment) {
-                    return aliment.nameFood;
-                }).indexOf(food.name);
-            };
+            
 
 
-            $scope.isChosen = function(food) {
-                return foodIndex(food) != -1;
-            };
 
 
-            $scope.selectItem = function(food) {
-                if ($scope.isChosen(food)) {
-                    $scope.alimentsForDatabase.splice(foodIndex(food), 1);
-                    console.log($scope.alimentsForDatabase);
-                } else {
-                    var notEating = {
-                        nameFood: food.name,
-                        doNotEat: true,
-                    };
-                    $scope.alimentsForDatabase.push(notEating);
-                    console.log($scope.alimentsForDatabase);
-                }
-            };
+
+
+
+            // $scope.counterSearch = $stateParams.counterSearch;
+            // console.log("$scope.counterSearch");
+            //
+            //
+            // var selectItem = function() {
+            //   console.log("$scope.counterSearch");
+            // };
+
+
+            // var selectItem = function() {
+            //
+            //   if ($scope.counterSearch === $scope.categories.aliments) {
+            //     $scope.categories = $scope.categories.filter(function(aliment) {
+            //       console.log($scope.categories.aliments);
+            //       return $scope.categories.aliments;
+            //     });
+            //   }
+            // };
+
+
+
+
+
+
+
+
+
+
+            // $scope.notEatingForDatabase = [];
+            //
+            // var foodIndex = function(food) {
+            //     return $scope.notEatingForDatabase.map(function(aliment) {
+            //         return aliment.nameFood;
+            //     }).indexOf(food.name);
+            // };
+            //
+            //
+            // $scope.isChosen = function(food) {
+            //     return foodIndex(food) != -1;
+            // };
+            //
+            //
+            // $scope.selectItem = function(food) {
+            //     if ($scope.isChosen(food)) {
+            //         $scope.notEatingForDatabase.splice(foodIndex(food), 1);
+            //         console.log($scope.notEatingForDatabase);
+            //     } else {
+            //         var notEating = {
+            //             nameFood: food.name,
+            //             doNotEat: true,
+            //         };
+            //         $scope.notEatingForDatabase.push(notEating);
+            //         console.log($scope.notEatingForDatabase);
+            //     }
+            // };
 
 
 
@@ -68,7 +119,7 @@ angular.module('app')
             // $scope.selectItem = function() {
             //   var alim = document.getElementById("input").value;
             //   console.log("Alim départ", alim);
-            //   // var opts = document.getElementById("counters").childNodes;
+            //   // var opts = document.getElementById("counterSearchs").childNodes;
             //   // console.log(opts);
             //   for (var i = 0; i < alim.length; i++) {
             //     if (alim === $scope.currentAliment) {
