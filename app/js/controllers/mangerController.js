@@ -74,13 +74,21 @@ angular.module('app')
 
         $scope.selectAll = function() {
 
-        $scope.currentAlimsCount = 0;
-            $scope.currentAliments = $scope.foodList[$scope.currentCategorie].aliments;
-            for (j = 0; j < $scope.alimentsForDatabase.length; j++) {
-                if ($scope.alimentsForDatabase[j].categorie === $scope.currentCategorie) {
-                    $scope.currentAlimsCount++;
-                }
-            }
+        $scope.currentAlimsCount = $scope.alimentsForDatabase.filter(function(aliment) {
+          return aliment.categorie === $scope.currentCategorie;
+        }).length;
+        console.log('currentAlimsCount', $scope.currentAlimsCount);
+        //     $scope.currentAliments = $scope.foodList[$scope.currentCategorie].aliments;
+        //     for (j = 0; j < $scope.alimentsForDatabase.length; j++) {
+        //         if ($scope.alimentsForDatabase[j].categorie === $scope.currentCategorie) {
+        //             $scope.currentAlimsCount++;
+        //         }
+            // }
+
+
+
+
+
             if ($scope.currentAlimsCount === $scope.currentAliments.length) {
                 $scope.alimentsForDatabase = $scope.alimentsForDatabase.filter(function(aliment) {
                   console.log($scope.IsSelectedAll, $scope.currentAlimsCount, $scope.currentAliments.length);
@@ -146,7 +154,7 @@ angular.module('app')
         };
 
         $scope.ok = function () {
-          LocalService.set(JSON.stringify($scope.alimentsForDatabase)).then(function(res) {
+          LocalService.set("jeMangeDeja", JSON.stringify($scope.alimentsForDatabase)).then(function(res) {
 
                   }, function(err) {});
 
