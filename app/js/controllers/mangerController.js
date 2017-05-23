@@ -1,5 +1,5 @@
 angular.module('app')
-    .controller('MangerController', function($scope, FoodFactory, LocalService) {
+    .controller('MangerController', function($scope, FoodFactory, LocalService, CurrentUser) {
         $scope.currentAlimsCount = 0;
 
         $scope.foodList = FoodFactory;
@@ -26,26 +26,26 @@ angular.module('app')
         //     $scope.IsSelectedAll = $scope.currentAlimsCount === $scope.currentAliments.length;
         //   }
 
-          $scope.IsSelectedAll = $scope.currentAlimsCount === $scope.currentAliments.length;
+        $scope.IsSelectedAll = $scope.currentAlimsCount === $scope.currentAliments.length;
 
 
-          console.log($scope.IsSelectedAll, $scope.currentAlimsCount, $scope.currentAliments.length);
+        console.log($scope.IsSelectedAll, $scope.currentAlimsCount, $scope.currentAliments.length);
 
 
 
         $scope.$watch(function() {
             $scope.currentAliments = $scope.foodList[$scope.currentCategorie].aliments;
-          return $scope.currentCategorie;
+            return $scope.currentCategorie;
         }, function() {
-          $scope.IsSelectedAll = $scope.currentAlimsCount === $scope.currentAliments.length;
-          console.log("apres chgt categorie", $scope.IsSelectedAll, '-- currentAliments.length',$scope.currentAliments.length, '-- currentAlimCount', $scope.currentAlimsCount);
+            $scope.IsSelectedAll = $scope.currentAlimsCount === $scope.currentAliments.length;
+            console.log("apres chgt categorie", $scope.IsSelectedAll, '-- currentAliments.length', $scope.currentAliments.length, '-- currentAlimCount', $scope.currentAlimsCount);
         });
         $scope.$watch(function() {
             $scope.currentAliments = $scope.foodList[$scope.currentCategorie].aliments;
-          return $scope.currentAlimsCount;
+            return $scope.currentAlimsCount;
         }, function() {
-          $scope.IsSelectedAll = $scope.currentAlimsCount === $scope.currentAliments.length;
-          console.log("apres chgt alimCount", $scope.IsSelectedAll, '-- currentAliments.length',$scope.currentAliments.length, '-- currentAlimCount', $scope.currentAlimsCount);
+            $scope.IsSelectedAll = $scope.currentAlimsCount === $scope.currentAliments.length;
+            console.log("apres chgt alimCount", $scope.IsSelectedAll, '-- currentAliments.length', $scope.currentAliments.length, '-- currentAlimCount', $scope.currentAlimsCount);
         });
 
         $scope.isSelected = function(food) {
@@ -56,7 +56,7 @@ angular.module('app')
             if ($scope.isSelected(food)) {
                 $scope.alimentsForDatabase.splice(foodIndex(food), 1);
                 $scope.currentAlimsCount--;
-                console.log("delete single alimCount", $scope.IsSelectedAll, '-- currentAliments.length',$scope.currentAliments.length, '-- currentAlimCount', $scope.currentAlimsCount);
+                console.log("delete single alimCount", $scope.IsSelectedAll, '-- currentAliments.length', $scope.currentAliments.length, '-- currentAlimCount', $scope.currentAlimsCount);
 
 
             } else {
@@ -67,22 +67,22 @@ angular.module('app')
                 };
                 $scope.alimentsForDatabase.push(alreadyEaten);
                 $scope.currentAlimsCount++;
-                console.log("add single alimCount", $scope.IsSelectedAll, '-- currentAliments.length',$scope.currentAliments.length, '-- currentAlimCount', $scope.currentAlimsCount);
+                console.log("add single alimCount", $scope.IsSelectedAll, '-- currentAliments.length', $scope.currentAliments.length, '-- currentAlimCount', $scope.currentAlimsCount);
 
             }
         };
 
         $scope.selectAll = function() {
 
-        $scope.currentAlimsCount = $scope.alimentsForDatabase.filter(function(aliment) {
-          return aliment.categorie === $scope.currentCategorie;
-        }).length;
-        console.log('currentAlimsCount', $scope.currentAlimsCount);
-        //     $scope.currentAliments = $scope.foodList[$scope.currentCategorie].aliments;
-        //     for (j = 0; j < $scope.alimentsForDatabase.length; j++) {
-        //         if ($scope.alimentsForDatabase[j].categorie === $scope.currentCategorie) {
-        //             $scope.currentAlimsCount++;
-        //         }
+            $scope.currentAlimsCount = $scope.alimentsForDatabase.filter(function(aliment) {
+                return aliment.categorie === $scope.currentCategorie;
+            }).length;
+            console.log('currentAlimsCount', $scope.currentAlimsCount);
+            //     $scope.currentAliments = $scope.foodList[$scope.currentCategorie].aliments;
+            //     for (j = 0; j < $scope.alimentsForDatabase.length; j++) {
+            //         if ($scope.alimentsForDatabase[j].categorie === $scope.currentCategorie) {
+            //             $scope.currentAlimsCount++;
+            //         }
             // }
 
 
@@ -91,7 +91,7 @@ angular.module('app')
 
             if ($scope.currentAlimsCount === $scope.currentAliments.length) {
                 $scope.alimentsForDatabase = $scope.alimentsForDatabase.filter(function(aliment) {
-                  console.log($scope.IsSelectedAll, $scope.currentAlimsCount, $scope.currentAliments.length);
+                    console.log($scope.IsSelectedAll, $scope.currentAlimsCount, $scope.currentAliments.length);
 
                     return aliment.categorie !== $scope.currentCategorie;
                 });
@@ -124,18 +124,16 @@ angular.module('app')
         $scope.nextCategorie = function() {
 
             if (i >= $scope.categories.length) {
-              i++;
+                i++;
 
                 console.log("if", i);
-            }
-            else if (i === $scope.categories.length-1){
-              $scope.limitNext = true;
-              i++;
-              console.log("else if", i);
-            }
-            else {
-              $scope.limitNext = false;
-              i++;
+            } else if (i === $scope.categories.length - 1) {
+                $scope.limitNext = true;
+                i++;
+                console.log("else if", i);
+            } else {
+                $scope.limitNext = false;
+                i++;
                 $scope.currentCategorie = $scope.categories[i];
                 console.log("else", i);
             }
@@ -144,19 +142,24 @@ angular.module('app')
         $scope.prevCategorie = function() {
             if (i <= 0) {
                 return false;
+            } else {
+                i--;
+                $scope.limitNext = false;
+                $scope.currentCategorie = $scope.categories[i];
+                return true;
             }
-            else {
-            i--;
-              $scope.limitNext = false;
-            $scope.currentCategorie = $scope.categories[i];
-            return true;
-          }
         };
 
-        $scope.ok = function () {
-          LocalService.set("jeMangeDeja", JSON.stringify($scope.alimentsForDatabase)).then(function(res) {
+        $scope.ok = function() {
+          console.log($scope.user.email);
+            if ($scope.user.email === undefined) {
+                LocalService.set("jeMangeDeja", JSON.stringify($scope.alimentsForDatabase)).then(function(res) {
 
-                  }, function(err) {});
+                }, function(err) {});
+            }
+            MangerService.create($scope.alimentsForDatabase, $scope.user).then(function(res) {
+
+                    }, function(err) {});
 
         };
 
