@@ -8,6 +8,7 @@ const foodSchema = new mongoose.Schema({
       ref: 'Profile'
     },
     // FACTORY
+    aliment: {
     nameFood: {
       type: String
     },
@@ -26,6 +27,7 @@ const foodSchema = new mongoose.Schema({
       type: Boolean,
       default: false
     }
+  },
 });
 
 let model = mongoose.model('Food', foodSchema);

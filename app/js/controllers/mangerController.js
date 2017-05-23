@@ -85,10 +85,6 @@ angular.module('app')
             //         }
             // }
 
-
-
-
-
             if ($scope.currentAlimsCount === $scope.currentAliments.length) {
                 $scope.alimentsForDatabase = $scope.alimentsForDatabase.filter(function(aliment) {
                     console.log($scope.IsSelectedAll, $scope.currentAlimsCount, $scope.currentAliments.length);
