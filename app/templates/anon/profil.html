@@ -24,11 +24,16 @@
 
         <div class="row">
             <div class="col-xs-12 name">
-                <button class="col-xs-offset-4 col-xs-4 deconnecter" type="submit" ng-click="deconnecter()">se déconnecter</button>
+                <button class="col-xs-offset-4 col-xs-4 deconnecter" type="submit" data-toggle="modal" data-target=".modal-deconnected">se déconnecter</button>
+                <div class="modal fade modal-deconnected" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+                  <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                      <h1>eh !</h1>
             </div>
+          </div>
         </div>
     </div>
-
+</div>
     <div class="vueMesRecompenses" ng-hide="vueMesRecompenses">
         <div class="row">
             <div class="col-xs-12 challenge">
