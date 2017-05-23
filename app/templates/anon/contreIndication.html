@@ -37,7 +37,7 @@
                 </datalist>
                 <span class="input-group-btn">
                   <!-- ng-click="selectItem()" -->
-                    <button class="btn btn-default btn-lg" type="button">
+                    <button class="btn btn-default btn-lg" type="button" ng-click="addItem()">
                       <span class="glyphicon glyphicon-search"></span>
                     </button>
                 </span>
@@ -46,7 +46,18 @@
         <p>Exemple : gluten, produits laitiers, porc...</p>
     </section>
 
-    <section class="row" ng-repeat="(key, value) in foodList" ng-if="counterSearch">
+    <section class="row">
+      <div class="gouter" ng-repeat="item in items">
+        <div class="col-xs-4 gouter-item">
+          <img src="{{ item.picto }}" alt="{{ item.nameFood }}" />
+          <h3>{{ item.nameFood }}</h3>
+          <button class="btn btn-primary btn-lg cancel" type="button" name="button">Annuler</button>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- <section class="row" ng-repeat="(key, value) in foodList" ng-if="counterSearch">
       <h2>{{ key }}</h2>
         <div class="gouter" ng-repeat="food in value.aliments | filter:counterSearch track by $index">
           <div class="col-xs-4 gouter-item" name="{{ food.name }}">
@@ -55,7 +66,8 @@
               <button class="btn btn-primary btn-lg cancel" type="button" name="button">Annuler</button>
           </div>
         </div>
-    </section>
+    </section> -->
+
 
     <!-- <section class="row">
         <div class="col-xs-offset-4 col-xs-4 gouter-item">

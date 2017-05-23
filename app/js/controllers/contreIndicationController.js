@@ -26,14 +26,72 @@ angular.module('app')
 
 
 
-              $scope.counterSearch = function (food) {
-                if($scope.query === "") {
+              // $scope.counterSearch = function (food) {
+              //   if($scope.query === "") {
+              //
+              //   } else {
+              //     return (angular.lowercase(food.name).indexOf(angular.lowercase($scope.query) || '') !== -1 ||
+              //             angular.lowercase(food.composition).indexOf(angular.lowercase($scope.query) || '') !== -1);
+              //   }
+              // };
 
-                } else {
-                  return (angular.lowercase(food.name).indexOf(angular.lowercase($scope.query) || '') !== -1 ||
-                          angular.lowercase(food.composition).indexOf(angular.lowercase($scope.query) || '') !== -1);
-                }
-              };
+
+            $scope.items = [];
+
+            $scope.query = "";
+
+            $scope.addItem = function () {
+              if($scope.query.length > 0) {
+
+
+                // $scope.query == item.name;
+
+
+                // var itemIndex = $scope.currentAliment.indexOf($scope.query).picto;
+
+                // var itemIndex = $scope.currentAliment.findIndex(function(item) {
+                //   return item.name == $scope.query;
+                // });
+                //
+                // console.log(itemIndex);
+
+                // a = [
+                //   {prop1:"abc",prop2:"qwe"},
+                //   {prop1:"bnmb",prop2:"yutu"},
+                //   {prop1:"zxvz",prop2:"qwrq"}];
+                //
+                // index = a.findIndex(x => x.prop2=="yutu");
+                //
+                // console.log(index);
+
+                // $scope.currentAliment = $scope.foodList[$scope.currentCategorie].aliments[j];
+
+
+
+
+
+                // i++;
+                // $scope.currentCategorie = $scope.categories[i];
+                // console.log(i);
+                //
+                // j++;
+                // $scope.currentAliment = $scope.foodList[$scope.currentCategorie].aliments[j];
+                // console.log("j++", $scope.currentAliment);
+
+
+
+
+                var notEating = {
+                  // categorie: ,
+                  nameFood: $scope.query,
+                  // picto: itemIndex,
+                  doNotEat: true
+                };
+                $scope.items.push(notEating);
+                console.log($scope.items);
+                $scope.query = "";
+              }
+            };
 
 
 
