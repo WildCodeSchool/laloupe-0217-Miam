@@ -27,27 +27,93 @@ angular.module('app')
 
             $scope.query = "";
 
-            $scope.addItem = function () {
+
+
+            $scope.addItem = function() {
               if($scope.query.length > 0) {
-                $scope.foodList = $scope.currentAliment.filter(function(FoodFactory) {
-                  for (i = 0; i < $scope.currentCategorie.length; i++) {
-                    // $scope.currentCategorie = $scope.categories[i];
-                    // for (j = 0; j < $scope.currentAliment.length; j++) {
-                      var notEating = {
-                        // categorie: ,
-                        nameFood: $scope.currentAliment[j].name,
-                        picto: $scope.currentAliment[j].picto,
-                        doNotEat: true
-                      };
-                      $scope.items.push(notEating);
-                      console.log("$scope.items", $scope.items);
-                      $scope.query = "";
-                    // }
+
+                // var nameCategorie = _.mapValues($scope.categories, function(categorie) {
+                //   return categorie;
+                // });
+                // console.log(nameCategorie);
+
+
+                for (i = 0; i < $scope.categories.length; i++) {
+                  var nameAlim = _.map($scope.foodList[$scope.categories[i]].aliments, "name");
+                  console.log("nameAlim", nameAlim);
+                }
+                var testNameAlim = function () {
+                  var nameAlimFull = [];
+                  // for (var k = 0; k < $scope.categories.length; k++) {
+                  //   nameAlim.push(k);
+                  //   nameAlimFull.push(nameAlim.concat());
+                  // }
+                  for (var k = 1; k < $scope.categories.length; k++) {
+                      nameAlim.push(k);
+                      nameAlimFull.push(nameAlim.slice(0));
                   }
-                });
-                // console.log("$scope.foodList", $scope.foodList);
+                  console.log("nameAlimFull", nameAlimFull);
+                };
+
+                for (i = 0; i < $scope.categories.length; i++) {
+                  var pictoAlim = _.map($scope.foodList[$scope.categories[i]].aliments, "picto");
+                  // console.log("pictoAlim", pictoAlim);
+                }
+
+
+
+
+
+
+
+                //
+                // function test() {
+                //     var sub_array = [];
+                //     var super_array = [];
+                //     for (var i = 1; i <= 3; i++) {
+                //         sub_array.push(i);
+                //         super_array.push(sub_array.concat());
+                //     }
+                //     alert(super_array);
+                // }
+
+
+
+                var notEating = {
+                  // categorie: ,
+                  nameFood: nameAlim,
+                  picto: pictoAlim,
+                  doNotEat: true
+                };
+                $scope.items.push(notEating);
+                console.log("$scope.items", $scope.items);
+                $scope.query = "";
               }
             };
+
+
+
+            // $scope.addItem = function () {
+              // if($scope.query.length > 0) {
+                // $scope.foodList = $scope.currentAliment.filter(function(FoodFactory) {
+                //   for (i = 0; i < $scope.currentCategorie.length; i++) {
+                //     // $scope.currentCategorie = $scope.categories[i];
+                //     // for (j = 0; j < $scope.currentAliment.length; j++) {
+                //       var notEating = {
+                //         // categorie: ,
+                //         nameFood: $scope.currentAliment[j].name,
+                //         picto: $scope.currentAliment[j].picto,
+                //         doNotEat: true
+                //       };
+                //       $scope.items.push(notEating);
+                //       console.log("$scope.items", $scope.items);
+                //       $scope.query = "";
+                //     // }
+                  // }
+                // };
+                // console.log("$scope.foodList", $scope.foodList);
+              // });
+            // }
 
 
             // if($scope.query == item.name) {};
