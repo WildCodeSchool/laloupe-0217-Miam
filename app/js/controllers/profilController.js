@@ -33,12 +33,9 @@ $scope.vueMesRecompenses = true;
 
 $scope.modifier = function(){
   $scope.vueModifier = false;
-  $scope.vueMesRecompenses = true;
 };
 
 $scope.mesRecompenses = function(){
   $scope.vueModifier = true;
-  $scope.vueMesRecompenses = false;
 };
-
   });
