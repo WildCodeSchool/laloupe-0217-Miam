@@ -10,42 +10,42 @@ angular.module('app')
             picto: "",
             name: "",
             objectif: "Bravo ! Tu as goûté 2 aliments"
-          }
+          },
           {
             picto: "",
             name: "",
             objectif: ""
-          }
+          },
           {
             picto: "",
             name: "",
             objectif: ""
-          }
+          },
           {
             picto: "",
             name: "",
             objectif: ""
-          }
+          },
           {
             picto: "",
             name: "",
             objectif: ""
-          }
+          },
           {
             picto: "",
             name: "",
             objectif: ""
-          }
+          },
           {
             picto: "",
             name: "",
             objectif: ""
-          }
+          },
           {
             picto: "",
             name: "",
             objectif: ""
-          }
+          },
           {
             picto: "",
             name: "",
