@@ -3,54 +3,51 @@ angular.module('app')
 
         var reward = [{
             picto: "",
-            name: "",
+            name: "Découverte",
             objectif: "Bravo ! Tu as goûté 1 fois cet aliment !"
           },
           {
             picto: "",
-            name: "",
+            name: "Petit goûteur",
             objectif: "Bravo ! Tu as goûté 3 fois cet aliment !"
           },
           {
             picto: "",
-            name: "",
-            objectif: "Bravo ! Tu as aimé 2 aliments !"
-          },
-          {
-            picto: "",
-            name: "",
+            name: "Goûteur",
             objectif: "Bravo ! Tu as aimé 3 aliments !"
           },
+
           {
             picto: "",
-            name: "",
-            objectif: "Bravo ! Tu as aimé 5 aliments !"
+            name: "Géant rouge",
+            objectif: "Bravo ! Tu as aimé les aliments rouges !"
           },
           {
             picto: "",
-            name: "",
+            name: "Géant orange",
+            objectif: "Bravo ! Tu as aimé les aliments oranges !"
+          },
+          {
+            picto: "",
+            name: "Géant vert",
+            objectif: "Bravo ! Tu as aimé les aliments verts !"
+          },
+          {
+            picto: "",
+            name: "Gourmet",
             objectif: "Waouh ! Bravo ! Tu as aimé tous les aliments de la même famille!"
           },
           {
             picto: "",
-            name: "",
-            objectif: "Félicitations ! On est fier de toi, tu as tout aimé !"
+            name: "Fin gourmet",
+            objectif: "Waouh ! Bravo ! Tu as aimé tous les aliments de 3 famille!"
           },
           {
             picto: "",
-            name: "",
-            objectif: ""
+            name: "Gastronome",
+            objectif: "Félicitations ! On est fier de toi, tu as tout goûté !"
           },
-          {
-            picto: "",
-            name: "",
-            objectif: ""
-          },
-          {
-            picto: "",
-            name: "",
-            objectif: ""
-          }
+        
         ];
 
         // return {
