@@ -1,15 +1,14 @@
 angular.module('app')
-    .controller('MangerController', function($scope, FoodFactory, LocalService, Auth, MangerService) {
+    .controller('MangerController', function($scope, FoodFactory, LocalService, Auth, MangerService, CurrentUser) {
         $scope.currentAlimsCount = 0;
-
+        $scope.user = CurrentUser.user();
         $scope.foodList = FoodFactory;
         $scope.limitNext = false;
         $scope.limitPrev = true;
         $scope.categories = Object.keys($scope.foodList);
         var i = 0;
         var j = 0;
-        var k = 0;
-        var l = 0;
+        console.log("$scope.user", $scope.user);
         $scope.filterLimit = 3;
         $scope.currentCategorie = $scope.categories[i];
         $scope.currentAliments = $scope.foodList[$scope.currentCategorie].aliments;
@@ -63,7 +62,7 @@ angular.module('app')
                 };
                 $scope.alimentsForDatabase.push(alreadyEaten);
                 $scope.currentAlimsCount++;
-              console.log(Auth);
+                console.log(Auth);
 
             }
         };
@@ -137,22 +136,24 @@ angular.module('app')
 
         $scope.ok = function() {
 
-            if (Auth.authorize.name==="authorize") {
+            if ($scope.user.email !== undefined) {
 
 
-              console.log("dataBase");
-              MangerService.create($scope.alimentsForDatabase, $scope.user).then(function(res) {
+                console.log("dataBase");
+                for (var j = 0; j < $scope.alimentsForDatabase.length; j++) {
 
-              }, function(err) {});
-              // $state.go('anon.gouter');
+                    MangerService.create($scope.alimentsForDatabase[j], $scope.user._id).then(function(res) {
+
+                    }, function(err) {});
+                    // $state.go('anon.gouter');
+                }
+            } else {
+                console.log("localStorage");
+                LocalService.set("jeMangeDeja", JSON.stringify($scope.alimentsForDatabase)).then(function(res) {
+
+                }, function(err) {});
+                $state.go('anon.gouter');
             }
-            else {
-            console.log("wrongWay");
-            LocalService.set("jeMangeDeja", JSON.stringify($scope.alimentsForDatabase)).then(function(res) {
-
-            }, function(err) {});
-            $state.go('anon.gouter');
-          }
         };
 
         $scope.set_color = function(currentcatsymbol) {
