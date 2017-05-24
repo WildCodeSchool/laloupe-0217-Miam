@@ -4,62 +4,46 @@ angular.module('app')
             $scope.foodList = FoodFactory;
             console.log($scope.foodList);
 
+            // SIMPLIFY FOOD NAMES
             $scope.arrayToString = function(string) {
               return string.join(", ");
             };
-
-            $scope.lowerCase = function(string) {
-              return string.toLowerCase() ;
+            $scope.regAccent = function (string) {
+              return string.normalize('NFD').replace(/[\u0300-\u036f]/g, "").toLowerCase();
+            };
+            $scope.correct = function (string) {
+              return $scope.regAccent($scope.arrayToString(string));
             };
 
-            // $scope.query = null;
 
-            // TRIE ALIMENTS
+            // FILTER FOOD
             var i = 0;
             var j = 0;
 
             $scope.categories = Object.keys($scope.foodList);
-            console.log("categories", $scope.categories);
-
-            $scope.currentCategorie = $scope.categories[i];
-            console.log("currentCategorie", $scope.currentCategorie);
-
-            $scope.currentAliment = $scope.foodList[$scope.currentCategorie].aliments;
-            console.log("currentAliment", $scope.currentAliment);
 
             $scope.items = [];
 
             $scope.query = "";
 
-
-
             $scope.addItem = function() {
               if($scope.query.length > 0) {
 
-                  $scope.categories = Object.keys($scope.foodList);
-                  // console.log("categories", $scope.categories);
-
                   for (i = 0; i < $scope.categories.length; i++) {
                     var nameAlim = _.map($scope.foodList[$scope.categories[i]].aliments, "name");
-                    // console.log("nameAlim", nameAlim);
 
                     var nameCateg = $scope.categories[i];
 
-                    // var nameItem = nameAlim || nameCateg;
-                    var nameItem = nameAlim;
-
-                    if (nameItem == $scope.query) {
+                    if (nameAlim == $scope.query) {
                       var notEating = {
                         categorie: nameCateg,
                         nameFood: nameAlim,
-                        // picto: pictoAlim,
                         doNotEat: true
                       };
                       $scope.items.push(notEating);
                       console.log("$scope.items", $scope.items);
                       $scope.query = "";
                     }
-
                   }
 
                   for (i = 0; i < $scope.categories.length; i++) {

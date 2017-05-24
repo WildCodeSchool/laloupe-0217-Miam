@@ -49,7 +49,7 @@
     <section class="row">
       <div class="gouter" ng-repeat="item in items">
         <div class="col-xs-4 gouter-item">
-          <img src="{{ item.picto }}" alt="{{ arrayToString(item.nameFood) }}" />
+          <img src="../../img/{{ correct(item.nameFood) }}.svg" alt="{{ arrayToString(item.nameFood) }}" />
           <h3>{{ arrayToString(item.nameFood) }}</h3>
           <h4>{{ item.categorie }}</h4>
           <button class="btn btn-primary btn-lg cancel" type="button" name="button">Annuler</button>
