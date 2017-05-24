@@ -8,6 +8,10 @@ angular.module('app')
               return string.join(", ");
             };
 
+            $scope.lowerCase = function(string) {
+              return string.toLowerCase() ;
+            };
+
             // $scope.query = null;
 
             // TRIE ALIMENTS
@@ -41,7 +45,8 @@ angular.module('app')
 
                     var nameCateg = $scope.categories[i];
 
-                    var nameItem = nameAlim || nameCateg;
+                    // var nameItem = nameAlim || nameCateg;
+                    var nameItem = nameAlim;
 
                     if (nameItem == $scope.query) {
                       var notEating = {
