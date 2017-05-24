@@ -32,33 +32,61 @@ angular.module('app')
             $scope.addItem = function() {
               if($scope.query.length > 0) {
 
-                // var nameCategorie = _.mapValues($scope.categories, function(categorie) {
-                //   return categorie;
-                // });
-                // console.log(nameCategorie);
+                  $scope.categories = Object.keys($scope.foodList);
+                  // console.log("categories", $scope.categories);
 
+                  for (i = 0; i < $scope.categories.length; i++) {
+                    var nameAlim = _.map($scope.foodList[$scope.categories[i]].aliments, "name");
+                    // console.log("nameAlim", nameAlim);
 
-                for (i = 0; i < $scope.categories.length; i++) {
-                  var nameAlim = _.map($scope.foodList[$scope.categories[i]].aliments, "name");
-                  console.log("nameAlim", nameAlim);
-                }
-                var testNameAlim = function () {
-                  var nameAlimFull = [];
-                  // for (var k = 0; k < $scope.categories.length; k++) {
-                  //   nameAlim.push(k);
-                  //   nameAlimFull.push(nameAlim.concat());
-                  // }
-                  for (var k = 1; k < $scope.categories.length; k++) {
-                      nameAlim.push(k);
-                      nameAlimFull.push(nameAlim.slice(0));
+                    var nameCateg = $scope.categories[i];
+
+                    var nameItem = nameAlim || nameCateg;
+
+                    if (nameItem == $scope.query) {
+                      var notEating = {
+                        categorie: nameCateg,
+                        nameFood: nameAlim,
+                        // picto: pictoAlim,
+                        doNotEat: true
+                      };
+                      $scope.items.push(notEating);
+                      console.log("$scope.items", $scope.items);
+                      $scope.query = "";
+                    }
+
                   }
-                  console.log("nameAlimFull", nameAlimFull);
-                };
 
-                for (i = 0; i < $scope.categories.length; i++) {
-                  var pictoAlim = _.map($scope.foodList[$scope.categories[i]].aliments, "picto");
-                  // console.log("pictoAlim", pictoAlim);
-                }
+                  for (i = 0; i < $scope.categories.length; i++) {
+                    var pictoAlim = _.map($scope.foodList[$scope.categories[i]].aliments, "picto");
+                    // console.log("pictoAlim", pictoAlim);
+                  }
+
+
+                  // var newArray=[];
+                  // newArray.push(nameAlim);
+                  // console.log("newArray", newArray);
+
+                  // for (var k = 1; k < $scope.categories.length; k++) {
+                  //       nameAlim.push(k);
+                  //       nameAlimFull.push(nameAlim.slice(0));
+                  //   }
+                  // console.log(nameAlimFull);
+
+
+
+                // var testNameAlim = function () {
+                //   var nameAlimFull = [];
+                //   // for (var k = 0; k < $scope.categories.length; k++) {
+                //   //   nameAlim.push(k);
+                //   //   nameAlimFull.push(nameAlim.concat());
+                //   // }
+                //   for (var k = 1; k < $scope.categories.length; k++) {
+                //       nameAlim.push(k);
+                //       nameAlimFull.push(nameAlim.slice(0));
+                //   }
+                //   console.log("nameAlimFull", nameAlimFull);
+                // };
 
 
 
@@ -77,17 +105,6 @@ angular.module('app')
                 //     alert(super_array);
                 // }
 
-
-
-                var notEating = {
-                  // categorie: ,
-                  nameFood: nameAlim,
-                  picto: pictoAlim,
-                  doNotEat: true
-                };
-                $scope.items.push(notEating);
-                console.log("$scope.items", $scope.items);
-                $scope.query = "";
               }
             };
 
