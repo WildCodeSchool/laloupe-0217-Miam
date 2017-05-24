@@ -9,11 +9,18 @@ angular.module('app')
       };
 
       $scope.selectFood = function (foodname) {
-        $scope.appearance = foodname
-      }
+        $scope.appearance = foodname;
+      };
 
       $scope.scrollTo = function () {
         $location.hash('_' + $scope.appearance);
         $anchorScroll();
-      }
+      };
+
+      $scope.like = function(){
+        console.log("like");
+      };
+      $scope.dislike = function(){
+        console.log("dislike");
+      };
   });
