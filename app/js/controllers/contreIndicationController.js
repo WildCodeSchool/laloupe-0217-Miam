@@ -29,28 +29,23 @@ angular.module('app')
             $scope.addItem = function() {
               if($scope.query.length > 0) {
 
-                  for (i = 0; i < $scope.categories.length; i++) {
-                    var nameAlim = _.map($scope.foodList[$scope.categories[i]].aliments, "name");
+                for (i = 0; i < $scope.categories.length; i++) {
+                  var nameAlim = _.map($scope.foodList[$scope.categories[i]].aliments, "name");
+                  var compoAlim = _.map($scope.foodList[$scope.categories[i]].aliments, "composition");
+                  var nameCateg = $scope.categories[i];
 
-                    var nameCateg = $scope.categories[i];
-
-                    if (nameAlim == $scope.query) {
-                      var notEating = {
-                        categorie: nameCateg,
-                        nameFood: nameAlim,
-                        doNotEat: true
-                      };
-                      $scope.items.push(notEating);
-                      console.log("$scope.items", $scope.items);
-                      $scope.query = "";
-                    }
+                  if ($scope.query == nameAlim || $scope.query == compoAlim || $scope.query == nameCateg) {
+                    var alimNotEating = {
+                      categorie: nameCateg,
+                      nameFood: nameAlim,
+                      compoFood: compoAlim,
+                      doNotEat: true
+                    };
+                    $scope.items.push(alimNotEating);
+                    console.log("$scope.items", $scope.items);
+                    $scope.query = "";
                   }
-
-                  for (i = 0; i < $scope.categories.length; i++) {
-                    var pictoAlim = _.map($scope.foodList[$scope.categories[i]].aliments, "picto");
-                    // console.log("pictoAlim", pictoAlim);
-                  }
-
+                }
 
                   // var newArray=[];
                   // newArray.push(nameAlim);
