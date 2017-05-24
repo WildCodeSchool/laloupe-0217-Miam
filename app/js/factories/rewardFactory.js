@@ -1,18 +1,57 @@
 angular.module('app')
     .factory('RewardFactory', function() {
 
-        var reward = {
-          reward1: {
+        var reward = [{
             picto: "",
             name: "",
-            objectif: ""
+            objectif: "Bravo ! Tu as goûté cet aliment."
           },
-          reward2: {
+          {
+            picto: "",
+            name: "",
+            objectif: "Bravo ! Tu as goûté 2 aliments"
+          }
+          {
             picto: "",
             name: "",
             objectif: ""
           }
-        };
+          {
+            picto: "",
+            name: "",
+            objectif: ""
+          }
+          {
+            picto: "",
+            name: "",
+            objectif: ""
+          }
+          {
+            picto: "",
+            name: "",
+            objectif: ""
+          }
+          {
+            picto: "",
+            name: "",
+            objectif: ""
+          }
+          {
+            picto: "",
+            name: "",
+            objectif: ""
+          }
+          {
+            picto: "",
+            name: "",
+            objectif: ""
+          }
+          {
+            picto: "",
+            name: "",
+            objectif: ""
+          }
+        ];
 
         // return {
         //     user: function() {
