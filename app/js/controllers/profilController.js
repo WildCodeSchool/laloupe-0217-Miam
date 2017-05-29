@@ -1,5 +1,5 @@
 angular.module('app')
-    .controller('ProfilController', function($scope) {
+    .controller('ProfilController', function($scope, RewardFactory) {
       var i = 0;
 
       var avatars = [
@@ -38,4 +38,10 @@ $scope.modifier = function(){
 $scope.mesRecompenses = function(){
   $scope.vueModifier = true;
 };
+
+$scope.rewardList = RewardFactory;
+console.log($scope.rewardList)
+
+
+
   });
