@@ -49,9 +49,10 @@
     <section class="row">
       <div class="gouter" ng-repeat="item in items">
         <div class="col-xs-4 gouter-item">
-          <img src="img/{{ correct(item.nameFood) }}.svg" alt="{{ arrayToString(item.nameFood) }}" />
-          <h3>{{ arrayToString(item.nameFood) }}</h3>
+          <img src="img/{{ correct(item.nameFood) }}.svg" alt="{{ correct(item.nameFood) }}" />
+          <h3>{{ item.nameFood }}</h3>
           <h4>{{ item.categorie }}</h4>
+          <h5>{{ arrayToString(item.compoFood) }}</h5>
           <button class="btn btn-primary btn-lg cancel" type="button" name="button">Annuler</button>
         </div>
       </div>
@@ -66,14 +67,6 @@
               <h3>{{ food.name }}</h3>
               <button class="btn btn-primary btn-lg cancel" type="button" name="button">Annuler</button>
           </div>
-        </div>
-    </section> -->
-
-
-    <!-- <section class="row">
-        <div class="col-xs-offset-4 col-xs-4 gouter-item">
-            <img ng-src="/img/shrimp.svg" alt="Crevette">
-            <h3>Crevette</h3>
         </div>
     </section> -->
 

@@ -6,13 +6,13 @@ angular.module('app')
 
             // SIMPLIFY FOOD NAMES
             $scope.arrayToString = function(string) {
-              return string.join(", ");
+              return string.join("");
             };
             $scope.regAccent = function (string) {
               return string.normalize('NFD').replace(/[\u0300-\u036f]/g, "").toLowerCase();
             };
             $scope.correct = function (string) {
-              return $scope.regAccent($scope.arrayToString(string));
+              return $scope.regAccent(string);
             };
 
 
@@ -30,22 +30,30 @@ angular.module('app')
               if($scope.query.length > 0) {
 
                 for (i = 0; i < $scope.categories.length; i++) {
-                  var nameAlim = _.map($scope.foodList[$scope.categories[i]].aliments, "name");
-                  var compoAlim = _.map($scope.foodList[$scope.categories[i]].aliments, "composition");
-                  var nameCateg = $scope.categories[i];
 
-                  if ($scope.query == nameAlim || $scope.query == compoAlim || $scope.query == nameCateg) {
-                    var alimNotEating = {
-                      categorie: nameCateg,
-                      nameFood: nameAlim,
-                      compoFood: compoAlim,
-                      doNotEat: true
-                    };
-                    $scope.items.push(alimNotEating);
-                    console.log("$scope.items", $scope.items);
-                    $scope.query = "";
+                    var accessAliments = $scope.foodList[$scope.categories[i]].aliments;
+
+                    var allNames = _.map(accessAliments, "name");
+                    var compoAlim = _.map(accessAliments, "composition");
+                    var nameCateg = $scope.categories[i];
+
+                    for (var j = 0; j < allNames.length; j++) {
+                      var nameAlim = allNames[j];
+                      // console.log(nameAlim);
+
+                      if ($scope.query == nameAlim || $scope.query == compoAlim || $scope.query == nameCateg) {
+                        var alimNotEating = {
+                          categorie: nameCateg,
+                          nameFood: nameAlim,
+                          compoFood: compoAlim,
+                          doNotEat: true
+                        };
+                        $scope.items.push(alimNotEating);
+                        console.log("$scope.items", $scope.items);
+                      }
                   }
                 }
+                $scope.query = "";
 
                   // var newArray=[];
                   // newArray.push(nameAlim);
