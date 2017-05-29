@@ -48,9 +48,9 @@
         </form>
     </section>-->
 
-        <section class="row" ng-repeat="(key, value) in foodList">
-            <h2>{{ key }}</h2>
-            <div id="_{{ food.name }}" class="gouter" ng-repeat="food in value.aliments track by $index">
+        <section class="row" ng-model="categorie" ng-repeat="categorie in categories">
+            <h2>{{ categorie }}</h2>
+            <div id="_{{ food.name }}" class="gouter" ng-repeat="food in foodList[categorie].aliments">
                 <div class="col-xs-4 gouter-item" data-toggle="modal" data-target="#{{ food.name }}">
                     <img src="{{ food.picto }}" alt="{{ food.name }}" />
                     <h3>{{ food.name }}</h3>
@@ -61,7 +61,7 @@
                     </div>
                 </div>
                 <!-- MODAL -->
-                <div class="modal fade" id="{{ food.name }}" ng-repeat="food in value.aliments track by $index" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal fade" id="{{ food.name }}" ng-repeat="food in foodList[categorie].aliments track by $index" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -116,11 +116,11 @@
                                 <div class="row">
                                     <div class="col-xs-offset-1 col-xs-10 vote">
                                         <div class="col-xs-6 green">
-                                            <button type="button" class="btn btn-circle btn-lg" ng-click="like()"><i class="glyphicon glyphicon-ok"></i></button>
+                                            <button type="button" class="btn btn-circle btn-lg" ng-click="like($index)"><i class="glyphicon glyphicon-ok"></i></button>
                                             <h3>J'ai aimé</h3>
                                         </div>
                                         <div class="col-xs-6 red">
-                                            <button type="button" class="btn btn-circle btn-lg" ng-click="dislike()"><i class="glyphicon glyphicon-remove"></i></button>
+                                            <button type="button" class="btn btn-circle btn-lg" ng-click="dislike($index)"><i class="glyphicon glyphicon-remove"></i></button>
                                             <h3>Je n'ai pas aimé</h3>
                                         </div>
                                     </div>

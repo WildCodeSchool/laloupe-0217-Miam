@@ -1,26 +1,35 @@
 angular.module('app')
     .controller('GouterController', function($scope, FoodFactory, $location, $anchorScroll) {
 
-      $scope.foodList = FoodFactory;
-      console.log($scope.foodList);
+        $scope.foodList = FoodFactory;
+        $scope.categories = Object.keys($scope.foodList);
+        console.log($scope.categorie);
 
-      $scope.arrayToString = function(string) {
-        return string.join(", ");
-      };
+        var i = 0;
+        var j = 0;
 
-      $scope.selectFood = function (foodname) {
-        $scope.appearance = foodname;
-      };
 
-      $scope.scrollTo = function () {
-        $location.hash('_' + $scope.appearance);
-        $anchorScroll();
-      };
+        $scope.arrayToString = function(string) {
+            return string.join(", ");
+        };
 
-      $scope.like = function(){
-        console.log("like");
-      };
-      $scope.dislike = function(){
-        console.log("dislike");
-      };
-  });
+        $scope.selectFood = function(foodname) {
+            $scope.appearance = foodname;
+        };
+
+        $scope.scrollTo = function() {
+            $location.hash('_' + $scope.appearance);
+            $anchorScroll();
+        };
+
+        $scope.like = function($index) {
+            var like = {
+                nameFood: $scope.foodList[categorie].aliments[$index].name,
+                countVote: [true],
+            };
+            console.log("like", like);
+        };
+        $scope.dislike = function() {
+            console.log("dislike");
+        };
+    });
