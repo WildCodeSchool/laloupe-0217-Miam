@@ -1,5 +1,5 @@
 angular.module('app')
-    .controller('GouterController', function($scope, FoodFactory, $location, $anchorScroll, Auth, CurrentUser, LocalService) {
+    .controller('GouterController', function($scope, FoodFactory, $location, $anchorScroll, Auth, CurrentUser, LocalService, GouterService) {
 
       $scope.user = CurrentUser.user();
 

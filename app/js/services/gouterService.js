@@ -1,9 +1,9 @@
 angular.module('app')
-    .service('GoutererService', function($http) {
+    .service('GouterService', function($http) {
         return {
             create: function(like){
               console.log(like);
-              return $http.post('/foods', {food: like, profile: profile});
+              return $http.post('/foods', {food: like});
             }
 
         };
