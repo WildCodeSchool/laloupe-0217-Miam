@@ -1,5 +1,5 @@
 angular.module('app')
-    .controller('ProfilController', function($scope, RewardFactory) {
+    .controller('ProfilController', function($scope, RewardFactory, AvatarFactory) {
       var i = 0;
 
       var avatars = [

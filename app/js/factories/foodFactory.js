@@ -40,7 +40,7 @@ angular.module('app')
                         composition: [""]
                     },
                     {
-                        name: "Pêche",
+                        name: "Peche",
                         picto: "/img/pêche.svg",
                         description: "Sucrée et désaltérante, c'est le fruit de l'été par excellence !",
                         suggestions: ["crue", "pochée", "poêlée", "au sirop", "en marmelade", "en tarte"],
@@ -58,7 +58,7 @@ angular.module('app')
                     composition: [""]
                 },
                 {
-                    name: "Haricots verts",
+                    name: "Haricots_verts",
                     picto: "/img/haricotsverts.svg",
                     description: "Certains haricots verts sont...jaunes : ce sont les haricots-beurre !",
                     suggestions: ["en fagot", "en salade", "en purée", "cuisson à l'eau ou à la vapeur", "à l'ail"],
