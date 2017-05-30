@@ -41,7 +41,7 @@ angular.module('app')
                     },
                     {
                         name: "Peche",
-                        picto: "/img/pêche.svg",
+                        picto: "/img/peche.svg",
                         description: "Sucrée et désaltérante, c'est le fruit de l'été par excellence !",
                         suggestions: ["crue", "pochée", "poêlée", "au sirop", "en marmelade", "en tarte"],
                         composition: [""]

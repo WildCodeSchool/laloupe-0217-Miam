@@ -3,12 +3,12 @@ angular.module('app')
         return [{
                 famille: "",
                 avatars: [{
-                        name: "",
-                        picto: ""
+                        name: "penguin",
+                        picto: "/img/penguin.svg"
                     },
                     {
-                        name: "",
-                        picto: ""
+                        name: "miam",
+                        picto: "/img/miam-logo.svg"
                     },
                     {
                         name: "",
