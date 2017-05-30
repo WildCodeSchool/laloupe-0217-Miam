@@ -3,11 +3,10 @@ angular.module('app')
 
         $scope.foodList = FoodFactory;
         $scope.categories = Object.keys($scope.foodList);
-        console.log($scope.categorie);
+        console.log($scope.foodList);
 
         var i = 0;
         var j = 0;
-
 
         $scope.arrayToString = function(string) {
             return string.join(", ");
@@ -22,9 +21,9 @@ angular.module('app')
             $anchorScroll();
         };
 
-        $scope.like = function($index) {
+        $scope.like = function(foodName) {
             var like = {
-                nameFood: $scope.foodList[categorie].aliments[$index].name,
+                nameFood: foodName,
                 countVote: [true],
             };
             console.log("like", like);
