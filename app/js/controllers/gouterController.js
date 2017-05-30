@@ -1,5 +1,7 @@
 angular.module('app')
-    .controller('GouterController', function($scope, FoodFactory, $location, $anchorScroll) {
+    .controller('GouterController', function($scope, FoodFactory, $location, $anchorScroll, Auth, CurrentUser, LocalService) {
+
+      $scope.user = CurrentUser.user();
 
         $scope.foodList = FoodFactory;
         $scope.categories = Object.keys($scope.foodList);
@@ -26,13 +28,33 @@ angular.module('app')
                 nameFood: foodName,
                 countVote: [true],
             };
-            console.log("like", like);
+            if ($scope.user.email !== undefined) {
+
+                    GouterService.create(like).then(function(res) {
+
+                    }, function(err) {});
+            } else {
+                LocalService.set("I like", JSON.stringify(like)).then(function(res) {
+
+                }, function(err) {});
+            }
+
         };
         $scope.dislike = function(foodName) {
             var like = {
                 nameFood: foodName,
                 countVote: [false],
             };
-            console.log("dislike", like);
+            if ($scope.user.email !== undefined) {
+
+                    GouterService.create(like).then(function(res) {
+
+                    }, function(err) {});
+            } else {
+                LocalService.set("I like", JSON.stringify(like)).then(function(res) {
+
+                }, function(err) {});
+            }
+
         };
     });
