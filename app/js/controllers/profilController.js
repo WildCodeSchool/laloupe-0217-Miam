@@ -42,6 +42,9 @@ $scope.mesRecompenses = function(){
 $scope.rewardList = RewardFactory;
 console.log($scope.rewardList)
 
+$scope.closeModal = function (){
 
+  $scope.hideModal = true;
+}
 
   });
