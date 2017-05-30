@@ -28,7 +28,11 @@ angular.module('app')
             };
             console.log("like", like);
         };
-        $scope.dislike = function() {
-            console.log("dislike");
+        $scope.dislike = function(foodName) {
+            var like = {
+                nameFood: foodName,
+                countVote: [false],
+            };
+            console.log("dislike", like);
         };
     });
