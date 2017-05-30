@@ -13,7 +13,7 @@ const foodSchema = new mongoose.Schema({
             type: String
         },
         countVote: [{
-            type: Boolean
+            type: Boolean, limit: 3
         }],
         doNotEat: {
             type: Boolean,
@@ -57,6 +57,23 @@ export default class Food {
                     res.json(foods);
                 }
             });
+    }
+
+
+    createLike(req, res) {
+      console.log("like", req.body);
+        model.create(req.body, (err, like) => {
+            if (err || !like) {
+                console.log("error", err.message);
+                res.status(500).send(err.message);
+            } else {
+                res.json({
+                    success: true,
+                    like: like
+                });
+
+            }
+        });
     }
 
 }
