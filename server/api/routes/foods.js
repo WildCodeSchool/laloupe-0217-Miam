@@ -11,7 +11,7 @@ module.exports = (app) => {
 
     router.get('/', Auth.hasAuthorization, food.findAll);
 
-    router.post('/like', Auth.hasAuthorization, like.createLike);
+    router.post('/like', Auth.hasAuthorization, food.createLike);
 
     app.use('/foods', router);
 
