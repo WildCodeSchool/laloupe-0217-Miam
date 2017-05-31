@@ -1,8 +1,8 @@
 angular.module('app')
     .factory('RewardFactory', function() {
 
-        var reward = [{
-            picto: "",
+        var rewardList = [{
+            picto: "/img/university.svg",
             name: "Découverte",
             objectif: "Bravo ! Tu as goûté 1 fois cet aliment !"
           },
@@ -47,9 +47,9 @@ angular.module('app')
             name: "Gastronome",
             objectif: "Félicitations ! On est fier de toi, tu as tout goûté !"
           },
-        
-        ];
 
+        ];
+        return rewardList;
         // return {
         //     user: function() {
         //         if (LocalService.get('user')) {
