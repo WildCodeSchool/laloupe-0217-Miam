@@ -35,7 +35,7 @@ angular.module('app')
                     {
                         name: "Poire",
                         picto: "/img/poire.svg",
-                        description: "On peut en trouver toute l'année car en France, on cultive une dizaine de variétés : celles d'été, et celles de d'automne-hiver.",
+                        description: "On peut en trouver toute l'année car en France, on cultive une dizaine de variétés : celles d'été, et celles d'automne-hiver.",
                         suggestions: ["crue", "cuite", "séchée", "en compote ou enn tarte", "poire Belle-Hélène."],
                         composition: [""]
                     },
@@ -118,7 +118,7 @@ angular.module('app')
                         name: "Poisson",
                         picto: "/img/fish.svg",
                         description: "De mer ou de rivière, il existe une quantité impressionnante d'espèces.",
-                        suggestions: ["cuit", "crue"],
+                        suggestions: ["cuit", "cru"],
                         composition: ["Poisson"]
                     },
                     {

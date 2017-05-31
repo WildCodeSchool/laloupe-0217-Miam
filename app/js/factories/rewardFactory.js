@@ -2,7 +2,7 @@ angular.module('app')
     .factory('RewardFactory', function() {
 
         var rewardList = [{
-            picto: "",
+            picto: "/img/university.svg",
             name: "Découverte",
             objectif: "Bravo ! Tu as goûté 1 fois cet aliment !"
           },

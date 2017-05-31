@@ -1,6 +1,7 @@
 angular.module('app')
-    .controller('ProfilController', function($scope, RewardFactory, AvatarFactory) {
+    .controller('ProfilController', function($scope, RewardFactory, AvatarFactory, $state) {
       var i = 0;
+$scope.hideModal= true;
 
       var avatars = [
           {
@@ -42,9 +43,19 @@ $scope.mesRecompenses = function(){
 $scope.rewardList = RewardFactory;
 console.log($scope.rewardList)
 
-$scope.closeModal = function (){
 
-  $scope.hideModal = true;
+$scope.openModal = function() {
+
+  $scope.hideModal= false;
+
+
+}
+
+
+$scope.goHome = function() {
+$scope.hideModal= true;
+  $state.go('anon.home');
+  console.log($scope.hideModal);
 }
 
   });

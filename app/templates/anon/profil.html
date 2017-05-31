@@ -22,11 +22,11 @@
                 <button type="button" class="col-xs-1 glyphicon glyphicon-pencil flex-center-vertically"></button>
             </div>
         </div>
+        <button class="col-xs-offset-4 col-xs-4 deconnecter" type="submit" data-toggle="modal" data-target=".modal-deconnected" ng-click="openModal()">se déconnecter</button>
 
         <div class="row">
             <div class="col-xs-12 name">
-                <button class="col-xs-offset-4 col-xs-4 deconnecter" type="submit" data-toggle="modal" data-target=".modal-deconnected">se déconnecter</button>
-                <div class="modal fade modal-deconnected" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" ng-hide="closeModal">
+                <div class="modal fade modal-deconnected"  ng-hide="hideModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
                     <div class="modal-dialog modal-lg" role="document">
                         <div class="modal-content">
 
@@ -36,8 +36,8 @@
 
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
-                                <a ui-sref="anon.home">
-                                    <button type="button" class="btn btn-primary" ng-click="hideModal()">Confirmer</button>
+
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="goHome()">Confirmer</button>
                                 </a>
                             </div>
                         </div>
@@ -50,9 +50,9 @@
     <div class="vueMesRecompenses" ng-show="vueModifier">
         <div class="col-xs-12 challenge">
             <div class="row" ng-repeat="reward in rewardList" ng-class="isUnlocked">
-                <img class="col-xs-2 img-recompense flex-center-vertically" src="{{reward.picto}}" alt="recompense">
-                <div class="col-xs-3 name flex-center-vertically">{{ reward.name }}</div>
-                <div class="col-xs-4 objectif flex-center-vertically">{{ reward.objectif}}</div>
+                <img class="col-xs-4 img-recompense flex-center-vertically" src="{{reward.picto}}" alt="recompense">
+                <div class="col-xs-2 name flex-center-vertically">{{ reward.name }}</div>
+                <div class="col-xs-6 objectif flex-center-vertically">{{ reward.objectif}}</div>
             </div>
         </div>
     </div>
