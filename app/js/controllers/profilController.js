@@ -4,11 +4,12 @@ angular.module('app')
       var j =0;
 $scope.hideModal= true;
 $scope.avatars = AvatarFactory;
-$scope.userName = "";
+console.log($scope.avatars);
 
 
       console.log($scope.avatars[i].avatars[j].picto);
       $scope.prev = function() {
+        j = 0;
           i--;
           j = 0;
           if (i < 0) {
@@ -17,6 +18,7 @@ $scope.userName = "";
           $scope.currentAvatar = $scope.avatars[i].avatars[j].picto;
       };
       $scope.next = function() {
+        j = 0;
           i++;
           j = 0;
 
