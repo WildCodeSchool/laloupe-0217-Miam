@@ -8,12 +8,22 @@
     </div>
 
     <div class="vueModifier" ng-hide="vueModifier">
+      <div class="row">
+          <div class="col-xs-12 choice-avatar">
+            <button type="button" class="col-xs-offset-5 xs-2  btn btn-circle btn-lg" ng-click="up()"><i class="glyphicon glyphicon-chevron-up"></i></button>
+          </div>
+      </div>
 
         <div class="row">
             <div class="col-xs-12 choice-avatar">
                   <button type="button" class="col-xs-3 btn btn-circle btn-lg" ng-click="prev()"><i class="glyphicon glyphicon-chevron-left"></i></button>
                 <img class="avatar col-xs-6" ng-src="{{currentAvatar}}" alt="avatar">
                 <button type="button" class="col-xs-3 btn btn-circle btn-lg" ng-click="next()"><i class="glyphicon glyphicon-chevron-right"></i></button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 choice-avatar">
+              <button type="button" class="col-xs-offset-5 xs-2 btn btn-circle btn-lg" ng-click="down()"><i class="glyphicon glyphicon-chevron-down"></i></button>
             </div>
         </div>
         <div class="row">
