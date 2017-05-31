@@ -33,6 +33,10 @@ angular.module('app')
                     {
                         name: "lion orange",
                         picto: "/img/lion-orange.svg"
+                    },
+                    {
+                        name: "lion indian",
+                        picto: "/img/lion-indian.svg"
                     }
                 ]
             },
@@ -53,6 +57,10 @@ angular.module('app')
                     {
                         name: "cat orange",
                         picto: "/img/cat-orange.svg"
+                    },
+                    {
+                        name: "cat indian",
+                        picto: "/img/cat-indian.svg"
                     }
                 ]
             }

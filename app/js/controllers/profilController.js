@@ -1,6 +1,7 @@
 angular.module('app')
     .controller('ProfilController', function($scope, RewardFactory, AvatarFactory, $state) {
       var i = 0;
+      var j =0;
 $scope.hideModal= true;
 $scope.avatars = AvatarFactory;
 console.log($scope.avatars);
@@ -16,22 +17,36 @@ console.log($scope.avatars);
       // ];
 
 
-      console.log($scope.avatars[i].avatars[0].picto);
+      console.log($scope.avatars[i].avatars[j].picto);
       $scope.prev = function() {
           i--;
           if (i < 0) {
               i = $scope.avatars.length - 1;
           }
-          $scope.currentAvatar = $scope.avatars[i].avatars[0].picto;
+          $scope.currentAvatar = $scope.avatars[i].avatars[j].picto;
       };
       $scope.next = function() {
           i++;
           if (i >= $scope.avatars.length) {
               i = 0;
           }
-          $scope.currentAvatar = $scope.avatars[i].avatars[0].picto;
+          $scope.currentAvatar = $scope.avatars[i].avatars[j].picto;
       };
-      $scope.currentAvatar = $scope.avatars[i].avatars[0].picto;
+      $scope.up = function() {
+          j--;
+          if (j < 0) {
+              j = $scope.avatars[i].avatars.length - 1;
+          }
+          $scope.currentAvatar = $scope.avatars[i].avatars[j].picto;
+      };
+      $scope.down = function() {
+          j++;
+          if (j < 0) {
+              j = $scope.avatars[i].avatars.length - 1;
+          }
+          $scope.currentAvatar = $scope.avatars[i].avatars[j].picto;
+      };
+      $scope.currentAvatar = $scope.avatars[i].avatars[j].picto;
 
 $scope.vueModifier = false;
 $scope.vueMesRecompenses = true;
