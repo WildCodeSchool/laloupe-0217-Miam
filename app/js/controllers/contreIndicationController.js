@@ -8,10 +8,13 @@ angular.module('app')
             $scope.arrayToString = function(string) {
               return string.join("");
             };
-            $scope.regAccent = function (string) {
-              return string.normalize('NFD').replace(/[\u0300-\u036f]/g, "").toLowerCase();
+            $scope.underscore = function(string) {
+              return string.replace(/[_]/g, " ");
             };
-            $scope.correct = function (string) {
+            $scope.regAccent = function(string) {
+              return string.normalize('NFD').replace(/[\u0300-\u036f\u0100-\u017f]/g, "").toLowerCase();
+            };
+            $scope.correct = function(string) {
               return $scope.regAccent(string);
             };
 

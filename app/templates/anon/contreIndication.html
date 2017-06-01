@@ -51,7 +51,7 @@
         <div class="col-xs-4 gouter-item">
           <img src="img/{{ correct(item.nameFood) }}.svg" alt="{{ correct(item.nameFood) }}" />
           <h3>{{ item.nameFood }}</h3>
-          <h4>{{ item.categorie }}</h4>
+          <h4>{{ underscore(item.categorie) }}</h4>
           <h5>{{ arrayToString(item.compoFood) }}</h5>
           <button class="btn btn-primary btn-lg cancel" type="button" name="button">Annuler</button>
         </div>
