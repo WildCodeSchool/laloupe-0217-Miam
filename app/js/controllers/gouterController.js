@@ -5,6 +5,12 @@ angular.module('app')
       $scope.underscore = function(string) {
         return string.replace(/[_]/g, " ");
       };
+      $scope.regAccent = function(string) {
+        return string.normalize('NFD').replace(/[\u0300-\u036f\u0100-\u017f]/g, "").toLowerCase();
+      };
+      $scope.correct = function(string) {
+        return $scope.regAccent(string);
+      };
 
       $scope.user = CurrentUser.user();
 
