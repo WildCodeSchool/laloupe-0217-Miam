@@ -59,22 +59,22 @@ export default class Food {
             });
     }
 
-var query = { nameFood: nameFood };
+// var query = { nameFood: nameFood };
 
-    findOneAndUpdate(req, res) {
-      console.log("like", req.body);
-        model.findOneAndUpdate(query, { $setOnInsert: { countVote: countVote  }} (err, like) => {
-            if (err || !like) {
-                console.log("error", err.message);
-                res.status(500).send(err.message);
-            } else {
-                res.json({
-                    success: true,
-                    like: like
-                });
-
-            }
-        });
-    }
+    // findOneAndUpdate(req, res) {
+    //   console.log("like", req.body);
+    //     model.findOneAndUpdate(query, { $setOnInsert: { countVote: countVote  }} (err, like) => {
+    //         if (err || !like) {
+    //             console.log("error", err.message);
+    //             res.status(500).send(err.message);
+    //         } else {
+    //             res.json({
+    //                 success: true,
+    //                 like: like
+    //             });
+    //
+    //         }
+    //     });
+    // }
 
 }
