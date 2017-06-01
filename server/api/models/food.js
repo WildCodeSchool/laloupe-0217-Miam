@@ -59,10 +59,11 @@ export default class Food {
             });
     }
 
+var query = { nameFood: nameFood };
 
-    createLike(req, res) {
+    findOneAndUpdate(req, res) {
       console.log("like", req.body);
-        model.create(req.body, (err, like) => {
+        model.findOneAndUpdate(query, { $setOnInsert: { countVote: countVote  }} (err, like) => {
             if (err || !like) {
                 console.log("error", err.message);
                 res.status(500).send(err.message);

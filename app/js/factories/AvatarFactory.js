@@ -1,14 +1,14 @@
 angular.module('app')
     .factory('AvatarFactory', function() {
-        return [{
+        var avatarList = [{
                 famille: "",
                 avatars: [{
                         name: "penguin",
                         picto: "/img/penguin.svg"
                     },
                     {
-                        name: "miam",
-                        picto: "/img/miam-logo.svg"
+                        name: "",
+                        picto: ""
                     },
                     {
                         name: "",
@@ -19,35 +19,52 @@ angular.module('app')
             {
                 famille: "",
                 avatars: [{
-                        name: "",
-                        picto: ""
+                        name: "lion",
+                        picto: "/img/lion.svg"
                     },
                     {
-                        name: "",
-                        picto: ""
+                        name: "lion red",
+                        picto: "/img/lion-red.svg"
                     },
                     {
-                        name: "",
-                        picto: ""
+                        name: "lion green",
+                        picto: "/img/lion-green.svg"
+                    },
+                    {
+                        name: "lion orange",
+                        picto: "/img/lion-orange.svg"
+                    },
+                    {
+                        name: "lion indian",
+                        picto: "/img/lion-indian.svg"
                     }
                 ]
             },
              {
                 famille: "",
                 avatars: [{
-                        name: "",
-                        picto: ""
+                        name: "cat",
+                        picto: "/img/cat.svg"
                     },
                     {
-                        name: "",
-                        picto: ""
+                        name: "cat red",
+                        picto: "/img/cat-red.svg"
                     },
                     {
-                        name: "",
-                        picto: ""
+                        name: "cat green",
+                        picto: "/img/cat-red.svg"
+                    },
+                    {
+                        name: "cat orange",
+                        picto: "/img/cat-orange.svg"
+                    },
+                    {
+                        name: "cat indian",
+                        picto: "/img/cat-indian.svg"
                     }
                 ]
             }
 
         ];
+        return avatarList;
     });

@@ -5,7 +5,20 @@ const profileSchema = new mongoose.Schema({
     name: {
       type: String
     },
+    });
+    const userSchema = new mongoose.Schema({
+        name: {
+          type: String
+
+        },
+        _isCurrentUser: {
+          type: Boolean
+
+        },
+        });
+
     // FACTORY
+    const infoSchema = new mongoose.Schema({
     nameAvatar: {
       type: String
     },

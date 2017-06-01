@@ -1,33 +1,52 @@
 angular.module('app')
     .controller('ProfilController', function($scope, RewardFactory, AvatarFactory, $state) {
       var i = 0;
+      var j =0;
 $scope.hideModal= true;
+$scope.avatars = AvatarFactory;
+console.log($scope.avatars);
+      // var avatars = [
+      //     {
+      //         1: '/img/penguin.svg',
+      //         2: '/img/avatar1.2.jpg'
+      //     },
+      //     {
+      //         1: '/img/miam-logo.svg',
+      //         2: '/img/avatar1.2.jpg'
+      //     }
+      // ];
 
-      var avatars = [
-          {
-              1: '/img/penguin.svg',
-              2: '/img/avatar1.2.jpg'
-          },
-          {
-              1: '/img/miam-logo.svg',
-              2: '/img/avatar1.2.jpg'
-          }
-      ];
+
+      console.log($scope.avatars[i].avatars[j].picto);
       $scope.prev = function() {
           i--;
           if (i < 0) {
-              i = avatars.length - 1;
+              i = $scope.avatars.length - 1;
           }
-          $scope.currentAvatar = avatars[i][1];
+          $scope.currentAvatar = $scope.avatars[i].avatars[j].picto;
       };
       $scope.next = function() {
           i++;
-          if (i >= avatars.length) {
+          if (i >= $scope.avatars.length) {
               i = 0;
           }
-          $scope.currentAvatar = avatars[i][1];
+          $scope.currentAvatar = $scope.avatars[i].avatars[j].picto;
       };
-      $scope.currentAvatar = avatars[i][1];
+      $scope.up = function() {
+          j--;
+          if (j < 0) {
+              j = $scope.avatars[i].avatars.length - 1;
+          }
+          $scope.currentAvatar = $scope.avatars[i].avatars[j].picto;
+      };
+      $scope.down = function() {
+          j++;
+          if (j < 0) {
+              j = $scope.avatars[i].avatars.length - 1;
+          }
+          $scope.currentAvatar = $scope.avatars[i].avatars[j].picto;
+      };
+      $scope.currentAvatar = $scope.avatars[i].avatars[j].picto;
 
 $scope.vueModifier = false;
 $scope.vueMesRecompenses = true;
@@ -41,7 +60,7 @@ $scope.mesRecompenses = function(){
 };
 
 $scope.rewardList = RewardFactory;
-console.log($scope.rewardList)
+console.log($scope.rewardList);
 
 
 $scope.openModal = function() {
@@ -49,13 +68,13 @@ $scope.openModal = function() {
   $scope.hideModal= false;
 
 
-}
+};
 
 
 $scope.goHome = function() {
 $scope.hideModal= true;
   $state.go('anon.home');
   console.log($scope.hideModal);
-}
+};
 
   });
