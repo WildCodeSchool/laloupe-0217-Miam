@@ -1,6 +1,11 @@
 angular.module('app')
     .controller('GouterController', function($scope, FoodFactory, $location, $anchorScroll, Auth, CurrentUser, LocalService, GouterService) {
 
+      // SIMPLIFY FOOD NAMES
+      $scope.underscore = function(string) {
+        return string.replace(/[_]/g, " ");
+      };
+
       $scope.user = CurrentUser.user();
 
         $scope.foodList = FoodFactory;

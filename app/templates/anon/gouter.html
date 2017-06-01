@@ -49,7 +49,7 @@
     </section>-->
 
         <section class="row" ng-repeat="categorie in categories">
-            <h2>{{ categorie }}</h2>
+            <h2>{{ underscore(categorie) }}</h2>
             <div id="_{{ food.name }}" class="gouter" ng-repeat="food in foodList[categorie].aliments">
                 <div class="col-xs-4 gouter-item" data-toggle="modal" data-target="#{{ food.name }}">
 
