@@ -40,7 +40,7 @@ angular.module('app')
                         composition: [""]
                     },
                     {
-                        name: "Peche",
+                        name: "Pêche",
                         picto: "/img/peche.svg",
                         description: "Sucrée et désaltérante, c'est le fruit de l'été par excellence !",
                         suggestions: ["crue", "pochée", "poêlée", "au sirop", "en marmelade", "en tarte"],
@@ -129,7 +129,7 @@ angular.module('app')
                         composition: ["Viande"]
                     },
                     {
-                        name: "Oeuf",
+                        name: "Œuf",
                         picto: "/img/egg.svg",
                         description: "On mange le plus souvent ceux pondus par les poules.",
                         suggestions: ["cocotte", "à la coque", "dur", "sur le plat", "mimosa"],
