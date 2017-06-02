@@ -4,17 +4,7 @@ angular.module('app')
       var j =0;
 $scope.hideModal= true;
 $scope.avatars = AvatarFactory;
-console.log($scope.avatars);
-      // var avatars = [
-      //     {
-      //         1: '/img/penguin.svg',
-      //         2: '/img/avatar1.2.jpg'
-      //     },
-      //     {
-      //         1: '/img/miam-logo.svg',
-      //         2: '/img/avatar1.2.jpg'
-      //     }
-      // ];
+$scope.userName = "";
 
 
       console.log($scope.avatars[i].avatars[j].picto);
