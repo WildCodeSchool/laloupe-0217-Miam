@@ -37,12 +37,12 @@ angular.module('app')
                     var accessAliments = $scope.foodList[$scope.categories[i]].aliments;
 
                     var allNames = _.map(accessAliments, "name");
-                    var compoAlim = _.map(accessAliments, "composition");
+                    var allCompo = _.map(accessAliments, "composition");
                     var nameCateg = $scope.categories[i];
 
                     for (var j = 0; j < allNames.length; j++) {
                       var nameAlim = allNames[j];
-                      // console.log(nameAlim);
+                      var compoAlim = allCompo[j];
 
                       if ($scope.query == nameAlim || $scope.query == compoAlim || $scope.query == nameCateg) {
                         var alimNotEating = {
