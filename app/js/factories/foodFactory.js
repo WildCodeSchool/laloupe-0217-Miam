@@ -57,13 +57,13 @@ angular.module('app')
                     suggestions: ["crue", "cuite", "râpée", "en gratin", "en purée", "en bâtonnets", "à la vapeur", "épicée", "sucrée", "glacée"],
                     composition: [""]
                 },
-                {
-                    name: "Haricots_verts",
-                    picto: "/img/haricotsverts.svg",
-                    description: "Certains haricots verts sont...jaunes : ce sont les haricots-beurre !",
-                    suggestions: ["en fagot", "en salade", "en purée", "cuisson à l'eau ou à la vapeur", "à l'ail"],
-                    composition: [""]
-                },
+                // {
+                //     name: "Haricots_verts",
+                //     picto: "/img/haricotsverts.svg",
+                //     description: "Certains haricots verts sont...jaunes : ce sont les haricots-beurre !",
+                //     suggestions: ["en fagot", "en salade", "en purée", "cuisson à l'eau ou à la vapeur", "à l'ail"],
+                //     composition: [""]
+                // },
                 {
                     name: "Salade",
                     picto: "/img/salade.svg",
@@ -78,13 +78,13 @@ angular.module('app')
                     suggestions: ["crue", "cuit", "en salade", "facie", "en sauce", "en coulis", "en tarte", "en confiture"],
                     composition: [""]
                 },
-                {
-                    name: "Courgette",
-                    picto: "/img/courgette.svg",
-                    description: "Habituellement allongées et vertes, on trouve aussi des courgettes rondes, grises, blanches ou jaunes.",
-                    suggestions: ["crue", "cuite", "râpée", "sautée", "poêlée", "farcie", "en gratin", "en tarte", "en velouté"],
-                    composition: [""]
-                },
+                // {
+                //     name: "Courgette",
+                //     picto: "/img/courgette.svg",
+                //     description: "Habituellement allongées et vertes, on trouve aussi des courgettes rondes, grises, blanches ou jaunes.",
+                //     suggestions: ["crue", "cuite", "râpée", "sautée", "poêlée", "farcie", "en gratin", "en tarte", "en velouté"],
+                //     composition: [""]
+                // },
                 {
                     name: "Radis",
                     picto: "/img/radis.svg",
