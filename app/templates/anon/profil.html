@@ -8,35 +8,67 @@
     </div>
 
     <div class="vueModifier" ng-hide="vueModifier">
-      <div class="row">
-          <div class="col-xs-12 choice-avatar">
-            <button type="button" class="col-xs-offset-5 xs-2  btn btn-circle btn-lg" ng-click="up()"><i class="glyphicon glyphicon-chevron-up"></i></button>
-          </div>
-      </div>
+        <div class="row">
+            <div class="col-xs-12 choice-avatar">
+                <button type="button" class="col-xs-offset-5 xs-2  btn btn-circle btn-lg" ng-click="up()"><i class="glyphicon glyphicon-chevron-up"></i></button>
+            </div>
+        </div>
 
         <div class="row">
             <div class="col-xs-12 choice-avatar">
-                  <button type="button" class="col-xs-3 btn btn-circle btn-lg" ng-click="prev()"><i class="glyphicon glyphicon-chevron-left"></i></button>
+                <button type="button" class="col-xs-3 btn btn-circle btn-lg" ng-click="prev()"><i class="glyphicon glyphicon-chevron-left"></i></button>
                 <img class="avatar col-xs-6" ng-src="{{currentAvatar}}" alt="avatar">
                 <button type="button" class="col-xs-3 btn btn-circle btn-lg" ng-click="next()"><i class="glyphicon glyphicon-chevron-right"></i></button>
             </div>
         </div>
+
         <div class="row">
             <div class="col-xs-12 choice-avatar">
-              <button type="button" class="col-xs-offset-5 xs-2 btn btn-circle btn-lg" ng-click="down()"><i class="glyphicon glyphicon-chevron-down"></i></button>
+                <button type="button" class="col-xs-offset-5 xs-2 btn btn-circle btn-lg" ng-click="down()"><i class="glyphicon glyphicon-chevron-down"></i></button>
             </div>
         </div>
         <div class="row">
-            <div class="col-xs-12">
-                <h2 class="col-xs-offset-4 col-xs-3 flex-center-vertically">Jean</h2>
-                <button type="button" class="col-xs-1 glyphicon glyphicon-pencil flex-center-vertically"></button>
+            <div class="col-xs-12 changename">
+                <h2>{{ userName }}</h2>
             </div>
         </div>
-        <button class="col-xs-offset-4 col-xs-4 deconnecter" type="submit" data-toggle="modal" data-target=".modal-deconnected" ng-click="openModal()">se déconnecter</button>
+
+        <div class="row">
+            <div class="col-xs-12 changename">
+                <button type="button" class="col-xs-offset-5 xs-2 btn btn-primary btn-lg" type="submit" data-toggle="modal" data-target=".modal-change" ng-click="openModal()">Changer ton nom</button>
+                <!-- <span class="glyphicon glyphicon-pencil"></span> -->
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="modal fade modal-change" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <button class="col-xs-offset-10 xs-2" type="button" class="btn btn-default" data-dismiss="modal">X</button>
+                                </div>
+                            </div>
+                            <input class="col-xs-9" type="text" ng-model="userName" required placeholder="Ton prénom">
+                            <button class="col-xs-3" type="button" class="valid" ng-click="validUser()" data-dismiss="modal">Ok</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Modal Deconnected-->
+        <div class="row">
+            <div class="col-xs-12 changename">
+                <button class="col-xs-offset-5 xs-2 btn btn-primary btn-lg" type="submit" data-toggle="modal" data-target=".modal-deconnected" ng-click="openModal()">se déconnecter</button>
+            </div>
+        </div>
 
         <div class="row">
             <div class="col-xs-12 name">
-                <div class="modal fade modal-deconnected"  ng-hide="hideModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+                <div class="modal fade modal-deconnected" ng-hide="hideModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
                     <div class="modal-dialog modal-lg" role="document">
                         <div class="modal-content">
 
@@ -47,8 +79,8 @@
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
 
-                                    <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="goHome()">Confirmer</button>
-                                </a>
+                                <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="goHome()">Confirmer</button>
+
                             </div>
                         </div>
                     </div>
@@ -59,10 +91,10 @@
 
     <div class="vueMesRecompenses" ng-show="vueModifier">
         <div class="col-xs-12 challenge">
-            <div class="row" ng-repeat="reward in rewardList" ng-class="isUnlocked">
-                <img class="col-xs-4 img-recompense flex-center-vertically" src="{{reward.picto}}" alt="recompense">
-                <div class="col-xs-2 name flex-center-vertically">{{ reward.name }}</div>
-                <div class="col-xs-6 objectif flex-center-vertically">{{ reward.objectif}}</div>
+            <div class="row flexbox-container" ng-repeat="reward in rewardList" ng-class="isUnlocked">
+                <img class="col-xs-4 img-recompense" src="{{reward.picto}}" alt="recompense">
+                <div class="col-xs-2 name">{{ reward.name }}</div>
+                <div class="col-xs-6 objectif">{{ reward.objectif}}</div>
             </div>
         </div>
     </div>

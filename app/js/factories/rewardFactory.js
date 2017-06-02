@@ -7,7 +7,7 @@ angular.module('app')
             objectif: "Bravo ! Tu as goûté 1 fois cet aliment !"
           },
           {
-            picto: "",
+            picto: "/img/indian.svg",
             name: "Petit goûteur",
             objectif: "Bravo ! Tu as goûté 3 fois cet aliment !"
           },
@@ -18,17 +18,17 @@ angular.module('app')
           },
 
           {
-            picto: "",
+            picto: "/img/red.svg",
             name: "Géant rouge",
             objectif: "Bravo ! Tu as aimé les aliments rouges !"
           },
           {
-            picto: "",
+            picto: "/img/orange-avatar.svg",
             name: "Géant orange",
             objectif: "Bravo ! Tu as aimé les aliments oranges !"
           },
           {
-            picto: "",
+            picto: "/img/green.svg",
             name: "Géant vert",
             objectif: "Bravo ! Tu as aimé les aliments verts !"
           },
