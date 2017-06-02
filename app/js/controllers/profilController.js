@@ -10,6 +10,7 @@ $scope.userName = "";
       console.log($scope.avatars[i].avatars[j].picto);
       $scope.prev = function() {
           i--;
+          j = 0;
           if (i < 0) {
               i = $scope.avatars.length - 1;
           }
@@ -17,6 +18,8 @@ $scope.userName = "";
       };
       $scope.next = function() {
           i++;
+          j = 0;
+
           if (i >= $scope.avatars.length) {
               i = 0;
           }
@@ -60,6 +63,7 @@ $scope.openModal = function() {
 
 };
 
+$scope.userName="Jean";
 
 $scope.goHome = function() {
 $scope.hideModal= true;
@@ -67,4 +71,7 @@ $scope.hideModal= true;
   console.log($scope.hideModal);
 };
 
+$scope.validUser = function() {
+$scope.userName = userName;
+};
   });
