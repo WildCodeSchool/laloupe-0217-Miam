@@ -7,21 +7,22 @@
 @comp-color: #4ABDAC;
 @dark-comp-color: #1f564e;
 @background: #ffd27f;
-// #ffd27f
-// #ffdfa3
-// #FFFBD0
-// #ffd27f
-// #FDF06F
-// #FFD101
 @green: #589424;
-// #659c35;
 @red: #d13834;
 
-.title-font {
+.main-font {
   font-family: 'Baloo', cursive;
 }
 
-.rounded (@radius: 10px) {
+.text-wrap {
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  -o-hyphens: auto;
+  hyphens: auto;
+}
+
+.rounded-bubble (@radius: 0.4em) {
   -moz-border-radius: @radius;
   -webkit-border-radius: @radius;
   -o-border-radius: @radius;
@@ -30,15 +31,28 @@
   border-radius: @radius;
 }
 
+.rounded-btn (@radius-btn: 0.2em) {
+  -moz-border-radius: @radius-btn;
+  -webkit-border-radius: @radius-btn;
+  -o-border-radius: @radius-btn;
+  -khtml-border-radius: @radius-btn;
+  -ms-border-radius: @radius-btn;
+  border-radius: @radius-btn;
+}
+
 .general-button {
+  white-space: normal;
   background-color: @main-color;
-  border: none;
-  padding: 0;
+  border: solid @main-color 0.2rem;
+  box-shadow: none;
+  margin: 0;
+  padding: 0.3rem 0.6rem;
+  .rounded-btn();
 }
 
 .button-interaction {
   background-color: white;
-  border: solid @main-color 5px;
+  border: solid @main-color 0.2rem;
   color: @main-color;
 }
 
@@ -47,14 +61,16 @@
 
 body,
 html {
-    font-family: Helvetica, sans-serif;
-    text-align: center;
-    color: black;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    background-color: @background;
-    .title-font();
+  .main-font();
+  .text-wrap();
+  font-size: 72px;
+  line-height: 1.25em;
+  text-align: center;
+  color: white;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: @background;
 }
 
 header h1 {
@@ -65,19 +81,23 @@ header h1 {
 .vertical-center {
   min-height: 100vh;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-content: space-around;
+  margin: 0.6rem 1rem;
+  padding: 0;
 }
 
 /* ------------------------------ BUBBLE ------------------------------ */
 /* °°°°°°°°° CENTER TEXT INSIDE BUBBLE & GENERALITIES °°°°°°°°° */
 .bubble {
-    height: 90px;
     display: flex;
-    align-items: center;
+    flex-direction: column;
     position: relative;
-    border: solid @comp-color 4px;
+    padding: 0.7em;
     background-color: @comp-color;
-    .rounded();
+    border: solid @comp-color 4px;
+    .rounded-bubble();
 }
 
 .bubble:after,
@@ -88,10 +108,8 @@ header h1 {
 }
 
 .bubble p {
-    margin: auto;
-    font-size: 20px;
-    padding: 0 10px;
-    color: white;
+  margin: 0;
+  padding: 0;
 }
 /* ////////////// TRIANGLE LEFT & RIGHT ////////////// */
 .bubble.left:before,
@@ -119,7 +137,6 @@ header h1 {
     border-width: 14px 14px 14px 0;
 }
 
-
 .bubble.left:after {
     border-width: 8px 8px 8px 0;
 }
@@ -140,7 +157,7 @@ header h1 {
 .bubble.bottom:before,
 .bubble.top:before {
     left: 50%;
-    margin-left: -14px;
+    margin-left: -0.7rem;
     border-color: @comp-color transparent;
 }
 
@@ -157,12 +174,9 @@ header h1 {
 }
 
 .bubble.bottom:before {
-    border-width: 14px 14px 0;
+    border-width: 0.7rem 0.7rem 0;
 }
 
-.bubble.bottom:after {
-    border-width: 8px 8px 0;
-}
 /* ////////////// TRIANGLE TOP ////////////// */
 .bubble.top:after,
 .bubble.top:before {
@@ -170,31 +184,32 @@ header h1 {
 }
 
 .bubble.top:before {
-    border-width: 0 14px 14px;
+    border-width: 0 0.7rem 0.7rem;
 }
 
-.bubble.top:after {
-    border-width: 0 8px 8px;
-}
 /* ------------------------------ ACCUEIL ------------------------------ */
 
 .bubble.bottom.home {
-    height: 190px;
-    margin-bottom: 8%;
+    margin-bottom: 1.2rem;
 }
 
-.avatar.home {
-    height: 300px;
-    margin: 0 0 8%;
+.home img {
+  max-height: 3em;
+  margin: 0.1em auto 0.3em;
+  padding: 0;
+}
+
+.avatar-home {
+    margin: 0 0 1rem;
     padding: 0;
 }
 
 .discover button,
 .connect button {
   .general-button;
-    height: 80px;
-    font-size: 30px;
-    margin-bottom: 3%;
+  font-size: 1.4em;
+  line-height: 1.2em;
+  margin-bottom: 0.5rem;
 }
 
 .discover button:active,
@@ -318,6 +333,7 @@ nav .pagination li a .glyphicon-chevron-right {
 .imgswitch {
 transform: rotate(180deg);
 }
+
 /* ------------------------------ AVATAR ------------------------------ */
 .bubble.bottom.avatar {
     height: 100px;
