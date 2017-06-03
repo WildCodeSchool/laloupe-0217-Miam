@@ -1,39 +1,39 @@
 <div class="container vertical-center">
 
-    <div class="row">
-        <div class="col-xs-offset-1 col-xs-10">
-            <img class="avatar-login" src="/img/penguin.svg" alt="Avatar" />
-        </div>
+  <div class="row">
+    <div class="col-xs-offset-1 col-xs-10">
+      <img class="avatar-login" src="/img/penguin.svg" alt="Avatar" />
     </div>
+  </div>
 
-    <div class="row">
-      <div class="col-xs-12">
-        <div class="bubble top login">
-          <p>Pour connecter votre enfant à
-            <img class="img-responsive logo-text" src="/img/miam-logo.svg" alt="Miam!" />
-            il vous suffit d’indiquer votre adresse mail et votre mot de passe.
-          </p>
-          <div class="row">
-              <div class="col-xs-12">
-                  <form class="form" name="loginForm" novalidate ng-submit="login()">
-                      <div ng-repeat="error in errors">{{error.error}}</div>
-                      <div class="form-group">
-                        <input id="email" type="email" class="form-control input-lg" ng-model="user.email" required placeholder="Adresse e-mail">
-                      </div>
-                      <div class="form-group">
-                        <input id="password" type="password" class="form-control input-lg" ng-model="user.password" required placeholder="Mot de passe">
-                      </div>
-                      <div class="form-group remember">
-                        <input type="checkbox" ng-model="resterConnecter">
-                        <label> Se souvenir de moi</label>
-                        <label class="text-rmmbr">En cochant cette case, vous resterez connecté et n’aurez par conséquent plus besoin d’indiquer ces informations.</label>
-                      </div>
-                      <button type="submit" class="btn btn-primary btn-block">Se connecter</button>
-                  </form>
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="bubble top login">
+        <p>Pour connecter votre enfant à
+          <img class="img-responsive logo-text" src="/img/miam-logo.svg" alt="Miam!" />
+          il vous suffit d’indiquer votre adresse mail et votre mot de passe.
+        </p>
+        <div class="row">
+          <div class="col-xs-12">
+            <form class="form" name="loginForm" novalidate ng-submit="login()">
+              <div ng-repeat="error in errors">{{error.error}}</div>
+              <div class="form-group">
+                <input id="email" type="email" class="form-control input-lg" ng-model="user.email" required placeholder="Adresse e-mail">
               </div>
+              <div class="form-group">
+                <input id="password" type="password" class="form-control input-lg" ng-model="user.password" required placeholder="Mot de passe">
+              </div>
+              <div class="form-group remember">
+                <input type="checkbox" ng-model="resterConnecter">
+                <label> Se souvenir de moi</label>
+                <label class="text-rmmbr">En cochant cette case, vous resterez connecté et n’aurez par conséquent plus besoin d’indiquer ces informations.</label>
+              </div>
+              <button type="submit" class="btn btn-primary btn-block">Se connecter</button>
+            </form>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
 </div>
