@@ -1,7 +1,6 @@
 // Main less file for your application.
 // Use `@import` to use other less files
 // relative to 'app/css' or 'vendor/css'.
-
 @main-color: #FC4A1A;
 @second-color: #fc7a1d;
 @comp-color: #4ABDAC;
@@ -14,7 +13,7 @@
   font-family: 'Baloo', cursive;
 }
 
-.rounded-bubble (@radius: 0.5em) {
+.rounded-bubble (@radius:0.5em) {
   -moz-border-radius: @radius;
   -webkit-border-radius: @radius;
   -o-border-radius: @radius;
@@ -23,7 +22,7 @@
   border-radius: @radius;
 }
 
-.rounded-btn (@radius-btn: 0.3em) {
+.rounded-btn (@radius-btn:0.3em) {
   -moz-border-radius: @radius-btn;
   -webkit-border-radius: @radius-btn;
   -o-border-radius: @radius-btn;
@@ -50,10 +49,7 @@
   border: solid @main-color 0.2rem;
   color: @main-color;
 }
-
-
 /* -------------------------------------------------------------------- */
-
 body,
 html {
   .main-font();
@@ -76,33 +72,37 @@ header h1 {
   margin: 0.1em auto 0.3em;
   padding: 0;
 }
-
 /* ------------------------------ VERTICALLY CENTER PAGES ------------------------------ */
 .vertical-center {
   min-height: 100%;
+  display: -webkit-flex;
   display: flex;
+  -webkit-flex-direction: column;
   flex-direction: column;
+  -webkit-justify-content: center;
   justify-content: center;
+  -webkit-align-content: space-around;
   align-content: space-around;
   margin: 0.8rem auto;
 }
-
 /* ------------------------------ BUBBLE ------------------------------ */
 /* °°°°°°°°° CENTER TEXT INSIDE BUBBLE & GENERALITIES °°°°°°°°° */
 .bubble {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    padding: 0.7rem;
-    background-color: @comp-color;
-    border: solid @comp-color 0.1rem;
-    .rounded-bubble();
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  position: relative;
+  padding: 0.7rem;
+  background-color: @comp-color;
+  border: solid @comp-color 0.1rem;
+  .rounded-bubble();
 }
 
 .bubble:before {
-    content: "";
-    position: absolute;
-    border-style: solid;
+  content: "";
+  position: absolute;
+  border-style: solid;
 }
 
 .bubble p {
@@ -112,108 +112,101 @@ header h1 {
 /* ////////////// TRIANGLE LEFT & RIGHT ////////////// */
 .bubble.left:before,
 .bubble.right:before {
-    top: 50%;
-    margin-top: -14px;
-    border-top-color: transparent;
-    border-color: transparent @comp-color;
+  top: 50%;
+  margin-top: -14px;
+  border-top-color: transparent;
+  border-color: transparent @comp-color;
 }
-
 /* ////////////// TRIANGLE LEFT ////////////// */
 .bubble.left:before {
-    right: 100%;
+  right: 100%;
 }
 
 .bubble.left:before {
-    border-width: 14px 14px 14px 0;
+  border-width: 14px 14px 14px 0;
 }
-
 /* ////////////// TRIANGLE RIGHT ////////////// */
 .bubble.right:before {
-    left: 100%;
+  left: 100%;
 }
 
 .bubble.right:before {
-    border-width: 14px 0 14px 14px;
+  border-width: 14px 0 14px 14px;
 }
-
 /* ////////////// TRIANGLE BOTTOM & TOP ////////////// */
 .bubble.bottom:before,
 .bubble.top:before {
-    left: 50%;
-    margin-left: -0.8rem;
-    border-color: @comp-color transparent;
+  left: 50%;
+  margin-left: -0.8rem;
+  border-color: @comp-color transparent;
 }
-
 /* ////////////// TRIANGLE BOTTOM ////////////// */
 .bubble.bottom:before {
-    top: 100%;
+  top: 100%;
 }
 
 .bubble.bottom:before {
-    border-width: 0.8rem 0.8rem 0;
+  border-width: 0.8rem 0.8rem 0;
 }
-
 /* ////////////// TRIANGLE TOP ////////////// */
 .bubble.top:before {
-    bottom: 100%;
+  bottom: 100%;
 }
 
 .bubble.top:before {
-    border-width: 0 0.8rem 0.8rem;
+  border-width: 0 0.8rem 0.8rem;
 }
-
 /* ------------------------------ ACCUEIL ------------------------------ */
-
 .bubble.bottom.home {
-    margin-bottom: 1.2rem;
+  margin-bottom: 1.2rem;
 }
 
 .avatar-home {
-    margin: 0 0 1rem;
-    padding: 0;
+  margin: 0 0 1rem;
+  padding: 0;
 }
 
-.discover button,
-.connect button {
+.connect button,
+.discover button {
   .general-button;
   margin-bottom: 0.5rem;
 }
 
-.discover button:active,
-.discover button:focus,
-.discover button:hover,
 .connect button:active,
 .connect button:focus,
-.connect button:hover {
+.connect button:hover,
+.discover button:active,
+.discover button:focus,
+.discover button:hover {
   .button-interaction;
 }
-
 /* ------------------------------ JE MANGE DEJA ------------------------------ */
-
 .navbar-default {
-    background-color: @second-color;
+  background-color: @second-color;
 }
 
 .overlay-content h1 {
-    font-size: 26px;
-    color: @main-color;
-    margin: 25px 0;
-    padding: 0;
+  font-size: 26px;
+  color: @main-color;
+  margin: 25px 0;
+  padding: 0;
 }
 
 .advice {
-    margin: 3% 0;
-    padding: 0;
-    display: flex;
-    align-items: center;
+  margin: 0;
+  padding: 0;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
 }
 
 section h2 {
-    font-size: 30px;
-    // font-weight: bold;
-    color: @comp-color;
-    margin: 5% 0 8%;
-    padding: 0;
+  font-size: 30px;
+  // font-weight: bold;
+  color: @comp-color;
+  margin: 5% 0 8%;
+  padding: 0;
 }
 
 .manger-item {
@@ -227,15 +220,15 @@ section h2 {
 }
 
 .manger-item h3 {
-    font-size: 20px;
-    color: @main-color;
-    margin: 10% 0 20% 0;
-    padding: 0;
+  font-size: 20px;
+  color: @main-color;
+  margin: 10% 0 20%;
+  padding: 0;
 }
 
 .manger-item img {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .manger-valider {
@@ -244,8 +237,8 @@ section h2 {
 
 .manger-valider button {
   .general-button;
-    height: 70px;
-    letter-spacing: 0.6px;
+  height: 70px;
+  letter-spacing: 0.6px;
 }
 
 .manger-valider button:active,
@@ -255,42 +248,42 @@ section h2 {
 }
 
 .manger-valider .all {
-    font-size: 22px;
+  font-size: 22px;
 }
 
 .manger-valider .ok {
-    font-size: 26px;
+  font-size: 26px;
 }
 
 nav .pagination {
-    margin-top: 8%;
-    padding: 0;
+  margin-top: 8%;
+  padding: 0;
 }
 
 nav .pagination li a i {
-    background-color: @background;
+  background-color: @background;
 }
 
 nav .pagination li a {
-    font-size: 18px;
-    color: @main-color;
-    padding: 0 5px;
-    border: none;
-    background-color: @background;
+  font-size: 18px;
+  color: @main-color;
+  padding: 0 5px;
+  border: none;
+  background-color: @background;
 }
 
 nav .pagination li a:hover {
-    color: @second-color;
-    border: none;
-    background-color: transparent;
+  color: @second-color;
+  border: none;
+  background-color: transparent;
 }
 
 nav .pagination li a .glyphicon-chevron-left {
-    padding-right: 20px;
+  padding-right: 20px;
 }
 
 nav .pagination li a .glyphicon-chevron-right {
-    padding-left: 20px;
+  padding-left: 20px;
 }
 
 .currentclass {
@@ -298,47 +291,47 @@ nav .pagination li a .glyphicon-chevron-right {
 }
 
 .imgswitch {
-transform: rotate(180deg);
+  transform: rotate(180deg);
 }
-
 /* ------------------------------ AVATAR ------------------------------ */
-.bubble.bottom.avatar {
-    height: 100px;
+.choice-avatar {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  align-items: center;
+  margin: 1.2rem auto 0.8rem;
 }
 
 .btn-circle.btn-lg {
-  font-size: 45px;
+  font-size: 1.4em;
   line-height: 0;
-  color: white;
-  width: 80px;
-  height: 80px;
-  border-radius: 40px;
+  width: 2em;
+  height: 2em;
+  border-radius: 2em;
   background-color: @main-color;
+}
+
+.btn-circle.btn-lg:active,
+.btn-circle.btn-lg:focus,
+.btn-circle.btn-lg:hover {
+  color: white;
 }
 
 .choice-avatar button i {
   background-color: rgba(255, 255, 255, 0);
 }
 
-.choice-avatar {
-    margin-top: 50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
 .input-name {
-    height: 50px;
-    margin-top: 40px;
-    border: solid @main-color 4px;
-    border-radius: 10px;
+  border: solid @main-color 0.2rem;
+  margin: 0 auto 1rem;
 }
 
 .name button {
   .general-button;
-    height: 60px;
-    font-size: 26px;
-    margin-top: 12%;
 }
 
 .name button:active,
@@ -346,27 +339,27 @@ transform: rotate(180deg);
 .name button:hover {
   .button-interaction;
 }
-
 /* ------------------------------ Profil ------------------------------ */
 .mini-avatar {
   margin-top: 7px;
-    height: 60px;
-    border-radius: 100%;
+  height: 60px;
+  border-radius: 100%;
 }
+
 .add-kids {
-    margin-top: 7px;
-    background-color: @main-color;
-    color: white;
-    font-size: 30px;
-    border-radius: 100%;
-    height: 60px;
+  margin-top: 7px;
+  background-color: @main-color;
+  color: white;
+  font-size: 30px;
+  border-radius: 100%;
+  height: 60px;
 }
 
 .onglets-profil {
   font-size: 20px;
   color: @main-color;
-border: solid @main-color 4px;
-border-radius: 0 0 10px 10px;
+  border: solid @main-color 4px;
+  border-radius: 0 0 10px 10px;
 }
 
 .glyphicon {
@@ -374,31 +367,35 @@ border-radius: 0 0 10px 10px;
 }
 
 .flex-center-vertically {
+  display: -webkit-flex;
   display: flex;
+  -webkit-justify-content: center;
   justify-content: center;
+  -webkit-flex-direction: column;
   flex-direction: column;
 }
+
 .dropdown {
   position: relative;
   text-align: left;
   width: 150px;
   margin-top: 60px;
 }
-.changename button{
+
+.changename button {
   .general-button();
   margin: 0;
   padding: 10px;
 }
+
 .flexbox-container {
-	display: -ms-flexbox;
-	display: -webkit-flex;
-	display: flex;
-
-	-ms-flex-align: center;
-	-webkit-align-items: center;
-	-webkit-box-align: center;
-
-	align-items: center;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -ms-flex-align: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
 }
 /* ------------------------------ LOGIN & REGISTER ------------------------------ */
 .login p,
@@ -426,10 +423,9 @@ border-radius: 0 0 10px 10px;
 .register button:hover {
   .button-interaction;
 }
-
 /* ------------------------------ J'AI GOUTER ------------------------------ */
 .searchbar {
-  margin: 10% 0 5% 0;
+  margin: 10% 0 5%;
   padding: 0;
 }
 
@@ -438,25 +434,24 @@ border-radius: 0 0 10px 10px;
 }
 
 .gouter-item h3 {
-    font-size: 20px;
-    color: @main-color;
-    margin: 10% 0 0 0;
-    padding: 0;
+  font-size: 20px;
+  color: @main-color;
+  margin: 10% 0 0;
+  padding: 0;
 }
 
 .gouter-item img {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .circle-vote i {
   font-weight: bold;
   font-size: 18px;
   color: @main-color;
-  margin: 5% 0 20% 0;
-  padding: 0px;
+  margin: 5% 0 20%;
+  padding: 0;
 }
-
 /* ------------------------------ MODAL ------------------------------ */
 .modal-content {
   background-color: @background;
@@ -465,7 +460,7 @@ border-radius: 0 0 10px 10px;
 .modal-header h1 {
   font-size: 35px;
   color: @main-color;
-  margin: 10px 0 0 0;
+  margin: 10px 0 0;
   padding: 0;
 }
 
@@ -480,7 +475,7 @@ border-radius: 0 0 10px 10px;
 .modal-body h2 {
   font-size: 25px;
   color: @main-color;
-  margin: 3% 0 1% 0;
+  margin: 3% 0 1%;
   padding: 0;
 }
 
@@ -553,7 +548,6 @@ border-radius: 0 0 10px 10px;
 .a-gouter button:hover {
   .button-interaction
 }
-
 /* ------------------------------ DECONNECTION ------------------------------ */
 .deconnecter button {
   height: 30px;
@@ -569,7 +563,6 @@ border-radius: 0 0 10px 10px;
   border: solid @red 5px;
   color: @red;
 }
-
 /* ------------------------------ contreIndication ------------------------------ */
 .contre-indicationavatar {
   margin-top: 40px;
@@ -623,20 +616,24 @@ border-radius: 0 0 10px 10px;
 .contre-indication-valider button:hover {
   .button-interaction;
 }
-
 /* ------------------------------ tutoriel ------------------------------ */
 .tutoriel-page {
   opacity: 0.5;
 }
+
 .search-tutoriel {
   margin-top: 20px;
 }
+
 .tutoriel {
-  position: fixed; z-index: 1;
+  position: fixed;
+  z-index: 1;
 }
+
 .tutoriel-avatar {
   margin-top: 30px;
 }
+
 .tutoriel.bubble.top {
   margin-top: 20px;
   height: 190px;
@@ -652,8 +649,8 @@ border-radius: 0 0 10px 10px;
   padding: 0.3rem;
 }
 
-.compte p,
-.compte button:first-of-type {
+.compte button:first-of-type,
+.compte p {
   margin-bottom: 0.5rem;
 }
 
@@ -662,39 +659,38 @@ border-radius: 0 0 10px 10px;
 .compte button:hover {
   .button-interaction;
 }
-
 /* ------------------------------  NAVBAR ANON  ------------------------------ */
-
 .overlay {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 3;
-    top: 0;
-    right: 0;
-    background-color: @main-color;
-    overflow-x: hidden;
-    transition: 0.5s;
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 3;
+  top: 0;
+  right: 0;
+  background-color: @main-color;
+  overflow-x: hidden;
+  transition: 0.5s;
 }
 
 .overlay-content {
-    position: relative;
-    top: 30%;
-    width: 100%;
-    color: white;
+  position: relative;
+  top: 30%;
+  width: 100%;
+  color: white;
 }
 
 .overlay-content h2 {
-    font-size: 1.8em;
+  font-size: 1.8em;
 }
 
-.glyphicon-menu-hamburger, .glyphicon-remove {
-    opacity: 0.6;
+.glyphicon-menu-hamburger,
+.glyphicon-remove {
+  opacity: 0.6;
 }
 
 .menu a {
   color: white;
-  font-size: 50px
+  font-size: 50px;
 }
 
 ul {
