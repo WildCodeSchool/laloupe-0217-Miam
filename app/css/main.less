@@ -14,15 +14,7 @@
   font-family: 'Baloo', cursive;
 }
 
-.text-wrap {
-  -webkit-hyphens: auto;
-  -moz-hyphens: auto;
-  -ms-hyphens: auto;
-  -o-hyphens: auto;
-  hyphens: auto;
-}
-
-.rounded-bubble (@radius: 0.4em) {
+.rounded-bubble (@radius: 0.5em) {
   -moz-border-radius: @radius;
   -webkit-border-radius: @radius;
   -o-border-radius: @radius;
@@ -31,7 +23,7 @@
   border-radius: @radius;
 }
 
-.rounded-btn (@radius-btn: 0.2em) {
+.rounded-btn (@radius-btn: 0.3em) {
   -moz-border-radius: @radius-btn;
   -webkit-border-radius: @radius-btn;
   -o-border-radius: @radius-btn;
@@ -44,6 +36,7 @@
   font-size: 1.4em;
   line-height: 1.2em;
   white-space: normal;
+  text-shadow: none;
   background-color: @main-color;
   border: solid @main-color 0.2rem;
   box-shadow: none;
@@ -64,8 +57,7 @@
 body,
 html {
   .main-font();
-  .text-wrap();
-  font-size: 18px;
+  font-size: 22px;
   line-height: 1.25em;
   text-align: center;
   color: white;
@@ -81,13 +73,12 @@ header h1 {
 
 /* ------------------------------ VERTICALLY CENTER PAGES ------------------------------ */
 .vertical-center {
-  min-height: 100vh;
+  // min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-content: space-around;
-  margin: 0.6rem 1rem;
-  padding: 0;
+  margin: 0.8rem auto;
 }
 
 /* ------------------------------ BUBBLE ------------------------------ */
@@ -96,14 +87,12 @@ header h1 {
     display: flex;
     flex-direction: column;
     position: relative;
-    margin: 0;
     padding: 0.7rem;
     background-color: @comp-color;
     border: solid @comp-color 0.1rem;
     .rounded-bubble();
 }
 
-.bubble:after,
 .bubble:before {
     content: "";
     position: absolute;
@@ -123,28 +112,16 @@ header h1 {
     border-color: transparent @comp-color;
 }
 
-.bubble.left:after,
-.bubble.right:after {
-    top: 50%;
-    margin-top: -8px;
-    border-color: transparent @comp-color;
-}
 /* ////////////// TRIANGLE LEFT ////////////// */
-.bubble.left:after,
 .bubble.left:before {
     right: 100%;
-
 }
 
 .bubble.left:before {
     border-width: 14px 14px 14px 0;
 }
 
-.bubble.left:after {
-    border-width: 8px 8px 8px 0;
-}
 /* ////////////// TRIANGLE RIGHT ////////////// */
-.bubble.right:after,
 .bubble.right:before {
     left: 100%;
 }
@@ -153,41 +130,30 @@ header h1 {
     border-width: 14px 0 14px 14px;
 }
 
-.bubble.right:after {
-    border-width: 8px 0 8px 8px;
-}
 /* ////////////// TRIANGLE BOTTOM & TOP ////////////// */
 .bubble.bottom:before,
 .bubble.top:before {
     left: 50%;
-    margin-left: -0.7rem;
+    margin-left: -0.8rem;
     border-color: @comp-color transparent;
 }
 
-.bubble.bottom:after,
-.bubble.top:after {
-    left: 50%;
-    margin-left: -0.7rem;
-    border-color: @comp-color transparent;
-}
 /* ////////////// TRIANGLE BOTTOM ////////////// */
-.bubble.bottom:after,
 .bubble.bottom:before {
     top: 100%;
 }
 
 .bubble.bottom:before {
-    border-width: 0.7rem 0.7rem 0;
+    border-width: 0.8rem 0.8rem 0;
 }
 
 /* ////////////// TRIANGLE TOP ////////////// */
-.bubble.top:after,
 .bubble.top:before {
     bottom: 100%;
 }
 
 .bubble.top:before {
-    border-width: 0 0.7rem 0.7rem;
+    border-width: 0 0.8rem 0.8rem;
 }
 
 /* ------------------------------ ACCUEIL ------------------------------ */
