@@ -127,7 +127,7 @@ header h1 {
 .bubble.left:before,
 .bubble.right:before {
   top: 50%;
-  margin-top: -14px;
+  margin-top: -0.7rem;
   border-top-color: transparent;
   border-color: transparent @comp-color;
 }
@@ -137,7 +137,7 @@ header h1 {
 }
 
 .bubble.left:before {
-  border-width: 14px 14px 14px 0;
+  border-width: 0.7rem 0.7rem 0.7rem 0;
 }
 /* ////////////// TRIANGLE RIGHT ////////////// */
 .bubble.right:before {
@@ -145,7 +145,7 @@ header h1 {
 }
 
 .bubble.right:before {
-  border-width: 14px 0 14px 14px;
+  border-width: 0.7rem 0 0.7rem 0.7rem;
 }
 /* ////////////// TRIANGLE BOTTOM & TOP ////////////// */
 .bubble.bottom:before,
@@ -194,7 +194,9 @@ header h1 {
 .discover button:hover {
   .button-interaction;
 }
-/* ------------------------------ JE MANGE DEJA ------------------------------ */
+
+/* ------------------------------ NAVBAR ------------------------------ */
+
 .navbar-default {
   background-color: @second-color;
 }
@@ -206,9 +208,8 @@ header h1 {
   padding: 0;
 }
 
+/* ------------------------------ JE MANGE DEJA ------------------------------ */
 .advice {
-  margin: 0;
-  padding: 0;
   display: -webkit-flex;
   display: flex;
   -webkit-align-items: center;
@@ -216,28 +217,20 @@ header h1 {
 }
 
 section h2 {
-  font-size: 30px;
-  // font-weight: bold;
+  font-size: 1.4em;
   color: @comp-color;
-  margin: 5% 0 8%;
-  padding: 0;
+  margin: 1rem 0 0.7rem;
 }
 
 .manger-item {
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
   cursor: pointer;
-  -webkit-filter: grayscale(1);
-  filter: grayscale(1);
 }
 
 .color-food {
+  -webkit-filter: none;
   filter: none;
-}
-
-.manger-item h3 {
-  font-size: 20px;
-  color: @main-color;
-  margin: 10% 0 20%;
-  padding: 0;
 }
 
 .manger-item img {
@@ -245,68 +238,44 @@ section h2 {
   padding: 0;
 }
 
-.manger-valider {
-  margin: 6% 0;
+.manger-item h3 {
+  font-size: 1em;
+  color: @main-color;
+  margin: 0.5rem 0 0.8em;
+  .text-wrap();
 }
 
-.manger-valider button {
+.select button {
   .general-button;
-  height: 70px;
-  letter-spacing: 0.6px;
+  font-size: 1em;
+  margin: 0 0 0.7rem;
 }
 
-.manger-valider button:active,
-.manger-valider button:focus,
-.manger-valider button:hover {
+.select button:active,
+.select button:focus,
+.select button:hover {
   .button-interaction;
 }
 
-.manger-valider .all {
-  font-size: 22px;
+.page-item i {
+  font-size: 0.7rem;
 }
 
-.manger-valider .ok {
-  font-size: 26px;
+.page-link .ok {
+  .general-button();
+  font-size: 1.4em;
 }
 
-nav .pagination {
-  margin-top: 8%;
-  padding: 0;
-}
-
-nav .pagination li a i {
-  background-color: @background;
-}
-
-nav .pagination li a {
-  font-size: 18px;
-  color: @main-color;
-  padding: 0 5px;
-  border: none;
-  background-color: @background;
-}
-
-nav .pagination li a:hover {
-  color: @second-color;
-  border: none;
-  background-color: transparent;
-}
-
-nav .pagination li a .glyphicon-chevron-left {
-  padding-right: 20px;
-}
-
-nav .pagination li a .glyphicon-chevron-right {
-  padding-left: 20px;
+.page-link .ok:active,
+.page-link .ok:focus,
+.page-link .ok:hover {
+  .button-interaction();
 }
 
 .currentclass {
   display: list-item;
 }
 
-.imgswitch {
-  transform: rotate(180deg);
-}
 /* ------------------------------ AVATAR ------------------------------ */
 .choice-avatar {
   display: -webkit-flex;
@@ -564,6 +533,10 @@ nav .pagination li a .glyphicon-chevron-right {
   font-size: 0.7em;
   color: @dark-comp-color;
   margin-bottom: 0.5rem;
+}
+
+.btn-add span {
+  background-color: transparent;
 }
 
 .contre-item {
