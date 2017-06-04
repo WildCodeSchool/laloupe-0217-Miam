@@ -1,31 +1,31 @@
 <div class="container vertical-center">
 
-    <header class="row">
-      <div class="col-xs-12">
-        <h1>Contre-indication</h1>
-      </div>
-    </header>
+  <header class="row">
+    <div class="col-xs-12">
+      <h1>Contre-indication</h1>
+    </div>
+  </header>
 
-    <section class="row">
-      <div class="col-xs-offset-3 col-xs-6">
-        <img class="img-responsive" ng-src="/img/penguin.svg" alt="Avatar" />
-      </div>
-    </section>
+  <section class="row">
+    <div class="col-xs-offset-3 col-xs-6">
+      <img class="img-responsive" ng-src="/img/penguin.svg" alt="Avatar" />
+    </div>
+  </section>
 
-    <section class="row">
-      <div class="col-xs-12">
-        <div class="bubble top contre-indication">
-          <p>Dis-moi s'il y a des aliments que tu ne peux pas manger&nbsp;!</p>
-          <p class="small-text">Demande l'aide d'un adulte pour ne rien oublier.</p>
-        </div>
+  <section class="row">
+    <div class="col-xs-12">
+      <div class="bubble top contraindication">
+        <p>Dis-moi s'il y a des aliments que tu ne peux pas manger&nbsp;!</p>
+        <p class="small-text">Demande l'aide d'un adulte pour ne rien oublier.</p>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="row search-contre">
-      <form class="col-xs-12" ng-submit="goSearch()">
-        <div class="input-group">
-          <input id="input" class="form-control input-lg" type="text" placeholder="Rechercher" list="counters" ng-model="query" />
-          <datalist id="counters">
+  <section class="row search-contre">
+    <form class="col-xs-12" ng-submit="goSearch()">
+      <div class="input-group">
+        <input id="input" class="form-control input-lg" type="text" placeholder="Rechercher" list="contraindication" ng-model="query" />
+        <datalist id="contraindication">
             <div ng-repeat="(key, value) in foodList">
                   <option value="{{ key }}"></option>
                   <div ng-repeat="food in value.aliments">
@@ -34,32 +34,38 @@
                   </div>
                 </div>
           </datalist>
-          <div class="input-group-btn btn-add">
-            <button class="btn btn-default btn-lg" type="button" ng-click="addItem()">
+        <div class="input-group-btn btn-add">
+          <button class="btn btn-default btn-lg" type="button" ng-click="addItem()">
               <span class="glyphicon glyphicon-plus"></span>
             </button>
-          </div>
-        </div>
-      </form>
-      <label>Exemple : gluten, produits laitiers, porc...</label>
-    </section>
-
-    <section class="row">
-      <div class="contre" ng-repeat="item in items">
-        <div class="col-xs-4 contre-item">
-          <img src="img/{{ correct(item.nameFood) }}.svg" alt="{{ correct(item.nameFood) }}" />
-          <h3>{{ item.nameFood }}</h3>
-          <h4>{{ underscore(item.categorie) }}</h4>
-          <h5>{{ arrayToString(item.compoFood) }}</h5>
-          <button class="btn btn-primary btn-block cancel" type="button" name="button">Désélectionner</button>
         </div>
       </div>
-    </section>
+    </form>
+    <label>Exemple&nbsp;: gluten, produits laitiers, porc...</label>
+  </section>
 
-    <section class="row">
-      <div class="col-xs-offset-2 col-xs-8 contre-indication-valider">
-        <button class="btn btn-primary btn-block ok" type="submit" name="button" ui-sref="anon.manger">OK</button>
+  <section class="row">
+    <div class="col-xs-6" ng-repeat="item in items">
+      <div class="contre-item">
+        <span class="glyphicon glyphicon-remove cancel" aria-hidden="true"></span>
+        <img class="img-responsive" src="img/{{ correct(item.nameFood) }}.svg" alt="{{ correct(item.nameFood) }}" />
+        <h3>{{ item.nameFood }}</h3>
+        <h4>{{ underscore(item.categorie) }}</h4>
+        <h5>{{ arrayToString(item.compoFood) }}</h5>
       </div>
-    </section>
+    </div>
+  </section>
+
+  <section class="row">
+    <div class="col-xs-12">
+      <button class="btn btn-primary btn-block cancel-all" type="submit" name="button">Tout désélectionner</button>
+    </div>
+  </section>
+
+  <section class="row">
+    <div class="col-xs-12">
+      <button class="btn btn-primary btn-block contre-ok" type="submit" name="button" ui-sref="anon.manger">Valider</button>
+    </div>
+  </section>
 
 </div>

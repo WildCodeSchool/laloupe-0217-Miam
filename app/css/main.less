@@ -13,6 +13,14 @@
   font-family: 'Baloo', cursive;
 }
 
+.text-wrap {
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  -o-hyphens: auto;
+  hyphens: auto;
+}
+
 .rounded-bubble (@radius:0.5em) {
   -moz-border-radius: @radius;
   -webkit-border-radius: @radius;
@@ -544,17 +552,36 @@ nav .pagination li a .glyphicon-chevron-right {
   color: @red;
 }
 /* ------------------------------ contreIndication ------------------------------ */
-.contre-indication.bubble.top {
+.contraindication.bubble.top {
   margin: 1rem auto;
 }
 
-.contre-indication p:first-child {
+.contraindication p:first-child {
   margin-bottom: 0.4rem;
 }
 
 .search-contre label {
   font-size: 0.7em;
   color: @dark-comp-color;
+  margin-bottom: 0.5rem;
+}
+
+.contre-item {
+  margin-bottom: 0.5rem;
+  padding: 0.4rem;
+  border: solid @main-color 0.2rem;
+  .rounded-bubble();
+}
+
+.contre-item .cancel {
+  font-size: 1.4em;
+  line-height: 0;
+  color: @main-color;
+  opacity: 1;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  cursor: pointer;
 }
 
 .contre-item img {
@@ -565,43 +592,42 @@ nav .pagination li a .glyphicon-chevron-right {
 .contre-item h3 {
   font-size: 1em;
   color: @main-color;
-  margin: 0.6rem 0 0;
-  padding: 0;
+  margin: 0.5rem 0 0;
+  .text-wrap();
+}
+
+.contre-item h4,
+.contre-item h5 {
+  font-size: 0.7em;
 }
 
 .contre-item h4 {
-  font-size: 18px;
   color: @comp-color;
-  margin: 5% 0 3%;
+  margin: 0.1rem 0 0;
 }
 
 .contre-item h5 {
-  font-size: 16px;
   color: @dark-comp-color;
-  margin: 0;
+  margin: 0.2rem 0 0;
 }
 
-.contre-item button {
+.cancel-all,
+.contre-ok {
   .general-button;
-  margin: 10% 0 20%;
-  font-size: 20px;
-  height: 50px;
-  width: 100px;
+  .text-wrap();
 }
 
-.contre-item button:active,
-.contre-item button:focus,
-.contre-item button:hover {
-  .button-interaction
+.cancel-all {
+  font-size: 1em;
+  margin-bottom: 0.5rem;
 }
 
-.contre-indication-valider button {
-  .general-button;
-}
-
-.contre-indication-valider button:active,
-.contre-indication-valider button:focus,
-.contre-indication-valider button:hover {
+.cancel-all:active,
+.cancel-all:focus,
+.cancel-all:hover,
+.contre-ok:active,
+.contre-ok:focus,
+.contre-ok:hover {
   .button-interaction;
 }
 /* ------------------------------ tutoriel ------------------------------ */
