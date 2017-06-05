@@ -195,19 +195,6 @@ header h1 {
   .button-interaction;
 }
 
-/* ------------------------------ NAVBAR ------------------------------ */
-
-.navbar-default {
-  background-color: @second-color;
-}
-
-.overlay-content h1 {
-  font-size: 26px;
-  color: @main-color;
-  margin: 25px 0;
-  padding: 0;
-}
-
 /* ------------------------------ JE MANGE DEJA ------------------------------ */
 .advice {
   display: -webkit-flex;
@@ -304,52 +291,77 @@ section h2 {
   .button-interaction;
 }
 /* ------------------------------ Profil ------------------------------ */
-.mini-avatar {
-  margin-top: 7px;
-  height: 60px;
-  border-radius: 100%;
-}
-
-.add-kids {
-  margin-top: 7px;
-  background-color: @main-color;
-  color: white;
-  font-size: 30px;
-  border-radius: 100%;
-  height: 60px;
+.nav.nav-tabs {
+  border: none;
 }
 
 .onglets-profil {
-  font-size: 20px;
+  font-size: 1em;
+  color: @comp-color;
+  border: solid @comp-color 0.2rem;
+  border-radius: 0 0 0.3em 0.3em;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  padding: 0.3rem 0;
+}
+
+.vueModifier {
+  margin: 0.7rem 0 0;
+}
+
+.changename h2 {
+  font-size: 1.4em;
   color: @main-color;
-  border: solid @main-color 4px;
-  border-radius: 0 0 10px 10px;
 }
 
-.glyphicon {
-  background-color: white;
-}
-
-.flex-center-vertically {
-  display: -webkit-flex;
-  display: flex;
-  -webkit-justify-content: center;
-  justify-content: center;
-  -webkit-flex-direction: column;
-  flex-direction: column;
-}
-
-.dropdown {
-  position: relative;
-  text-align: left;
-  width: 150px;
-  margin-top: 60px;
-}
-
-.changename button {
+.changename h2 button {
   .general-button();
-  margin: 0;
-  padding: 10px;
+  font-size: 1rem;
+  line-height: 0;
+  padding: 0.3em;
+}
+
+.changename h2 button:active,
+.changename h2 button:focus,
+.changename h2 button:hover {
+  .button-interaction();
+}
+
+.name-modal .close span {
+  font-size: 1.4rem;
+  background-color: transparent;
+  position: absolute;
+  top: 0.3rem;
+  right: 0.3rem;
+}
+
+.name-modal label {
+  color: @main-color;
+}
+
+.name-modal input {
+  margin: 0.3rem 0 0;
+}
+
+.name-modal .valid-name {
+  .general-button();
+  margin: 0.7rem 0 0;
+}
+
+.deconnect button {
+  .general-button();
+  font-size: 1em;
+  background-color: red;
+  border-color: red;
+  margin: 1rem 0 0;
+}
+
+.deconnect button:active,
+.deconnect button:focus,
+.deconnect button:hover {
+  .button-interaction();
+  color: red;
+  border-color: red;
 }
 
 .flexbox-container {
@@ -418,7 +430,7 @@ section h2 {
   background-color: @background;
 }
 
-.close span {
+.food-modal .close span {
   font-size: 1.4rem;
   line-height: 0;
   position: absolute;
@@ -648,10 +660,7 @@ section h2 {
   height: 190px;
   font-size: 1.7em;
 }
-/* ------------------------------ croix modal fiche aliment ------------------------------ */
-.close {
-  font-size: 60px;
-}
+
 /* ------------------------------ acceder à mon compte ------------------------------ */
 .avatar-compte {
   padding: 0 0 1rem;
@@ -673,6 +682,24 @@ section h2 {
   .button-interaction;
 }
 /* ------------------------------  NAVBAR ANON  ------------------------------ */
+.navbar-default {
+  background-color: @second-color;
+}
+
+.dropdown {
+  position: relative;
+  text-align: left;
+  width: 150px;
+  margin-top: 60px;
+}
+
+.overlay-content h1 {
+  font-size: 26px;
+  color: @main-color;
+  margin: 25px 0;
+  padding: 0;
+}
+
 .overlay {
   height: 100%;
   width: 0;
@@ -708,4 +735,20 @@ section h2 {
 
 ul {
   list-style-type: none;
+}
+
+/* ------------------------------ NAVBAR USER ------------------------------ */
+.mini-avatar {
+  margin-top: 7px;
+  height: 60px;
+  border-radius: 100%;
+}
+
+.add-kids {
+  margin-top: 7px;
+  background-color: @main-color;
+  color: white;
+  font-size: 30px;
+  border-radius: 100%;
+  height: 60px;
 }
