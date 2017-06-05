@@ -418,10 +418,19 @@ section h2 {
   background-color: @background;
 }
 
+.close span {
+  font-size: 1.4rem;
+  line-height: 0;
+  position: absolute;
+  top: 0.3rem;
+  right: 0.3rem;
+  background-color: transparent;
+}
+
 .modal-header h1 {
-  font-size: 35px;
+  font-size: 2em;
   color: @main-color;
-  margin: 10px 0 0;
+  margin: 0.5rem 0 0;
   padding: 0;
 }
 
@@ -430,28 +439,41 @@ section h2 {
 }
 
 .modal-body {
-  padding: 10px 30px;
+  padding: 0.5rem 1rem;
 }
 
 .modal-body h2 {
-  font-size: 25px;
+  font-size: 1.4em;
   color: @main-color;
-  margin: 3% 0 1%;
-  padding: 0;
+  margin: 0.5rem 0 0.3rem;
 }
 
 .modal-body p {
-  font-size: 18px;
-  line-height: 22px;
+  font-size: 1em;
+  line-height: 1.1em;
   color: @dark-comp-color;
 }
 
-.vote .green button {
-  background-color: @green;
+.vote {
+  margin-top: 0.5rem;
+  margin-bottom: 0.7rem;
 }
 
-.vote .red button {
+.vote button {
+  font-size: 1.6em;
+  line-height: 0;
+  border-radius: 100%;
+  padding: 0.5rem;
+}
+
+.green button {
+  background-color: @green;
+  border: solid 0.2rem @green;
+}
+
+.red button {
   background-color: @red;
+  border: solid 0.2rem @red;
 }
 
 .vote button i {
@@ -459,33 +481,30 @@ section h2 {
   background-color: rgba(255, 255, 255, 0);
 }
 
-.vote .green button:active,
-.vote .green button:focus,
-.vote .green button:hover,
-.vote .red button:active,
-.vote .red button:focus,
-.vote .red button:hover {
-  font-size: 30px;
+.green button:active,
+.green button:focus,
+.green button:hover,
+.red button:active,
+.red button:focus,
+.red button:hover {
   background-color: white;
 }
 
-.vote .green button:active,
-.vote .green button:focus,
-.vote .green button:hover {
+.green button:active,
+.green button:focus,
+.green button:hover {
   color: @green;
-  border: solid 5px @green;
 }
 
-.vote .red button:active,
-.vote .red button:focus,
-.vote .red button:hover {
+.red button:active,
+.red button:focus,
+.red button:hover {
   color: @red;
-  border: solid 5px @red;
 }
 
 .vote h3 {
-  font-size: 20px;
-  margin: 3% 0;
+  font-size: 1em;
+  margin: 0.5rem 0 0;
 }
 
 .green h3 {
@@ -498,8 +517,7 @@ section h2 {
 
 .a-gouter button {
   .general-button;
-  font-size: 26px;
-  height: 60px;
+  font-size: 1.4em;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
