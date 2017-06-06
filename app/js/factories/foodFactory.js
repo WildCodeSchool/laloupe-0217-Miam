@@ -226,7 +226,43 @@ angular.module('app')
                     description: "Au fruit, au chocolat, à la crème... il y a l'embarras du choix.",
                     suggestions: ["gâteau"],
                     composition: ["Gluten"]
-                }, ]
+                },
+                {
+                    name: "Miel",
+                    picto: "/img/miel.svg",
+                    description: "Le miel est une pâte collante et goûteuse faite par les abeilles. Il y a environ 4 500 ans, les Egyptiens utilisaient déjà le miel en cuisine comme condiment. Puis, au Moyen-Age en Europe, il est utilisé pour faire aussi le pain d'épices.",
+                    suggestions: ["nature", "en pain d'épices", "dans le yaourt ou dans le lait chaud", "dans certaines pâtisseries", "en tartine"],
+                    composition: [""]
+                },
+                {
+                    name: "Chocolat",
+                    picto: "/img/chocolat.svg",
+                    description: "Le chocolat est un aliment que l'on fabrique à partir de fèves de cacao, graines du cacaoyer depuis les Mayas et les Aztèques. On découvrit, en France, le cacao en 1615 avec le mariage d'Anne d'Autriche, épouse du roi Louis XIV.",
+                    suggestions: ["en mousse ou glace", "en tablette", "en pâte à tartiner", "en pâtisserie", "avec du lait chaud"],
+                    composition: [""]
+                },
+                {
+                    name: "Doughnut",
+                    picto: "/img/doughnut.svg",
+                    description: "Le Donut ou doughnut, (noix de pâte) veut dire 'beignet sucré' en Amérique du Nord..",
+                    suggestions: ["nature", "fourré de crème", "couvert de glaçage"],
+                    composition: [""]
+                },
+                {
+                    name: "Biscuit",
+                    picto: "/img/biscuit.svg",
+                    description: "Un biscuit est un petit gâteau sec qui se décline dans plusieurs saveurs et formes. Les Egyptiens sont à l'origine du biscuit: ils ajoutères du miel au pain pour mieux le conserver en décidant de le cuire deux fois plus longtemps.",
+                    suggestions: "à la cuillère", "aux épices", "sous forme de galette", "spéculoos", "sous forme de tuile"],
+                    composition: [""]
+                },
+                {
+                    name: "Confiture",
+                    picto: "/img/confiture.svg",
+                    description: "La confiture est obtenue en faisant réduire et confire dans une bassine à confiture, certains fruits avec du sucre.",
+                    suggestions: "de fruits", "de lait", "en tartine", "sur les crêpes", "dans le fromage blanc"],
+                    composition: [""]
+                },
+              ]
             }
         };
         return foodList;
