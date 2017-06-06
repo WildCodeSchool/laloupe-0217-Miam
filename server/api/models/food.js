@@ -99,4 +99,20 @@ export default class Food {
       });
   }
 
+    findOneAndUpdate(req, res) {
+      console.log("like", req.body);
+        model.findOneAndUpdate({nameFood: nameFood}, { $push: { countVote: countVote  }}, { upsert});
+         function(err, like) {
+            if (err || !like) {
+                console.log("error", err.message);
+                res.status(500).send(err.message);
+            } else {
+                res.json({
+                    success: true,
+                    like: like
+                });
+
+            }
+        }
+    }
 }
