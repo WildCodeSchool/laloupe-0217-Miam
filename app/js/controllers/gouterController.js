@@ -41,7 +41,7 @@ angular.module('app')
             };
             if ($scope.user.email !== undefined) {
 
-                    GouterService.create(like).then(function(res) {
+                    GouterService.findOneAndUpdate(like).then(function(res) {
 
                     }, function(err) {});
             } else {
@@ -58,7 +58,7 @@ angular.module('app')
             };
             if ($scope.user.email !== undefined) {
 
-                    GouterService.create(like).then(function(res) {
+                    GouterService.findOneAndUpdate(like).then(function(res) {
 
                     }, function(err) {});
             } else {

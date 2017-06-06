@@ -58,10 +58,10 @@ export default class Food {
         });
 
         function like(err, like) {
-            if (err || !like) {
-                console.log("error", err.message);
-                res.status(500).send(err.message);
-            } else {
+            // if (err || !like) {
+            //     console.log("error", err.message);
+            //     res.status(500).send(err.message);
+            // } else {
                 res.json({
                     success: true,
                     like: like
@@ -70,4 +70,4 @@ export default class Food {
             }
         }
     }
-}
+// }

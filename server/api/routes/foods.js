@@ -11,7 +11,7 @@ module.exports = (app) => {
 
     router.get('/', Auth.hasAuthorization, food.findAll);
 
-    router.get('/', Auth.hasAuthorization, food.findOneAndUpdate);
+    router.post('/', Auth.hasAuthorization, food.findOneAndUpdate);
 
     app.use('/foods', router);
 
