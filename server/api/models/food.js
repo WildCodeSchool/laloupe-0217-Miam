@@ -67,41 +67,57 @@ export default class Food {
     //             }
     //         }
 
-    findOneAndUpdate({
-        nameFood: nameFood
-    }, {
-        $upsert: nameFood: {
-            countVote: countVote
-        }
-    }, function(err, like) {
-        if (err || !like) {
-            console.log("error", err.message);
-            res.status(500).send(err.message);
-        } else {
-            res.json({
-                success: true,
-                like: like
-            });
-        }
-    });
+    // findOneAndUpdate({
+    //     nameFood: nameFood
+    // }, {
+    //     $upsert: nameFood: {
+    //         countVote: countVote
+    //     }
+    // }, function(err, like) {
+    //     if (err || !like) {
+    //         console.log("error", err.message);
+    //         res.status(500).send(err.message);
+    //     } else {
+    //         res.json({
+    //             success: true,
+    //             like: like
+    //         });
+    //     }
+    // });
+
+    // findOneAndUpdate(nameFood: nameFood, {$push: nameFood: {  countVote: countVote }}, upsert)
+    // , function(err, like) {
+    //     if (err || !like) {
+    //         console.log("error", err.message);
+    //         res.status(500).send(err.message);
+    //     } else {
+    //         res.json({
+    //             success: true,
+    //             like: like
+    //         });
+    //     }
+    // });
+
 
     //     });
     //
     // }
 
 
-    // findOneAndUpdate(req, res) {
-    //   console.log("like", req.body);
-    //     model.findOneAndUpdate(nameFood, { $setOnInsert: { countVote: countVote  }} (err, like) function() {
-    //         if (err || !like) {
-    //             console.log("error", err.message);
-    //             res.status(500).send(err.message);
-    //         } else {
-    //             res.json({
-    //                 success: true,
-    //                 like: like
-    //             });
-    //
-    //         }
-    //     });
-    // }
+    findOneAndUpdate(req, res) {
+      console.log("like", req.body);
+        model.findOneAndUpdate({nameFood: nameFood}, { $push: { countVote: countVote  }}, { upsert});
+         function(err, like) {
+            if (err || !like) {
+                console.log("error", err.message);
+                res.status(500).send(err.message);
+            } else {
+                res.json({
+                    success: true,
+                    like: like
+                });
+
+            }
+        }
+    }
+}
