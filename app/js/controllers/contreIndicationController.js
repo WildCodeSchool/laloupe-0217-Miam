@@ -1,8 +1,10 @@
 angular.module('app')
-  .controller('ContreIndicationController', function($scope, $filter, $interval, FoodFactory, ContreIndicationService) {
+  .controller('ContreIndicationController', function($scope, $filter, $interval, FoodFactory, LocalService, Auth, CurrentUser, ContreIndicationService) {
 
     $scope.foodList = FoodFactory;
-    console.log($scope.foodList);
+
+    $scope.user = CurrentUser.user();
+    console.log("User", $scope.user);
 
     // SIMPLIFY FOOD NAMES
     $scope.arrayToString = function(string) {
@@ -62,18 +64,16 @@ angular.module('app')
 
     $scope.validate = function() {
       if($scope.user.email !== undefined) {
-        console.log("Test database");
+        console.log("Database");
         for (var k = 0; k < $scope.items.length; k++) {
-
-          // ContreIndicationService
-
-            MangerService.create($scope.alimentsForDatabase[k], $scope.user._id).then(function(res) {
-
+            ContreIndicationService.create($scope.items[k], $scope.user._id).then(function(res) {
             }, function(err) {});
-            // $state.go('anon.gouter');
         }
       } else {
-
+        console.log("LocalStorage");
+        LocalService.set("Contre-indication", JSON.stringify($scope.items)).then(function(res) {
+        }, function(err) {});
+        $state.go('anon.manger');
       }
     };
 
