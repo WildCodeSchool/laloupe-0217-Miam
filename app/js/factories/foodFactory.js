@@ -252,14 +252,14 @@ angular.module('app')
                     name: "Biscuit",
                     picto: "/img/biscuit.svg",
                     description: "Un biscuit est un petit gâteau sec qui se décline dans plusieurs saveurs et formes. Les Egyptiens sont à l'origine du biscuit: ils ajoutères du miel au pain pour mieux le conserver en décidant de le cuire deux fois plus longtemps.",
-                    suggestions: "à la cuillère", "aux épices", "sous forme de galette", "spéculoos", "sous forme de tuile"],
+                    suggestions: ["à la cuillère", "aux épices", "sous forme de galette", "spéculoos", "sous forme de tuile"],
                     composition: [""]
                 },
                 {
                     name: "Confiture",
                     picto: "/img/confiture.svg",
                     description: "La confiture est obtenue en faisant réduire et confire dans une bassine à confiture, certains fruits avec du sucre.",
-                    suggestions: "de fruits", "de lait", "en tartine", "sur les crêpes", "dans le fromage blanc"],
+                    suggestions: ["de fruits", "de lait", "en tartine", "sur les crêpes", "dans le fromage blanc"],
                     composition: [""]
                 },
               ]
