@@ -78,6 +78,20 @@ angular.module('app')
                     suggestions: ["crue", "cuit", "en salade", "facie", "en sauce", "en coulis", "en tarte", "en confiture"],
                     composition: [""]
                 },
+                {
+                    name: "Avocat",
+                    picto: "/img/avocat.svg",
+                    description: "L'avocat est le fruit de l'avocatier. Ses origines se trouvent au Mexique.",
+                    suggestions: ["cru nature ou avec un peu de sel", "mixé en purée froide", "en salade"],
+                    composition: [""]
+                },
+                {
+                    name: "Brocoli",
+                    picto: "/img/brocoli.svg",
+                    description: "C'est une variété de chou du sud de l'Italie, sélectionné par les Romains à partir du chou sauvage.",
+                    suggestions: ["cru", "à l'eau ou à la vapeur", "en salade", "en gratin", "en purée"],
+                    composition: [""]
+                },
                 // {
                 //     name: "Courgette",
                 //     picto: "/img/courgette.svg",
