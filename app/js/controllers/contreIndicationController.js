@@ -62,6 +62,16 @@ angular.module('app')
       }
     };
 
+    $scope.deselect = function($index) {
+      $scope.items.splice($index, 1);
+      console.log("Deselect one", $scope.items);
+    };
+
+    $scope.deselectAll = function() {
+      $scope.items = [];
+      console.log("Deselect all", $scope.items);
+    };
+
     $scope.validate = function() {
       if ($scope.user.email !== undefined) {
         console.log("Database");
