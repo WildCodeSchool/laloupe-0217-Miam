@@ -128,7 +128,7 @@ angular.module('app')
                         name: "Maïs",
                         picto: "/img/maïs.svg",
                         description: "Originaire du Mexique, il constituait l'aliment de base des Amérindiens avant l'arrivée de Christophe Colomb. C'est une plante herbacée largement cultivée comme céréale.",
-                        suggestions: ["en farine et galette cuite", "grillé en épis", "éclaté en Pop Corn","en flocon (Corn Flakes)", "en semoule (Polenta)", "en salade"],
+                        suggestions: ["en farine et galette cuite", "grillé en épis", "éclaté en Pop Corn","en flocon Corn Flakes", "en semoule Polenta", "en salade"],
                         composition: [""]
                     },
                     {
@@ -177,6 +177,27 @@ angular.module('app')
                         suggestions: ["cocotte", "à la coque", "dur", "sur le plat", "mimosa"],
                         composition: ["Œuf"]
                     },
+                    {
+                        name: "Poulet",
+                        picto: "/img/poulet.svg",
+                        description: "Le poulet est le jeune mâle ou femelle de la poule.",
+                        suggestions: ["à la broche", "frit", "en sauce", "en nuggets"],
+                        composition: ["Viande"]
+                    },
+                    {
+                        name: "Crevette",
+                        picto: "/img/crevette.svg",
+                        description: "La crevette est un crustacé marin qui ne vit que sous l'eau. Il existe plusieurs dont les crevettes roses et grises.",
+                        suggestions: ["cuite en apéritif", "en beignet", "cuite en sauce", "en salade"],
+                        composition: ["Poisson"]
+                    },
+                    {
+                        name: "Saumon",
+                        picto: "/img/saumon.svg",
+                        description: "Les saumons sont des poissons. Il en existe une dizaine d'espèces différentes. Certains vivent en eau douce et d'autres en eau salée.",
+                        suggestions: ["fumé", "en darne", "en croûte", "en tartare"],
+                        composition: ["Poisson"]
+                    },
                 ]
             },
             Produits_laitiers: {
@@ -187,7 +208,15 @@ angular.module('app')
                     description: "Provient le plus souvent de la vache",
                     suggestions: ["frais", "chaud"],
                     composition: [""]
-                }, ]
+                },
+                {
+                    name: "Emmental",
+                    picto: "/img/emmental.svg",
+                    description: "L'emmental est un fromage à pâte dure parsemée de larges trous ronds ou ovales fabriqué à partir de lait de vache.",
+                    suggestions: ["frais", "râpé dans les pâtes", "en salade", "sur tartine chaude"],
+                    composition: ["lait"]
+                },
+              ]
             },
             Produits_sucrés: {
                 portion: "Il faut en consommer avec modération.",
