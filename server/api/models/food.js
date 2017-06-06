@@ -13,7 +13,8 @@ const foodSchema = new mongoose.Schema({
             type: String
         },
         countVote: [{
-            type: Boolean, limit: 3
+            type: Boolean,
+            limit: 3
         }],
         doNotEat: {
             type: Boolean,
@@ -30,23 +31,6 @@ let model = mongoose.model('Food', foodSchema);
 
 export default class Food {
 
-    create(req, res) {
-      console.log("food", req.body);
-        model.create(req.body, (err, food) => {
-            if (err || !food) {
-                console.log("error", err.message);
-                res.status(500).send(err.message);
-            } else {
-                res.json({
-                    success: true,
-                    food: food
-                });
-
-            }
-        });
-    }
-
-
     findAll(req, res) {
         model.find({})
             .populate('profile')
@@ -59,11 +43,56 @@ export default class Food {
             });
     }
 
-// var query = { nameFood: nameFood };
+    // findByname(req, res) {
+    //
+    //     model.find({
+    //         nameFood: nameFood
+    //     }, function(err, nameFood) {
+    //         if (!namefood) {
+    //
+    //             create(req, res) {
+    //                 console.log("food", req.body);
+    //                 model.create(req.body, (err, food) => {
+    //                     if (err || !food) {
+    //                         console.log("error", err.message);
+    //                         res.status(500).send(err.message);
+    //                     } else {
+    //                         res.json({
+    //                             success: true,
+    //                             food: food
+    //                         });
+    //
+    //                     }
+    //                 });
+    //             }
+    //         }
+
+    findOneAndUpdate({
+        nameFood: nameFood
+    }, {
+        $upsert: nameFood: {
+            countVote: countVote
+        }
+    }, function(err, like) {
+        if (err || !like) {
+            console.log("error", err.message);
+            res.status(500).send(err.message);
+        } else {
+            res.json({
+                success: true,
+                like: like
+            });
+        }
+    });
+
+    //     });
+    //
+    // }
+
 
     // findOneAndUpdate(req, res) {
     //   console.log("like", req.body);
-    //     model.findOneAndUpdate(query, { $setOnInsert: { countVote: countVote  }} (err, like) => {
+    //     model.findOneAndUpdate(nameFood, { $setOnInsert: { countVote: countVote  }} (err, like) function() {
     //         if (err || !like) {
     //             console.log("error", err.message);
     //             res.status(500).send(err.message);
@@ -76,5 +105,3 @@ export default class Food {
     //         }
     //     });
     // }
-
-}
