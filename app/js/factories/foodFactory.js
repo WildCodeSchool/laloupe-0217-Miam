@@ -78,6 +78,20 @@ angular.module('app')
                     suggestions: ["crue", "cuit", "en salade", "facie", "en sauce", "en coulis", "en tarte", "en confiture"],
                     composition: [""]
                 },
+                {
+                    name: "Avocat",
+                    picto: "/img/avocat.svg",
+                    description: "L'avocat est le fruit de l'avocatier. Ses origines se trouvent au Mexique.",
+                    suggestions: ["cru nature ou avec un peu de sel", "mixé en purée froide", "en salade"],
+                    composition: [""]
+                },
+                {
+                    name: "Brocoli",
+                    picto: "/img/brocoli.svg",
+                    description: "C'est une variété de chou du sud de l'Italie, sélectionné par les Romains à partir du chou sauvage.",
+                    suggestions: ["cru", "à l'eau ou à la vapeur", "en salade", "en gratin", "en purée"],
+                    composition: [""]
+                },
                 // {
                 //     name: "Courgette",
                 //     picto: "/img/courgette.svg",
@@ -110,6 +124,34 @@ angular.module('app')
                         suggestions: ["nature", "grillé", "avec de la confiture", "avec du beurre"],
                         composition: ["Gluten"]
                     },
+                    {
+                        name: "Maïs",
+                        picto: "/img/maïs.svg",
+                        description: "Originaire du Mexique, il constituait l'aliment de base des Amérindiens avant l'arrivée de Christophe Colomb. C'est une plante herbacée largement cultivée comme céréale.",
+                        suggestions: ["en farine et galette cuite", "grillé en épis", "éclaté en Pop Corn","en flocon Corn Flakes", "en semoule Polenta", "en salade"],
+                        composition: [""]
+                    },
+                    {
+                        name: "Pomme_de_terre",
+                        picto: "/img/pomme_de_terre.svg",
+                        description: "C'est une plante herbacée dont on mange les tubercules. L'explorateur espagnol Pedro Cieza de Leon la découvrit au Pérou et la rapporta en Europe il y a 600 ans.",
+                        suggestions: ["à l'eau", "à la vapeur", "à la friture", "au four", "en salade", "en purée"],
+                        composition: [""]
+                    },
+                    {
+                        name: "Céréales",
+                        picto: "/img/cereale.svg",
+                        description: "Une céréale est une plante qui produit des graines servant à nourrir les hommes et les animaux domestiques. Les graines sont aussi moulues pour en faire de la farine utilisée pour la fabrication de pains, de gâteaux etc. Il existe différentes variétés : Avoine, Orge, Seigle, Blé etc.",
+                        suggestions: ["en farine", "en semoule", "en bouillie", "en flocons", "en pâtes"],
+                        composition: ["gluten"]
+                    },
+                    {
+                        name: "Pâtes",
+                        picto: "/img/pâtes.svg",
+                        description: "Les pâtes alimentaires sont fabriqués à partir d'un mélange pétri de farine, de semoule de blé dur. En Asie, on fabrique aussi les pâtes avec de la farine de blé tendre ou de riz. Il existe beaucoup de formes différentes.",
+                        suggestions: ["à l'eau", "en lasagne", "avec différentes sauces", "en gratin", "en salade", "en soupe"],
+                        composition: ["gluten"]
+                    },
                 ]
             },
             Viandes_Poissons_Œufs: {
@@ -135,6 +177,27 @@ angular.module('app')
                         suggestions: ["cocotte", "à la coque", "dur", "sur le plat", "mimosa"],
                         composition: ["Œuf"]
                     },
+                    {
+                        name: "Poulet",
+                        picto: "/img/poulet.svg",
+                        description: "Le poulet est le jeune mâle ou femelle de la poule.",
+                        suggestions: ["à la broche", "frit", "en sauce", "en nuggets"],
+                        composition: ["Viande"]
+                    },
+                    {
+                        name: "Crevette",
+                        picto: "/img/crevette.svg",
+                        description: "La crevette est un crustacé marin qui ne vit que sous l'eau. Il existe plusieurs dont les crevettes roses et grises.",
+                        suggestions: ["cuite en apéritif", "en beignet", "cuite en sauce", "en salade"],
+                        composition: ["Poisson"]
+                    },
+                    {
+                        name: "Saumon",
+                        picto: "/img/saumon.svg",
+                        description: "Les saumons sont des poissons. Il en existe une dizaine d'espèces différentes. Certains vivent en eau douce et d'autres en eau salée.",
+                        suggestions: ["fumé", "en darne", "en croûte", "en tartare"],
+                        composition: ["Poisson"]
+                    },
                 ]
             },
             Produits_laitiers: {
@@ -145,7 +208,15 @@ angular.module('app')
                     description: "Provient le plus souvent de la vache",
                     suggestions: ["frais", "chaud"],
                     composition: [""]
-                }, ]
+                },
+                {
+                    name: "Emmental",
+                    picto: "/img/emmental.svg",
+                    description: "L'emmental est un fromage à pâte dure parsemée de larges trous ronds ou ovales fabriqué à partir de lait de vache.",
+                    suggestions: ["frais", "râpé dans les pâtes", "en salade", "sur tartine chaude"],
+                    composition: ["lait"]
+                },
+              ]
             },
             Produits_sucrés: {
                 portion: "Il faut en consommer avec modération.",
@@ -155,7 +226,43 @@ angular.module('app')
                     description: "Au fruit, au chocolat, à la crème... il y a l'embarras du choix.",
                     suggestions: ["gâteau"],
                     composition: ["Gluten"]
-                }, ]
+                },
+                {
+                    name: "Miel",
+                    picto: "/img/miel.svg",
+                    description: "Le miel est une pâte collante et goûteuse faite par les abeilles. Il y a environ 4 500 ans, les Egyptiens utilisaient déjà le miel en cuisine comme condiment. Puis, au Moyen-Age en Europe, il est utilisé pour faire aussi le pain d'épices.",
+                    suggestions: ["nature", "en pain d'épices", "dans le yaourt ou dans le lait chaud", "dans certaines pâtisseries", "en tartine"],
+                    composition: [""]
+                },
+                {
+                    name: "Chocolat",
+                    picto: "/img/chocolat.svg",
+                    description: "Le chocolat est un aliment que l'on fabrique à partir de fèves de cacao, graines du cacaoyer depuis les Mayas et les Aztèques. On découvrit, en France, le cacao en 1615 avec le mariage d'Anne d'Autriche, épouse du roi Louis XIV.",
+                    suggestions: ["en mousse ou glace", "en tablette", "en pâte à tartiner", "en pâtisserie", "avec du lait chaud"],
+                    composition: [""]
+                },
+                {
+                    name: "Doughnut",
+                    picto: "/img/doughnut.svg",
+                    description: "Le Donut ou doughnut, (noix de pâte) veut dire 'beignet sucré' en Amérique du Nord..",
+                    suggestions: ["nature", "fourré de crème", "couvert de glaçage"],
+                    composition: [""]
+                },
+                {
+                    name: "Biscuit",
+                    picto: "/img/biscuit.svg",
+                    description: "Un biscuit est un petit gâteau sec qui se décline dans plusieurs saveurs et formes. Les Egyptiens sont à l'origine du biscuit: ils ajoutères du miel au pain pour mieux le conserver en décidant de le cuire deux fois plus longtemps.",
+                    suggestions: "à la cuillère", "aux épices", "sous forme de galette", "spéculoos", "sous forme de tuile"],
+                    composition: [""]
+                },
+                {
+                    name: "Confiture",
+                    picto: "/img/confiture.svg",
+                    description: "La confiture est obtenue en faisant réduire et confire dans une bassine à confiture, certains fruits avec du sucre.",
+                    suggestions: "de fruits", "de lait", "en tartine", "sur les crêpes", "dans le fromage blanc"],
+                    composition: [""]
+                },
+              ]
             }
         };
         return foodList;
