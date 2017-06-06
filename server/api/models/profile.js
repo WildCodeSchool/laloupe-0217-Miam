@@ -2,13 +2,11 @@ import mongoose from 'mongoose';
 import Reward from './reward.js';
 
 const profileSchema = new mongoose.Schema({
-    mail: {
-        type: String
-    },
-    password: {
-        type: String
-    },
+
     account: [{
+      userName: {
+          type: String
+      },
         _isCurrentUser: {
             type: Boolean
         },

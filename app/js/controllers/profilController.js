@@ -1,8 +1,9 @@
 angular.module('app')
-    .controller('ProfilController', function($scope, RewardFactory, AvatarFactory, $state) {
+    .controller('ProfilController', function($scope, RewardFactory, AvatarFactory, $state, ProfilService, Auth, CurrentUser) {
       var i = 0;
       var j =0;
 $scope.hideModal= true;
+$scope.user = CurrentUser.user();
 $scope.avatars = AvatarFactory;
 console.log($scope.avatars);
 
@@ -73,7 +74,23 @@ $scope.hideModal= true;
   console.log($scope.hideModal);
 };
 
+
+var newName = [];
 $scope.validUser = function() {
-$scope.userName = userName;
+if (newName===[]) {
+newName.push($scope.userName);
+
+}
+else {
+
+newName.splice(0,1);
+newName.push($scope.userName);
+}
+
+ProfilService.create($scope.userName, $scope.user._id).then(function(res) {
+
+}, function(err) {});
+
 };
+
   });
