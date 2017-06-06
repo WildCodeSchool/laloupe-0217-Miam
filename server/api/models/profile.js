@@ -31,11 +31,14 @@ export default class Profile {
 
     create(req, res) {
         model.create(req.body,
-            function(err, profile) {
-                if (err || !profile) {
+            function(err, name) {
+                if (err || !name) {
+                  console.log('ok', name);
                     res.status(500).send(err.message);
                 } else {
-                    res.json(profile);
+                    res.json(name);
+                    console.log('nope', name);
+
                 }
             });
     }
