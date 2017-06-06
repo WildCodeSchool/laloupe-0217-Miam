@@ -13,6 +13,7 @@ const profileSchema = new mongoose.Schema({
         userName: {
             type: String
         },
+
         _isCurrentUser: {
             type: Boolean
         },

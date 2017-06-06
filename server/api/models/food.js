@@ -101,9 +101,9 @@ export default class Food {
 >>>>>>> server launched
 
     findOneAndUpdate(req, res) {
-        console.log("like", req.body);
+        console.log("like", req.body, nameFood);
         model.findOneAndUpdate({
-            nameFood: nameFood
+            nameFood: like
         }, {
             $push: {
                 countVote: countVote
@@ -115,7 +115,8 @@ export default class Food {
 
         function like(err, like) {
             if (err || !like) {
-                console.log("error", err.message);
+
+                console.log("error", err.message, nameFood);
                 res.status(500).send(err.message);
             } else {
                 res.json({
