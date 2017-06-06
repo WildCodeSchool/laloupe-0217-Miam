@@ -110,6 +110,34 @@ angular.module('app')
                         suggestions: ["nature", "grillé", "avec de la confiture", "avec du beurre"],
                         composition: ["Gluten"]
                     },
+                    {
+                        name: "Maïs",
+                        picto: "/img/maïs.svg",
+                        description: "Originaire du Mexique, il constituait l'aliment de base des Amérindiens avant l'arrivée de Christophe Colomb. C'est une plante herbacée largement cultivée comme céréale.",
+                        suggestions: ["en farine et galette cuite", "grillé en épis", "éclaté en Pop Corn","en flocon (Corn Flakes)", "en semoule (Polenta)", "en salade"],
+                        composition: [""]
+                    },
+                    {
+                        name: "Pomme_de_terre",
+                        picto: "/img/pomme_de_terre.svg",
+                        description: "C'est une plante herbacée dont on mange les tubercules. L'explorateur espagnol Pedro Cieza de Leon la découvrit au Pérou et la rapporta en Europe il y a 600 ans.",
+                        suggestions: ["à l'eau", "à la vapeur", "à la friture", "au four", "en salade", "en purée"],
+                        composition: [""]
+                    },
+                    {
+                        name: "Céréales",
+                        picto: "/img/cereale.svg",
+                        description: "Une céréale est une plante qui produit des graines servant à nourrir les hommes et les animaux domestiques. Les graines sont aussi moulues pour en faire de la farine utilisée pour la fabrication de pains, de gâteaux etc. Il existe différentes variétés : Avoine, Orge, Seigle, Blé etc.",
+                        suggestions: ["en farine", "en semoule", "en bouillie", "en flocons", "en pâtes"],
+                        composition: ["gluten"]
+                    },
+                    {
+                        name: "Pâtes",
+                        picto: "/img/pâtes.svg",
+                        description: "Les pâtes alimentaires sont fabriqués à partir d'un mélange pétri de farine, de semoule de blé dur. En Asie, on fabrique aussi les pâtes avec de la farine de blé tendre ou de riz. Il existe beaucoup de formes différentes.",
+                        suggestions: ["à l'eau", "en lasagne", "avec différentes sauces", "en gratin", "en salade", "en soupe"],
+                        composition: ["gluten"]
+                    },
                 ]
             },
             Viandes_Poissons_Œufs: {
