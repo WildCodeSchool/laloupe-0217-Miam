@@ -325,6 +325,15 @@ section h2 {
   .button-interaction();
 }
 
+.close-modal .close span,
+.deconnect-modal .close span {
+  font-size: 1.4rem;
+  background-color: transparent;
+  position: absolute;
+  top: 0.3rem;
+  right: 0.3rem;
+}
+
 .deconnect-modal .close {
   background-color: transparent;
   border-color: transparent;
@@ -337,15 +346,6 @@ section h2 {
   border-color: transparent;
 }
 
-.close-modal .close span,
-.deconnect-modal .close span {
-  font-size: 1.4rem;
-  background-color: transparent;
-  position: absolute;
-  top: 0.3rem;
-  right: 0.3rem;
-}
-
 .deconnect-modal label,
 .name-modal label {
   color: @main-color;
@@ -355,9 +355,22 @@ section h2 {
   margin: 0.3rem 0 0;
 }
 
+.cancel-valid button,
 .name-modal .valid-name {
   .general-button();
   margin: 0.7rem 0 0;
+  color: white;
+}
+
+.cancel-valid button:active,
+.cancel-valid button:focus,
+.cancel-valid button:hover,
+.name-modal .valid-name:active,
+.name-modal .valid-name:focus,
+.name-modal .valid-name:hover {
+  .button-interaction();
+  border-color: @main-color;
+  color: @main-color;
 }
 
 .deconnect button {
@@ -472,7 +485,7 @@ td h3 {
   margin: 0;
   padding: 0;
 }
-/* ------------------------------ MODAL ------------------------------ */
+/* ------------------------------ MODAL - GOUTER ------------------------------ */
 .modal-content {
   background-color: @background;
 }
@@ -586,22 +599,7 @@ td h3 {
 .a-gouter button:hover {
   .button-interaction
 }
-/* ------------------------------ DECONNECTION ------------------------------ */
-.deconnecter button {
-  height: 30px;
-  background-color: @red;
-  border: none;
-  padding: 0;
-}
-
-.deconnecter button:active,
-.deconnecter button:focus,
-.deconnecter button:hover {
-  background-color: white;
-  border: solid @red 5px;
-  color: @red;
-}
-/* ------------------------------ contreIndication ------------------------------ */
+/* ------------------------------ CONTRE-INDICATION ------------------------------ */
 .contraindication.bubble.top {
   margin: 1rem auto;
 }
@@ -684,7 +682,7 @@ td h3 {
 .contre-ok:hover {
   .button-interaction;
 }
-/* ------------------------------ tutoriel ------------------------------ */
+/* ------------------------------ TUTORIEL ------------------------------ */
 .tutoriel-page {
   opacity: 0.5;
 }
