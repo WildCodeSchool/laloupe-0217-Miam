@@ -49,11 +49,11 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                     </button>
+                    <label>Tu peux changer ton prénom dans le jeu ici&nbsp;!</label>
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-xs-12">
-                    <label>Tu peux changer ton prénom dans le jeu ici&nbsp;!</label>
                     <input class="form-control input-lg" type="text" ng-model="userName" required placeholder="Ton prénom">
                     <button class="btn btn-primary btn-block valid-name" type="button" class="valid" ng-click="validUser()" data-dismiss="modal">Ok</button>
                   </div>
@@ -75,18 +75,23 @@
     <div class="row">
       <div class="col-xs-12 name">
         <div class="modal fade modal-deconnected" ng-hide="hideModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-          <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-dialog" role="document">
             <div class="modal-content">
-
-              <div class="modal-header">
-                <h4 class="modal-title" id="gridSystemModalLabel">Es-tu sûr de vouloir te déconnecter ?</h4>
-              </div>
-
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
-
-                <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="goHome()">Confirmer</button>
-
+              <div class="modal-body deconnect-modal">
+                <div class="row">
+                  <div class="col-xs-12">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                    </button>
+                    <label>Es-tu sûr de vouloir te déconnecter&nbsp;?</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-xs-12">
+                    <button type="button" class="btn btn-default btn-block" data-dismiss="modal">Annuler</button>
+                    <button type="button" class="btn btn-primary btn-block" data-dismiss="modal" ng-click="goHome()">Confirmer</button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -95,13 +100,20 @@
     </div>
   </div>
 
-  <div class="vueMesRecompenses" ng-show="vueModifier">
-    <div class="col-xs-12 challenge">
-      <div class="row flexbox-container" ng-repeat="reward in rewardList" ng-class="isUnlocked">
-        <img class="col-xs-4 img-recompense" src="{{reward.picto}}" alt="recompense">
-        <div class="col-xs-2 name">{{ reward.name }}</div>
-        <div class="col-xs-6 objectif">{{ reward.objectif}}</div>
-      </div>
-    </div>
+  <div class="panel panel-default vueMesRecompenses" ng-show="vueModifier">
+    <table class="table table-bordered challenge">
+      <tbody ng-repeat="reward in rewardList" ng-class="isUnlocked">
+        <tr>
+          <td class="col-xs-4 img-column">
+            <img class="img-responsive" src="{{ reward.picto }}" alt="Récompense">
+          </td>
+          <td class="col-xs-8">
+            <h3>{{ reward.name }}</h3>
+            <p>{{ reward.objectif }}</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
+
 </div>

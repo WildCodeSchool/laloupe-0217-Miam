@@ -194,7 +194,6 @@ header h1 {
 .discover button:hover {
   .button-interaction;
 }
-
 /* ------------------------------ JE MANGE DEJA ------------------------------ */
 .advice {
   display: -webkit-flex;
@@ -262,7 +261,6 @@ section h2 {
 .currentclass {
   display: list-item;
 }
-
 /* ------------------------------ AVATAR ------------------------------ */
 .choice-avatar {
   display: -webkit-flex;
@@ -290,7 +288,7 @@ section h2 {
 .name button:hover {
   .button-interaction;
 }
-/* ------------------------------ Profil ------------------------------ */
+/* ------------------------------ PROFIL - MODIFIER ------------------------------ */
 .nav.nav-tabs {
   border: none;
 }
@@ -327,7 +325,20 @@ section h2 {
   .button-interaction();
 }
 
-.name-modal .close span {
+.deconnect-modal .close {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.deconnect-modal .close:active,
+.deconnect-modal .close:focus,
+.deconnect-modal .close:hover {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.close-modal .close span,
+.deconnect-modal .close span {
   font-size: 1.4rem;
   background-color: transparent;
   position: absolute;
@@ -335,6 +346,7 @@ section h2 {
   right: 0.3rem;
 }
 
+.deconnect-modal label,
 .name-modal label {
   color: @main-color;
 }
@@ -363,15 +375,50 @@ section h2 {
   color: red;
   border-color: red;
 }
+/* ------------------------------ PROFIL - RECOMPENSE ------------------------------ */
+.challenge {
+  font-size: 0.7em;
+  line-height: 1em;
+  color: @main-color;
+}
 
-.flexbox-container {
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  -ms-flex-align: center;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  align-items: center;
+.vueMesRecompenses {
+  margin: 1rem 0 0;
+}
+
+.table tbody tr td {
+  vertical-align: middle;
+  .text-wrap();
+}
+
+.table,
+.table tbody + tbody,
+.table-bordered tbody tr td {
+  border: none;
+}
+
+.panel {
+  border-radius: 0.5rem;
+  border: solid 0.2rem @main-color;
+  background-color: transparent;
+}
+
+.table-bordered tbody tr {
+  border-bottom: solid 0.2rem @main-color;
+}
+
+.table-bordered tbody tr .img-column {
+  border-right: solid 0.2rem @main-color;
+}
+
+td h3,
+td p {
+  margin: 0;
+}
+
+td h3 {
+  font-size: 1rem;
+  color: @comp-color;
 }
 /* ------------------------------ LOGIN & REGISTER ------------------------------ */
 .login p,
@@ -415,7 +462,7 @@ section h2 {
 }
 
 .circle-vote {
-  margin: 0rem 0 1rem;
+  margin: 0 0 1rem;
 }
 
 .circle-vote i {
@@ -660,7 +707,6 @@ section h2 {
   height: 190px;
   font-size: 1.7em;
 }
-
 /* ------------------------------ acceder à mon compte ------------------------------ */
 .avatar-compte {
   padding: 0 0 1rem;
@@ -736,7 +782,6 @@ section h2 {
 ul {
   list-style-type: none;
 }
-
 /* ------------------------------ NAVBAR USER ------------------------------ */
 .mini-avatar {
   margin-top: 7px;
