@@ -98,11 +98,22 @@ export default class Food {
         }
       });
   }
+>>>>>>> server launched
 
     findOneAndUpdate(req, res) {
-      console.log("like", req.body);
-        model.findOneAndUpdate({nameFood: nameFood}, { $push: { countVote: countVote  }}, { upsert});
-         function(err, like) {
+        console.log("like", req.body);
+        model.findOneAndUpdate({
+            nameFood: nameFood
+        }, {
+            $push: {
+                countVote: countVote
+            }
+        }, {
+            upsert: true,
+            countVote: countVote
+        });
+
+        function like(err, like) {
             if (err || !like) {
                 console.log("error", err.message);
                 res.status(500).send(err.message);
