@@ -1,70 +1,66 @@
-<div class="container-fluid vertical-center">
+<div class="container vertical-center">
 
-    <div class="container">
+  <header class="row">
+    <div class="col-xs-12">
+      <h1>Je mange déjà</h1>
+    </div>
+  </header>
 
-        <header class="row">
-            <div class="col-xs-12">
-                <h1>Je mange déjà</h1>
-            </div>
-        </header>
+  <section class="row">
+    <div class="advice">
+      <div class="col-xs-5">
+        <img class="img-responsive" ng-src="/img/penguin.svg" alt="Avatar" />
+      </div>
+      <div class="col-xs-7 bubble left">
+        <p>Dis-moi ce que tu manges déjà&nbsp;!</p>
+      </div>
+    </div>
+  </section>
 
-        <section class="row">
-            <div class="advice">
-                <div class="col-xs-5">
-                    <img ng-src="/img/penguin.svg" alt="Mon avatar" />
-                </div>
-                <div class="col-xs-7 bubble left">
-                    <p>Dis-moi ce que tu manges déjà&nbsp;!</p>
-                </div>
-            </div>
-        </section>
+  <section class="row" ng-repeat="categorie in currentCategorie | limitTo : 1">
+    <h2>{{ underscore(currentCategorie) }}</h2>
+    <div class="manger" ng-repeat="food in foodList[currentCategorie].aliments track by $index">
+      <div class="col-xs-4 manger-item" ng-click="selectFood(food)" ng-class="{'color-food': isSelected(food)}">
+        <img src="{{ food.picto }}" alt="{{ food.name }}" />
+        <h3>{{ food.name }}</h3>
+      </div>
+    </div>
+  </section>
 
-        <section class="row" ng-repeat="categorie in currentCategorie | limitTo : 1">
-            <h2>{{ underscore(currentCategorie) }}</h2>
+  <section class="row select">
+    <div class="col-xs-12">
+      <button class="btn btn-primary btn-block all" type="button" name="button" ng-click="selectAll()" ng-if="!IsSelectedAll">Tout sélectionner</button>
+      <button class="btn btn-primary btn-block all" type="button" name="button" ng-click="selectAll()" ng-if="IsSelectedAll">Tout désélectionner</button>
+    </div>
+  </section>
 
-            <div class="manger" ng-repeat="food in foodList[currentCategorie].aliments track by $index">
-                <div class="col-xs-4 manger-item" ng-click="selectFood(food)" ng-class="{'color-food': isSelected(food)}">
-                    <img src="{{ food.picto }}" alt="{{ food.name }}" />
-                    <h3>{{ food.name }}</h3>
-                </div>
-            </div>
+  <footer>
+    <div class="row">
 
+      <div class="col-xs-3" aria-label="Previous" ng-click="prevCategorie()" ng-disabled="limitPrev">
+        <img class="img-responsive" type="button" src="/img/arrow-left.svg" alt="Précédent" />
+        <span class="sr-only">Précédent</span>
+      </div>
 
-        </section>
+      <div class="col-xs-6">
+        <div class="page-item" ng-repeat="categorie in categories">
+          <!-- <div class="col-xs-1">
+            <i class="fa fa-circle" aria-hidden="true"></i>
+            <div class="currentclass" ng-style="set_color(currentcatsymbol)">{{ categorie }}</div>
+          </div> -->
+        </div>
+      </div>
 
-        <section class="row manger-valider">
-            <button class="col-xs-12 btn btn-primary btn-lg all" type="button" name="button" ng-click="selectAll()" ng-if="!IsSelectedAll">Tout<br />sélectionner</button>
-            <button class="col-xs-12 btn btn-primary btn-lg all" type="button" name="button" ng-click="selectAll()" ng-if="IsSelectedAll">Tout<br />désélectionner</button>
+      <div class="col-xs-3" aria-label="Next" ng-click="nextCategorie()" ng-hide="limitNext">
+        <img class="img-responsive" type="button" src="/img/arrow-right.svg" alt="Suivant" />
+        <span class="sr-only">Suivant</span>
+      </div>
 
-        </section>
-
-        <footer>
-            <nav class="row">
-
-                <div class="page-link col-xs-2" aria-label="Previous" ng-click="prevCategorie()" ng-disabled="limitPrev">
-                    <img src="/img/arrowB.svg" alt="">
-                    <span class="sr-only">Previous</span>
-                </div>
-
-                <div class="page-item col-xs-8" ng-repeat="categorie in categories">
-                    <!-- <a class="page-link" href="#">
-                        <i class="fa fa-circle" aria-hidden="true"></i>
-                    </a> -->
-                    <!-- <div class="currentclass" ng-style="set_color(currentcatsymbol)">{{categorie}}</div> -->
-                </div>
-
-                <div class="page-link col-xs-2" aria-label="Next" ng-click="nextCategorie()" ng-hide="limitNext">
-                    <img class="imgswitch" src="/img/arrowB.svg" alt="">
-                    <span class="sr-only">Next</span>
-                </div>
-
-                <div class="page-link col-xs-2" aria-label="Next" ng-click="nextCategorie()" ng-show="limitNext">
-                    <button class="col-xs-2 btn btn-primary btn-lg all" type="button" name="button" ng-click="ok()">OK</button>
-                </div>
-
-            </nav>
-        </footer>
+      <div class="col-xs-8 page-link" aria-label="Next" ng-click="nextCategorie()" ng-show="limitNext">
+        <button class="btn btn-primary btn-lg ok" type="button" name="button" ng-click="ok()">Valider</button>
+      </div>
 
     </div>
+  </footer>
 
 </div>

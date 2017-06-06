@@ -1,35 +1,29 @@
-<div class="container-fluid vertical-center">
+<div class="container vertical-center">
 
-  <div class="container">
-
-    <div class="col-xs-12 advice">
-        <div class="col-xs-12 bubble bottom avatar">
-            <p>Indique-moi ton prénom et choisi un avatar !</p>
-        </div>
+  <div class="col-xs-12 advice">
+    <div class="bubble bottom avatar">
+      <p>Indique-moi ton prénom et choisi un avatar&nbsp;!</p>
     </div>
+  </div>
 
-    <div class="row">
-        <div class="col-xs-12 choice-avatar">
-            <button type="button" class="col-xs-3 btn btn-circle btn-lg" ng-click="prev()"><i class="glyphicon glyphicon-chevron-left"></i></button>
-            <img class="avatar col-xs-6" ng-src="{{currentAvatar}}" alt="Avatar">
-            <button type="button" class="col-xs-3 btn btn-circle btn-lg" ng-click="next()"><i class="glyphicon glyphicon-chevron-right"></i></button>
-        </div>
+  <div class="row">
+    <div class="col-xs-12 choice-avatar">
+      <img type="button" class="col-xs-3" src="/img/arrow-left.svg" alt="Précédent" ng-click="prev()" />
+      <img class="col-xs-6 img-responsive" ng-src="{{currentAvatar}}" alt="Avatar" />
+      <img type="button" class="col-xs-3" src="/img/arrow-right.svg" alt="Suivant" ng-click="next()" />
     </div>
+  </div>
 
-    <div class="row">
-        <div class="col-xs-12">
-            <input class="col-xs-offset-3 col-xs-6 input-name" type="text" placeholder="Dis moi ton nom" ng-model="userName">
-        </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <input class="form-control input-lg input-name" type="text" placeholder="Comment t'appelles-tu&nbsp;?" ng-model="userName">
     </div>
+  </div>
 
-    <div class="row name">
-        <!-- <div class="col-xs-12 name"> -->
-        <a ui-sref="anon.contreIndication">
-            <button class="col-xs-offset-4 col-xs-4 btn btn-primary btn-lg ok" type="submit" ng-click="validProfil">OK</button>
-        </a>
-        <!-- </div> -->
+  <div class="row">
+    <div class="col-xs-offset-2 col-xs-8 name">
+      <button class="btn btn-primary btn-block ok" type="submit" ui-sref="anon.contreIndication" ng-click="validProfil">Valider</button>
     </div>
-
   </div>
 
 </div>

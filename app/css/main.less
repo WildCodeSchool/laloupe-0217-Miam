@@ -1,27 +1,27 @@
 // Main less file for your application.
 // Use `@import` to use other less files
 // relative to 'app/css' or 'vendor/css'.
-
 @main-color: #FC4A1A;
 @second-color: #fc7a1d;
 @comp-color: #4ABDAC;
 @dark-comp-color: #1f564e;
 @background: #ffd27f;
-// #ffd27f
-// #ffdfa3
-// #FFFBD0
-// #ffd27f
-// #FDF06F
-// #FFD101
 @green: #589424;
-// #659c35;
 @red: #d13834;
 
-.title-font {
+.main-font {
   font-family: 'Baloo', cursive;
 }
 
-.rounded (@radius: 10px) {
+.text-wrap {
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  -o-hyphens: auto;
+  hyphens: auto;
+}
+
+.rounded-bubble (@radius:0.5em) {
   -moz-border-radius: @radius;
   -webkit-border-radius: @radius;
   -o-border-radius: @radius;
@@ -30,332 +30,257 @@
   border-radius: @radius;
 }
 
+.rounded-btn (@radius-btn:0.3em) {
+  -moz-border-radius: @radius-btn;
+  -webkit-border-radius: @radius-btn;
+  -o-border-radius: @radius-btn;
+  -khtml-border-radius: @radius-btn;
+  -ms-border-radius: @radius-btn;
+  border-radius: @radius-btn;
+}
+
 .general-button {
+  font-size: 1.4em;
+  line-height: 1.2em;
+  white-space: normal;
+  text-shadow: none;
   background-color: @main-color;
-  border: none;
-  padding: 0;
+  border: solid @main-color 0.2rem;
+  box-shadow: none;
+  margin: 0;
+  padding: 0.3rem 0.6rem;
+  .rounded-btn();
 }
 
 .button-interaction {
   background-color: white;
-  border: solid @main-color 5px;
+  border: solid @main-color 0.2rem;
   color: @main-color;
 }
-
-
 /* -------------------------------------------------------------------- */
-
 body,
 html {
-    font-family: Helvetica, sans-serif;
-    text-align: center;
-    color: black;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    background-color: @background;
-    .title-font();
+  .main-font();
+  font-size: 22px;
+  line-height: 1.25em;
+  text-align: center;
+  color: white;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: @background;
 }
 
 header h1 {
   color: @main-color;
 }
 
-/* ------------------------------ VERTICALLY CENTER PAGES ------------------------------ */
-.vertical-center {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
+.logo-text {
+  max-height: 3em;
+  margin: 0.1em auto 0.3em;
+  padding: 0;
 }
 
+.small-text {
+  font-size: 0.7em;
+  line-height: 1.2em;
+  margin: 0;
+}
+/* ------------------------------ VERTICALLY CENTER PAGES ------------------------------ */
+.vertical-center {
+  min-height: 100%;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-content: space-around;
+  align-content: space-around;
+  margin: 0.8rem auto;
+}
 /* ------------------------------ BUBBLE ------------------------------ */
 /* °°°°°°°°° CENTER TEXT INSIDE BUBBLE & GENERALITIES °°°°°°°°° */
 .bubble {
-    height: 90px;
-    display: flex;
-    align-items: center;
-    position: relative;
-    border: solid @comp-color 4px;
-    background-color: @comp-color;
-    .rounded();
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  position: relative;
+  padding: 0.7rem;
+  background-color: @comp-color;
+  border: solid @comp-color 0.1rem;
+  .rounded-bubble();
 }
 
-.bubble:after,
 .bubble:before {
-    content: "";
-    position: absolute;
-    border-style: solid;
+  content: "";
+  position: absolute;
+  border-style: solid;
 }
 
 .bubble p {
-    margin: auto;
-    font-size: 20px;
-    padding: 0 10px;
-    color: white;
+  margin: 0;
+  padding: 0;
 }
 /* ////////////// TRIANGLE LEFT & RIGHT ////////////// */
 .bubble.left:before,
 .bubble.right:before {
-    top: 50%;
-    margin-top: -14px;
-    border-top-color: transparent;
-    border-color: transparent @comp-color;
-}
-
-.bubble.left:after,
-.bubble.right:after {
-    top: 50%;
-    margin-top: -8px;
-    border-color: transparent @comp-color;
+  top: 50%;
+  margin-top: -0.7rem;
+  border-top-color: transparent;
+  border-color: transparent @comp-color;
 }
 /* ////////////// TRIANGLE LEFT ////////////// */
-.bubble.left:after,
 .bubble.left:before {
-    right: 100%;
-
+  right: 100%;
 }
 
 .bubble.left:before {
-    border-width: 14px 14px 14px 0;
-}
-
-
-.bubble.left:after {
-    border-width: 8px 8px 8px 0;
+  border-width: 0.7rem 0.7rem 0.7rem 0;
 }
 /* ////////////// TRIANGLE RIGHT ////////////// */
-.bubble.right:after,
 .bubble.right:before {
-    left: 100%;
+  left: 100%;
 }
 
 .bubble.right:before {
-    border-width: 14px 0 14px 14px;
-}
-
-.bubble.right:after {
-    border-width: 8px 0 8px 8px;
+  border-width: 0.7rem 0 0.7rem 0.7rem;
 }
 /* ////////////// TRIANGLE BOTTOM & TOP ////////////// */
 .bubble.bottom:before,
 .bubble.top:before {
-    left: 50%;
-    margin-left: -14px;
-    border-color: @comp-color transparent;
-}
-
-.bubble.bottom:after,
-.bubble.top:after {
-    left: 50%;
-    margin-left: -8px;
-    border-color: @comp-color transparent;
+  left: 50%;
+  margin-left: -0.8rem;
+  border-color: @comp-color transparent;
 }
 /* ////////////// TRIANGLE BOTTOM ////////////// */
-.bubble.bottom:after,
 .bubble.bottom:before {
-    top: 100%;
+  top: 100%;
 }
 
 .bubble.bottom:before {
-    border-width: 14px 14px 0;
-}
-
-.bubble.bottom:after {
-    border-width: 8px 8px 0;
+  border-width: 0.8rem 0.8rem 0;
 }
 /* ////////////// TRIANGLE TOP ////////////// */
-.bubble.top:after,
 .bubble.top:before {
-    bottom: 100%;
+  bottom: 100%;
 }
 
 .bubble.top:before {
-    border-width: 0 14px 14px;
-}
-
-.bubble.top:after {
-    border-width: 0 8px 8px;
+  border-width: 0 0.8rem 0.8rem;
 }
 /* ------------------------------ ACCUEIL ------------------------------ */
-
 .bubble.bottom.home {
-    height: 190px;
-    margin-bottom: 8%;
+  margin-bottom: 1.2rem;
 }
 
-.avatar.home {
-    height: 300px;
-    margin: 0 0 8%;
-    padding: 0;
+.avatar-home {
+  margin: 0 0 1rem;
+  padding: 0;
 }
 
-.discover button,
-.connect button {
+.connect button,
+.discover button {
   .general-button;
-    height: 80px;
-    font-size: 30px;
-    margin-bottom: 3%;
+  margin-bottom: 0.5rem;
 }
 
-.discover button:active,
-.discover button:focus,
-.discover button:hover,
 .connect button:active,
 .connect button:focus,
-.connect button:hover {
+.connect button:hover,
+.discover button:active,
+.discover button:focus,
+.discover button:hover {
   .button-interaction;
 }
-
 /* ------------------------------ JE MANGE DEJA ------------------------------ */
-
-.navbar-default {
-    background-color: @second-color;
-}
-
-.overlay-content h1 {
-    font-size: 26px;
-    color: @main-color;
-    margin: 25px 0;
-    padding: 0;
-}
-
 .advice {
-    margin: 3% 0;
-    padding: 0;
-    display: flex;
-    align-items: center;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
 }
 
 section h2 {
-    font-size: 30px;
-    // font-weight: bold;
-    color: @comp-color;
-    margin: 5% 0 8%;
-    padding: 0;
+  font-size: 1.4em;
+  color: @comp-color;
+  margin: 1rem 0 0.7rem;
 }
 
 .manger-item {
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
   cursor: pointer;
-  -webkit-filter: grayscale(1);
-  filter: grayscale(1);
 }
 
 .color-food {
+  -webkit-filter: none;
   filter: none;
 }
 
-.manger-item h3 {
-    font-size: 20px;
-    color: @main-color;
-    margin: 10% 0 20% 0;
-    padding: 0;
-}
-
 .manger-item img {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
-.manger-valider {
-  margin: 6% 0;
+.manger-item h3 {
+  font-size: 1em;
+  color: @main-color;
+  margin: 0.5rem 0 0.8em;
+  .text-wrap();
 }
 
-.manger-valider button {
+.select button {
   .general-button;
-    height: 70px;
-    letter-spacing: 0.6px;
+  font-size: 1em;
+  margin: 0 0 0.7rem;
 }
 
-.manger-valider button:active,
-.manger-valider button:focus,
-.manger-valider button:hover {
+.select button:active,
+.select button:focus,
+.select button:hover {
   .button-interaction;
 }
 
-.manger-valider .all {
-    font-size: 22px;
+.page-item i {
+  font-size: 0.7rem;
 }
 
-.manger-valider .ok {
-    font-size: 26px;
+.page-link .ok {
+  .general-button();
+  font-size: 1.4em;
 }
 
-nav .pagination {
-    margin-top: 8%;
-    padding: 0;
-}
-
-nav .pagination li a i {
-    background-color: @background;
-}
-
-nav .pagination li a {
-    font-size: 18px;
-    color: @main-color;
-    padding: 0 5px;
-    border: none;
-    background-color: @background;
-}
-
-nav .pagination li a:hover {
-    color: @second-color;
-    border: none;
-    background-color: transparent;
-}
-
-nav .pagination li a .glyphicon-chevron-left {
-    padding-right: 20px;
-}
-
-nav .pagination li a .glyphicon-chevron-right {
-    padding-left: 20px;
+.page-link .ok:active,
+.page-link .ok:focus,
+.page-link .ok:hover {
+  .button-interaction();
 }
 
 .currentclass {
   display: list-item;
 }
-
-.imgswitch {
-transform: rotate(180deg);
-}
 /* ------------------------------ AVATAR ------------------------------ */
-.bubble.bottom.avatar {
-    height: 100px;
-}
-
-.btn-circle.btn-lg {
-  font-size: 45px;
-  line-height: 0;
-  color: white;
-  width: 80px;
-  height: 80px;
-  border-radius: 40px;
-  background-color: @main-color;
-}
-
-.choice-avatar button i {
-  background-color: rgba(255, 255, 255, 0);
-}
-
 .choice-avatar {
-    margin-top: 50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  align-items: center;
+  margin: 1.2rem auto 0.8rem;
 }
 
 .input-name {
-    height: 50px;
-    margin-top: 40px;
-    border: solid @main-color 4px;
-    border-radius: 10px;
+  border: solid @main-color 0.2rem;
+  margin: 0 auto 1rem;
 }
 
 .name button {
   .general-button;
-    height: 60px;
-    font-size: 26px;
-    margin-top: 12%;
 }
 
 .name button:active,
@@ -363,83 +288,160 @@ transform: rotate(180deg);
 .name button:hover {
   .button-interaction;
 }
-
-/* ------------------------------ Profil ------------------------------ */
-.mini-avatar {
-  margin-top: 7px;
-    height: 60px;
-    border-radius: 100%;
-}
-.add-kids {
-    margin-top: 7px;
-    background-color: @main-color;
-    color: white;
-    font-size: 30px;
-    border-radius: 100%;
-    height: 60px;
+/* ------------------------------ PROFIL - MODIFIER ------------------------------ */
+.nav.nav-tabs {
+  border: none;
 }
 
 .onglets-profil {
-  font-size: 20px;
+  font-size: 1em;
+  color: @comp-color;
+  border: solid @comp-color 0.2rem;
+  border-radius: 0 0 0.3em 0.3em;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  padding: 0.3rem 0;
+}
+
+.vueModifier {
+  margin: 0.7rem 0 0;
+}
+
+.changename h2 {
+  font-size: 1.4em;
   color: @main-color;
-border: solid @main-color 4px;
-border-radius: 0 0 10px 10px;
 }
 
-.glyphicon {
-  background-color: white;
-}
-
-.flex-center-vertically {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-}
-.dropdown {
-  position: relative;
-  text-align: left;
-  width: 150px;
-  margin-top: 60px;
-}
-.changename button{
+.changename h2 button {
   .general-button();
-  margin: 0;
-  padding: 10px;
+  font-size: 1rem;
+  line-height: 0;
+  padding: 0.3em;
 }
-.flexbox-container {
-	display: -ms-flexbox;
-	display: -webkit-flex;
-	display: flex;
 
-	-ms-flex-align: center;
-	-webkit-align-items: center;
-	-webkit-box-align: center;
-
-	align-items: center;
+.changename h2 button:active,
+.changename h2 button:focus,
+.changename h2 button:hover {
+  .button-interaction();
 }
-/* ------------------------------ LOGIN & REGISTER ------------------------------ */
 
-.login label,
-.register label {
+.close-modal .close span,
+.deconnect-modal .close span {
+  font-size: 1.4rem;
+  background-color: transparent;
+  position: absolute;
+  top: 0.3rem;
+  right: 0.3rem;
+}
+
+.deconnect-modal .close {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.deconnect-modal .close:active,
+.deconnect-modal .close:focus,
+.deconnect-modal .close:hover {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.deconnect-modal label,
+.name-modal label {
+  color: @main-color;
+}
+
+.name-modal input {
+  margin: 0.3rem 0 0;
+}
+
+.cancel-valid button,
+.name-modal .valid-name {
+  .general-button();
+  margin: 0.7rem 0 0;
   color: white;
 }
 
-.login .textRemember,
-.register .textRemember {
-  margin: 20px 0;
+.cancel-valid button:active,
+.cancel-valid button:focus,
+.cancel-valid button:hover,
+.name-modal .valid-name:active,
+.name-modal .valid-name:focus,
+.name-modal .valid-name:hover {
+  .button-interaction();
+  border-color: @main-color;
+  color: @main-color;
 }
 
-.login .remember,
-.register .remember {
-  text-align: left;
+.deconnect button {
+  .general-button();
+  font-size: 1em;
+  background-color: red;
+  border-color: red;
+  margin: 1rem 0 0;
+}
+
+.deconnect button:active,
+.deconnect button:focus,
+.deconnect button:hover {
+  .button-interaction();
+  color: red;
+  border-color: red;
+}
+/* ------------------------------ PROFIL - RECOMPENSE ------------------------------ */
+.challenge {
+  font-size: 0.7em;
+  line-height: 1em;
+  color: @main-color;
+}
+
+.vueMesRecompenses {
+  margin: 1rem 0 0;
+}
+
+.table tbody tr td {
+  vertical-align: middle;
+  .text-wrap();
+}
+
+.table,
+.table tbody + tbody,
+.table-bordered tbody tr td {
+  border: none;
+}
+
+.panel {
+  border-radius: 0.5rem;
+  border: solid 0.2rem @main-color;
+  background-color: transparent;
+}
+
+.table-bordered tbody tr {
+  border-bottom: solid 0.2rem @main-color;
+}
+
+.table-bordered tbody tr .img-column {
+  border-right: solid 0.2rem @main-color;
+}
+
+td h3,
+td p {
+  margin: 0;
+}
+
+td h3 {
+  font-size: 1rem;
+  color: @comp-color;
+}
+/* ------------------------------ LOGIN & REGISTER ------------------------------ */
+.login p,
+.register p {
+  margin: 0 auto 0.5rem;
 }
 
 .login button,
 .register button {
   .general-button;
-    height: 80px;
-    font-size: 30px;
-    margin-bottom: 3%;
 }
 
 .login button:active,
@@ -450,20 +452,9 @@ border-radius: 0 0 10px 10px;
 .register button:hover {
   .button-interaction;
 }
-
-/* ------------------------------ LOGIN ------------------------------ */
-.login.bubble.top {
-  height: 620px;
-}
-
-/* ------------------------------ REGISTER ------------------------------ */
-.register.bubble.top {
-  height: 680px;
-}
-
 /* ------------------------------ J'AI GOUTER ------------------------------ */
 .searchbar {
-  margin: 10% 0 5% 0;
+  margin: 1rem 0;
   padding: 0;
 }
 
@@ -472,34 +463,46 @@ border-radius: 0 0 10px 10px;
 }
 
 .gouter-item h3 {
-    font-size: 20px;
-    color: @main-color;
-    margin: 10% 0 0 0;
-    padding: 0;
+  font-size: 1em;
+  color: @main-color;
+  margin: 0.5rem 0 0;
+  .text-wrap();
 }
 
 .gouter-item img {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.circle-vote {
+  margin: 0 0 1rem;
 }
 
 .circle-vote i {
   font-weight: bold;
-  font-size: 18px;
+  font-size: 0.7em;
   color: @main-color;
-  margin: 5% 0 20% 0;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
 }
-
-/* ------------------------------ MODAL ------------------------------ */
+/* ------------------------------ MODAL - GOUTER ------------------------------ */
 .modal-content {
   background-color: @background;
 }
 
+.food-modal .close span {
+  font-size: 1.4rem;
+  line-height: 0;
+  position: absolute;
+  top: 0.3rem;
+  right: 0.3rem;
+  background-color: transparent;
+}
+
 .modal-header h1 {
-  font-size: 35px;
+  font-size: 2em;
   color: @main-color;
-  margin: 10px 0 0 0;
+  margin: 0.5rem 0 0;
   padding: 0;
 }
 
@@ -508,28 +511,41 @@ border-radius: 0 0 10px 10px;
 }
 
 .modal-body {
-  padding: 10px 30px;
+  padding: 0.5rem 1rem;
 }
 
 .modal-body h2 {
-  font-size: 25px;
+  font-size: 1.4em;
   color: @main-color;
-  margin: 3% 0 1% 0;
-  padding: 0;
+  margin: 0.5rem 0 0.3rem;
 }
 
 .modal-body p {
-  font-size: 18px;
-  line-height: 22px;
+  font-size: 1em;
+  line-height: 1.1em;
   color: @dark-comp-color;
 }
 
-.vote .green button {
-  background-color: @green;
+.vote {
+  margin-top: 0.5rem;
+  margin-bottom: 0.7rem;
 }
 
-.vote .red button {
+.vote button {
+  font-size: 1.6em;
+  line-height: 0;
+  border-radius: 100%;
+  padding: 0.5rem;
+}
+
+.green button {
+  background-color: @green;
+  border: solid 0.2rem @green;
+}
+
+.red button {
   background-color: @red;
+  border: solid 0.2rem @red;
 }
 
 .vote button i {
@@ -537,33 +553,30 @@ border-radius: 0 0 10px 10px;
   background-color: rgba(255, 255, 255, 0);
 }
 
-.vote .green button:active,
-.vote .green button:focus,
-.vote .green button:hover,
-.vote .red button:active,
-.vote .red button:focus,
-.vote .red button:hover {
-  font-size: 30px;
+.green button:active,
+.green button:focus,
+.green button:hover,
+.red button:active,
+.red button:focus,
+.red button:hover {
   background-color: white;
 }
 
-.vote .green button:active,
-.vote .green button:focus,
-.vote .green button:hover {
+.green button:active,
+.green button:focus,
+.green button:hover {
   color: @green;
-  border: solid 5px @green;
 }
 
-.vote .red button:active,
-.vote .red button:focus,
-.vote .red button:hover {
+.red button:active,
+.red button:focus,
+.red button:hover {
   color: @red;
-  border: solid 5px @red;
 }
 
 .vote h3 {
-  font-size: 20px;
-  margin: 3% 0;
+  font-size: 1em;
+  margin: 0.5rem 0 0;
 }
 
 .green h3 {
@@ -576,8 +589,7 @@ border-radius: 0 0 10px 10px;
 
 .a-gouter button {
   .general-button;
-  font-size: 26px;
-  height: 60px;
+  font-size: 1.4em;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
@@ -587,110 +599,125 @@ border-radius: 0 0 10px 10px;
 .a-gouter button:hover {
   .button-interaction
 }
+/* ------------------------------ CONTRE-INDICATION ------------------------------ */
+.contraindication.bubble.top {
+  margin: 1rem auto;
+}
 
-/* ------------------------------ DECONNECTION ------------------------------ */
-.deconnecter button {
-  height: 30px;
-  background-color: @red;
-  border: none;
+.contraindication p:first-child {
+  margin-bottom: 0.4rem;
+}
+
+.search-contre label {
+  font-size: 0.7em;
+  color: @dark-comp-color;
+  margin-bottom: 0.5rem;
+}
+
+.btn-add span {
+  background-color: transparent;
+}
+
+.contre-item {
+  margin-bottom: 0.5rem;
+  padding: 0.4rem;
+  border: solid @main-color 0.2rem;
+  .rounded-bubble();
+}
+
+.contre-item .cancel {
+  font-size: 1.4em;
+  line-height: 0;
+  color: @main-color;
+  opacity: 1;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  cursor: pointer;
+}
+
+.contre-item img {
+  margin: 0;
   padding: 0;
 }
 
-.deconnecter button:active,
-.deconnecter button:focus,
-.deconnecter button:hover {
-  background-color: white;
-  border: solid @red 5px;
-  color: @red;
+.contre-item h3 {
+  font-size: 1em;
+  color: @main-color;
+  margin: 0.5rem 0 0;
+  .text-wrap();
 }
 
-/* ------------------------------ contreIndication ------------------------------ */
-.contre-indicationavatar {
-  margin-top: 40px;
+.contre-item h4,
+.contre-item h5 {
+  font-size: 0.7em;
 }
 
-.contre-indication.bubble.top {
-  margin-top: 20px;
-  height: 180px;
-}
-
-.search-contre {
-  margin: 10% 0;
-}
-
-.gouter-item h4 {
-  font-size: 18px;
+.contre-item h4 {
   color: @comp-color;
-  margin: 5% 0 3%;
+  margin: 0.1rem 0 0;
 }
 
-.gouter-item h5 {
-  font-size: 16px;
+.contre-item h5 {
   color: @dark-comp-color;
-  margin: 0;
+  margin: 0.2rem 0 0;
 }
 
-.gouter-item button {
+.cancel-all,
+.contre-ok {
   .general-button;
-  margin: 10% 0 20%;
-  font-size: 20px;
-  height: 50px;
-  width: 100px;
+  .text-wrap();
 }
 
-.gouter-item button:active,
-.gouter-item button:focus,
-.gouter-item button:hover {
-  .button-interaction
+.cancel-all {
+  font-size: 1em;
+  margin-bottom: 0.5rem;
 }
 
-.contre-indication-valider button {
-  .general-button;
-  height: 80px;
-  font-size: 30px;
-  margin-top: 10%;
-  margin-bottom: 10%;
-}
-
-.contre-indication-valider button:active,
-.contre-indication-valider button:focus,
-.contre-indication-valider button:hover {
+.cancel-all:active,
+.cancel-all:focus,
+.cancel-all:hover,
+.contre-ok:active,
+.contre-ok:focus,
+.contre-ok:hover {
   .button-interaction;
 }
-
-/* ------------------------------ tutoriel ------------------------------ */
+/* ------------------------------ TUTORIEL ------------------------------ */
 .tutoriel-page {
   opacity: 0.5;
 }
+
 .search-tutoriel {
   margin-top: 20px;
 }
+
 .tutoriel {
-  position: fixed; z-index: 1;
+  position: fixed;
+  z-index: 1;
 }
+
 .tutoriel-avatar {
   margin-top: 30px;
 }
+
 .tutoriel.bubble.top {
   margin-top: 20px;
   height: 190px;
   font-size: 1.7em;
 }
-/* ------------------------------ croix modal fiche aliment ------------------------------ */
-.close {
-  font-size: 60px;
-}
 /* ------------------------------ acceder à mon compte ------------------------------ */
-.compte.bubble.top {
-  height: 350px;
+.avatar-compte {
+  padding: 0 0 1rem;
 }
 
 .compte button {
   .general-button;
-    height: 90px;
-    width: 220px;
-    font-size: 26px;
-    margin-top: 12%;
+  padding: 0.3rem;
+}
+
+.compte button:first-of-type,
+.compte p {
+  margin-bottom: 0.5rem;
 }
 
 .compte button:active,
@@ -698,41 +725,73 @@ border-radius: 0 0 10px 10px;
 .compte button:hover {
   .button-interaction;
 }
-
 /* ------------------------------  NAVBAR ANON  ------------------------------ */
+.navbar-default {
+  background-color: @second-color;
+}
+
+.dropdown {
+  position: relative;
+  text-align: left;
+  width: 150px;
+  margin-top: 60px;
+}
+
+.overlay-content h1 {
+  font-size: 26px;
+  color: @main-color;
+  margin: 25px 0;
+  padding: 0;
+}
 
 .overlay {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 3;
-    top: 0;
-    right: 0;
-    background-color: @main-color;
-    overflow-x: hidden;
-    transition: 0.5s;
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 3;
+  top: 0;
+  right: 0;
+  background-color: @main-color;
+  overflow-x: hidden;
+  transition: 0.5s;
 }
 
 .overlay-content {
-    position: relative;
-    top: 30%;
-    width: 100%;
-    color: white;
+  position: relative;
+  top: 30%;
+  width: 100%;
+  color: white;
 }
 
 .overlay-content h2 {
-    font-size: 1.8em;
+  font-size: 1.8em;
 }
 
-.glyphicon-menu-hamburger, .glyphicon-remove {
-    opacity: 0.6;
+.glyphicon-menu-hamburger,
+.glyphicon-remove {
+  opacity: 0.6;
 }
 
 .menu a {
   color: white;
-  font-size: 50px
+  font-size: 50px;
 }
 
 ul {
   list-style-type: none;
+}
+/* ------------------------------ NAVBAR USER ------------------------------ */
+.mini-avatar {
+  margin-top: 7px;
+  height: 60px;
+  border-radius: 100%;
+}
+
+.add-kids {
+  margin-top: 7px;
+  background-color: @main-color;
+  color: white;
+  font-size: 30px;
+  border-radius: 100%;
+  height: 60px;
 }
