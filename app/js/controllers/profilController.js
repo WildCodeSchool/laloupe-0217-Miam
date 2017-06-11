@@ -169,16 +169,15 @@ $scope.hideModal= true;
 };
 
 
-var newName = [];
+var newName = '';
 $scope.validUser = function() {
 if (newName===[]) {
-newName.push($scope.userName);
+newName = $scope.userName;
 
 }
 else {
 
-newName.splice(0,1);
-newName.push($scope.userName);
+newName = $scope.userName;
 }
 
 ProfilService.create($scope.userName, $scope.user._id).then(function(res) {
