@@ -2,6 +2,7 @@ import jsonwebtoken from 'jsonwebtoken';
 import mongoose from 'mongoose';
 import bcrypt from 'bcrypt';
 import token from '../token.js';
+import Profile from './profile.js';
 
 const hashCode = (s) => s.split("").reduce((a, b) => {
     a = ((a << 5) - a) + b.charCodeAt(0);
@@ -25,6 +26,10 @@ const userSchema = new mongoose.Schema({
     isAdmin: {
         type: Boolean,
         default: false
+    },
+    profile: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Profile'
     }
 });
 
@@ -76,26 +81,22 @@ export default class User {
     }
 
     findAll(req, res) {
-        model.find({}, {
-            password: 0
-        }, (err, users) => {
-            if (err || !users) {
-                res.sendStatus(403);
-            } else {
-                res.json(users);
-            }
+        model.find({}, {password: 0}).populate('profile').exec(function (err, users) {
+          if (err || !users) {
+            res.sendStatus(403);
+          } else {
+            res.json(users);
+          }
         });
     }
 
     findById(req, res) {
-        model.findById(req.params.id, {
-            password: 0
-        }, (err, user) => {
-            if (err || !user) {
-                res.sendStatus(403);
-            } else {
-                res.json(user);
-            }
+        model.findById({}, {password: 0}).populate('profile').exec(function (err, users) {
+          if (err || !users) {
+            res.sendStatus(403);
+          } else {
+            res.json(users);
+          }
         });
     }
 

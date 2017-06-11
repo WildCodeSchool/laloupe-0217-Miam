@@ -1,106 +1,66 @@
-<div class="container-fluid">
+<div class="container vertical-center">
 
-    <header class="row">
-        <div class="col-xs-12">
-            <h1>Je mange déjà</h1>
-        </div>
-    </header>
+  <header class="row">
+    <div class="col-xs-12">
+      <h1>Je mange déjà</h1>
+    </div>
+  </header>
 
-    <section class="row">
-      <div class="advice">
-        <div class="col-xs-4 avatar">
-          <img src="https://image.flaticon.com/icons/png/128/78/78373.png" alt="Avatar of the user" />
-        </div>
-        <div class="col-xs-8 bubble left">
-          <p>Dis-moi ce que tu manges déjà&nbsp;!</p>
+  <section class="row">
+    <div class="advice">
+      <div class="col-xs-5">
+        <img class="img-responsive" ng-src="/img/penguin.svg" alt="Avatar" />
+      </div>
+      <div class="col-xs-7 bubble left">
+        <p>Dis-moi ce que tu manges déjà&nbsp;!</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="row" ng-repeat="categorie in currentCategorie | limitTo : 1">
+    <h2>{{ underscore(currentCategorie) }}</h2>
+    <div class="manger" ng-repeat="food in foodList[currentCategorie].aliments track by $index">
+      <div class="col-xs-4 manger-item" ng-click="selectFood(food)" ng-class="{'color-food': isSelected(food)}">
+        <img src="{{ food.picto }}" alt="{{ food.name }}" />
+        <h3>{{ food.name }}</h3>
+      </div>
+    </div>
+  </section>
+
+  <section class="row select">
+    <div class="col-xs-12">
+      <button class="btn btn-primary btn-block all" type="button" name="button" ng-click="selectAll()" ng-if="!IsSelectedAll">Tout sélectionner</button>
+      <button class="btn btn-primary btn-block all" type="button" name="button" ng-click="selectAll()" ng-if="IsSelectedAll">Tout désélectionner</button>
+    </div>
+  </section>
+
+  <footer>
+    <div class="row">
+
+      <div class="col-xs-3" aria-label="Previous" ng-click="prevCategorie()" ng-disabled="limitPrev">
+        <img class="img-responsive" type="button" src="/img/arrow-left.svg" alt="Précédent" />
+        <span class="sr-only">Précédent</span>
+      </div>
+
+      <div class="col-xs-6">
+        <div class="page-item" ng-repeat="categorie in categories">
+          <!-- <div class="col-xs-1">
+            <i class="fa fa-circle" aria-hidden="true"></i>
+            <div class="currentclass" ng-style="set_color(currentcatsymbol)">{{ categorie }}</div>
+          </div> -->
         </div>
       </div>
-    </section>
 
-    <section class="row">
-        <h2>Fruits</h2>
-        <ul id="manger" class="manger">
-          <!-- METTRE dans des div et voir http://infoheap.com/html-js-css-sandbox/code/12737-code2/ -->
-            <li class="col-xs-4" ng-model="selected" ng-change="styleVal= selected ? {opacity:'1'} : {opacity:'0'}">
-                <img src="../../img/pineapple.svg" alt="{{ }}" /> Ananas
-            </li>
-            <li class="col-xs-4">
-                <img src="../../img/banana.svg" alt="{{ }}" /> Banane
-            </li>
-            <li class="col-xs-4">
-                <img src="../../img/cherries.svg" alt="{{ }}" /> Cerise
-            </li>
-            <li class="col-xs-4">
-                <img src="../../img/strawberry.svg" alt="{{ }}" /> Fraise
-            </li>
-            <li class="col-xs-4">
-                <img src="../../img/orange.svg" alt="{{ }}" /> Orange
-            </li>
-            <li class="col-xs-4">
-                <img src="../../img/grapes.svg" alt="{{ }}" /> Raisin
-            </li>
-        </ul>
-    </section>
+      <div class="col-xs-3" aria-label="Next" ng-click="nextCategorie()" ng-hide="limitNext">
+        <img class="img-responsive" type="button" src="/img/arrow-right.svg" alt="Suivant" />
+        <span class="sr-only">Suivant</span>
+      </div>
 
-    <!-- Utiliser pour chaque page / familles d'aliment un ng-hide/ng-show -->
+      <div class="col-xs-8 page-link" aria-label="Next" ng-click="nextCategorie()" ng-show="limitNext">
+        <button class="btn btn-primary btn-lg ok" type="button" name="button" ng-click="ok()">Valider</button>
+      </div>
 
-    <section class="row manger-valider">
-        <button class="col-xs-offset-1 col-xs-5 btn btn-primary btn-lg" type="button" name="button">Tout <br /> sélectionner</button>
-        <button class="col-xs-offset-1 col-xs-4 btn btn-primary btn-lg" type="button" name="button">OK</button>
-    </section>
-
-    <footer>
-        <nav class="row">
-            <ul class="pagination">
-              <li class="page-item">
-                <a class="page-link" href="#" aria-label="Previous">
-                  <i class="glyphicon glyphicon-chevron-left" aria-hidden="true"></i>
-                  <span class="sr-only">Previous</span>
-                </a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#">
-                  <i class="fa fa-circle-o" aria-hidden="true"></i>
-                </a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#">
-                  <i class="fa fa-circle" aria-hidden="true"></i>
-                </a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#">
-                  <i class="fa fa-circle" aria-hidden="true"></i>
-                </a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#">
-                  <i class="fa fa-circle" aria-hidden="true"></i>
-                </a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#">
-                  <i class="fa fa-circle" aria-hidden="true"></i>
-                </a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#">
-                  <i class="fa fa-circle" aria-hidden="true"></i>
-                </a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#">
-                  <i class="fa fa-circle" aria-hidden="true"></i>
-                </a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#" aria-label="Next">
-                  <i class="glyphicon glyphicon-chevron-right" aria-hidden="true"></i>
-                  <span class="sr-only">Next</span>
-                </a>
-              </li>
-            </ul>
-        </nav>
-    </footer>
+    </div>
+  </footer>
 
 </div>

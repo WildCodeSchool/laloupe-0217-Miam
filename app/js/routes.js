@@ -22,6 +22,15 @@ angular.module('app')
                     }
                 }
             })
+            .state('anon.tutoriel', {
+                url: '/tutoriel',
+                views: {
+                    'content@': {
+                        templateUrl: 'anon/tutoriel.html',
+                        controller: 'TutorielController'
+                    }
+                }
+            })
             .state('anon.manger', {
                 url: '/manger',
                 views: {
@@ -31,12 +40,48 @@ angular.module('app')
                     }
                 }
             })
+            .state('anon.gouter', {
+                url: '/gouter',
+                views: {
+                    'content@': {
+                        templateUrl: 'anon/gouter.html',
+                        controller: 'GouterController'
+                    }
+                }
+            })
+            .state('anon.contreIndication', {
+                url: '/contreIndication',
+                views: {
+                    'content@': {
+                        templateUrl: 'anon/contreIndication.html',
+                        controller: 'ContreIndicationController'
+                    }
+                }
+            })
+            .state('anon.connexionCompte', {
+                url: '/connexionCompte',
+                views: {
+                    'content@': {
+                        templateUrl: 'anon/connexionCompte.html',
+                        controller: 'ConnexionCompteController'
+                    }
+                }
+            })
             .state('anon.avatar', {
                 url: '/avatar',
                 views: {
                     'content@': {
                         templateUrl: 'anon/avatar.html',
                         controller: 'AvatarController'
+                    }
+                }
+            })
+            .state('anon.profil', {
+                url: '/profil',
+                views: {
+                    'content@': {
+                        templateUrl: 'anon/profil.html',
+                        controller: 'ProfilController'
                     }
                 }
             })
@@ -87,6 +132,24 @@ angular.module('app')
                     'content@': {
                         templateUrl: 'user/profile.html',
                         controller: 'ProfileController'
+                    }
+                }
+            })
+            .state('user.avatar', {
+                url: '/avatar',
+                views: {
+                    'content@': {
+                        templateUrl: 'user/avatar.html',
+                        controller: 'AvatarController'
+                    }
+                  }
+                })
+            .state('user.home', {
+                url: '/home',
+                views: {
+                    'content@': {
+                        templateUrl: 'user/home.html',
+                        controller: 'HomeController'
                     }
                 }
             });
