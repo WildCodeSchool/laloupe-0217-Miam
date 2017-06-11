@@ -53,8 +53,22 @@ angular.module('app')
                 compoFood: compoAlim,
                 doNotEat: true
               };
-              $scope.items.push(alimNotEating);
-              console.log("$scope.items", $scope.items);
+
+              console.log($scope.items.indexOf($scope.query));
+
+              if ($scope.items.indexOf($scope.query) === -1) {
+                $scope.items.push(alimNotEating);
+                console.log("$scope.items", $scope.items);
+              }
+
+
+              // if($scope.query === $scope.items) {
+              //   $scope.items.splice();
+              //   console.log("Win win");
+              // } else {
+
+              // }
+
             }
           }
         }
