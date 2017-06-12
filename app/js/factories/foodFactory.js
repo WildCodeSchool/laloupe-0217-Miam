@@ -157,45 +157,45 @@ angular.module('app')
             Viandes_Poissons_Œufs: {
                 portion: "Il faut en manger 1 fois par jour, 2 maximum.",
                 aliments: [{
-                        name: "Sardine",
-                        picto: "/img/fish.svg",
-                        description: "De mer ou de rivière, il existe une quantité impressionnante d'espèces.",
-                        suggestions: ["cuit", "cru"],
-                        composition: ["Poisson"]
-                    },
-                    {
                         name: "Steak",
                         picto: "/img/steak.svg",
-                        description: "Viande rouge ou viande blanche, il y en a pour tous les goûts !",
-                        suggestions: ["cuite", "en tartare", "chaude", "froide"],
+                        description: "En 2002, un groupe de bouchers français a fait un steak de 27 mètres de long, c'est le record du monde !",
+                        suggestions: ["crue", "en carpaccio", "en tartare", "cuite", "grillée", "rôtie", "bouillie", "au barbecue", "à la plancha", "en fondue", "en pierrade"],
                         composition: ["Viande"]
                     },
                     {
                         name: "Œuf",
                         picto: "/img/egg.svg",
-                        description: "On mange le plus souvent ceux pondus par les poules.",
-                        suggestions: ["cocotte", "à la coque", "dur", "sur le plat", "mimosa"],
+                        description: "Un oeuf d'autruche vaut environ 25 oeufs de poule !",
+                        suggestions: ["au plat", "à la coque", "dur", "poché", "mimosa", "mollet", "en omelette", "dans une quiche", "un gâteau", "une salade de crudité"],
                         composition: ["Œuf"]
                     },
                     {
                         name: "Poulet",
                         picto: "/img/poulet.svg",
-                        description: "Le poulet est le jeune mâle ou femelle de la poule.",
-                        suggestions: ["à la broche", "frit", "en sauce", "en nuggets"],
+                        description: "Les poulets sont plus nombreux que les humains sur Terre.",
+                        suggestions: ["à la broche", "frit", "en sauce", "en nuggets", "rôti", "basquaise", "colombo", "en tajine", "au curry", "au chorizo", "coco", "cordon bleu", "risotto"],
+                        composition: ["Viande"]
+                    },
+                    {
+                        name: "Saucisse",
+                        picto: "/img/.svg",
+                        description: "Le marie de la Reine d'Angleterre la surnomme parfois 'sausage', soit 'saucisse' en français.",
+                        suggestions: ["à l'eau", "poêlée", "fumée", "grillée", "rougail saucisse", "currywurst", "avec des lentilles", "une choucroute", "dans un feuilleté"],
                         composition: ["Viande"]
                     },
                     {
                         name: "Crevette",
                         picto: "/img/crevette.svg",
-                        description: "La crevette est un crustacé marin qui ne vit que sous l'eau. Il existe plusieurs dont les crevettes roses et grises.",
-                        suggestions: ["cuite en apéritif", "en beignet", "cuite en sauce", "en salade"],
+                        description: "La durée de vie d'une crevette est de 7 ans.",
+                        suggestions: ["cuites", "en apéritif", "en beignet", "crues", "sautées", "en sauce", "à l'ail", "en verrines", "en bouchées vapeur", "en salade"],
                         composition: ["Poisson"]
                     },
                     {
                         name: "Saumon",
                         picto: "/img/saumon.svg",
-                        description: "Les saumons sont des poissons. Il en existe une dizaine d'espèces différentes. Certains vivent en eau douce et d'autres en eau salée.",
-                        suggestions: ["fumé", "en darne", "en croûte", "en tartare"],
+                        description: "Le saumon peut parcourir plusieurs milliers de km au cours de sa vie et sauter jusqu'à 3 mètres de haut.",
+                        suggestions: ["fumé", "en papillote", "en croûte", "pané", "à la vapeur", "poêlé", "grillé", "meunière", "à l'anglaise", "frit", "poché"],
                         composition: ["Poisson"]
                     },
                 ]
