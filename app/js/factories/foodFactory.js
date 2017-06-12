@@ -157,14 +157,14 @@ angular.module('app')
             Viandes_Poissons_Œufs: {
                 portion: "Il faut en manger 1 fois par jour, 2 maximum.",
                 aliments: [{
-                        name: "Poisson",
+                        name: "Sardine",
                         picto: "/img/fish.svg",
                         description: "De mer ou de rivière, il existe une quantité impressionnante d'espèces.",
                         suggestions: ["cuit", "cru"],
                         composition: ["Poisson"]
                     },
                     {
-                        name: "Viande",
+                        name: "Steak",
                         picto: "/img/steak.svg",
                         description: "Viande rouge ou viande blanche, il y en a pour tous les goûts !",
                         suggestions: ["cuite", "en tartare", "chaude", "froide"],
@@ -212,8 +212,36 @@ angular.module('app')
                 {
                     name: "Emmental",
                     picto: "/img/emmental.svg",
-                    description: "L'emmental est un fromage à pâte dure parsemée de larges trous ronds ou ovales fabriqué à partir de lait de vache.",
+                    description: "L'emmental est un fromage à pâte dure parsemée de larges trous ronds ou ovales fabriqué à partir de lait de vache. En France, on produit au moins 1 200 variétés de fromage.",
                     suggestions: ["frais", "râpé dans les pâtes", "en salade", "sur tartine chaude"],
+                    composition: ["lait"]
+                },
+                {
+                    name: "Beurre",
+                    picto: "/img/.svg",
+                    description: "C'est un aliment constitué par la matière grasse du lait. Son origine remonte à plus de 5 000 ans. Le beurre est utilisé dans la cuisine salée ou sucrée",
+                    suggestions: ["frais", "beurre doux, salé ou demi-sel", "sur tartine"],
+                    composition: ["lait"]
+                },
+                {
+                    name: "Crème_fraîche",
+                    picto: "/img/.svg",
+                    description: "Fabriqué avec du lait, celle-ci est une crème non stérilisée, maturée ou laissé en l'état, épaisse ou liquide. Elle est utilisée dans la cuisine salée ou sucrée.",
+                    suggestions: ["en chantilly", "dans des crèmes sucrées ou salées"],
+                    composition: ["lait"]
+                },
+                {
+                    name: "Yaourt",
+                    picto: "/img/.svg",
+                    description: "C'est du lait fermenté par le développement des seules bactéries lactiques thermophiles. Son nom vient du tuc 'yogurt' et il existe 400 dénominations différentes des laits fermentés dans le monde.",
+                    suggestions: ["nature, au sucre ou avec des fruits", "en glace"],
+                    composition: ["lait"]
+                },
+                {
+                    name: "Fromage Blanc",
+                    picto: "/img/.svg",
+                    description: "C'est un fromage à pâte fraîche obtenue par une coagulation lactique..",
+                    suggestions: ["nature, au sucre ou avec des fruits"],
                     composition: ["lait"]
                 },
               ]
@@ -243,7 +271,7 @@ angular.module('app')
                 },
                 {
                     name: "Doughnut",
-                    picto: "/img/doughnut.svg",
+                    picto: "/img/doughnut-1.svg",
                     description: "Le Donut ou doughnut, (noix de pâte) veut dire 'beignet sucré' en Amérique du Nord..",
                     suggestions: ["nature", "fourré de crème", "couvert de glaçage"],
                     composition: [""]
