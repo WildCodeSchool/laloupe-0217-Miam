@@ -22,9 +22,7 @@
         "jsonwebtoken": "",
         "method-override": "",
         "mongoose": "",
-        "morgan": ""
-    },
-    "devDependencies": {
+        "morgan": "",
         "babel-cli": "^6.9.0",
         "babel-core": "^6.9.0",
         "babel-preset-es2015": "^6.9.0"
