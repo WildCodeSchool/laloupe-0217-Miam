@@ -9,12 +9,6 @@
     </div>
   </div>
 
-  <div class="vueModifier" ng-hide="vueModifier">
-    <div class="row">
-      <div class="col-xs-12 choice-avatar">
-        <img type="button" class="col-xs-3 center-block" src="/img/arrow-top.svg" alt="Précédent" ng-click="up()" />
-      </div>
-    </div>
 
     <div class="row">
       <div class="col-xs-12 choice-avatar">
@@ -27,12 +21,51 @@
         <img type="button" class="col-xs-3" src="/img/arrow-right.svg" alt="Suivant" ng-click="next()" />
       </div>
     </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="modal fade modal-changeavatar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-body name-modal">
+              <div class="row">
+                <div class="col-xs-12">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
 
-    <div class="row">
-      <div class="col-xs-12 choice-avatar">
-        <img type="button" class="col-xs-3 center-block" src="/img/arrow-bottom.svg" alt="Suivant" ng-click="down()" />
+                    <div class="vueModifier" ng-hide="vueModifier">
+                      <div class="row">
+                        <div class="col-xs-12 choice-avatar">
+                          <img type="button" class="col-xs-3 center-block" src="/img/arrow-top.svg" alt="Précédent" ng-click="up()" />
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-xs-12 choice-avatar">
+                          <img type="button" class="col-xs-3" src="/img/arrow-left.svg" alt="Précédent" ng-click="prev()" />
+                          <img class="col-xs-6 img-responsive" ng-src="{{currentAvatar}}" alt="Avatar" />
+                          <img type="button" class="col-xs-3" src="/img/arrow-right.svg" alt="Suivant" ng-click="next()" />
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-xs-12 choice-avatar">
+                          <img type="button" class="col-xs-3 center-block" src="/img/arrow-bottom.svg" alt="Suivant" ng-click="down()" />
+                        </div>
+                      </div>
+
+
+                  <button class="btn btn-primary btn-block valid-name" type="button" class="valid" ng-click="validUser()" data-dismiss="modal">Ok</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+  </div>
+
+
 
     <div class="row">
       <div class="col-xs-12 changename">
