@@ -49,7 +49,7 @@
       <div class="contre-item">
         <span class="glyphicon glyphicon-remove cancel" aria-hidden="true" ng-click="deselect($index)"></span>
         <img class="img-responsive" src="img/{{ correct(item.nameFood) }}.svg" alt="{{ correct(item.nameFood) }}" />
-        <h3>{{ item.nameFood }}</h3>
+        <h3>{{ underscore(item.nameFood) }}</h3>
         <h4>{{ underscore(item.categorie) }}</h4>
         <h5>{{ arrayToString(item.compoFood) }}</h5>
       </div>
