@@ -54,13 +54,16 @@ angular.module('app')
                 doNotEat: true
               };
 
-              if ($scope.items.map(function(item) {return item.nameFood;}).indexOf(nameAlim) === -1) {
+              var indexNameAlim = $scope.items.map(function(item) {return item.nameFood;}).indexOf(nameAlim);
+
+              if (indexNameAlim === -1) {
                 $scope.items.push(alimNotEating);
-                console.log("$scope.item", $scope.item);
+                console.log("Push", $scope.items);
+              } else {
+                $scope.items.splice(indexNameAlim, 0);
+                console.log("Splice", $scope.items);
               }
 
-              var uniqItem = _.uniqBy($scope.items, 'nameFood');
-              console.log("uniqItem", uniqItem);
             }
           }
         }
