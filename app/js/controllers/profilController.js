@@ -4,8 +4,9 @@ angular.module('app')
         $scope.hideModal = true;
         $scope.user = CurrentUser.user();
         $scope.avatars = AvatarFactory;
-        console.log($scope.avatars);
+        // $scope.nameAvatar=ProfilService.nameAvatar();
 
+console.log($scope.nameAvatar);
 
         console.log($scope.avatars[i].avatars[j].picto);
         $scope.prev = function() {

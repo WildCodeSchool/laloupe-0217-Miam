@@ -71,14 +71,27 @@ export default class Profile {
             }, {
                 upsert: true,
             },
-            function(err, name) {
-                if (err || !name) {
+            function(err, avatar) {
+                if (err || !avatar) {
                     console.log("500", err);
                     res.status(500).send(err.message);
                 } else {
-                    res.json(name);
+                    res.json(avatar);
                 }
             });
+    }
+
+    findByAvatar(req, res) {
+
+        model.find({
+            nameAvatar: req.params.nameAvatar
+        }, (err, nameAvatar) => {
+            if (err || !nameAvatar) {
+                res.sendStatus(403);
+            } else {
+                res.json(nameAvatar);
+            }
+        });
     }
 
     findAll(req, res) {
