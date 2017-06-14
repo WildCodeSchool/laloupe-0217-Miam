@@ -80,3 +80,10 @@ angular.module('app')
                 $scope.choices.push(choice);
                 console.log("$scope.choices", $scope.choices);
             };
+
+            $scope.deselect = function($index) {
+              $scope.choices.splice($index, 1);
+              console.log("deselect one", $scope.choices);
+            };
+
+});
