@@ -1,5 +1,5 @@
 angular.module('app')
-    .controller('MangerController', function($scope, FoodFactory, LocalService, Auth, MangerService, CurrentUser) {
+.controller('MangerController', function($scope, $state, FoodFactory, LocalService, Auth, MangerService, CurrentUser) {
 
         // SIMPLIFY FOOD NAMES
         $scope.underscore = function(string) {
@@ -32,10 +32,6 @@ angular.module('app')
         //   }
 
         $scope.IsSelectedAll = $scope.currentAlimsCount === $scope.currentAliments.length;
-
-
-
-
 
         $scope.$watch(function() {
             $scope.currentAliments = $scope.foodList[$scope.currentCategorie].aliments;
@@ -151,14 +147,14 @@ angular.module('app')
                     MangerService.create($scope.alimentsForDatabase[j], $scope.user._id).then(function(res) {
 
                     }, function(err) {});
-                    // $state.go('anon.gouter');
+                    $state.go('anon.contreIndication');
                 }
             } else {
                 console.log("localStorage");
                 LocalService.set("jeMangeDeja", JSON.stringify($scope.alimentsForDatabase)).then(function(res) {
+                  $state.go('anon.contreIndication');
 
                 }, function(err) {});
-                $state.go('anon.gouter');
             }
         };
 
