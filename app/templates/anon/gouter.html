@@ -6,6 +6,18 @@
       </div>
     </header>
 
+    <section class="row">
+      <div class="col-xs-6" ng-repeat="item in items">
+        <div class="contre-item">
+          <span class="glyphicon glyphicon-remove cancel" aria-hidden="true" ng-click="deselect($index)"></span>
+          <img class="img-responsive" src="img/{{ correct(item.nameFood) }}.svg" alt="{{ correct(item.nameFood) }}" />
+          <h3>{{ item.nameFood }}</h3>
+          <h4>{{ underscore(item.categorie) }}</h4>
+          <h5>{{ arrayToString(item.compoFood) }}</h5>
+        </div>
+      </div>
+    </section>
+
     <section class="row searchbar">
       <form ng-submit="scrollTo()">
         <div class="col-xs-12 input-group">
@@ -24,6 +36,19 @@
           </div>
       </form>
     </section>
+
+
+<section class="row">
+  <div class="col-xs-12" ng-repeat="choice in choices">
+    <div class="contre-item">
+      <span class="glyphicon glyphicon-remove cancel" aria-hidden="true" ng-click="deselect($index)"></span>
+      <img class="img-responsive" src="img/{{ correct(choice.nameFood) }}.svg" alt="{{ correct(choice.nameFood) }}" />
+      <h3>{{ choice.nameFood }}</h3>
+    </div>
+  </div>
+</section>
+
+
 
     <section class="row" ng-repeat="categorie in categories">
       <h2>{{ underscore(categorie) }}</h2>
@@ -105,7 +130,7 @@
             </div>
             <div class="row">
               <div class="col-xs-offset-2 col-xs-8 a-gouter">
-                <button class="col-xs-12 btn btn-primary btn-lg" type="button" name="button">À goûter</button>
+                <button class="col-xs-12 btn btn-primary btn-lg" ng-click="addChoice(food.name)" type="button" name="button">À goûter</button>
               </div>
             </div>
           </div>
