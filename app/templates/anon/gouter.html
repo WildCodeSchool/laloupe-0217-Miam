@@ -30,7 +30,7 @@
       <div id="_{{ food.name }}" class="gouter" ng-repeat="food in foodList[categorie].aliments">
         <div class="col-xs-4 gouter-item" data-toggle="modal" data-target="#{{ correct(food.name) }}">
           <img src="{{ food.picto }}" alt="{{ food.name }}" />
-          <h3>{{ food.name }}</h3>
+          <h3>{{ underscore(food.name) }}</h3>
           <div class="circle-vote">
             <i class="fa fa-circle-o" aria-hidden="true"></i>
             <i class="fa fa-circle-o" aria-hidden="true"></i>
