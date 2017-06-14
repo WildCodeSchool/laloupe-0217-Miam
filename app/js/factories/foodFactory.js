@@ -179,7 +179,7 @@ angular.module('app')
                     },
                     {
                         name: "Saucisse",
-                        picto: "/img/.svg",
+                        picto: "/img/saucisse.svg",
                         description: "Le marie de la Reine d'Angleterre la surnomme parfois 'sausage', soit 'saucisse' en français.",
                         suggestions: ["à l'eau", "poêlée", "fumée", "grillée", "rougail saucisse", "currywurst", "avec des lentilles", "une choucroute", "dans un feuilleté"],
                         composition: ["Viande"]
