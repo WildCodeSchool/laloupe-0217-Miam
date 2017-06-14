@@ -5,9 +5,9 @@ angular.module('app')
             //   console.log(like);
             //   return $http.post('/foods', {food: like});
             // }
-            create: function(name){
-              console.log(name);
-              return $http.post('/profiles', {userName: name});
+            findOneAndUpdate: function(userId, name){
+              console.log(userId, name);
+              return $http.post('/profiles', {user: userId, userName: name});
             }
 
         };
