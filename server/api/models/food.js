@@ -105,7 +105,7 @@ export default class Food {
             "food.nameFood": req.body.food.nameFood
         }, {
             $push: {
-                "food.countVote": req.body.food.nameFood
+                "food.countVote": req.body.food.countVote
             }
         }, {
             upsert: true,
