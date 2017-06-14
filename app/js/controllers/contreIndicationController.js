@@ -54,21 +54,13 @@ angular.module('app')
                 doNotEat: true
               };
 
-              console.log($scope.items.indexOf($scope.query));
-
-              if ($scope.items.indexOf($scope.query) === -1) {
+              if ($scope.items.map(function(item) {return item.nameFood;}).indexOf(nameAlim) === -1) {
                 $scope.items.push(alimNotEating);
-                console.log("$scope.items", $scope.items);
+                console.log("$scope.item", $scope.item);
               }
 
-
-              // if($scope.query === $scope.items) {
-              //   $scope.items.splice();
-              //   console.log("Win win");
-              // } else {
-
-              // }
-
+              var uniqItem = _.uniqBy($scope.items, 'nameFood');
+              console.log("uniqItem", uniqItem);
             }
           }
         }
