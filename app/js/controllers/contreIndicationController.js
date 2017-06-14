@@ -54,7 +54,9 @@ angular.module('app')
                 doNotEat: true
               };
 
-              var indexNameAlim = $scope.items.map(function(item) {return item.nameFood;}).indexOf(nameAlim);
+              var indexNameAlim = $scope.items.map(function(item) {
+                return item.nameFood;
+              }).indexOf(nameAlim);
 
               if (indexNameAlim === -1) {
                 $scope.items.push(alimNotEating);

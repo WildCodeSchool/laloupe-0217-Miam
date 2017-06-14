@@ -143,14 +143,14 @@ angular.module('app')
                         picto: "/img/cereale.svg",
                         description: "Une céréale est une plante qui produit des graines servant à nourrir les hommes et les animaux domestiques. Les graines sont aussi moulues pour en faire de la farine utilisée pour la fabrication de pains, de gâteaux etc. Il existe différentes variétés : Avoine, Orge, Seigle, Blé etc.",
                         suggestions: ["en farine", "en semoule", "en bouillie", "en flocons", "en pâtes"],
-                        composition: ["gluten"]
+                        composition: ["Gluten"]
                     },
                     {
                         name: "Pâtes",
                         picto: "/img/pâtes.svg",
                         description: "Les pâtes alimentaires sont fabriqués à partir d'un mélange pétri de farine, de semoule de blé dur. En Asie, on fabrique aussi les pâtes avec de la farine de blé tendre ou de riz. Il existe beaucoup de formes différentes.",
                         suggestions: ["à l'eau", "en lasagne", "avec différentes sauces", "en gratin", "en salade", "en soupe"],
-                        composition: ["gluten"]
+                        composition: ["Gluten"]
                     },
                 ]
             },
@@ -214,35 +214,35 @@ angular.module('app')
                     picto: "/img/emmental.svg",
                     description: "L'emmental est un fromage à pâte dure parsemée de larges trous ronds ou ovales fabriqué à partir de lait de vache. En France, on produit au moins 1 200 variétés de fromage.",
                     suggestions: ["frais", "râpé dans les pâtes", "en salade", "sur tartine chaude"],
-                    composition: ["lait"]
+                    composition: ["Lait"]
                 },
                 {
                     name: "Beurre",
                     picto: "/img/.svg",
                     description: "C'est un aliment constitué par la matière grasse du lait. Son origine remonte à plus de 5 000 ans. Le beurre est utilisé dans la cuisine salée ou sucrée",
                     suggestions: ["frais", "beurre doux, salé ou demi-sel", "sur tartine"],
-                    composition: ["lait"]
+                    composition: ["Lait"]
                 },
                 {
                     name: "Crème_fraîche",
                     picto: "/img/.svg",
                     description: "Fabriqué avec du lait, celle-ci est une crème non stérilisée, maturée ou laissé en l'état, épaisse ou liquide. Elle est utilisée dans la cuisine salée ou sucrée.",
                     suggestions: ["en chantilly", "dans des crèmes sucrées ou salées"],
-                    composition: ["lait"]
+                    composition: ["Lait"]
                 },
                 {
                     name: "Yaourt",
                     picto: "/img/.svg",
                     description: "C'est du lait fermenté par le développement des seules bactéries lactiques thermophiles. Son nom vient du tuc 'yogurt' et il existe 400 dénominations différentes des laits fermentés dans le monde.",
                     suggestions: ["nature, au sucre ou avec des fruits", "en glace"],
-                    composition: ["lait"]
+                    composition: ["Lait"]
                 },
                 {
                     name: "Fromage Blanc",
                     picto: "/img/.svg",
                     description: "C'est un fromage à pâte fraîche obtenue par une coagulation lactique..",
                     suggestions: ["nature, au sucre ou avec des fruits"],
-                    composition: ["lait"]
+                    composition: ["Lait"]
                 },
               ]
             },
