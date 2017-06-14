@@ -59,30 +59,6 @@ export default class Profile {
             });
     }
 
-    // findOneAndUpdate(req, res) {
-    //     model.findOneAndUpdate({
-    //         userName: req.body.userName
-    //     }, {
-    //         $push: {
-    //             countVote: req.body.food.nameFood
-    //         }
-    //     }, {
-    //         upsert: true,
-    //     },
-    //
-    //     function (err, like) {
-    //         if (err || !like) {
-    //           console.log("500", req.body);
-    //             res.status(500).send(err.message);
-    //         } else {
-    //             res.json(like);
-    //         }
-    //     });
-    // }
-
-
-
-
     findAll(req, res) {
         model.find({})
             .populate('reward')
