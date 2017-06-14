@@ -90,4 +90,11 @@ angular.module('app')
 
         };
 
+        $scope.validAvatar = function () {
+
+          ProfilService.findOneAndUpdate($scope.user._id, $scope.userName, $scope.currentAvatar).then(function(res) {
+
+          }, function(err) {});
+        }
+
     });

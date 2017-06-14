@@ -10,6 +10,8 @@ module.exports = (app) => {
 
     router.post('/', Auth.hasAuthorization, profile.findOneAndUpdate);
 
+  router.post('/', Auth.hasAuthorization, profile.findOneAndUpdate);
+
     router.get('/', Auth.hasAuthorization, profile.findAll);
 
     app.use('/profiles', router);
