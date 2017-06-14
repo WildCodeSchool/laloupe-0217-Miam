@@ -53,8 +53,19 @@ angular.module('app')
                 compoFood: compoAlim,
                 doNotEat: true
               };
-              $scope.items.push(alimNotEating);
-              console.log("$scope.items", $scope.items);
+
+              var indexNameAlim = $scope.items.map(function(item) {
+                return item.nameFood;
+              }).indexOf(nameAlim);
+
+              if (indexNameAlim === -1) {
+                $scope.items.push(alimNotEating);
+                console.log("Push", $scope.items);
+              } else {
+                $scope.items.splice(indexNameAlim, 0);
+                console.log("Splice", $scope.items);
+              }
+
             }
           }
         }
