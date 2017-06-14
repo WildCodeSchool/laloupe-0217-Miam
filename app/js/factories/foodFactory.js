@@ -112,21 +112,21 @@ angular.module('app')
                 portion: "Il faut manger des féculents plusieurs fois par jour sous différentes formes (pain, pâtes, pommes de terre).",
                 aliments: [{
                         name: "Riz",
-                        picto: "/img/rice.svg",
+                        picto: "/img/riz.svg",
                         description: "On en mange beaucoup en Asie. Il en existe de multiples variétées.",
                         suggestions: ["cuit", "gâteau", "vapeur"],
                         composition: [""]
                     },
                     {
                         name: "Pain",
-                        picto: "/img/bread.svg",
+                        picto: "/img/pain.svg",
                         description: "Aux céréales, nature, en boule… Il en existe de toutes les sortes !",
                         suggestions: ["nature", "grillé", "avec de la confiture", "avec du beurre"],
                         composition: ["Gluten"]
                     },
                     {
                         name: "Maïs",
-                        picto: "/img/maïs.svg",
+                        picto: "/img/mais.svg",
                         description: "Originaire du Mexique, il constituait l'aliment de base des Amérindiens avant l'arrivée de Christophe Colomb. C'est une plante herbacée largement cultivée comme céréale.",
                         suggestions: ["en farine et galette cuite", "grillé en épis", "éclaté en Pop Corn","en flocon Corn Flakes", "en semoule Polenta", "en salade"],
                         composition: [""]
@@ -147,7 +147,7 @@ angular.module('app')
                     },
                     {
                         name: "Pâtes",
-                        picto: "/img/pâtes.svg",
+                        picto: "/img/pates.svg",
                         description: "Les pâtes alimentaires sont fabriqués à partir d'un mélange pétri de farine, de semoule de blé dur. En Asie, on fabrique aussi les pâtes avec de la farine de blé tendre ou de riz. Il existe beaucoup de formes différentes.",
                         suggestions: ["à l'eau", "en lasagne", "avec différentes sauces", "en gratin", "en salade", "en soupe"],
                         composition: ["Gluten"]
@@ -165,7 +165,7 @@ angular.module('app')
                     },
                     {
                         name: "Œuf",
-                        picto: "/img/egg.svg",
+                        picto: "/img/oeuf.svg",
                         description: "Un oeuf d'autruche vaut environ 25 oeufs de poule !",
                         suggestions: ["au plat", "à la coque", "dur", "poché", "mimosa", "mollet", "en omelette", "dans une quiche", "un gâteau", "une salade de crudité"],
                         composition: ["Œuf"]
@@ -179,7 +179,7 @@ angular.module('app')
                     },
                     {
                         name: "Saucisse",
-                        picto: "/img/.svg",
+                        picto: "/img/saucisse.svg",
                         description: "Le marie de la Reine d'Angleterre la surnomme parfois 'sausage', soit 'saucisse' en français.",
                         suggestions: ["à l'eau", "poêlée", "fumée", "grillée", "rougail saucisse", "currywurst", "avec des lentilles", "une choucroute", "dans un feuilleté"],
                         composition: ["Viande"]
@@ -204,7 +204,7 @@ angular.module('app')
                 portion: "Il faut manger un produit laitier à chaque repas.",
                 aliments: [{
                     name: "Lait",
-                    picto: "/img/milk.svg",
+                    picto: "/img/lait.svg",
                     description: "Provient le plus souvent de la vache",
                     suggestions: ["frais", "chaud"],
                     composition: [""]
@@ -250,7 +250,7 @@ angular.module('app')
                 portion: "Il faut en consommer avec modération.",
                 aliments: [{
                     name: "Gâteau",
-                    picto: "/img/cake.svg",
+                    picto: "/img/gateau.svg",
                     description: "Au fruit, au chocolat, à la crème... il y a l'embarras du choix.",
                     suggestions: ["gâteau"],
                     composition: ["Gluten"]
@@ -271,7 +271,7 @@ angular.module('app')
                 },
                 {
                     name: "Doughnut",
-                    picto: "/img/doughnut-1.svg",
+                    picto: "/img/doughnut.svg",
                     description: "Le Donut ou doughnut, (noix de pâte) veut dire 'beignet sucré' en Amérique du Nord..",
                     suggestions: ["nature", "fourré de crème", "couvert de glaçage"],
                     composition: [""]
