@@ -64,5 +64,21 @@ export default class Food {
         });
     }
 
+    create(req, res) {
+        console.log('body', req.body);
+        model.create(req.body,
+            (err, food) => {
+                if (err || !food) {
+                    console.log('err', err.message);
+                    res.status(500).send(err.message);
+                } else {
+                    res.json({
+                        success: true,
+                        food: food
+                    });
+                }
+            });
+    }
+
 
 }

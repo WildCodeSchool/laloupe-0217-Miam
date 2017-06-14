@@ -26,7 +26,7 @@
   </section>
 
   <section class="row">
-    <div class="col-xs-12" ng-repeat="choice in choices | limitTo : 6">
+    <div class="col-xs-6" ng-repeat="choice in choices | limitTo : 6">
       <div class="contre-item">
         <span class="glyphicon glyphicon-remove cancel" aria-hidden="true" ng-click="deselect($index)"></span>
         <img class="img-responsive" src="img/{{ correct(choice.nameFood) }}.svg" alt="{{ correct(choice.nameFood) }}" />

@@ -84,7 +84,7 @@ angular.module('app')
                   for (var k = 0; k < $scope.choices.length; k++) {
                     GouterService.create($scope.choices[k], $scope.user._id).then(function(res) {}, function(err) {});
                   }
-                }else {
+                } else {
                   console.log("LocalStorage");
                   LocalService.set("gouter", JSON.stringify($scope.choices)).then(function(res) {}, function(err) {});
                 }
