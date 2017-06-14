@@ -79,6 +79,15 @@ angular.module('app')
                 };
                 $scope.choices.push(choice);
                 console.log("$scope.choices", $scope.choices);
+                if ($scope.user.email !== undefined) {
+                  console.log("Database");
+                  for (var k = 0; k < $scope.choices.length; k++) {
+                    GouterService.create($scope.choices[k], $scope.user._id).then(function(res) {}, function(err) {});
+                  }
+                }else {
+                  console.log("LocalStorage");
+                  LocalService.set("gouter", JSON.stringify($scope.choices)).then(function(res) {}, function(err) {});
+                }
             };
 
             $scope.deselect = function($index) {
