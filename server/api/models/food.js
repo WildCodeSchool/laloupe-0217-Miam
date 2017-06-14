@@ -14,7 +14,6 @@ const foodSchema = new mongoose.Schema({
         },
         countVote: [{
             type: Boolean,
-            limit: 3
         }],
         doNotEat: {
             type: Boolean,
@@ -45,29 +44,25 @@ export default class Food {
 
 
     findOneAndUpdate(req, res) {
-        console.log("like", req.body, nameFood);
         model.findOneAndUpdate({
-            nameFood: like
+            "food.nameFood": req.body.food.nameFood
         }, {
             $push: {
-                countVote: countVote
+                "food.countVote": req.body.food.nameFood
             }
         }, {
             upsert: true,
-            countVote: countVote
-        });
+        },
 
-        function like(err, like) {
+        function (err, like) {
             if (err || !like) {
-                console.log("error", err.message, nameFood);
+              console.log("500", err);
                 res.status(500).send(err.message);
             } else {
-                res.json({
-                    success: true,
-                    like: like
-                });
-
+                res.json(like);
             }
-        }
+        });
     }
+
+
 }
