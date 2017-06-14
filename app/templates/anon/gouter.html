@@ -27,10 +27,10 @@
 
   <section class="row">
     <div class="col-xs-6" ng-repeat="choice in choices | limitTo : 6">
-      <div class="contre-item">
+      <div class="to-taste">
         <span class="glyphicon glyphicon-remove cancel" aria-hidden="true" ng-click="deselect($index)"></span>
         <img class="img-responsive" src="img/{{ correct(choice.nameFood) }}.svg" alt="{{ correct(choice.nameFood) }}" />
-        <h3>{{ choice.nameFood }}</h3>
+        <h3>{{ underscore(choice.nameFood) }}</h3>
       </div>
     </div>
   </section>
@@ -62,7 +62,7 @@
                 </div>
               </div>
               <div class="row">
-                <h1 class="col-xs-12">{{ food.name }}</h1>
+                <h1 class="col-xs-12">{{ underscore(food.name) }}</h1>
               </div>
               <div class="row">
                 <div class="col-xs-offset-3 col-xs-6">

@@ -599,9 +599,7 @@ td h3 {
 .a-gouter button:hover {
   .button-interaction
 }
-/* ------------------------------ GOUTER - TO TASTE ------------------------------ */
-
-/* ------------------------------ CONTRE-INDICATION ------------------------------ */
+/* ------------------------------ CONTRE-INDICATION & GOUTER - TO TASTE ------------------------------ */
 .contraindication.bubble.top {
   margin: 1rem auto;
 }
@@ -620,7 +618,8 @@ td h3 {
   background-color: transparent;
 }
 
-.contre-item {
+.contre-item,
+.to-taste {
   min-height: 10rem;
   display: -webkit-flex;
   display: flex;
@@ -636,7 +635,12 @@ td h3 {
   .rounded-bubble();
 }
 
-.contre-item .cancel {
+.to-taste {
+  min-height: 9rem;
+}
+
+.contre-item .cancel,
+.to-taste .cancel {
   font-size: 1.4em;
   line-height: 0;
   color: @main-color;
@@ -647,12 +651,14 @@ td h3 {
   cursor: pointer;
 }
 
-.contre-item img {
+.contre-item img,
+.to-taste img {
   margin: 0;
   padding: 0;
 }
 
-.contre-item h3 {
+.contre-item h3,
+.to-taste h3 {
   font-size: 1em;
   color: @main-color;
   margin: 0.5rem 0 0;
