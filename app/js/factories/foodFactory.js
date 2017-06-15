@@ -127,8 +127,8 @@ angular.module('app')
                     {
                         name: "Maïs",
                         picto: "/img/mais.svg",
-                        description: "Originaire du Mexique, il constituait l'aliment de base des Amérindiens avant l'arrivée de Christophe Colomb. C'est une plante herbacée largement cultivée comme céréale.",
-                        suggestions: ["en farine et galette cuite", "grillé en épis", "éclaté en Pop Corn","en flocon Corn Flakes", "en semoule Polenta", "en salade"],
+                        description: "Avec le 'maïs à éclater' on peut faire du pop corn : salé, sucré, épicé, il y en a pour tous les goûts !",
+                        suggestions: ["en galette 'fajitas'", "au barbecue, grillé en épis", "éclaté en Pop Corn","cuisson au micro-ondes", "à la vapeur", "en flocon Corn Flakes", "en semoule Polenta", "en salade", "au four", "à l'eau"],
                         composition: [""]
                     },
                     {
@@ -141,15 +141,15 @@ angular.module('app')
                     {
                         name: "Céréales",
                         picto: "/img/cereale.svg",
-                        description: "Une céréale est une plante qui produit des graines servant à nourrir les hommes et les animaux domestiques. Les graines sont aussi moulues pour en faire de la farine utilisée pour la fabrication de pains, de gâteaux etc. Il existe différentes variétés : Avoine, Orge, Seigle, Blé etc.",
-                        suggestions: ["en farine", "en semoule", "en bouillie", "en flocons", "en pâtes"],
+                        description: "A Paris, il existe des 'bars à céréales' où l'on peut choisir la taille de son bol, ses cérérales, son lait et même des fruits et un nappage.",
+                        suggestions: ["seules", "avec du lait chaud ou froid", "en barres", "roses des sables", "nuggets de poulet"],
                         composition: ["Gluten"]
                     },
                     {
-                        name: "Pâtes",
-                        picto: "/img/pates.svg",
-                        description: "Les pâtes alimentaires sont fabriqués à partir d'un mélange pétri de farine, de semoule de blé dur. En Asie, on fabrique aussi les pâtes avec de la farine de blé tendre ou de riz. Il existe beaucoup de formes différentes.",
-                        suggestions: ["à l'eau", "en lasagne", "avec différentes sauces", "en gratin", "en salade", "en soupe"],
+                        name: "Petits_pois",
+                        picto: "/img/petits_pois.svg",
+                        description: "Malgré leur petite taille de départ, les plants de petits pois peuvent atteindre 1,80 m de hauteur.",
+                        suggestions: ["en purée", "à la 'française'", "petits pois-carottes", "riz cantonais", "paëlla", "risotto", "croquettes/galettes de légumes", "jardinière de légumes"],
                         composition: ["Gluten"]
                     },
                 ]
