@@ -99,33 +99,17 @@ angular.module('app')
       //   LocalService.set("gouter", JSON.stringify($scope.choices)).then(function(res) {}, function(err) {});
       // }
 
-
-      if ($scope.user.email !== undefined) {
-        console.log("Database");
-        GouterService.findOneAndUpdate(choice).then(function(res) {}, function(err) {});
-      } else {
-        console.log("LocalStorage");
-        LocalService.set("gouter", JSON.stringify(choice)).then(function(res) {}, function(err) {});
-      }
-
-      // var indexName = $scope.choices.map(function(choice) {
-      //   return choice.nameFood;
-      // }).indexOf(name);
-      //
-      // if (indexName === -1) {
-      //   $scope.choices.push(choice);
-      //   console.log("Push", $scope.choices);
-      // } else {
-      //   $scope.choices.splice(indexName, 0);
-      //   console.log("Splice", $scope.choices);
+      // if (name === food.food.nameFood) {
+        if ($scope.user.email !== undefined) {
+          console.log("Database");
+          GouterService.findOneAndUpdate(choice).then(function(res) {}, function(err) {});
+        } else {
+          console.log("LocalStorage");
+          LocalService.set("gouter", JSON.stringify(choice)).then(function(res) {}, function(err) {});
+        }
       // }
 
     };
-
-    // $scope.deselect = function($index) {
-    //   $scope.choices.splice($index, 1);
-    //   console.log("deselect one", $scope.choices);
-    // };
 
     $scope.deselect = function(name) {
       var choice = {
