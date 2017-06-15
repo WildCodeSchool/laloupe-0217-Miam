@@ -61,43 +61,37 @@ angular.module('app')
       }
     };
 
-    $scope.choices = [];
-    console.log($scope.choices);
+    $scope.foods = [];
+    console.log($scope.foods);
+
+    GouterService.getAll(CurrentUser.user()._id).then(function(res) {
+      $scope.foods = res.data;
+      console.log($scope.foods);
+    }, function(err) {
+      console.log("Doesn't work!");
+    });
+
 
     $scope.addChoice = function(name) {
-      console.log(name);
       var choice = {
         nameFood: name,
         toTaste: true
       };
 
-
-      var indexName = $scope.choices.map(function(choice) {
-        return choice.nameFood;
-      }).indexOf(name);
-
-      if (indexName === -1) {
-        $scope.choices.push(choice);
-        console.log("Push", $scope.choices);
-      } else {
-        $scope.choices.splice(indexName, 0);
-        console.log("Splice", $scope.choices);
-      }
-
+      // var indexName = $scope.choices.map(function(choice) {
+      //   return choice.nameFood;
+      // }).indexOf(name);
+      //
+      // if (indexName === -1) {
+      //   $scope.choices.push(choice);
+      //   console.log("Push", $scope.choices);
+      // } else {
+      //   $scope.choices.splice(indexName, 0);
+      //   console.log("Splice", $scope.choices);
+      // }
 
       // $scope.choices.push(choice);
       // console.log("$scope.choices", $scope.choices);
-
-
-      // if ($scope.user.email !== undefined) {
-      //   console.log("Database");
-      //   for (var k = 0; k < $scope.choices.length; k++) {
-      //     GouterService.create($scope.choices[k], $scope.user._id).then(function(res) {}, function(err) {});
-      //   }
-      // } else {
-      //   console.log("LocalStorage");
-      //   LocalService.set("gouter", JSON.stringify($scope.choices)).then(function(res) {}, function(err) {});
-      // }
 
       // if (name === food.food.nameFood) {
         if ($scope.user.email !== undefined) {
@@ -109,9 +103,11 @@ angular.module('app')
         }
       // }
 
+      location.reload(true);
+
     };
 
-    $scope.deselect = function(name) {
+    /* $scope.deselect = function(name) {
       var choice = {
         nameFood: name,
         toTaste: false
@@ -124,6 +120,6 @@ angular.module('app')
         }, function(err) {});
       }
       $scope.choices.splice(choice, 1);
-    };
+    };*/
 
   });

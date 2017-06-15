@@ -26,11 +26,11 @@
   </section>
 
   <section class="row">
-    <div class="col-xs-6" ng-repeat="choice in choices | limitTo : 6">
+    <div class="col-xs-6" ng-repeat="food in foods | limitTo : 6">
       <div class="to-taste">
-        <span class="glyphicon glyphicon-remove cancel" aria-hidden="true" ng-click="deselect(choice.nameFood)"></span>
-        <img class="img-responsive" src="img/{{ correct(choice.nameFood) }}.svg" alt="{{ correct(choice.nameFood) }}" />
-        <h3>{{ underscore(choice.nameFood) }}</h3>
+         <!-- // ATTENTION : changer la partie deselect avec le back. //--> <span class="glyphicon glyphicon-remove cancel" aria-hidden="true" ng-click="deselect(choice.nameFood)"></span>
+        <img class="img-responsive" src="img/{{ correct(food.food.nameFood) }}.svg" alt="{{ correct(food.food.nameFood) }}" />
+        <h3>{{ underscore(food.food.nameFood) }}</h3>
       </div>
     </div>
   </section>

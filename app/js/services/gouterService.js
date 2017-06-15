@@ -1,6 +1,9 @@
 angular.module('app')
     .service('GouterService', function($http) {
         return {
+            getAll: function() {
+              return $http.get('/foods');
+            },
             findOneAndUpdate: function(like){
               console.log(like);
               return $http.post('/foods', {food: like});
@@ -8,6 +11,5 @@ angular.module('app')
             create: function(food, profile){
               return $http.post('/foods', {food: food, profile: profile});
             }
-
         };
     });
