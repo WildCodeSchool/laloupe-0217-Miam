@@ -216,34 +216,34 @@ angular.module('app')
                     suggestions: ["frais", "râpé dans les pâtes", "en salade", "sur tartine chaude"],
                     composition: ["Lait"]
                 },
-                {
-                    name: "Beurre",
-                    picto: "/img/.svg",
-                    description: "C'est un aliment constitué par la matière grasse du lait. Son origine remonte à plus de 5 000 ans. Le beurre est utilisé dans la cuisine salée ou sucrée",
-                    suggestions: ["frais", "beurre doux, salé ou demi-sel", "sur tartine"],
-                    composition: ["Lait"]
-                },
-                {
-                    name: "Crème_fraîche",
-                    picto: "/img/.svg",
-                    description: "Fabriqué avec du lait, celle-ci est une crème non stérilisée, maturée ou laissé en l'état, épaisse ou liquide. Elle est utilisée dans la cuisine salée ou sucrée.",
-                    suggestions: ["en chantilly", "dans des crèmes sucrées ou salées"],
-                    composition: ["Lait"]
-                },
-                {
-                    name: "Yaourt",
-                    picto: "/img/.svg",
-                    description: "C'est du lait fermenté par le développement des seules bactéries lactiques thermophiles. Son nom vient du tuc 'yogurt' et il existe 400 dénominations différentes des laits fermentés dans le monde.",
-                    suggestions: ["nature, au sucre ou avec des fruits", "en glace"],
-                    composition: ["Lait"]
-                },
-                {
-                    name: "Fromage Blanc",
-                    picto: "/img/.svg",
-                    description: "C'est un fromage à pâte fraîche obtenue par une coagulation lactique..",
-                    suggestions: ["nature, au sucre ou avec des fruits"],
-                    composition: ["Lait"]
-                },
+                // {
+                //     name: "Beurre",
+                //     picto: "/img/.svg",
+                //     description: "C'est un aliment constitué par la matière grasse du lait. Son origine remonte à plus de 5 000 ans. Le beurre est utilisé dans la cuisine salée ou sucrée",
+                //     suggestions: ["frais", "beurre doux, salé ou demi-sel", "sur tartine"],
+                //     composition: ["Lait"]
+                // },
+                // {
+                //     name: "Crème_fraîche",
+                //     picto: "/img/.svg",
+                //     description: "Fabriqué avec du lait, celle-ci est une crème non stérilisée, maturée ou laissé en l'état, épaisse ou liquide. Elle est utilisée dans la cuisine salée ou sucrée.",
+                //     suggestions: ["en chantilly", "dans des crèmes sucrées ou salées"],
+                //     composition: ["Lait"]
+                // },
+                // {
+                //     name: "Yaourt",
+                //     picto: "/img/.svg",
+                //     description: "C'est du lait fermenté par le développement des seules bactéries lactiques thermophiles. Son nom vient du tuc 'yogurt' et il existe 400 dénominations différentes des laits fermentés dans le monde.",
+                //     suggestions: ["nature, au sucre ou avec des fruits", "en glace"],
+                //     composition: ["Lait"]
+                // },
+                // {
+                //     name: "Fromage Blanc",
+                //     picto: "/img/.svg",
+                //     description: "C'est un fromage à pâte fraîche obtenue par une coagulation lactique..",
+                //     suggestions: ["nature, au sucre ou avec des fruits"],
+                //     composition: ["Lait"]
+                // },
               ]
             },
             Produits_sucrés: {

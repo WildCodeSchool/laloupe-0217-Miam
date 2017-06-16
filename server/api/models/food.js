@@ -42,7 +42,6 @@ export default class Food {
             });
     }
 
-
     findOneAndUpdate(req, res) {
         model.findOneAndUpdate({
             "food.nameFood": req.body.food.nameFood
@@ -62,6 +61,22 @@ export default class Food {
                 res.json(like);
             }
         });
+    }
+
+    create(req, res) {
+        console.log('body', req.body);
+        model.create(req.body,
+            (err, food) => {
+                if (err || !food) {
+                    console.log('err', err.message);
+                    res.status(500).send(err.message);
+                } else {
+                    res.json({
+                        success: true,
+                        food: food
+                    });
+                }
+            });
     }
 
 
