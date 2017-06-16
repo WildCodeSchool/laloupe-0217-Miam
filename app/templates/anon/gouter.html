@@ -30,7 +30,7 @@
     <div class="col-xs-6" ng-repeat="food in foods | filter: filterTaste | limitTo : 6">
       <div class="to-taste">
          <!-- // ATTENTION : changer la partie deselect avec le back. //--> <span class="glyphicon glyphicon-remove cancel" aria-hidden="true" ng-click="deselect(food.food.nameFood)"></span>
-        <img class="img-responsive" src="img/{{ food.food.nameFood }}.svg" alt="{{ food.food.nameFood }}" />
+        <img class="img-responsive" src="img/{{ correct(food.food.nameFood) }}.svg" alt="{{ correct(food.food.nameFood) }}" />
         <h3>{{ underscore(food.food.nameFood) }}</h3>
       </div>
     </div>
