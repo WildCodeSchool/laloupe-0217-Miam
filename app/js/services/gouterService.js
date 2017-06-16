@@ -1,7 +1,7 @@
 angular.module('app')
     .service('GouterService', function($http) {
         return {
-            getAll: function() {
+            findAll: function() {
               return $http.get('/foods');
             },
             findOneAndUpdate: function(like){

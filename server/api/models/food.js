@@ -42,7 +42,6 @@ export default class Food {
             });
     }
 
-
     findOneAndUpdate(req, res) {
         model.findOneAndUpdate({
             "food.nameFood": req.body.food.nameFood

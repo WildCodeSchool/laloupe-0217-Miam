@@ -11,20 +11,18 @@ angular.module('app')
     $scope.correct = function(string) {
       return $scope.regAccent(string);
     };
+    $scope.arrayToString = function(string) {
+      return string.join(", ");
+    };
 
+    // GENERALITY
     $scope.user = CurrentUser.user();
 
     $scope.foodList = FoodFactory;
     $scope.categories = Object.keys($scope.foodList);
     console.log($scope.foodList);
 
-    var i = 0;
-    var j = 0;
-
-    $scope.arrayToString = function(string) {
-      return string.join(", ");
-    };
-
+    // SEARCH - GO TO FOOD
     $scope.selectFood = function(foodname) {
       $scope.appearance = foodname;
     };
@@ -34,6 +32,7 @@ angular.module('app')
       $anchorScroll();
     };
 
+    // LIKE/DISLIKE FOOD
     $scope.like = function(foodName) {
       var like = {
         nameFood: foodName,
@@ -61,38 +60,29 @@ angular.module('app')
       }
     };
 
+    // TO TASTE FOOD
     $scope.foods = [];
-    console.log($scope.foods);
 
-    GouterService.getAll(CurrentUser.user()._id).then(function(res) {
+    GouterService.findAll(CurrentUser.user()._id).then(function(res) {
       $scope.foods = res.data;
-      console.log($scope.foods);
+      console.log("Food to taste in database", $scope.foods);
     }, function(err) {
       console.log("Doesn't work!");
     });
 
+    $scope.filterTaste = function(food) {
+      if(food.food.toTaste === true) {
+        return true;
+      }
+      return false;
+    };
 
     $scope.addChoice = function(name) {
       var choice = {
         nameFood: name,
         toTaste: true
       };
-
-      // var indexName = $scope.choices.map(function(choice) {
-      //   return choice.nameFood;
-      // }).indexOf(name);
-      //
-      // if (indexName === -1) {
-      //   $scope.choices.push(choice);
-      //   console.log("Push", $scope.choices);
-      // } else {
-      //   $scope.choices.splice(indexName, 0);
-      //   console.log("Splice", $scope.choices);
-      // }
-
-      // $scope.choices.push(choice);
-      // console.log("$scope.choices", $scope.choices);
-
+      /* NO DOUBLE IN DATABASE */
       // if (name === food.food.nameFood) {
         if ($scope.user.email !== undefined) {
           console.log("Database");
@@ -102,24 +92,21 @@ angular.module('app')
           LocalService.set("gouter", JSON.stringify(choice)).then(function(res) {}, function(err) {});
         }
       // }
-
       location.reload(true);
-
     };
 
-    /* $scope.deselect = function(name) {
+    /*$scope.deselect = function(name) {
       var choice = {
         nameFood: name,
         toTaste: false
       };
       if ($scope.user.email !== undefined) {
-        GouterService.findOneAndUpdate(choice).then(function(res) {
-        }, function(err) {});
+        GouterService.findOneAndUpdate(choice).then(function(res) {}, function(err) {});
       } else {
-        LocalService.set("Choice", JSON.stringify(choice)).then(function(res) {
-        }, function(err) {});
+        LocalService.set("Choice", JSON.stringify(choice)).then(function(res) {}, function(err) {});
       }
-      $scope.choices.splice(choice, 1);
+      // $scope.choices.splice(choice, 1);
+      location.reload(true);
     };*/
 
   });
