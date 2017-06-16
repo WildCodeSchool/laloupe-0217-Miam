@@ -26,7 +26,6 @@ angular.module('app')
     $scope.selectFood = function(foodname) {
       $scope.appearance = foodname;
     };
-
     $scope.scrollTo = function() {
       $location.hash('_' + $scope.appearance);
       $anchorScroll();
@@ -82,8 +81,11 @@ angular.module('app')
         nameFood: name,
         toTaste: true
       };
+      console.log("name", name);
+      console.log("choice", choice);
+      console.log("nameFood", choice.nameFood);
       /* NO DOUBLE IN DATABASE */
-      // if (name === food.food.nameFood) {
+      // if (choice.nameFood) {
         if ($scope.user.email !== undefined) {
           console.log("Database");
           GouterService.findOneAndUpdate(choice).then(function(res) {}, function(err) {});
