@@ -36,6 +36,26 @@ let model = mongoose.model('Profile', profileSchema);
 
 export default class Profile {
 
+  findOneAndUpdateProfil(req, res) {
+      console.log('post (name)', req.body.user, req.body.userName, req.body.nameAvatar);
+      model.findOneAndUpdate({
+              "user": req.body.user
+          },
+          {$push: {  account: { userName: req.body.userName,   nameAvatar: req.body.nameAvatar} } }, {
+              upsert: true,
+          },
+          function(err, name) {
+              if (err || !name) {
+                  console.log("500", err);
+                  res.status(500).send(err.message);
+              } else {
+                  res.json(name);
+              }
+          });
+  }
+
+
+
 
 
     findOneAndUpdateName(req, res) {

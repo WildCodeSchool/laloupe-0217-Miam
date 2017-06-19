@@ -100,27 +100,27 @@ export default class Food {
   }
 >>>>>>> server launched
 
-    findOneAndUpdate(req, res) {
-        model.findOneAndUpdate({
-            "food.nameFood": req.body.food.nameFood
-        }, {
-            $push: {
-                "food.countVote": req.body.food.countVote
-            }
-        }, {
-            upsert: true,
-        },
-
-        function (err, like) {
-            if (err || !like) {
-
-                console.log("error", err.message, nameFood);
-                res.status(500).send(err.message);
-            } else {
-                res.json(like);
-            }
-        });
-    }
+    // findOneAndUpdate(req, res) {
+    //     model.findOneAndUpdate({
+    //         "food.nameFood": req.body.food.nameFood
+    //     }, {
+    //         $push: {
+    //             "food.countVote": req.body.food.countVote
+    //         }
+    //     }, {
+    //         upsert: true,
+    //     },
+    //
+    //     function (err, like) {
+    //         if (err || !like) {
+    //
+    //             console.log("error", err.message, nameFood);
+    //             res.status(500).send(err.message);
+    //         } else {
+    //             res.json(like);
+    //         }
+    //     });
+    // }
 
 
 }

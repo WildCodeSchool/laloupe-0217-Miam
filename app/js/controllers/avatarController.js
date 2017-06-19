@@ -1,40 +1,33 @@
 angular.module('app')
-    .controller('AvatarController', function($scope, AvatarFactory) {
-
-        $scope.familles = AvatarFactory;
-        console.log($scope.familles);
+    .controller('AvatarController', function($scope, AvatarFactory, CurrentUser, AvatarService) {
+      $scope.user = CurrentUser.user();
 
         var i = 0;
-
-        var avatars = [
-            {
-                1: '/img/penguin.svg',
-                2: '/img/avatar1.2.jpg'
-            },
-            {
-                1: '/img/miam-logo.svg',
-                2: '/img/avatar1.2.jpg'
-            }
-        ];
+        $scope.avatars = AvatarFactory;
 
         $scope.prev = function() {
             i--;
-
             if (i < 0) {
-                i = avatars.length - 1;
+                i = $scope.avatars.length - 1;
             }
-            $scope.currentAvatar = avatars[i][1];
+            $scope.currentAvatar = $scope.avatars[i].avatars[0].picto;
         };
-
         $scope.next = function() {
             i++;
-
-            if (i >= avatars.length) {
+            if (i >= $scope.avatars.length) {
                 i = 0;
             }
-            $scope.currentAvatar = avatars[i][1];
+            $scope.currentAvatar = $scope.avatars[i].avatars[0].picto;
         };
+$scope.userName = "";
 
-        $scope.currentAvatar = avatars[i][1];
+$scope.validProfil = function(){
+
+AvatarService.findOneAndUpdateProfil($scope.user._id, $scope.userName, $scope.currentAvatar).then(function(res) {
+
+}, function(err) {});
+
+
+};
 
     });
