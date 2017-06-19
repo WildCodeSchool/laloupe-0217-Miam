@@ -50,7 +50,7 @@ angular.module('app')
         nameFood: name,
         countVote: false,
       };
-<<<<<<< 939b471d10ffc771a42852aec6440f6b669073f6
+
       if ($scope.user.email !== undefined) {
         GouterService.like(like).then(function(res) {
         }, function(err) {});
@@ -68,7 +68,7 @@ angular.module('app')
       console.log("Food to taste in database", $scope.foods);
     }, function(err) {
       console.log("Doesn't work!");
-=======
+
 
       $scope.user = CurrentUser.user();
 
@@ -126,7 +126,7 @@ angular.module('app')
             }
 
         };
->>>>>>> post erreur 500
+
     });
 
     $scope.filterTaste = function(food) {

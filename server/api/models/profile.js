@@ -39,12 +39,13 @@ export default class Profile {
 
 
     findOneAndUpdateName(req, res) {
-        console.log('post (name)', req.body.user, req.body.userName);
+        console.log('post (name)', req.body.user, req.body.userName, req.body.nameAvatar);
         model.findOneAndUpdate({
                 "user": req.body.user
             }, {
                 $set: {
-                    "account.userName": req.body.userName
+                    "account.userName": req.body.userName,
+                    "account.nameAvatar": req.body.nameAvatar
                 }
             }, {
                 upsert: true,
@@ -55,28 +56,6 @@ export default class Profile {
                     res.status(500).send(err.message);
                 } else {
                     res.json(name);
-                }
-            });
-    }
-
-    findOneAndUpdate(req, res) {
-        console.log('post', req.body.user, req.body.userName);
-        model.findOneAndUpdate({
-                "user": req.body.user,
-                "account.userName": req.body.userName
-            }, {
-                $set: {
-                    "account.nameAvatar": req.body.nameAvatar
-                }
-            }, {
-                upsert: true,
-            },
-            function(err, avatar) {
-                if (err || !avatar) {
-                    console.log("500", err);
-                    res.status(500).send(err.message);
-                } else {
-                    res.json(avatar);
                 }
             });
     }

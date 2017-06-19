@@ -12,7 +12,7 @@ console.log($scope.nameAvatar);
         $scope.prev = function() {
             j = 0;
             i--;
-            j = 0;
+
             if (i < 0) {
                 i = $scope.avatars.length - 1;
             }
@@ -21,7 +21,7 @@ console.log($scope.nameAvatar);
         $scope.next = function() {
             j = 0;
             i++;
-            j = 0;
+
 
             if (i >= $scope.avatars.length) {
                 i = 0;
@@ -76,26 +76,18 @@ console.log($scope.nameAvatar);
 
 
         var newName = '';
-        $scope.validUser = function() {
-            if (newName === []) {
-                newName = $scope.userName;
 
-            } else {
+        $scope.validUser = function () {
+          if (newName === []) {
+              newName = $scope.userName;
 
-                newName = $scope.userName;
-            }
+          } else {
 
-            ProfilService.findOneAndUpdateName($scope.user._id, $scope.userName).then(function(res) {
-
-            }, function(err) {});
-
-        };
-
-        $scope.validAvatar = function () {
-
-          ProfilService.findOneAndUpdate($scope.user._id, $scope.userName, $scope.currentAvatar).then(function(res) {
+              newName = $scope.userName;
+          }
+          ProfilService.findOneAndUpdateName($scope.user._id, $scope.userName, $scope.currentAvatar).then(function(res) {
 
           }, function(err) {});
-        }
+        };
 
     });
