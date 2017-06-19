@@ -10,7 +10,7 @@ module.exports = (app) => {
 
     router.get('/', Auth.hasAuthorization, food.findAll);
 
-    router.post('/', Auth.hasAuthorization, food.create);
+    router.post('/', Auth.hasAuthorization, food.findOneAndUpdateFood);
 
     router.post('/', Auth.hasAuthorization, food.findOneAndUpdate);
 
