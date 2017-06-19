@@ -97,7 +97,7 @@ angular.module('app')
       location.reload(true);
     };
 
-    /*$scope.deselect = function(name) {
+    $scope.deselect = function(name) {
       var choice = {
         nameFood: name,
         toTaste: false
@@ -105,10 +105,10 @@ angular.module('app')
       if ($scope.user.email !== undefined) {
         GouterService.findOneAndUpdate(choice).then(function(res) {}, function(err) {});
       } else {
-        LocalService.set("Choice", JSON.stringify(choice)).then(function(res) {}, function(err) {});
+        LocalService.set("gouter", JSON.stringify(choice)).then(function(res) {}, function(err) {});
       }
       // $scope.choices.splice(choice, 1);
       location.reload(true);
-    };*/
+    };
 
   });

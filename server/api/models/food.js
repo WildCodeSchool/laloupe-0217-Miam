@@ -3,10 +3,10 @@ import User from './user.js';
 import Profile from './profile.js';
 
 const foodSchema = new mongoose.Schema({
-    profile: {
+    profile: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Profile'
-    },
+    }],
     // FACTORY
     food: {
         nameFood: {
