@@ -8,8 +8,13 @@ angular.module('app')
               return $http.post('/profiles', {user: userId, userName: name, nameAvatar: nameAvatar});
             },
 
-            getOne: function(name, Avatar){
-              console.log(name, Avatar);
+            // getOne: function(name){
+            //   console.log(name);
+            //   return $http.get('/profiles', {userName: name});
+            // }
+
+            getOne: function(nameAvatar){
+              console.log("service", nameAvatar);
               return $http.get('/profiles', {nameAvatar: nameAvatar});
             }
 

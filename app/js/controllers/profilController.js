@@ -1,14 +1,15 @@
 angular.module('app')
-    .controller('ProfilController', function($scope, RewardFactory, AvatarFactory, $state, ProfilService, Auth, CurrentUser) {        var i = 0;
+    .controller('ProfilController', function($scope, RewardFactory, AvatarFactory, $state, ProfilService, Auth, CurrentUser) {
+        var i = 0;
         var j = 0;
         $scope.hideModal = true;
         $scope.user = CurrentUser.user();
         $scope.avatars = AvatarFactory;
         // $scope.nameAvatar=ProfilService.nameAvatar();
 
-console.log($scope.nameAvatar);
+  var nameAvatar = ProfilService.getOne($scope.nameAvatar);
+  console.log("nameAvatar", nameAvatar);
 
-        console.log($scope.avatars[i].avatars[j].picto);
         $scope.prev = function() {
             j = 0;
             i--;
@@ -77,17 +78,17 @@ console.log($scope.nameAvatar);
 
         var newName = '';
 
-        $scope.validUser = function () {
-          if (newName === []) {
-              newName = $scope.userName;
+        $scope.validUser = function() {
+            if (newName === []) {
+                newName = $scope.userName;
 
-          } else {
+            } else {
 
-              newName = $scope.userName;
-          }
-          ProfilService.findOneAndUpdateName($scope.user._id, $scope.userName, $scope.currentAvatar).then(function(res) {
+                newName = $scope.userName;
+            }
+            ProfilService.findOneAndUpdateName($scope.user._id, $scope.userName, $scope.currentAvatar).then(function(res) {
 
-          }, function(err) {});
+            }, function(err) {});
         };
 
     });

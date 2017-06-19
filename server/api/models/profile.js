@@ -60,14 +60,31 @@ export default class Profile {
             });
     }
 
+    findByName(req, res) {
+
+        model.find({
+            "account.userName": req.params.userName
+        }, (err, userName) => {
+            if (err || !userName) {
+              console.log("403", err);
+                res.sendStatus(403);
+
+            } else {
+                res.json(userName);
+            }
+        });
+    }
+
     findByAvatar(req, res) {
 
         model.find({
-            nameAvatar: req.params.nameAvatar
+            "account.nameAvatar": req.body.nameAvatar
         }, (err, nameAvatar) => {
             if (err || !nameAvatar) {
+              console.log("403", err);
                 res.sendStatus(403);
             } else {
+              console.log("OK", req.body.nameAvatar);
                 res.json(nameAvatar);
             }
         });

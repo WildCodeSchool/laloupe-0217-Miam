@@ -12,6 +12,8 @@ module.exports = (app) => {
 
         router.get('/', Auth.hasAuthorization, profile.findAll);
 
+        router.get('/', Auth.hasAuthorization, profile.findByName);
+
         router.get('/', Auth.hasAuthorization, profile.findByAvatar);
 
             app.use('/profiles', router);
