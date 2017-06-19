@@ -38,8 +38,8 @@ export default class Profile {
 
 
 
-    findOneAndUpdate(req, res) {
-        console.log('post', req.body.user, req.body.userName);
+    findOneAndUpdateName(req, res) {
+        console.log('post (name)', req.body.user, req.body.userName);
         model.findOneAndUpdate({
                 "user": req.body.user
             }, {

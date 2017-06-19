@@ -85,7 +85,7 @@ console.log($scope.nameAvatar);
                 newName = $scope.userName;
             }
 
-            ProfilService.findOneAndUpdate($scope.user._id, $scope.userName).then(function(res) {
+            ProfilService.findOneAndUpdateName($scope.user._id, $scope.userName).then(function(res) {
 
             }, function(err) {});
 
