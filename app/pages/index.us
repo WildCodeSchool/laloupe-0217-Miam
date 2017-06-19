@@ -18,10 +18,12 @@
     <!-- <div ui-view='navbar'></div> -->
     <div ui-view='content'></div>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="path/to/angular.js"></script>
+    <script src="path/to/angular-cookies.js"></script>
     <script type="text/javascript" src="<%= js %>"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/lodash/4.17.4/lodash.min.js"></script>
 
-    </script>
 </body>
 
 </html>
