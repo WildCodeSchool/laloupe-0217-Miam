@@ -81,19 +81,13 @@ angular.module('app')
         nameFood: name,
         toTaste: true
       };
-      console.log("name", name);
-      console.log("choice", choice);
-      console.log("nameFood", choice.nameFood);
-      /* NO DOUBLE IN DATABASE */
-      // if (choice.nameFood) {
-        if ($scope.user.email !== undefined) {
-          console.log("Database");
-          GouterService.findOneAndUpdateFood(choice).then(function(res) {}, function(err) {});
-        } else {
-          console.log("LocalStorage");
-          LocalService.set("gouter", JSON.stringify(choice)).then(function(res) {}, function(err) {});
-        }
-      // }
+      if ($scope.user.email !== undefined) {
+        console.log("Database");
+        GouterService.findOneAndUpdateFood(choice).then(function(res) {}, function(err) {});
+      } else {
+        console.log("LocalStorage");
+        LocalService.set("gouter", JSON.stringify(choice)).then(function(res) {}, function(err) {});
+      }
       location.reload(true);
     };
 

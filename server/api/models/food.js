@@ -13,7 +13,7 @@ const foodSchema = new mongoose.Schema({
       type: String
     },
     countVote: [{
-      type: Boolean,
+      type: Boolean
     }],
     doNotEat: {
       type: Boolean,
@@ -25,6 +25,10 @@ const foodSchema = new mongoose.Schema({
     }
   },
 });
+
+function arrayLimit(val) {
+  return val.length <= 3;
+}
 
 let model = mongoose.model('Food', foodSchema);
 
