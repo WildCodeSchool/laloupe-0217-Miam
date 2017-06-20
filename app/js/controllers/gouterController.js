@@ -83,7 +83,7 @@ angular.module('app')
       };
       if ($scope.user.email !== undefined) {
         console.log("Database");
-        GouterService.findOneAndUpdateFood(choice).then(function(res) {}, function(err) {});
+        GouterService.findOneAndUpdate(choice).then(function(res) {}, function(err) {});
       } else {
         console.log("LocalStorage");
         LocalService.set("gouter", JSON.stringify(choice)).then(function(res) {}, function(err) {});
@@ -97,7 +97,7 @@ angular.module('app')
         toTaste: false
       };
       if ($scope.user.email !== undefined) {
-        GouterService.findOneAndUpdateFood(choice).then(function(res) {}, function(err) {});
+        GouterService.findOneAndUpdate(choice).then(function(res) {}, function(err) {});
       } else {
         LocalService.set("gouter", JSON.stringify(choice)).then(function(res) {}, function(err) {});
       }

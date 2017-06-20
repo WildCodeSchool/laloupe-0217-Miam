@@ -50,6 +50,11 @@ export default class Food {
     model.findOneAndUpdate({
         "food.nameFood": req.body.food.nameFood
       }, {
+        $set: {
+          "food.nameFood": req.body.food.nameFood,
+          "food.doNotEat": req.body.food.doNotEat,
+          "food.toTaste": req.body.food.toTaste
+        },
         $push: {
           "food.countVote": {
             $each: [{ "food.countVote": req.body.food.countVote }],
@@ -58,6 +63,7 @@ export default class Food {
         }
       }, {
         upsert: true,
+        multi: true
       },
       function(err, like) {
         if (err || !like) {
@@ -65,31 +71,6 @@ export default class Food {
           res.status(500).send(err.message);
         } else {
           res.json(like);
-        }
-      });
-  }
-
-  findOneAndUpdateFood(req, res) {
-    model.findOneAndUpdate({
-        "food.nameFood": req.body.food.nameFood
-      }, {
-        $set: {
-          "food.nameFood": req.body.food.nameFood,
-          "food.countVote": req.body.food.countVote,
-          "food.doNotEat": req.body.food.doNotEat,
-          "food.toTaste": req.body.food.toTaste
-        }
-      }, {
-        upsert: true,
-      })
-      .populate('profile')
-      .exec(function(err, food) {
-        if (err || !food) {
-          console.log("500", err);
-          res.status(500).send(err.message);
-        } else {
-          console.log("Profile", req.body.profile);
-          res.json(food);
         }
       });
   }

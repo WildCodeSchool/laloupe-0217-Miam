@@ -8,9 +8,5 @@ angular.module('app')
               console.log(like);
               return $http.post('/foods', {food: like});
             },
-            findOneAndUpdateFood: function(taste){
-              console.log(taste);
-              return $http.post('/foods', {food: taste});
-            },
         };
     });
