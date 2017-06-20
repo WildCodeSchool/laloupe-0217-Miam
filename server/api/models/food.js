@@ -46,6 +46,29 @@ export default class Food {
       });
   }
 
+  findOneAndUpdate(req, res) {
+    model.findOneAndUpdate({
+        "food.nameFood": req.body.food.nameFood
+      }, {
+        $push: {
+          "food.countVote": {
+            $each: [{ "food.countVote": req.body.food.countVote }],
+            $slice: 3
+          }
+        }
+      }, {
+        upsert: true,
+      },
+      function(err, like) {
+        if (err || !like) {
+          console.log("500", err);
+          res.status(500).send(err.message);
+        } else {
+          res.json(like);
+        }
+      });
+  }
+
   findOneAndUpdateFood(req, res) {
     model.findOneAndUpdate({
         "food.nameFood": req.body.food.nameFood
@@ -65,27 +88,8 @@ export default class Food {
           console.log("500", err);
           res.status(500).send(err.message);
         } else {
+          console.log("Profile", req.body.profile);
           res.json(food);
-        }
-      });
-  }
-
-  findOneAndUpdate(req, res) {
-    model.findOneAndUpdate({
-        "food.nameFood": req.body.food.nameFood
-      }, {
-        $push: {
-          "food.countVote": req.body.food.countVote
-        }
-      }, {
-        upsert: true
-      },
-      function(err, like) {
-        if (err || !like) {
-          console.log("500", err);
-          res.status(500).send(err.message);
-        } else {
-          res.json(like);
         }
       });
   }
