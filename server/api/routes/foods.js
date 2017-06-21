@@ -7,9 +7,10 @@ let router = express.Router();
 module.exports = (app) => {
 
     var food = new Food();
-    // router.post('/', Auth.hasAuthorization, food.create);
 
     router.get('/', Auth.hasAuthorization, food.findAll);
+
+    router.post('/', Auth.hasAuthorization, food.create);
 
     router.post('/', Auth.hasAuthorization, food.findOneAndUpdate);
 
