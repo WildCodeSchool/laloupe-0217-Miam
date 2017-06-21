@@ -60,6 +60,22 @@ export default class Profile {
             });
     }
 
+
+    findIfCurrent(req, res){
+        find({"user": req.body.user }).forEach(function (doc) {
+        profil.isCurrentProfil.forEach(function (profil) {
+          if (profil.user != req.body.user) {
+            profil.isCurrentProfil = false;
+          }
+          profil.isCurrentProfil =true;
+        });
+        db.collection.save(doc);
+
+
+      });
+      }
+
+
     findOneAndUpdateName(req, res) {
         model.findOneAndUpdate({
                 "user": req.body.user
@@ -112,5 +128,6 @@ export default class Profile {
                 }
             });
     }
+
 
 }
