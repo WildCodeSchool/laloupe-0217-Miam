@@ -12,11 +12,9 @@ module.exports = (app) => {
 
         router.post('/', Auth.hasAuthorization, profile.findOneAndUpdateName);
 
-        router.get('/', Auth.hasAuthorization, profile.findAll);
+        router.get('/', Auth.hasAuthorization, profile.getAll);
 
         router.get('/', Auth.hasAuthorization, profile.findByName);
-
-        router.get('/', Auth.hasAuthorization, profile.findByAvatar);
 
             app.use('/profiles', router);
 

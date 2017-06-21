@@ -5,10 +5,11 @@ angular.module('app')
         $scope.hideModal = true;
         $scope.user = CurrentUser.user();
         $scope.avatars = AvatarFactory;
-        // $scope.nameAvatar=ProfilService.nameAvatar();
 
-  var nameAvatar = ProfilService.getOne($scope.nameAvatar);
-  console.log("nameAvatar", nameAvatar);
+
+                  //  ProfilService.getAll().then(function(res) {
+                  //   console.log("coucou", res.data);
+                  //  });
 
         $scope.prev = function() {
             j = 0;
@@ -57,7 +58,6 @@ angular.module('app')
         };
 
         $scope.rewardList = RewardFactory;
-        console.log($scope.rewardList);
 
 
         $scope.openModal = function() {
@@ -72,7 +72,6 @@ angular.module('app')
         $scope.goHome = function() {
             $scope.hideModal = true;
             $state.go('anon.home');
-            console.log($scope.hideModal);
         };
 
 

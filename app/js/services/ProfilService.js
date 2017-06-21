@@ -13,10 +13,14 @@ angular.module('app')
             //   return $http.get('/profiles', {userName: name});
             // }
 
-            getOne: function(nameAvatar){
-              console.log("service", nameAvatar);
-              return $http.get('/profiles', {nameAvatar: nameAvatar});
-            }
+            getOne: function(content){
+              console.log("service", content);
+              return $http.get('/profiles', + content);
+            },
+
+            getAll: function() {
+                          return $http.get('/profiles');
+                      },
 
         };
 });

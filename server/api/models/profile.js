@@ -82,9 +82,11 @@ export default class Profile {
     }
 
     findByName(req, res) {
+      if (isCurrentProfil === true){
 
         model.find({
-            "profil.userName": req.params.userName
+            "profil.userName": req.params.userName,
+            "profil.nameAvatar": req.params.nameAvatar
         }, (err, userName) => {
             if (err || !userName) {
                 console.log("403", err);
@@ -94,31 +96,18 @@ export default class Profile {
                 res.json(userName);
             }
         });
+      }
     }
 
-    findByAvatar(req, res) {
 
-        model.find({
-            "profil.nameAvatar": req.body.nameAvatar
-        }, (err, nameAvatar) => {
-            if (err || !nameAvatar) {
-                console.log("403", err);
-                res.sendStatus(403);
-            } else {
-                console.log("OK", req.body.nameAvatar);
-                res.json(nameAvatar);
-            }
-        });
-    }
-
-    findAll(req, res) {
-        model.find({})
-            .populate('reward')
-            .populate('food')
-            .exec(function(err, profiles) {
+    getAll(req, res) {
+        model.find({}, (err, profiles) => {
                 if (err || !profiles) {
                     res.sendStatus(403);
+                    console.error( profiles , err  );
+
                 } else {
+                  console.log('OK', profiles);
                     res.json(profiles);
                 }
             });

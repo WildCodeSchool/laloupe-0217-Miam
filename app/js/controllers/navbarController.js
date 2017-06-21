@@ -1,5 +1,6 @@
 angular.module('app')
-    .controller('NavbarController', function($scope, Auth, CurrentUser) {
+    .controller('NavbarController', function($scope, Auth, CurrentUser, ProfilService) {
+        $scope.avatars = [];
         $scope.isCollapsed = true;
         $scope.auth = Auth;
         $scope.user = CurrentUser.user();
@@ -14,6 +15,16 @@ angular.module('app')
 
         $scope.logout = function() {
             Auth.logout();
-
         };
-    });
+
+        ProfilService.getAll().then(function(res) {
+         var data = res.data[0];
+         for (var i = 0; i < data.profil.length; i++) {
+          $scope.avatars.push(data.profil[i].nameAvatar);
+         }
+
+         console.log($scope.avatars);
+
+
+       });
+        });
