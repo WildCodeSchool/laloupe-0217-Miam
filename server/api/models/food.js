@@ -84,7 +84,7 @@ export default class Food {
         $push: {
             "food.countVote": req.body.food.countVote,
             $slice: 3
-          }
+        }
       }, {
         upsert: true,
         multi: true,
