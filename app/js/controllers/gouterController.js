@@ -32,16 +32,21 @@ angular.module('app')
     };
 
     // LIKE/DISLIKE FOOD
-    $scope.like = function(foodName) {
-      var like = true;
-      if ($scope.user.email !== undefined) {
-        GouterService.findOneAndUpdate(foodName, like).then(function(res) {
-        }, function(err) {});
-      } else {
-        LocalService.set("I like", JSON.stringify(foodName, like)).then(function(res) {
-        }, function(err) {});
-      }
+    $scope.like = function(name, index) {
+      GouterService.like(name, $scope.user._id).then(function(res) {
+        $scope.foods[index].countVote.push({ user: $scope.user._id });
+      }, function(err) {});
     };
+    // $scope.like = function(foodName) {
+    //   var like = true;
+    //   if ($scope.user.email !== undefined) {
+    //     GouterService.findOneAndUpdate(foodName, like).then(function(res) {
+    //     }, function(err) {});
+    //   } else {
+    //     LocalService.set("I like", JSON.stringify(foodName, like)).then(function(res) {
+    //     }, function(err) {});
+    //   }
+    // };
     $scope.dislike = function(foodName) {
       var like = false;
       if ($scope.user.email !== undefined) {
