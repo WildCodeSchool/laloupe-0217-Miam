@@ -33,28 +33,22 @@ angular.module('app')
 
     // LIKE/DISLIKE FOOD
     $scope.like = function(foodName) {
-      var like = {
-        nameFood: foodName,
-        countVote: [true],
-      };
+      var like = true;
       if ($scope.user.email !== undefined) {
-        GouterService.findOneAndUpdate(like).then(function(res) {
+        GouterService.findOneAndUpdate(foodName, like).then(function(res) {
         }, function(err) {});
       } else {
-        LocalService.set("I like", JSON.stringify(like)).then(function(res) {
+        LocalService.set("I like", JSON.stringify(foodName, like)).then(function(res) {
         }, function(err) {});
       }
     };
     $scope.dislike = function(foodName) {
-      var like = {
-        nameFood: foodName,
-        countVote: [false],
-      };
+      var like = false;
       if ($scope.user.email !== undefined) {
-        GouterService.findOneAndUpdate(like).then(function(res) {
+        GouterService.findOneAndUpdate(foodName, like).then(function(res) {
         }, function(err) {});
       } else {
-        LocalService.set("I like", JSON.stringify(like)).then(function(res) {
+        LocalService.set("I like", JSON.stringify(foodName, like)).then(function(res) {
         }, function(err) {});
       }
     };
@@ -77,23 +71,20 @@ angular.module('app')
     };
 
     $scope.addChoice = function(name) {
-      var choice = {
-        nameFood: name,
-        toTaste: true
-      };
+      var choice = true;
       if ($scope.user.email !== undefined) {
         console.log("Database");
-        GouterService.findOneAndUpdate(choice).then(function(res) {}, function(err) {});
+        GouterService.findOneAndUpdate(name, choice).then(function(res) {}, function(err) {});
       } else {
         console.log("LocalStorage");
-        LocalService.set("gouter", JSON.stringify(choice)).then(function(res) {}, function(err) {});
+        LocalService.set("gouter", JSON.stringify(name, choice)).then(function(res) {}, function(err) {});
       }
-      location.reload(true);
+      // location.reload(true);
     };
 
     $scope.deselect = function(name) {
       var choice = {
-        nameFood: name,
+        // nameFood: name,
         toTaste: false
       };
       if ($scope.user.email !== undefined) {

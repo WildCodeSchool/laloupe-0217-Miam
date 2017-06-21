@@ -2,6 +2,12 @@ import mongoose from 'mongoose';
 import User from './user.js';
 import Profile from './profile.js';
 
+const countVoteSchema = new mongoose.Schema({
+  nameFood: {
+    type: String
+  }
+});
+
 const foodSchema = new mongoose.Schema({
   profile: {
     type: mongoose.Schema.Types.ObjectId,
@@ -12,9 +18,7 @@ const foodSchema = new mongoose.Schema({
     nameFood: {
       type: String
     },
-    countVote: [{
-      type: Boolean
-    }],
+    countVote: [countVoteSchema],
     doNotEat: {
       type: Boolean,
       default: false
@@ -51,13 +55,16 @@ export default class Food {
         "food.nameFood": req.body.food.nameFood
       }, {
         $set: {
+          "profile": req.body.profile,
           "food.nameFood": req.body.food.nameFood,
           "food.doNotEat": req.body.food.doNotEat,
           "food.toTaste": req.body.food.toTaste
         },
         $push: {
           "food.countVote": {
-            $each: [{ "food.countVote": req.body.food.countVote }],
+            $each: [{
+              "food.countVote": req.body.food.countVote
+            }],
             $slice: 3
           }
         }
@@ -65,12 +72,12 @@ export default class Food {
         upsert: true,
         multi: true
       },
-      function(err, like) {
-        if (err || !like) {
+      function(err, food) {
+        if (err || !food) {
           console.log("500", err);
           res.status(500).send(err.message);
         } else {
-          res.json(like);
+          res.json(food);
         }
       });
   }

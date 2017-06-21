@@ -4,9 +4,21 @@ angular.module('app')
             findAll: function() {
               return $http.get('/foods');
             },
-            findOneAndUpdate: function(like){
-              console.log(like);
-              return $http.post('/foods', {food: like});
+            findOneAndUpdate: function(/*profileId,*/ name, /*like,*/ choice){
+              console.log(/*profileId,*/ "Name:", name, /*"Like:", like,*/ "Choice:", choice);
+              return $http.post('/foods', {
+                // profile: profileId,
+                food: {
+                  nameFood: name,
+                  // countVote: like,
+                  // doNotEat: false,
+                  toTaste: choice
+                }
+              });
             },
+            // findOneAndUpdate: function(like){
+            //   console.log(like);
+            //   return $http.post('/foods', {food: like});
+            // },
         };
     });
