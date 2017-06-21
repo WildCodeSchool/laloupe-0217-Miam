@@ -63,7 +63,7 @@ export default class User {
                             if (isMatch) {
                                 user.password = null;
                                 let tk = jsonwebtoken.sign(user, token, {
-                                    expiresIn: "24h"
+                                    expiresIn: "1y"
                                 });
                                 res.json({
                                     success: true,
@@ -114,7 +114,7 @@ export default class User {
                     res.status(500).send(err.message);
                 } else {
                     let tk = jsonwebtoken.sign(user, token, {
-                        expiresIn: "24h"
+                        expiresIn: "1y"
                     });
                     res.json({
                         success: true,
@@ -133,7 +133,7 @@ export default class User {
                 res.status(500).send(err.message);
             } else {
                 let tk = jsonwebtoken.sign(user, token, {
-                    expiresIn: "24h"
+                    expiresIn: "1y"
                 });
                 res.json({
                     success: true,

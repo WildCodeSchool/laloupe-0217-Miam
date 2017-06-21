@@ -1,5 +1,5 @@
 angular.module('app')
-    .controller('LoginController', function($scope, $state, RememberMeService, Auth) {
+    .controller('LoginController', function($scope, $state, Auth) {
             $scope.errors = [];
 
             $scope.login = function() {
@@ -10,22 +10,6 @@ angular.module('app')
                     }).catch(function(err) {
                         $scope.errors.push(err);
                     });
-                  }
-                };
-
-                $scope.remember = false;
-                if ($remember('email') && $remember('password')) {
-                  $scope.remember = true;
-                  $scope.user.email = $remember('email');
-                  $scope.user.password = $remember('password');
-                }
-                $scope.rememberMe = function () {
-                  if ($scope.remember) {
-                    $remember('email', $scope.user.email);
-                    $remember('password', $scope.user.password);
-                  } else {
-                    $remember('email', '');
-                    $remember('password', '');
                   }
                 };
             });
