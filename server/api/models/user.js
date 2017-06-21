@@ -27,10 +27,10 @@ const userSchema = new mongoose.Schema({
         type: Boolean,
         default: false
     },
-    profile: {
+    profile: [{
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Profile'
-    }
+    }]
 });
 
 userSchema.methods.comparePassword = function(pwd, cb) {

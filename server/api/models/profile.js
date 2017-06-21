@@ -5,10 +5,10 @@ import User from './user.js';
 
 
 const profileSchema = new mongoose.Schema({
-    user: {
+    user: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
-    },
+    }],
     account: [{
         userName: {
             type: String
@@ -19,14 +19,14 @@ const profileSchema = new mongoose.Schema({
         nameAvatar: {
             type: String
         },
-        reward: {
+        reward: [{
             type: mongoose.Schema.Types.ObjectId,
             ref: 'Reward'
-        },
-        food: {
+        }],
+        food: [{
             type: mongoose.Schema.Types.ObjectId,
             ref: 'Food'
-        }
+        }]
     }]
 });
 

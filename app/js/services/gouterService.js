@@ -4,12 +4,13 @@ angular.module('app')
             findAll: function() {
               return $http.get('/foods');
             },
-            findOneAndUpdate: function(like){
-              console.log(like);
-              return $http.post('/foods', {food: like});
+            taste: function(choice){
+              console.log(choice);
+              return $http.post('/foods', { food: choice });
             },
-            create: function(food, profile){
-              return $http.post('/foods', {food: food, profile: profile});
-            }
+            like: function(like){
+              console.log(like);
+              return $http.post('/foods', { food: like });
+            },
         };
     });

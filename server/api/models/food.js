@@ -3,81 +3,100 @@ import User from './user.js';
 import Profile from './profile.js';
 
 const foodSchema = new mongoose.Schema({
-    profile: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Profile'
+  profile: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Profile'
+  },
+  // FACTORY
+  food: {
+    nameFood: {
+      type: String
     },
-    // FACTORY
-    food: {
-        nameFood: {
-            type: String
-        },
-        countVote: [{
-            type: Boolean,
-        }],
-        doNotEat: {
-            type: Boolean,
-            default: false
-        },
-        toTaste: {
-            type: Boolean,
-            default: false
-        }
+    countVote: {
+      type: [Boolean]
     },
+    doNotEat: {
+      type: Boolean,
+      default: false
+    },
+    toTaste: {
+      type: Boolean,
+      default: false
+    }
+  },
 });
+
+function arrayLimit(val) {
+  return val.length <= 3;
+}
 
 let model = mongoose.model('Food', foodSchema);
 
 export default class Food {
 
-    findAll(req, res) {
-        model.find({})
-            .populate('profile')
-            .exec(function(err, foods) {
-                if (err || !foods) {
-                    res.sendStatus(403);
-                } else {
-                    res.json(foods);
-                }
-            });
-    }
+  findAll(req, res) {
+    model.find({})
+      .populate('profile')
+      .exec(function(err, foods) {
+        if (err || !foods) {
+          res.sendStatus(403);
+        } else {
+          res.json(foods);
+        }
+      });
+  }
 
-    findOneAndUpdate(req, res) {
-        model.findOneAndUpdate({
-            "food.nameFood": req.body.food.nameFood
-        }, {
-            $push: {
-                "food.countVote": req.body.food.countVote
-            }
-        }, {
-            upsert: true,
+  taste(req, res) {
+    model.findOneAndUpdate({
+        "food.nameFood": req.body.food.nameFood
+      }, {
+        $set: {
+          "profile": req.body.profile,
+          "food.countVote": req.body.food.countVote,
+          "food.doNotEat": req.body.food.doNotEat,
         },
+        $push: {
+          "food.toTaste": req.body.food.toTaste
+        },
+      }, {
+        upsert: true,
+        multi: true,
+        new: true
+      },
+      function(err, food) {
+        if (err || !food) {
+          res.status(500).send(err.message);
+        } else {
+          res.json(food);
+        }
+      });
+  }
 
-        function (err, like) {
-            if (err || !like) {
-              console.log("500", err);
-                res.status(500).send(err.message);
-            } else {
-                res.json(like);
-            }
-        });
-    }
-
-    create(req, res) {
-        console.log('body', req.body);
-        model.create(req.body,
-            (err, food) => {
-                if (err || !food) {
-                    console.log('err', err.message);
-                    res.status(500).send(err.message);
-                } else {
-                    res.json({
-                        success: true,
-                        food: food
-                    });
-                }
-            });
-    }
-
+  like(req, res) {
+    model.findOneAndUpdate({
+        "food.nameFood": req.body.food.nameFood
+      }, {
+        $set: {
+          "profile": req.body.profile,
+          "food.doNotEat": req.body.food.doNotEat,
+          "food.toTaste": req.body.food.toTaste
+        },
+        $push: {
+            "food.countVote": req.body.food.countVote,
+            $slice: 3
+        }
+      }, {
+        upsert: true,
+        multi: true,
+        new: true
+      },
+      function(err, food) {
+        if (err || !food) {
+          res.status(500).send(err.message);
+        } else {
+          res.json(food);
+        }
+      });
+  }
 
 }
