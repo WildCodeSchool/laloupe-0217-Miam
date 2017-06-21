@@ -14,6 +14,8 @@ module.exports = (app) => {
 
     router.post('/', Auth.hasAuthorization, food.taste);
 
+    router.post('/', Auth.hasAuthorization, food.notEating);
+
     app.use('/foods', router);
 
 };

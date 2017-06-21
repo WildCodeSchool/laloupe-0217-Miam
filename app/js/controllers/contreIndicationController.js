@@ -87,7 +87,7 @@ angular.module('app')
       if ($scope.user.email !== undefined) {
         console.log("Database");
         for (var k = 0; k < $scope.items.length; k++) {
-          ContreIndicationService.create($scope.items[k], $scope.user._id).then(function(res) {}, function(err) {});
+          ContreIndicationService.notEating($scope.items[k], $scope.user._id).then(function(res) {}, function(err) {});
         }
       } else {
         console.log("LocalStorage");
