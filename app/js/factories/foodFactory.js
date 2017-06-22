@@ -150,7 +150,7 @@ angular.module('app')
                         picto: "/img/petits_pois.svg",
                         description: "Malgré leur petite taille de départ, les plants de petits pois peuvent atteindre 1,80 m de hauteur.",
                         suggestions: ["en purée", "à la 'française'", "petits pois-carottes", "riz cantonais", "paëlla", "risotto", "croquettes/galettes de légumes", "jardinière de légumes"],
-                        composition: ["Gluten"]
+                        composition: [""]
                     },
                 ]
             },
@@ -207,7 +207,7 @@ angular.module('app')
                     picto: "/img/lait.svg",
                     description: "Provient le plus souvent de la vache",
                     suggestions: ["frais", "chaud"],
-                    composition: [""]
+                    composition: ["Lait"]
                 },
                 {
                     name: "Emmental",
