@@ -11,7 +11,7 @@
 
             <img type="button" class="col-xs-3" src="/img/arrow-left.svg" alt="Précédent" ng-click="prev()" />
 
-            <div ng-show="!showActions" ng-swipe-left="showActions = true">
+            <div ng-swipe-left="prev()" ng-swipe-right="next()">
                 <img class="col-xs-6 img-responsive" ng-src="{{currentAvatar}}" alt="Avatar" />
             </div>
 
