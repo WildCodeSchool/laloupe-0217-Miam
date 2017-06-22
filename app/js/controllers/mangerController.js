@@ -20,6 +20,26 @@ angular.module('app')
     $scope.currentAliments = $scope.foodList[$scope.currentCategorie].aliments;
     $scope.alimentsForDatabase = [];
 
+    // DO NOT SHOW ALIM WITH CONTRAINDICATION
+    $scope.foodNotEaten = [];
+    function notEating(food) {
+      return MangerService.findAll(CurrentUser.user()._id).then(function(res) {
+        $scope.foodNotEaten = res.data;
+        $scope.currentAliments.forEach(function(currentAliments) {
+          $scope.foodNotEaten.forEach(function(foodNotEaten) {
+            if (currentAliments.name === foodNotEaten.food.nameFood) {
+              if (foodNotEaten.food.doNotEat === true) {
+                console.log("One food match!", currentAliments.name);
+                $scope.currentAliments.splice($scope.currentAliments.indexOf(currentAliments), 1);
+              }
+            }
+          });
+        });
+      });
+    }
+    $scope.currentAliments.filter(notEating);
+
+
     var foodIndex = function(food) {
       return $scope.alimentsForDatabase.map(function(aliment) {
         return aliment.nameFood;
@@ -33,28 +53,6 @@ angular.module('app')
       return $scope.currentCategorie;
     }, function() {
       $scope.IsSelectedAll = $scope.currentAlimsCount === $scope.currentAliments.length;
-    });
-
-    // DO NOT SHOW ALIM WITH CONTRAINDICATION
-    $scope.$watch(function() {
-      $scope.currentAliments = $scope.foodList[$scope.currentCategorie].aliments;
-      return $scope.currentCategorie;
-    }, function() {
-      $scope.foodNotEaten = [];
-      MangerService.findAll(CurrentUser.user()._id).then(function(res) {
-        $scope.foodNotEaten = res.data;
-        $scope.currentAliments.forEach(function(currentAliments) {
-          $scope.foodNotEaten.forEach(function(foodNotEaten) {
-            if (currentAliments.name === foodNotEaten.food.nameFood) {
-              if (foodNotEaten.food.doNotEat === true) {
-                console.log("One food match!");
-                $scope.currentAliments.splice($scope.currentAliments.indexOf(currentAliments), 1);
-              }
-              // No match
-            }
-          });
-        });
-      });
     });
 
     $scope.$watch(function() {
@@ -129,21 +127,6 @@ angular.module('app')
 
 
     $scope.nextCategorie = function() {
-      // $scope.foodNotEaten = [];
-      // MangerService.findAll(CurrentUser.user()._id).then(function(res) {
-      //   $scope.foodNotEaten = res.data;
-      //   $scope.currentAliments.forEach(function(currentAliments) {
-      //     $scope.foodNotEaten.forEach(function(foodNotEaten) {
-      //       if (currentAliments.name === foodNotEaten.food.nameFood) {
-      //         if (foodNotEaten.food.doNotEat === true) {
-      //           console.log("One food match!");
-      //           $scope.currentAliments.splice($scope.currentAliments.indexOf(currentAliments), 1);
-      //         }
-      //         // No match
-      //       }
-      //     });
-      //   });
-      // });
       if (i >= $scope.categories.length) {
         i++;
       } else if (i === $scope.categories.length - 1) {
@@ -154,6 +137,8 @@ angular.module('app')
         i++;
         $scope.currentCategorie = $scope.categories[i];
       }
+      // NO CONTRAINDICATION FOOD
+      $scope.currentAliments.filter(notEating);
     };
 
     $scope.prevCategorie = function() {
@@ -165,6 +150,8 @@ angular.module('app')
         $scope.currentCategorie = $scope.categories[i];
         return true;
       }
+      // NO CONTRAINDICATION FOOD
+      $scope.currentAliments.filter(notEating);
     };
 
     $scope.ok = function() {

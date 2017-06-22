@@ -20,7 +20,6 @@
   <section class="row" ng-repeat="categorie in currentCategorie | limitTo : 1">
     <h2>{{ underscore(currentCategorie) }}</h2>
     <div class="manger" ng-repeat="food in foodList[currentCategorie].aliments track by $index">
-      <!-- | filter: filterNotEating -->
       <div class="col-xs-4 manger-item" ng-click="selectFood(food)" ng-class="{'color-food': isSelected(food)}">
         <img src="{{ food.picto }}" alt="{{ food.name }}" />
         <h3>{{ underscore(food.name) }}</h3>
