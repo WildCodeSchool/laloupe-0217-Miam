@@ -89,10 +89,11 @@ angular.module('app')
         for (var k = 0; k < $scope.items.length; k++) {
           ContreIndicationService.notEating($scope.items[k], $scope.user._id).then(function(res) {}, function(err) {});
         }
+        $state.go('anon.manger');
       } else {
         console.log("LocalStorage");
         LocalService.set("contreindication", JSON.stringify($scope.items)).then(function(res) {}, function(err) {});
-        // $state.go('anon.manger');
+        $state.go('anon.manger');
       }
     };
 

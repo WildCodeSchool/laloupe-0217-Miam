@@ -178,12 +178,12 @@ angular.module('app')
           MangerService.like($scope.alimentsForDatabase[j], $scope.user._id).then(function(res) {
 
           }, function(err) {});
-          $state.go('anon.contreIndication');
+          $state.go('anon.gouter');
         }
       } else {
         console.log("localStorage");
         LocalService.set("jeMangeDeja", JSON.stringify($scope.alimentsForDatabase)).then(function(res) {
-          $state.go('anon.contreIndication');
+          $state.go('anon.gouter');
 
         }, function(err) {});
       }
