@@ -19,7 +19,11 @@
     <div class="row">
       <div class="col-xs-12 choice-avatar">
         <img type="button" class="col-xs-3" src="/img/arrow-left.svg" alt="Précédent" ng-click="prev()" />
-        <img class="col-xs-6 img-responsive" ng-src="{{currentAvatar}}" alt="Avatar" />
+
+        <div ng-swipe-left="prev()" ng-swipe-right="next()" ng-swipe-up="up()" ng-swipe-down="down ()">
+          <img class="col-xs-6 img-responsive" ng-src="{{currentAvatar}}" alt="Avatar" />
+        </div>
+
         <img type="button" class="col-xs-3" src="/img/arrow-right.svg" alt="Suivant" ng-click="next()" />
       </div>
     </div>
