@@ -25,17 +25,7 @@ angular.module('app')
     console.log($scope.foodList);
 
     // DO NOT SHOW ALIM WITH CONTRAINDICATION
-    // $scope.foodNotEaten = [];
-    // $scope.filterDoNotEat = function(food) {
-    //   GouterService.findAll(CurrentUser.user()._id).then(function(res) {
-    //     $scope.foodNotEaten = res.data;
-    //     if(food.food.doNotEat === true) {
-    //       return true;
-    //     }
-    //     return false;
-    //   });
-    // };
-
+  
 
     // SEARCH - GO TO FOOD
     $scope.selectFood = function(foodname) {
