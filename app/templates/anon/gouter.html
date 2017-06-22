@@ -38,7 +38,7 @@
 
   <section class="row" ng-repeat="categorie in categories">
     <h2>{{ underscore(categorie) }}</h2>
-    <div id="_{{ food.name }}" class="gouter" ng-repeat="food in foodList[categorie].aliments">
+    <div id="_{{ food.name }}" class="gouter" ng-repeat="food in foodList[categorie].aliments | filter: filterDoNotEat">
       <div class="col-xs-4 gouter-item" data-toggle="modal" data-target="#{{ correct(food.name) }}">
         <img src="{{ food.picto }}" alt="{{ food.name }}" />
         <h3>{{ underscore(food.name) }}</h3>
