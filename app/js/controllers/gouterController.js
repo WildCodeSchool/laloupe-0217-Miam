@@ -22,6 +22,9 @@ angular.module('app')
     $scope.categories = Object.keys($scope.foodList);
     console.log($scope.foodList);
 
+    // DO NOT SHOW ALIM WITH CONTRAINDICATION
+    
+
     // SEARCH - GO TO FOOD
     $scope.selectFood = function(foodname) {
       $scope.appearance = foodname;

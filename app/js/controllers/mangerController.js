@@ -20,12 +20,32 @@ angular.module('app')
         $scope.currentAliments = $scope.foodList[$scope.currentCategorie].aliments;
         $scope.alimentsForDatabase = [];
 
+        // DO NOT SHOW ALIM WITH CONTRAINDICATION
+        $scope.foodNotEaten = [];
+        MangerService.findAll(CurrentUser.user()._id).then(function(res) {
+          $scope.foodNotEaten = res.data;
+          console.log("Food not eaten in database", $scope.foodNotEaten);
+        }, function(err) {
+          console.log("Food not eaten in database doesn't work!");
+        });
+
+        // for (var m = 0; m < $scope.foodNotEaten.length; m++) {
+        //   console.log("$scope.foodNotEaten.food.nameFood", $scope.foodNotEaten[m].food.nameFood);
+        //   console.log("$scope.foodNotEaten.food.doNotEat", $scope.foodNotEaten[m].food.doNotEat);
+        //   if($scope.currentAliments[m].name === $scope.foodNotEaten.food.nameFood) {
+        //     if($scope.foodNotEaten.food.doNotEat === true) { return false; }
+        //       return true;
+        //   }
+        // }
+
+
+
+
         var foodIndex = function(food) {
             return $scope.alimentsForDatabase.map(function(aliment) {
                 return aliment.nameFood;
             }).indexOf(food.name);
         };
-
 
         // function SelectedAll() {
         //     $scope.IsSelectedAll = $scope.currentAlimsCount === $scope.currentAliments.length;
@@ -144,7 +164,7 @@ angular.module('app')
                 console.log("dataBase");
                 for (var j = 0; j < $scope.alimentsForDatabase.length; j++) {
 
-                    MangerService.create($scope.alimentsForDatabase[j], $scope.user._id).then(function(res) {
+                    MangerService.like($scope.alimentsForDatabase[j], $scope.user._id).then(function(res) {
 
                     }, function(err) {});
                     $state.go('anon.contreIndication');
