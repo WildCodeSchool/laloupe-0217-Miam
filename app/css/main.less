@@ -73,6 +73,7 @@ html {
 
 header h1 {
   color: @main-color;
+  margin: 0 0 1rem;
 }
 
 .logo-text {
@@ -454,7 +455,7 @@ td h3 {
 }
 /* ------------------------------ J'AI GOUTER ------------------------------ */
 .searchbar {
-  margin: 1rem 0;
+  margin: 0 0 1rem;
   padding: 0;
 }
 
@@ -748,18 +749,46 @@ td h3 {
 }
 /* ------------------------------  NAVBAR ANON  ------------------------------ */
 .navbar-default {
+  border: none;
+}
+
+.navbar-default .container-fluid {
   background-color: @second-color;
+  border: none;
 }
 
 .dropdown {
-  position: relative;
-  text-align: left;
-  width: 150px;
-  margin-top: 60px;
+  padding: 0;
+  margin: 0.2rem 0;
+}
+
+.dropdown .dropdown-toggle {
+  background-color: @second-color;
+  padding: 0.2rem 0;
+  border: none;
+}
+
+.dropdown .dropdown-toggle:active,
+.dropdown .dropdown-toggle:focus,
+.dropdown .dropdown-toggle:hover {
+  background-color: @second-color;
+  color: white;
+  border: none;
+}
+
+.dropdown-toggle img {
+  margin: 0;
+  padding: 0;
+}
+
+.dropdown-menu {
+  text-align: center;
+  background-color: @second-color;
+  border: none;
 }
 
 .overlay-content h1 {
-  font-size: 26px;
+  font-size: 2em;
   color: @main-color;
   margin: 25px 0;
   padding: 0;
@@ -788,6 +817,10 @@ td h3 {
   font-size: 1.8em;
 }
 
+.glyphicon-menu-hamburger {
+  margin-left: 6rem;
+}
+
 .glyphicon-menu-hamburger,
 .glyphicon-remove {
   opacity: 0.6;
@@ -803,21 +836,17 @@ ul {
 }
 /* ------------------------------ NAVBAR USER ------------------------------ */
 .mini-avatar {
-  margin-top: 7px;
-  height: 60px;
-  border-radius: 100%;
+  margin: 0.2rem 0;
+  padding: 0;
+  width: 3rem;
 }
 
 .add-kids {
-  margin-top: 7px;
-  background-color: @main-color;
+  font-weight: bold;
+  font-size: 2em;
+  line-height: 1em;
   color: white;
-  font-size: 30px;
+  background-color: @main-color;
   border-radius: 100%;
-  height: 60px;
-}
-
-.picoavatar{
-  width: 100px;
-  height: 100px;
+  margin: 0.2rem 0;
 }

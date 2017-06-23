@@ -19,28 +19,33 @@
                 </div>
             </div>
         </div>
+
+        <div class="col-xs-4 dropdown">
+          <button class="col-xs-12 dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            <!-- <img class="mini-avatar" ng-src="{{currentAvatar}}" alt="avatar"> -->
+            <img class="mini-avatar" ng-src="../../img/penguin.svg" alt="avatar">
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+              <!-- <li><a href="#"><img class="mini-avatar" ng-src="{{currentAvatar}}" alt="avatar"></a></li> -->
+              <!-- <li><a href="#"><img class="mini-avatar" ng-src="{{currentAvatar}}" alt="avatar"></a></li> -->
+              <li><a href="#"><img class="mini-avatar" ng-src="../../img/lion.svg" alt="avatar"></a></li>
+              <li><a href="#"><img class="mini-avatar" ng-src="../../img/cat-indian.svg" alt="avatar"></a></li>
+              <li>
+                <a ui-sref="user.avatar">
+                  <button type="button" class="btn btn-circle add-kids btn-lg" ng-click="addKid()"><i class="glyphicon glyphicon-plus"></i></button>
+                </a>
+              </li>
+          </ul>
+        </div>
+
+        <!-- <h1 class="col-xs-10" >Mon profil</h1> -->
+
         <div class="overlay-content" ng-controller="NavbarController">
 
-          <div class="col-xs-1 dropdown">
-
-              <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-              avatar<img class="mini-avatar col-xs-1" ng-src="{{currentAvatar}}" alt="avatar">
-
-              <span class="caret"></span>
-            </button>
-
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                  <li><a href="#">photo<img class="mini-avatar col-xs-1" ng-src="{{currentAvatar}}" alt="avatar"></a></li>
-                  <li><a href="#">photo<img class="mini-avatar col-xs-1" ng-src="{{currentAvatar}}" alt="avatar"></a></li>
-                  <li><a ui-sref="user.avatar"><button type="button" class="btn add-kids col-xs-1" ng-click="addKid()">+</button></a></li>
-              </ul>
-          </div>
-
-          <h1 class="col-xs-10" >Mon profil</h1>
-
             <button class="col-xs-1" type="button" class="btn btn-default btn-md hamburger-menu" ng-click="openNav()">
-                      <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
-                    </button>
+              <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
+            </button>
 
         </div>
 
