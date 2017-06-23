@@ -27,10 +27,9 @@
             <span class="caret"></span>
           </button>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-              <!-- <li><a href="#"><img class="mini-avatar" ng-src="{{currentAvatar}}" alt="avatar"></a></li> -->
-              <!-- <li><a href="#"><img class="mini-avatar" ng-src="{{currentAvatar}}" alt="avatar"></a></li> -->
-              <li><a href="#"><img class="mini-avatar" ng-src="../../img/lion.svg" alt="avatar"></a></li>
-              <li><a href="#"><img class="mini-avatar" ng-src="../../img/cat-indian.svg" alt="avatar"></a></li>
+              <li ng-repeat="avatar in avatars track by $index">
+                <a><img class="mini-avatar" ng-src='{{avatar}}' alt='{{avatar}}' ng-click="changeProfil($index)"</a>
+              </li>
               <li>
                 <a ui-sref="user.avatar">
                   <button type="button" class="btn btn-circle add-kids btn-lg" ng-click="addKid()"><i class="glyphicon glyphicon-plus"></i></button>

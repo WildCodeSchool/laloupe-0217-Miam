@@ -278,7 +278,7 @@ angular.module('app')
                         picto: "/img/biscuit.svg",
                         description: "Un petit beurre a 52 dents = les semaines dans l'année, 4 coins = les saisons, 24 points = les heures d'une journée et mesure 7 cm = les jours de la semaine.",
                         suggestions: ["nature", "dans un gâteau (crumble, moelleux, brownies, pudding, tiramisu, tarte, pop cake...)"],
-                        composition: [""]
+                        composition: ["Gluten"]
                     },
                 ]
             }

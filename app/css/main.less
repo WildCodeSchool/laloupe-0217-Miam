@@ -210,6 +210,7 @@ section h2 {
 }
 
 .manger-item {
+  min-height: 9rem;
   -webkit-filter: grayscale(100%);
   filter: grayscale(100%);
   cursor: pointer;
@@ -277,17 +278,18 @@ section h2 {
 
 .input-name {
   border: solid @main-color 0.2rem;
-  margin: 0 auto 1rem;
+  border-radius: 0.3em;
 }
 
 .name button {
-  .general-button;
+  .general-button();
+  margin-top: 1rem;
 }
 
 .name button:active,
 .name button:focus,
 .name button:hover {
-  .button-interaction;
+  .button-interaction();
 }
 /* ------------------------------ PROFIL - MODIFIER ------------------------------ */
 .nav.nav-tabs {
@@ -460,6 +462,7 @@ td h3 {
 }
 
 .gouter-item {
+  min-height: 9rem;
   cursor: pointer;
 }
 
