@@ -25,7 +25,24 @@ angular.module('app')
     console.log($scope.foodList);
 
     // DO NOT SHOW ALIM WITH CONTRAINDICATION
-  
+    $scope.foodNotEaten = [];
+    GouterService.findAll(CurrentUser.user()._id).then(function(res) {
+      $scope.foodNotEaten = res.data;
+      $scope.categories.forEach(function(categories) {
+        $scope.currentCategorie = categories;
+        $scope.currentAliments = $scope.foodList[$scope.currentCategorie].aliments;
+        $scope.foodNotEaten.forEach(function(foodNotEaten) {
+          $scope.currentAliments.forEach(function(currentAliments) {
+            if (currentAliments.name === foodNotEaten.food.nameFood) {
+              if (foodNotEaten.food.doNotEat === true) {
+                console.log("One food match!", currentAliments.name);
+                $scope.currentAliments.splice($scope.currentAliments.indexOf(currentAliments), 1);
+              }
+            }
+          });
+        });
+      });
+    });
 
     // SEARCH - GO TO FOOD
     $scope.selectFood = function(foodname) {
@@ -43,11 +60,9 @@ angular.module('app')
         countVote: true,
       };
       if ($scope.user.email !== undefined) {
-        GouterService.like(like).then(function(res) {
-        }, function(err) {});
+        GouterService.like(like).then(function(res) {}, function(err) {});
       } else {
-        LocalService.set("I like", JSON.stringify(like)).then(function(res) {
-        }, function(err) {});
+        LocalService.set("I like", JSON.stringify(like)).then(function(res) {}, function(err) {});
       }
     };
     $scope.dislike = function(name) {
@@ -57,11 +72,9 @@ angular.module('app')
       };
 
       if ($scope.user.email !== undefined) {
-        GouterService.like(like).then(function(res) {
-        }, function(err) {});
+        GouterService.like(like).then(function(res) {}, function(err) {});
       } else {
-        LocalService.set("I like", JSON.stringify(like)).then(function(res) {
-        }, function(err) {});
+        LocalService.set("I like", JSON.stringify(like)).then(function(res) {}, function(err) {});
       }
     };
 
@@ -135,7 +148,7 @@ angular.module('app')
     });
 
     $scope.filterTaste = function(food) {
-      if(food.food.toTaste === true) {
+      if (food.food.toTaste === true) {
         return true;
       }
       return false;

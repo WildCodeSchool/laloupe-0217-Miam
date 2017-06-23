@@ -22,6 +22,7 @@ angular.module('app')
 
     // DO NOT SHOW ALIM WITH CONTRAINDICATION
     $scope.foodNotEaten = [];
+
     function notEating(food) {
       return MangerService.findAll(CurrentUser.user()._id).then(function(res) {
         $scope.foodNotEaten = res.data;
