@@ -92,6 +92,29 @@ export default class Food {
       });
   }
 
+  likeAll(req, res) {
+    model.findOneAndUpdate({
+        "food.nameFood": req.body.food.nameFood
+      }, {
+        $set: {
+          "profile": req.body.profile,
+          "food.countVote": [true, true, true],
+          "food.doNotEat": req.body.food.doNotEat,
+          "food.toTaste": req.body.food.toTaste,
+        },
+      }, {
+        upsert: true,
+        new: true
+      },
+      function(err, food) {
+        if (err || !food) {
+          res.status(500).send(err.message);
+        } else {
+          res.json(food);
+        }
+      });
+  }
+
   like(req, res) {
     model.findOneAndUpdate({
         "food.nameFood": req.body.food.nameFood
