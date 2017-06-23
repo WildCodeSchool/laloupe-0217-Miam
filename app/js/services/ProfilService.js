@@ -22,5 +22,10 @@ angular.module('app')
                           return $http.get('/profiles');
                       },
 
+            changeProfil: function(changeProfil){
+              console.log('changeProfil', changeProfil);
+              return $http.post('/profiles', changeProfil);
+            },
+
         };
 });

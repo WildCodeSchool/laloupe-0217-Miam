@@ -29,14 +29,17 @@ angular.module('app')
 
        });
 
-$scope.changeProfil = function () {
+$scope.changeProfil = function ($index) {
 
 var changeprofil = {
+  user : $scope.user._id,
+  profil : [{
   isCurrentProfil : true,
-  userName : $scope.profils[$index],
+  userName : $scope.profils[$index]
+}],
 };
 console.log(changeprofil);
-ProfilService.put(isCurrentProfil).then(function(res) {
+ProfilService.changeProfil(changeprofil).then(function(res) {
 
 }, function(err) {});
 
