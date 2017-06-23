@@ -28,7 +28,8 @@
           </button>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
               <li ng-repeat="avatar in avatars track by $index">
-                <a><img class="mini-avatar" ng-src='{{avatar}}' alt='{{avatar}}' ng-click="changeProfil($index)"</a>
+                <a><img class="mini-avatar" ng-src='{{avatar.nameAvatar}}' alt='{{avatar}}' ng-click="changeProfil($index)"</a>
+                <p>{{avatar.userName}}</p>
               </li>
               <li>
                 <a ui-sref="user.avatar">

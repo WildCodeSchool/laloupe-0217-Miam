@@ -7,9 +7,9 @@ angular.module('app')
         $scope.avatars = AvatarFactory;
 
 
-                  //  ProfilService.getAll().then(function(res) {
-                  //   console.log("coucou", res.data);
-                  //  });
+        //  ProfilService.getAll().then(function(res) {
+        //   console.log("coucou", res.data);
+        //  });
 
         $scope.prev = function() {
             j = 0;

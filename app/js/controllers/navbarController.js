@@ -18,16 +18,28 @@ angular.module('app')
             Auth.logout();
         };
 
-        ProfilService.getAll().then(function(res) {
-         var data = res.data[0];
-         for (var i = 0; i < data.profil.length; i++) {
-          $scope.avatars.push(data.profil[i].nameAvatar);
-          $scope.profils.push(data.profil[i].userName);
-         }
+      //   ProfilService.getAll().then(function(res) {
+      //    var data = res.data[0];
+      //    for (var i = 0; i < data.profil.length; i++) {
+      //     $scope.avatars.push(data.profil[i].nameAvatar);
+      //     $scope.profils.push(data.profil[i].userName);
+      //    }
+       //
+      //    console.log($scope.avatars, $scope.profils);
+       //
+      //  });
 
-         console.log($scope.avatars, $scope.profils);
 
-       });
+      ProfilService.getAll().then(function(res) {
+       var data = res.data[0];
+       for (var i = 0; i < data.profil.length; i++) {
+        $scope.avatars.push(data.profil[i]);
+       }
+
+       console.log($scope.avatars);
+
+     });
+
 
 $scope.changeProfil = function ($index) {
 
@@ -35,7 +47,7 @@ var changeprofil = {
   user : $scope.user._id,
   profil : [{
   isCurrentProfil : true,
-  userName : $scope.profils[$index]
+  userName : $scope.avatars[$index].userName
 }],
 };
 console.log(changeprofil);
