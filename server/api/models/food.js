@@ -46,6 +46,32 @@ export default class Food {
       });
   }
 
+  notEating(req, res) {
+    model.findOneAndUpdate({
+        "food.nameFood": req.body.food.nameFood
+      }, {
+        $set: {
+          "profile": req.body.profile,
+          "food.countVote": req.body.food.countVote,
+          "food.toTaste": req.body.food.toTaste
+        },
+        $push: {
+          "food.doNotEat": req.body.food.doNotEat,
+        },
+      }, {
+        upsert: true,
+        multi: true,
+        new: true
+      },
+      function(err, food) {
+        if (err || !food) {
+          res.status(500).send(err.message);
+        } else {
+          res.json(food);
+        }
+      });
+  }
+
   taste(req, res) {
     model.findOneAndUpdate({
         "food.nameFood": req.body.food.nameFood
@@ -98,7 +124,7 @@ export default class Food {
         }
       });
   }
->>>>>>> server launched
+
 
     // findOneAndUpdate(req, res) {
     //     model.findOneAndUpdate({
