@@ -224,7 +224,7 @@ angular.module('app')
                         picto: "/img/lait.svg",
                         description: "Provient le plus souvent de la vache",
                         suggestions: ["frais", "chaud"],
-                        composition: [""]
+                        composition: ["Lait"]
                     },
                     // {
                     //     name: "Yaourt",
@@ -267,7 +267,7 @@ angular.module('app')
                         composition: [""]
                     },
                     {
-                        name: "Pâte à tartiner",
+                        name: "Pâte_à_tartiner",
                         picto: "/img/nutella.svg",
                         description: "A sa création, en Italie, le Nutella était vendu sous forme de blocs solides que l'on mangeait avec le pain.",
                         suggestions: ["sur une tartine de pain ou de brioche", "sur une crêpe ou une gaufre", "avec des fruits", "en gâteau (fondant, moelleux, muffin, roulé...)"],
