@@ -124,7 +124,7 @@ export default class Food {
         }
       });
   }
->>>>>>> server launched
+
 
     // findOneAndUpdate(req, res) {
     //     model.findOneAndUpdate({

@@ -8,7 +8,7 @@ const profileSchema = new mongoose.Schema({
     user: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
-    },
+    }],
     profil: [{
         userName: {
             type: String
@@ -34,60 +34,60 @@ const profileSchema = new mongoose.Schema({
 let model = mongoose.model('Profile', profileSchema);
 
 export default class Profile {
-    // 
-    // findOneAndUpdateProfil(req, res) {
-    //     console.log('post (name)', req.body, req.body.profil.userName, req.body.profil.nameAvatar);
-    //     model.findOneAndUpdate({
-    //             "user": req.body.user,
-    //         }, {
-    //             $push: {
-    //                 "profil": {
-    //                     "userName": req.body.profil.userName,
-    //                     "nameAvatar": req.body.profil.nameAvatar,
-    //                     "isCurrentProfil": true,
-    //                 }
-    //             }
-    //         }, {
-    //             upsert: true,
-    //         },
-    //         function(err, name) {
-    //             if (err || !name) {
-    //                 console.log("500", err);
-    //                 res.status(500).send(err.message);
-    //             } else {
-    //                 res.json(name);
-    //             }
-    //         });
-    // }
 
-
-    changeProfil(req, res) {
-        model.find({
-            "user": req.body.user._id
-        },{
-            new: true,
-        }, function(err, profil) {
-            if (err) {
-                console.log("500", err);
-                res.status(500).send(err.message);
-            } else if (!profil) { res.status(500).send(err.message);
-                res.status(404).send("Auccun profil pour cet id d'utilisateur");
-            } else {
-                profil.forEach(function(element) {
-                  console.log("element", element);
-                    if (element.userName != req.body.user) {
-                        element.isCurrentProfil = false;
-                        console.log("false", profil);
+    findOneAndUpdateProfil(req, res) {
+        console.log('post (name)', req.body, req.body.profil.userName, req.body.profil.nameAvatar);
+        model.findOneAndUpdate({
+                "user": req.body.user,
+            }, {
+                $push: {
+                    "profil": {
+                        "userName": req.body.profil.userName,
+                        "nameAvatar": req.body.profil.nameAvatar,
+                        "isCurrentProfil": true,
                     }
-                    element.isCurrentProfil = true;
-                    console.log("true", profil);
-
-                    db.collection.save(profil);
-                });
-                res.json(profil);
-            }
-        });
+                }
+            }, {
+                upsert: true,
+            },
+            function(err, name) {
+                if (err || !name) {
+                    console.log("500", err);
+                    res.status(500).send(err.message);
+                } else {
+                    res.json(name);
+                }
+            });
     }
+
+
+    // changeProfil(req, res) {
+    //     model.find({
+    //         "user": req.body.user._id
+    //     },{
+    //         new: true,
+    //     }, function(err, profil) {
+    //         if (err) {
+    //             console.log("500", err);
+    //             res.status(500).send(err.message);
+    //         } else if (!profil) { res.status(500).send(err.message);
+    //             res.status(404).send("Auccun profil pour cet id d'utilisateur");
+    //         } else {
+    //             profil.forEach(function(element) {
+    //               console.log("element", element);
+    //                 if (element.userName != req.body.user) {
+    //                     element.isCurrentProfil = false;
+    //                     console.log("false", profil);
+    //                 }
+    //                 element.isCurrentProfil = true;
+    //                 console.log("true", profil);
+    //
+    //                 db.collection.save(profil);
+    //             });
+    //             res.json(profil);
+    //         }
+    //     });
+    // }
 
 
 
