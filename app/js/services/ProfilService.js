@@ -1,14 +1,31 @@
+
 angular.module('app')
     .service('ProfilService', function($http) {
         return {
-            // findOneAndUpdate: function(like){
-            //   console.log(like);
-            //   return $http.post('/foods', {food: like});
+
+            findOneAndUpdateName: function(userId, name, nameAvatar){
+              console.log(name, nameAvatar);
+              return $http.post('/profiles', {user: userId, userName: name, nameAvatar: nameAvatar});
+            },
+
+            // getOne: function(name){
+            //   console.log(name);
+            //   return $http.get('/profiles', {userName: name});
             // }
-            findOneAndUpdate: function(userId, name){
-              console.log(userId, name);
-              return $http.post('/profiles', {user: userId, userName: name});
-            }
+
+            getOne: function(content){
+              console.log("service", content);
+              return $http.get('/profiles', + content);
+            },
+
+            getAll: function() {
+                          return $http.get('/profiles');
+                      },
+
+            changeProfil: function(changeProfil){
+              console.log('changeProfil', changeProfil);
+              return $http.post('/profiles', changeProfil);
+            },
 
         };
-    });
+});

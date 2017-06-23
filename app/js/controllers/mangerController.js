@@ -155,6 +155,7 @@ angular.module('app')
                   $state.go('anon.contreIndication');
 
                 }, function(err) {});
+                $state.go('anon.contreIndication');
             }
         };
 

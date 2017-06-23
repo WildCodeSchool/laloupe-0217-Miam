@@ -5,14 +5,16 @@ angular.module('app')
         $scope.hideModal = true;
         $scope.user = CurrentUser.user();
         $scope.avatars = AvatarFactory;
-        console.log($scope.avatars);
 
 
-        console.log($scope.avatars[i].avatars[j].picto);
+                  //  ProfilService.getAll().then(function(res) {
+                  //   console.log("coucou", res.data);
+                  //  });
+
         $scope.prev = function() {
             j = 0;
             i--;
-            j = 0;
+
             if (i < 0) {
                 i = $scope.avatars.length - 1;
             }
@@ -21,7 +23,7 @@ angular.module('app')
         $scope.next = function() {
             j = 0;
             i++;
-            j = 0;
+
 
             if (i >= $scope.avatars.length) {
                 i = 0;
@@ -56,7 +58,6 @@ angular.module('app')
         };
 
         $scope.rewardList = RewardFactory;
-        console.log($scope.rewardList);
 
 
         $scope.openModal = function() {
@@ -71,11 +72,11 @@ angular.module('app')
         $scope.goHome = function() {
             $scope.hideModal = true;
             $state.go('anon.home');
-            console.log($scope.hideModal);
         };
 
 
         var newName = '';
+
         $scope.validUser = function() {
             if (newName === []) {
                 newName = $scope.userName;
@@ -84,11 +85,9 @@ angular.module('app')
 
                 newName = $scope.userName;
             }
-
-            ProfilService.findOneAndUpdate($scope.user._id, $scope.userName).then(function(res) {
+            ProfilService.findOneAndUpdateName($scope.user._id, $scope.userName, $scope.currentAvatar).then(function(res) {
 
             }, function(err) {});
-
         };
 
     });
