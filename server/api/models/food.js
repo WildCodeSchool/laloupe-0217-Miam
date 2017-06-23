@@ -80,13 +80,10 @@ export default class Food {
           "profile": req.body.profile,
           "food.countVote": req.body.food.countVote,
           "food.doNotEat": req.body.food.doNotEat,
-        },
-        $push: {
-          "food.toTaste": req.body.food.toTaste
+          "food.toTaste": true,
         },
       }, {
         upsert: true,
-        multi: true,
         new: true
       },
       function(err, food) {

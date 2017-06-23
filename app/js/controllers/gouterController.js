@@ -64,89 +64,22 @@ angular.module('app')
       } else {
         LocalService.set("I like", JSON.stringify(like)).then(function(res) {}, function(err) {});
       }
+      location.reload(true);
     };
     $scope.dislike = function(name) {
       var like = {
         nameFood: name,
         countVote: false,
       };
-
       if ($scope.user.email !== undefined) {
         GouterService.like(like).then(function(res) {}, function(err) {});
       } else {
         LocalService.set("I like", JSON.stringify(like)).then(function(res) {}, function(err) {});
       }
+      location.reload(true);
     };
 
     // TO TASTE FOOD
-    $scope.foods = [];
-
-    GouterService.findAll(CurrentUser.user()._id).then(function(res) {
-      $scope.foods = res.data;
-      console.log("Food to taste in database", $scope.foods);
-    }, function(err) {
-      console.log("Doesn't work!");
-
-
-      $scope.user = CurrentUser.user();
-
-        $scope.foodList = FoodFactory;
-        $scope.categories = Object.keys($scope.foodList);
-        console.log($scope.foodList);
-
-        var i = 0;
-        var j = 0;
-
-        $scope.arrayToString = function(string) {
-            return string.join(", ");
-        };
-
-        $scope.selectFood = function(foodname) {
-            $scope.appearance = foodname;
-        };
-
-        $scope.scrollTo = function() {
-            $location.hash('_' + $scope.appearance);
-            $anchorScroll();
-        };
-
-        $scope.like = function(foodName) {
-            var like = {
-                nameFood: foodName,
-                countVote: [true],
-            };
-            if ($scope.user.email !== undefined) {
-
-                    GouterService.findOneAndUpdate(like).then(function(res) {
-
-                    }, function(err) {});
-            } else {
-                LocalService.set("I like", JSON.stringify(like)).then(function(res) {
-
-                }, function(err) {});
-            }
-
-        };
-        $scope.dislike = function(foodName) {
-            var like = {
-                nameFood: foodName,
-                countVote: [false],
-            };
-            if ($scope.user.email !== undefined) {
-
-                    GouterService.findOneAndUpdate(like).then(function(res) {
-
-                    }, function(err) {});
-            } else {
-                LocalService.set("I like", JSON.stringify(like)).then(function(res) {
-
-                }, function(err) {});
-            }
-
-        };
-
-    });
-
     $scope.filterTaste = function(food) {
       if (food.food.toTaste === true) {
         return true;
@@ -157,16 +90,16 @@ angular.module('app')
     $scope.addChoice = function(name) {
       var choice = {
         nameFood: name,
-        toTaste: true
+        // toTaste: true
       };
       if ($scope.user.email !== undefined) {
-        console.log("Database");
+        console.log("Database", choice);
         GouterService.taste(choice).then(function(res) {}, function(err) {});
       } else {
         console.log("LocalStorage");
         LocalService.set("gouter", JSON.stringify(choice)).then(function(res) {}, function(err) {});
       }
-      location.reload(true);
+      // location.reload(true);
     };
 
     $scope.deselect = function(name) {

@@ -6,7 +6,7 @@ angular.module('app')
             },
             like: function(food){
               console.log(food);
-              return $http.post('/foods/like', { food: food });
+              return $http.post('/foods/like/', { food: food });
             },
         };
     });
