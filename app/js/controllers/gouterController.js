@@ -99,7 +99,7 @@ angular.module('app')
         console.log("LocalStorage");
         LocalService.set("gouter", JSON.stringify(choice)).then(function(res) {}, function(err) {});
       }
-      // location.reload(true);
+      location.reload(true);
     };
 
     $scope.deselect = function(name) {
