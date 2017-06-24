@@ -46,6 +46,18 @@ export default class Food {
       });
   }
 
+  findLiked(req, res) {
+    model.find({
+      "food.countVote": "food.countVote",
+    }, function(err, foods) {
+      if (err || !foods) {
+        res.sendStatus(403);
+      } else {
+        res.json(foods);
+      }
+    });
+  }
+
   notEating(req, res) {
     model.findOneAndUpdate({
         "food.nameFood": req.body.food.nameFood

@@ -79,6 +79,15 @@ angular.module('app')
       location.reload(true);
     };
 
+    // SEE VOTED/LIKED FOOD
+    $scope.vote = [];
+    GouterService.findLiked(CurrentUser.user()._id).then(function(res) {
+      $scope.vote = res.data;
+      console.log("$scope.vote", $scope.vote);
+    }, function(err) {
+      console.log("$scope.vote not working!");
+    });
+
     // TO TASTE FOOD
     $scope.filterTaste = function(food) {
       if (food.food.toTaste === true) {
@@ -90,7 +99,6 @@ angular.module('app')
     $scope.addChoice = function(name) {
       var choice = {
         nameFood: name,
-        // toTaste: true
       };
       if ($scope.user.email !== undefined) {
         console.log("Database", choice);
