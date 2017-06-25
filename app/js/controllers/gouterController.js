@@ -80,13 +80,68 @@ angular.module('app')
     };
 
     // SEE VOTED/LIKED FOOD
-    $scope.vote = [];
+    $scope.votes = [];
+
     GouterService.findLiked(CurrentUser.user()._id).then(function(res) {
-      $scope.vote = res.data;
-      console.log("$scope.vote", $scope.vote);
+      $scope.votes = res.data;
+      console.log("$scope.votes", $scope.votes);
+
+      $scope.foodVotes = Object.keys($scope.votes);
+      console.log("$scope.foodVotes", $scope.foodVotes);
+
+      // console.log("$scope.votes[$scope.foodVotes].countVote", $scope.votes[$scope.foodVotes].countVote);
+
+
+
+
+
+      $scope.categories.forEach(function(categories) {
+        $scope.currentCategorie = categories;
+        $scope.currentAliments = $scope.foodList[$scope.currentCategorie].aliments;
+        $scope.votes.forEach(function(votes) {
+          $scope.currentAliments.forEach(function(currentAliments) {
+            if (currentAliments.name === votes.food.nameFood) {
+
+              for(var m = 0; m < votes.food.countVote.length; m++) {
+
+                if (votes.food.countVote[i] === true) {
+                  console.log("Value true has been found!", votes.food.nameFood, votes.food.countVote[i] === true, votes.food.countVote.indexOf(true));
+
+                }
+                // else if (votes.food.countVote[i] === false) {
+                //   console.log("Value false has been found!", votes.food.nameFood, votes.food.countVote[i] === false, votes.food.countVote.indexOf(false));
+                //   votes.food.countVote.push(votes.food.countVote.indexOf(false));
+                // } else {}
+
+
+                // if (votes.food.countVote.indexOf(true) !== -1) {
+                //   console.log("votes.food.countVote.indexOf(true)", votes.food.nameFood, votes.food.countVote.indexOf(true));
+                //   console.log("votes.food.countVote.slice(votes.food.countVote.indexOf(true))", votes.food.countVote.slice(votes.food.countVote.indexOf(true)));
+                //   // $scope.currentAliments.splice($scope.currentAliments.indexOf(currentAliments), 1);
+                // } else
+                // if (votes.food.countVote.indexOf(false) !== -1) {
+                //   console.log("votes.food.countVote.indexOf(false)", votes.food.nameFood, votes.food.countVote.indexOf(false));
+                //   //
+                // } else {}
+
+
+              }
+
+            }
+          });
+        });
+      });
+
     }, function(err) {
-      console.log("$scope.vote not working!");
+      console.log("$scope.votes not working!");
     });
+
+    /*
+    if($scope.votes[i].food.countVote[j] === true) {
+
+    }
+    */
+
 
     // TO TASTE FOOD
     $scope.filterTaste = function(food) {
