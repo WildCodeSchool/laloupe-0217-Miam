@@ -22,15 +22,6 @@ angular.module('app')
                     }
                 }
             })
-            .state('anon.tutoriel', {
-                url: '/tutoriel',
-                views: {
-                    'content@': {
-                        templateUrl: 'anon/tutoriel.html',
-                        controller: 'TutorielController'
-                    }
-                }
-            })
             .state('anon.manger', {
                 url: '/manger',
                 views: {

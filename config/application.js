@@ -29,11 +29,6 @@ module.exports = function(lineman) {
                 port: 3000
             }
         },
-        jshint: {
-          options: {
-            esversion: 6
-          }
-        },
 
         // Sass
         //
