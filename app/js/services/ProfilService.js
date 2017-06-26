@@ -5,7 +5,7 @@ angular.module('app')
 
             findOneAndUpdateName: function(userId, name, nameAvatar){
               console.log(name, nameAvatar);
-              return $http.post('/profiles', {user: userId, userName: name, nameAvatar: nameAvatar});
+              return $http.post('/profiles/updateProfil', {user: userId, userName: name, nameAvatar: nameAvatar});
             },
 
             // getOne: function(name){

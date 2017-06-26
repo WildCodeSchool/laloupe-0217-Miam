@@ -22,13 +22,11 @@ angular.module('app')
         $scope.userName = "";
 
 
-$scope.profil = {
-  id : $scope.user._id,
-  userName : $scope.userName,
-  nameAvatar : $scope.currentAvatar,
-};
-
-
+        $scope.profil = {
+            id: $scope.user._id,
+            userName: $scope.userName,
+            nameAvatar: $scope.currentAvatar,
+        };
 
         $scope.validProfil = function() {
 
@@ -36,19 +34,18 @@ $scope.profil = {
                 AvatarService.findOneAndUpdateProfil($scope.user._id, $scope.userName, $scope.currentAvatar).then(function(res) {
 
                 }, function(err) {});
-            }
-            else {
+            } else {
 
-              console.log("localStorage");
-              console.log($scope.profil, $scope.user._id);
-              LocalService.set("profil", JSON.stringify($scope.profil)).then(function(res) {
+                console.log("localStorage");
+                console.log($scope.profil, $scope.user._id);
+                LocalService.set("profil", JSON.stringify($scope.profil)).then(function(res) {
+                    $state.go('anon.manger');
+
+                }, function(err) {});
                 $state.go('anon.manger');
-
-              }, function(err) {});
-              $state.go('anon.manger');
             }
 
-          };
+        };
 
 
 

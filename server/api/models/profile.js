@@ -70,15 +70,23 @@ export default class Profile {
         console.log('post (name)', req.body, req.body.profil.userName, req.body.profil.nameAvatar);
         model.findOneAndUpdate({
                 "user": req.body.user,
-            }, {
-                $push: {
-                    "profil": {
-                        "userName": req.body.profil.userName,
-                        "nameAvatar": req.body.profil.nameAvatar,
-                        "isCurrentProfil": true,
+            },
+            user.profil = user.profil.map(function(element) {
+                if (element.userName != req.body.userName) {
+                    element.isCurrentProfil = false;
+                } else {
+
+                    $push: {
+                        profil: {
+                            userName = req.body.profil.userName,
+                            nameAvatar = req.body.profil.nameAvatar,
+                            isCurrentProfil = true;
+                        }
                     }
                 }
-            }, {
+                return element;
+            }),
+            {
                 upsert: true,
             },
             function(err, name) {
@@ -99,7 +107,7 @@ export default class Profile {
             if (err) {
                 res.status(500).send(err.message);
             } else if (!user.profil) {
-              console.log('404', user.profil);
+                console.log('404', user.profil);
                 res.status(404).send("Aucun profil pour cet id d'utilisateur");
             } else {
                 user.profil = user.profil.map(function(element) {
@@ -140,10 +148,6 @@ export default class Profile {
                 }
             });
     }
-
-
-
-
 
 
 

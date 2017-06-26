@@ -7,9 +7,21 @@ angular.module('app')
         $scope.avatars = AvatarFactory;
 
 
-        //  ProfilService.getAll().then(function(res) {
-        //   console.log("coucou", res.data);
-        //  });
+        ProfilService.getAll().then(function(res) {
+            var data = res.data[0];
+            for (var i = 0; i < data.profil.length; i++) {
+                $scope.avatars.push(data.profil[i]);
+            }
+
+
+            data.profil.forEach(function(el){
+              if(el.isCurrentProfil){
+                $scope.currentProfilName = el.userName;
+                $scope.currentAvatarName = el.nameAvatar;
+              }
+            });
+
+        });
 
         $scope.prev = function() {
             j = 0;
@@ -67,7 +79,7 @@ angular.module('app')
 
         };
 
-        $scope.userName = "Jean";
+        //$scope.userName = $scope.currentProfilName;
 
         $scope.goHome = function() {
             $scope.hideModal = true;
@@ -86,7 +98,7 @@ angular.module('app')
                 newName = $scope.userName;
             }
             ProfilService.findOneAndUpdateName($scope.user._id, $scope.userName, $scope.currentAvatar).then(function(res) {
-
+console.log($scope.user._id, $scope.userName, $scope.currentAvatar);
             }, function(err) {});
         };
 
