@@ -58,6 +58,36 @@ angular.module('app')
                 }
                 $scope.query = "";
               }
-            };
+
+            }
+          }
+        }
+        $scope.query = "";
+      }
+    };
+
+    $scope.deselect = function($index) {
+      $scope.items.splice($index, 1);
+      console.log("Deselect one", $scope.items);
+    };
+
+    $scope.deselectAll = function() {
+      $scope.items = [];
+      console.log("Deselect all", $scope.items);
+    };
+
+    $scope.validate = function() {
+      if ($scope.user.email !== undefined) {
+        console.log("Database");
+        for (var k = 0; k < $scope.items.length; k++) {
+          ContreIndicationService.notEating($scope.items[k], $scope.user._id).then(function(res) {}, function(err) {});
+        }
+        $state.go('anon.manger');
+      } else {
+        console.log("LocalStorage");
+        LocalService.set("contreindication", JSON.stringify($scope.items)).then(function(res) {}, function(err) {});
+        $state.go('anon.manger');
+      }
+    };
 
   });

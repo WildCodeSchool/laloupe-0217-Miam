@@ -6,10 +6,10 @@ const rewardSchema = new mongoose.Schema({
       type: Boolean,
       default: true
     },
-    profile: {
+    profile: [{
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Profile'
-    },
+    }],
     // FACTORY
     nameReward: {
       type: String

@@ -6,10 +6,19 @@ let router = express.Router();
 
 module.exports = (app) => {
 
-    var profile = new Profile();
+        var profile = new Profile();
 
-    router.get('/', Auth.hasAuthorization, profile.findAll);
+        // router.post('/', Auth.hasAuthorization, profile.findOneAndUpdateProfil);
 
-    app.use('/profiles', router);
+        router.post('/', Auth.hasAuthorization, profile.changeProfil);
 
-};
+        router.post('/', Auth.hasAuthorization, profile.findOneAndUpdateName);
+
+        router.get('/', Auth.hasAuthorization, profile.getAll);
+
+        router.get('/', Auth.hasAuthorization, profile.findByName);
+
+
+            app.use('/profiles', router);
+
+        };

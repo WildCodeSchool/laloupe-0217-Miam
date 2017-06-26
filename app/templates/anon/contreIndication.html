@@ -47,9 +47,9 @@
   <section class="row">
     <div class="col-xs-6" ng-repeat="item in items">
       <div class="contre-item">
-        <span class="glyphicon glyphicon-remove cancel" aria-hidden="true"></span>
+        <span class="glyphicon glyphicon-remove cancel" aria-hidden="true" ng-click="deselect($index)"></span>
         <img class="img-responsive" src="img/{{ correct(item.nameFood) }}.svg" alt="{{ correct(item.nameFood) }}" />
-        <h3>{{ item.nameFood }}</h3>
+        <h3>{{ underscore(item.nameFood) }}</h3>
         <h4>{{ underscore(item.categorie) }}</h4>
         <h5>{{ arrayToString(item.compoFood) }}</h5>
       </div>
@@ -58,13 +58,13 @@
 
   <section class="row">
     <div class="col-xs-12">
-      <button class="btn btn-primary btn-block cancel-all" type="submit" name="button">Tout désélectionner</button>
+      <button class="btn btn-primary btn-block cancel-all" type="submit" name="button" ng-click="deselectAll()">Tout désélectionner</button>
     </div>
   </section>
 
   <section class="row">
     <div class="col-xs-12">
-      <button class="btn btn-primary btn-block contre-ok" type="submit" name="button" ui-sref="anon.manger">Valider</button>
+      <button class="btn btn-primary btn-block contre-ok" type="submit" name="button" ng-click="validate()">Valider</button>
     </div>
   </section>
 

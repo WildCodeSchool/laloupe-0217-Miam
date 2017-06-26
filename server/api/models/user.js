@@ -27,10 +27,10 @@ const userSchema = new mongoose.Schema({
         type: Boolean,
         default: false
     },
-    profile: {
+    profile: [{
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Profile'
-    }
+    }]
 });
 
 userSchema.methods.comparePassword = function(pwd, cb) {
@@ -63,7 +63,7 @@ export default class User {
                             if (isMatch) {
                                 user.password = null;
                                 let tk = jsonwebtoken.sign(user, token, {
-                                    expiresIn: "24h"
+                                    expiresIn: "1y"
                                 });
                                 res.json({
                                     success: true,
@@ -114,7 +114,7 @@ export default class User {
                     res.status(500).send(err.message);
                 } else {
                     let tk = jsonwebtoken.sign(user, token, {
-                        expiresIn: "24h"
+                        expiresIn: "1y"
                     });
                     res.json({
                         success: true,
@@ -133,7 +133,7 @@ export default class User {
                 res.status(500).send(err.message);
             } else {
                 let tk = jsonwebtoken.sign(user, token, {
-                    expiresIn: "24h"
+                    expiresIn: "1y"
                 });
                 res.json({
                     success: true,
