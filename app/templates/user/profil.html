@@ -9,31 +9,65 @@
     </div>
   </div>
 
-  <div class="vueModifier" ng-hide="vueModifier">
-    <div class="row">
-      <div class="col-xs-12 choice-avatar">
-        <img type="button" class="col-xs-3 center-block" src="/img/arrow-top.svg" alt="Précédent" ng-click="up()" />
+
+  <div class="row">
+    <div class="col-xs-12 choice-avatar">
+      <img class="col-xs-offset-3 col-xs-6 img-responsive" ng-src="{{currentAvatar}}" alt="Avatar" data-toggle="modal" data-target="#modal-changeavatar" />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <div id="modal-changeavatar" class="modal fade modal-changeavatar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-body name-modal">
+              <div class="row">
+                <div class="col-xs-12">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+
+
+                  <div class="vueModifier">
+                    <div class="row">
+                      <div class="col-xs-12 choice-avatar">
+                        <img type="button" class="col-xs-3 center-block" src="/img/arrow-top.svg" alt="Précédent" ng-click="up()" />
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-xs-12 choice-avatar">
+                        <img type="button" class="col-xs-3" src="/img/arrow-left.svg" alt="Précédent" ng-click="prev()" />
+                        <div ng-swipe-left="prev()" ng-swipe-right="next()" ng-swipe-up="up()" ng-swipe-down="down ()">
+                          <img class="col-xs-12 img-responsive" ng-src="{{currentAvatar}}" alt="Avatar" />
+                        </div>
+                        <img type="button" class="col-xs-3" src="/img/arrow-right.svg" alt="Suivant" ng-click="next()" />
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-xs-12 choice-avatar">
+                        <img type="button" class="col-xs-3 center-block" src="/img/arrow-bottom.svg" alt="Suivant" ng-click="down()" />
+                      </div>
+                    </div>
+
+
+                    <button class="btn btn-primary btn-block valid-name" type="button" class="valid" ng-click="validUser()" data-dismiss="modal">Ok</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
-    <div class="row">
-      <div class="col-xs-12 choice-avatar">
-        <img type="button" class="col-xs-3" src="/img/arrow-left.svg" alt="Précédent" ng-click="prev()" />
-        <img class="col-xs-6 img-responsive" ng-src="{{currentAvatar}}" alt="Avatar" />
-        <img type="button" class="col-xs-3" src="/img/arrow-right.svg" alt="Suivant" ng-click="next()" />
-      </div>
-    </div>
 
-    <div class="row">
-      <div class="col-xs-12 choice-avatar">
-        <img type="button" class="col-xs-3 center-block" src="/img/arrow-bottom.svg" alt="Suivant" ng-click="down()" />
-      </div>
-    </div>
 
-    <div class="row">
+    <div class="row" ng-hide="vueModifier">
       <div class="col-xs-12 changename">
         <h2>{{ userName }}
-          <button type="button" class="btn btn-primary" type="submit" data-toggle="modal" data-target=".modal-change" ng-click="openModal()"><span class="glyphicon glyphicon-pencil"></span></button>
+          <button type="button" class="btn btn-primary" type="submit" data-toggle="modal" data-target=".modal-change" ng-click="openModal()">
+            <span class="glyphicon glyphicon-pencil"></span>
+          </button>
         </h2>
       </div>
     </div>
@@ -66,7 +100,7 @@
     </div>
     <!--Modal Deconnected-->
 
-    <div class="row">
+    <div class="row" ng-hide="vueModifier">
       <div class="col-xs-12 deconnect">
         <button class="btn btn-primary btn-block" type="submit" data-toggle="modal" data-target=".modal-deconnected" ng-click="openModal()">Se déconnecter</button>
       </div>

@@ -868,7 +868,7 @@ function arrayRemove(array, value) {
  *
  * <br />
  * <div class="alert alert-warning">
- *   Only enumerable properties are taken into account. Non-enumerable properties (both on `source`
+ *   Only enumerable properties are taken into profil. Non-enumerable properties (both on `source`
  *   and on `destination`) will be ignored.
  * </div>
  *
@@ -4936,7 +4936,7 @@ function $AnchorScrollProvider() {
    *   a number representing the offset (in pixels).<br /><br />
    * - **jqLite**: A jqLite/jQuery element to be used for specifying the offset. The distance from
    *   the top of the page to the element's bottom will be used as offset.<br />
-   *   **Note**: The element will be taken into account only as long as its `position` is set to
+   *   **Note**: The element will be taken into profil only as long as its `position` is set to
    *   `fixed`. This option is useful, when dealing with responsive navbars/headers that adjust
    *   their height and/or positioning according to the viewport's size.
    *
@@ -7176,7 +7176,7 @@ function $TemplateCacheProvider() {
  *
  * In general it's possible to apply more than one directive to one element, but there might be limitations
  * depending on the type of scope required by the directives. The following points will help explain these limitations.
- * For simplicity only two directives are taken into account, but it is also applicable for several directives:
+ * For simplicity only two directives are taken into profil, but it is also applicable for several directives:
  *
  * * **no scope** + **no scope** => Two directives which don't require their own scope will use their parent's scope
  * * **child scope** + **no scope** =>  Both directives will share one single child scope
@@ -21001,8 +21001,8 @@ function timeZoneGetter(date, formats, offset) {
 function getFirstThursdayOfYear(year) {
     // 0 = index of January
     var dayOfWeekOnFirst = (new Date(year, 0, 1)).getDay();
-    // 4 = index of Thursday (+1 to account for 1st = 5)
-    // 11 = index of *next* Thursday (+1 account for 1st = 12)
+    // 4 = index of Thursday (+1 to profil for 1st = 5)
+    // 11 = index of *next* Thursday (+1 profil for 1st = 12)
     return new Date(year, 0, ((dayOfWeekOnFirst <= 4) ? 5 : 12) - dayOfWeekOnFirst);
 }
 
@@ -21946,7 +21946,7 @@ function sliceFn(input, begin, end) {
                return (v1.index < v2.index) ? -1 : 1;
              }
 
-             // Compare strings alphabetically, taking locale into account
+             // Compare strings alphabetically, taking locale into profil
              return v1.value.localeCompare(v2.value);
            };
          }]);
@@ -23345,7 +23345,7 @@ var inputType = {
    *    `new RegExp('^abc$')`.<br />
    *    **Note:** Avoid using the `g` flag on the RegExp, as it will cause each successive search to
    *    start at the index of the last search's match, thus not taking the whole input value into
-   *    account.
+   *    profil.
    * @param {string=} ngChange Angular expression to be executed when input changes due to user
    *    interaction with the input element.
    * @param {boolean=} [ngTrim=true] If set to false Angular will not automatically trim the input.
@@ -23985,7 +23985,7 @@ var inputType = {
    *    `new RegExp('^abc$')`.<br />
    *    **Note:** Avoid using the `g` flag on the RegExp, as it will cause each successive search to
    *    start at the index of the last search's match, thus not taking the whole input value into
-   *    account.
+   *    profil.
    * @param {string=} ngChange Angular expression to be executed when input changes due to user
    *    interaction with the input element.
    *
@@ -24083,7 +24083,7 @@ var inputType = {
    *    `new RegExp('^abc$')`.<br />
    *    **Note:** Avoid using the `g` flag on the RegExp, as it will cause each successive search to
    *    start at the index of the last search's match, thus not taking the whole input value into
-   *    account.
+   *    profil.
    * @param {string=} ngChange Angular expression to be executed when input changes due to user
    *    interaction with the input element.
    *
@@ -24182,7 +24182,7 @@ var inputType = {
    *    `new RegExp('^abc$')`.<br />
    *    **Note:** Avoid using the `g` flag on the RegExp, as it will cause each successive search to
    *    start at the index of the last search's match, thus not taking the whole input value into
-   *    account.
+   *    profil.
    * @param {string=} ngChange Angular expression to be executed when input changes due to user
    *    interaction with the input element.
    *
@@ -25165,7 +25165,7 @@ function checkboxInputType(scope, element, attr, ctrl, $sniffer, $browser, $filt
  *    `new RegExp('^abc$')`.<br />
  *    **Note:** Avoid using the `g` flag on the RegExp, as it will cause each successive search to
  *    start at the index of the last search's match, thus not taking the whole input value into
- *    account.
+ *    profil.
  * @param {string=} ngChange Angular expression to be executed when input changes due to user
  *    interaction with the input element.
  * @param {boolean=} [ngTrim=true] If set to false Angular will not automatically trim the input.
@@ -25218,7 +25218,7 @@ function checkboxInputType(scope, element, attr, ctrl, $sniffer, $browser, $filt
  *    `new RegExp('^abc$')`.<br />
  *    **Note:** Avoid using the `g` flag on the RegExp, as it will cause each successive search to
  *    start at the index of the last search's match, thus not taking the whole input value into
- *    account.
+ *    profil.
  * @param {string=} ngChange Angular expression to be executed when input changes due to user
  *    interaction with the input element.
  * @param {boolean=} [ngTrim=true] If set to false Angular will not automatically trim the input.
@@ -32483,7 +32483,7 @@ var optionDirective = ['$interpolate', function($interpolate) {
  * calling {@link ngModel.NgModelController#$isEmpty `NgModelController.$isEmpty`} with the
  * {@link ngModel.NgModelController#$viewValue `ngModel.$viewValue`} returns `true`. For example, the
  * `$isEmpty()` implementation for `input[text]` checks the length of the `$viewValue`. When developing
- * custom controls, `$isEmpty()` can be overwritten to account for a $viewValue that is not string-based.
+ * custom controls, `$isEmpty()` can be overwritten to profil for a $viewValue that is not string-based.
  *
  * @example
  * <example name="ngRequiredDirective" module="ngRequiredExample">
@@ -32560,7 +32560,7 @@ var requiredDirective = function() {
  * <div class="alert alert-info">
  * **Note:** Avoid using the `g` flag on the RegExp, as it will cause each successive search to
  * start at the index of the last search's match, thus not taking the whole input value into
- * account.
+ * profil.
  * </div>
  *
  * <div class="alert alert-info">

@@ -67,15 +67,7 @@ angular.module('app')
                     }
                 }
             })
-            .state('anon.profil', {
-                url: '/profil',
-                views: {
-                    'content@': {
-                        templateUrl: 'anon/profil.html',
-                        controller: 'ProfilController'
-                    }
-                }
-            })
+
             .state('anon.login', {
                 url: '/login',
                 views: {
@@ -117,15 +109,25 @@ angular.module('app')
                     }
                 }
             })
-            .state('user.profile', {
-                url: '/profile',
+            .state('user.profil', {
+                url: '/profil',
                 views: {
                     'content@': {
-                        templateUrl: 'user/profile.html',
-                        controller: 'ProfileController'
+                        templateUrl: 'user/profil.html',
+                        controller: 'ProfilController'
                     }
                 }
             })
+
+            // .state('user.profile', {
+            //     url: '/profile',
+            //     views: {
+            //         'content@': {
+            //             templateUrl: 'user/profile.html',
+            //             controller: 'ProfileController'
+            //         }
+            //     }
+            // })
             .state('user.avatar', {
                 url: '/avatar',
                 views: {

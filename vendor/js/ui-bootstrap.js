@@ -2317,10 +2317,10 @@ angular.module('ui.bootstrap.position', [])
       /**
        * Provides read-only equivalent of jQuery's position function:
        * http://api.jquery.com/position/ - distance to closest positioned
-       * ancestor.  Does not account for margins by default like jQuery position.
+       * ancestor.  Does not profil for margins by default like jQuery position.
        *
        * @param {element} elem - The element to caclulate the position on.
-       * @param {boolean=} [includeMargins=false] - Should margins be accounted
+       * @param {boolean=} [includeMargins=false] - Should margins be profiled
        * for, default is false.
        *
        * @returns {object} An object with the following properties:
@@ -2360,7 +2360,7 @@ angular.module('ui.bootstrap.position', [])
       /**
        * Provides read-only equivalent of jQuery's offset function:
        * http://api.jquery.com/offset/ - distance to viewport.  Does
-       * not account for borders, margins, or padding on the body
+       * not profil for borders, margins, or padding on the body
        * element.
        *
        * @param {element} elem - The element to calculate the offset on.
@@ -2387,7 +2387,7 @@ angular.module('ui.bootstrap.position', [])
 
       /**
        * Provides offset distance to the closest scrollable ancestor
-       * or viewport.  Accounts for border and scrollbar width.
+       * or viewport.  profils for border and scrollbar width.
        *
        * Right and bottom dimensions represent the distance to the
        * respective edge of the viewport element.  If the element
@@ -2398,7 +2398,7 @@ angular.module('ui.bootstrap.position', [])
        * @param {boolean=} [useDocument=false] - Should the viewport be the document element instead
        * of the first scrollable element, default is false.
        * @param {boolean=} [includePadding=true] - Should the padding on the offset parent element
-       * be accounted for, default is true.
+       * be profiled for, default is true.
        *
        * @returns {object} An object with the following properties:
        *   <ul>

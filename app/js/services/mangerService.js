@@ -1,10 +1,12 @@
 angular.module('app')
     .service('MangerService', function($http) {
         return {
-            create: function(food, profile){
-              console.log(profile);
-              return $http.post('/foods', {food: food, profile: profile});
-            }
-
+            findAll: function() {
+              return $http.get('/foods');
+            },
+            like: function(food){
+              console.log(food);
+              return $http.post('/foods', { food: food });
+            },
         };
     });
