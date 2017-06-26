@@ -10,7 +10,7 @@ module.exports = (app) => {
 
         router.get('/', Auth.hasAuthorization, profile.getAll);
 
-        router.get('/name', Auth.hasAuthorization, profile.findByName);
+        // router.get('/name', Auth.hasAuthorization, profile.findByName);
 
         router.post('/updateProfil', Auth.hasAuthorization, profile.findOneAndUpdateProfil);
 

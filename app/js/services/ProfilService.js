@@ -4,8 +4,8 @@ angular.module('app')
         return {
 
             findOneAndUpdateName: function(userId, name, nameAvatar){
-              console.log('modif', name, nameAvatar);
-              return $http.post('/profiles/name', {user: userId, profil : [{userName: name, nameAvatar: nameAvatar}]});
+              console.log(name, nameAvatar);
+              return $http.post('/profiles', {user: userId, userName: name, nameAvatar: nameAvatar});
             },
 
             // getOne: function(name){
@@ -13,13 +13,12 @@ angular.module('app')
             //   return $http.get('/profiles', {userName: name});
             // }
 
-            getOne: function(content){
-              console.log("service", content);
-              return $http.get('/profiles/name', + content);
-            },
+            // getOne: function(content){
+            //   console.log("service", content);
+            //   return $http.get('/profiles', + content);
+            // },
 
             getAll: function() {
-              console.log('getAll');
                           return $http.get('/profiles');
                       },
 

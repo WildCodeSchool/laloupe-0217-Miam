@@ -5,10 +5,10 @@ import User from './user.js';
 
 
 const profileSchema = new mongoose.Schema({
-    user: [{
+    user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
-    }],
+    },
     profil: [{
         userName: {
             type: String
@@ -48,23 +48,23 @@ export default class Profile {
         });
     }
 
-    findByName(req, res) {
-        if (isCurrentProfil === true) {
-
-            model.find({
-                "profil.userName": req.params.userName,
-                "profil.nameAvatar": req.params.nameAvatar
-            }, (err, userName) => {
-                if (err || !userName) {
-                    console.log("403", err);
-                    res.sendStatus(403);
-
-                } else {
-                    res.json(userName);
-                }
-            });
-        }
-    }
+    // findByName(req, res) {
+    //     if (isCurrentProfil === true) {
+    //
+    //         model.find({
+    //             "profil.userName": req.params.userName,
+    //             "profil.nameAvatar": req.params.nameAvatar
+    //         }, (err, userName) => {
+    //             if (err || !userName) {
+    //                 console.log("403", err);
+    //                 res.sendStatus(403);
+    //
+    //             } else {
+    //                 res.json(userName);
+    //             }
+    //         });
+    //     }
+    // }
 
     findOneAndUpdateProfil(req, res) {
         console.log('post (name)', req.body, req.body.profil.userName, req.body.profil.nameAvatar);
@@ -93,31 +93,24 @@ export default class Profile {
 
 
     changeProfil(req, res) {
-      console.log(req.body);
-        model.find({
-                "user": req.body.user._id
-        }, {
-            new: true,
+        model.findOne({
+            user: req.body.user._id
         }, function(err, user) {
             if (err) {
-                console.log("500", err);
                 res.status(500).send(err.message);
             } else if (!user.profil) {
-                res.status(404).send("Auccun profil pour cet id d'utilisateur");
+              console.log('404', user.profil);
+                res.status(404).send("Aucun profil pour cet id d'utilisateur");
             } else {
                 user.profil = user.profil.map(function(element) {
                     if (element.userName != req.body.userName) {
                         element.isCurrentProfil = false;
-                        console.log("false", user.profil);
+                    } else {
+                        element.isCurrentProfil = true;
                     }
-                    element.isCurrentProfil = true;
-                    console.log("true", user.profil);
                     return element;
                 });
                 user.save(function(err) {
-                    if (err) {
-                        console.error('ERROR!');
-                    }
                     res.json(user);
                 });
             }
