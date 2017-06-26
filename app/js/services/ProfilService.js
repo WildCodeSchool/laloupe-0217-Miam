@@ -19,6 +19,7 @@ angular.module('app')
             },
 
             getAll: function() {
+              console.log('getAll');
                           return $http.get('/profiles');
                       },
 

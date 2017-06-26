@@ -42,7 +42,7 @@ export default class Profile {
                 console.error(profiles, err);
 
             } else {
-                console.log('OK', profiles);
+                console.log('GetAll OK', profiles);
                 res.json(profiles);
             }
         });
@@ -93,25 +93,25 @@ export default class Profile {
 
 
     changeProfil(req, res) {
+      console.log(req.body);
         model.find({
-            "user": req.body.user._id
+                "user": req.body.user._id
         }, {
             new: true,
         }, function(err, user) {
             if (err) {
                 console.log("500", err);
                 res.status(500).send(err.message);
-            } else if (!profil) {
-                res.status(500).send(err.message);
+            } else if (!user.profil) {
                 res.status(404).send("Auccun profil pour cet id d'utilisateur");
             } else {
                 user.profil = user.profil.map(function(element) {
                     if (element.userName != req.body.userName) {
                         element.isCurrentProfil = false;
-                        console.log("false", profil);
+                        console.log("false", user.profil);
                     }
                     element.isCurrentProfil = true;
-                    console.log("true", profil);
+                    console.log("true", user.profil);
                     return element;
                 });
                 user.save(function(err) {

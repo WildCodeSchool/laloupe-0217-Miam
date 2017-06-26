@@ -14,7 +14,7 @@ module.exports = (app) => {
 
         router.post('/updateProfil', Auth.hasAuthorization, profile.findOneAndUpdateProfil);
 
-        router.post('changeProfil/', Auth.hasAuthorization, profile.changeProfil);
+        router.post('/changeProfil', Auth.hasAuthorization, profile.changeProfil);
 
         router.post('/name', Auth.hasAuthorization, profile.findOneAndUpdateName);
 

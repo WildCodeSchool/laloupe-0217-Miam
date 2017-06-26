@@ -44,7 +44,7 @@ angular.module('app')
 $scope.changeProfil = function ($index) {
 
 var changeprofil = {
-  user : $scope.user._id,
+  user : $scope.user,
   profil : [{
   isCurrentProfil : true,
   userName : $scope.avatars[$index].userName
