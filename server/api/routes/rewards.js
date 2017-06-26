@@ -9,9 +9,7 @@ module.exports = (app) => {
     var reward = new Reward();
 
     router.get('/', Auth.hasAuthorization, reward.findAll);
-
-    router.post('/locked', Auth.hasAuthorization, reward.locked);
-
+    router.post('/isLocked', Auth.hasAuthorization, reward.locked);
     app.use('/rewards', router);
 
 };
