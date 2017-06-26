@@ -3,7 +3,7 @@ angular.module('app')
         return {
             notEating: function(food) {
               console.log("Food:", food);
-              return $http.post('/foods', { food: food });
+              return $http.post('/foods/notEating', { food: food });
             }
         };
     });

@@ -8,15 +8,15 @@ module.exports = (app) => {
 
         var profile = new Profile();
 
-        // router.post('/', Auth.hasAuthorization, profile.findOneAndUpdateProfil);
-
-        router.post('/', Auth.hasAuthorization, profile.changeProfil);
-
-        router.post('/', Auth.hasAuthorization, profile.findOneAndUpdateName);
-
         router.get('/', Auth.hasAuthorization, profile.getAll);
 
-        router.get('/', Auth.hasAuthorization, profile.findByName);
+        // router.get('/name', Auth.hasAuthorization, profile.findByName);
+
+        router.post('/updateProfil', Auth.hasAuthorization, profile.findOneAndUpdateProfil);
+
+        router.post('/changeProfil', Auth.hasAuthorization, profile.changeProfil);
+
+        router.post('/name', Auth.hasAuthorization, profile.findOneAndUpdateName);
 
 
             app.use('/profiles', router);
