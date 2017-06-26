@@ -13,10 +13,10 @@ angular.module('app')
             //   return $http.get('/profiles', {userName: name});
             // }
 
-            // getOne: function(content){
-            //   console.log("service", content);
-            //   return $http.get('/profiles', + content);
-            // },
+            getOne: function(content){
+              console.log("service", content);
+              return $http.get('/profiles', + content);
+            },
 
             getAll: function() {
                           return $http.get('/profiles');
@@ -24,7 +24,7 @@ angular.module('app')
 
             changeProfil: function(changeProfil){
               console.log('changeProfil', changeProfil);
-              return $http.post('/profiles/changeProfil', changeProfil);
+              return $http.post('/profiles', changeProfil);
             },
 
         };

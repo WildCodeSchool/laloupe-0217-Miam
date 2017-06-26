@@ -5,10 +5,10 @@ import User from './user.js';
 
 
 const profileSchema = new mongoose.Schema({
-    user: {
+    user: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
-    },
+    }],
     profil: [{
         userName: {
             type: String
@@ -34,49 +34,70 @@ const profileSchema = new mongoose.Schema({
 let model = mongoose.model('Profile', profileSchema);
 
 export default class Profile {
+// 
+    // findOneAndUpdateProfil(req, res) {
+    //     console.log('post (name)', req.body, req.body.profil.userName, req.body.profil.nameAvatar);
+    //     model.findOneAndUpdate({
+    //             "user": req.body.user,
+    //         }, {
+    //             $push: {
+    //                 "profil": {
+    //                     "userName": req.body.profil.userName,
+    //                     "nameAvatar": req.body.profil.nameAvatar,
+    //                     "isCurrentProfil": true,
+    //                 }
+    //             }
+    //         }, {
+    //             upsert: true,
+    //         },
+    //         function(err, name) {
+    //             if (err || !name) {
+    //                 console.log("500", err);
+    //                 res.status(500).send(err.message);
+    //             } else {
+    //                 res.json(name);
+    //             }
+    //         });
+    // }
+//
 
-    getAll(req, res) {
-        model.find({}, (err, profiles) => {
-            if (err || !profiles) {
-                res.sendStatus(403);
-                console.error(profiles, err);
-
+    changeProfil(req, res) {
+        model.find({
+            "user": req.body.user._id
+        },{
+            new: true,
+        }, function(err, profil) {
+            if (err) {
+                console.log("500", err);
+                res.status(500).send(err.message);
+            } else if (!profil) { res.status(500).send(err.message);
+                res.status(404).send("Auccun profil pour cet id d'utilisateur");
             } else {
-                console.log('GetAll OK', profiles);
-                res.json(profiles);
+                profil.forEach(function(element) {
+                  console.log("element", element);
+                    if (element.userName != req.body.user) {
+                        element.isCurrentProfil = false;
+                        console.log("false", profil);
+                    }
+                    element.isCurrentProfil = true;
+                    console.log("true", profil);
+
+                    db.collection.save(profil);
+                });
+                res.json(profil);
             }
         });
     }
 
-    // findByName(req, res) {
-    //     if (isCurrentProfil === true) {
-    //
-    //         model.find({
-    //             "profil.userName": req.params.userName,
-    //             "profil.nameAvatar": req.params.nameAvatar
-    //         }, (err, userName) => {
-    //             if (err || !userName) {
-    //                 console.log("403", err);
-    //                 res.sendStatus(403);
-    //
-    //             } else {
-    //                 res.json(userName);
-    //             }
-    //         });
-    //     }
-    // }
 
-    findOneAndUpdateProfil(req, res) {
-        console.log('post (name)', req.body, req.body.profil.userName, req.body.profil.nameAvatar);
+
+    findOneAndUpdateName(req, res) {
         model.findOneAndUpdate({
-                "user": req.body.user,
+                "user": req.body.user
             }, {
-                $push: {
-                    "profil": {
-                        "userName": req.body.profil.userName,
-                        "nameAvatar": req.body.profil.nameAvatar,
-                        "isCurrentProfil": true,
-                    }
+                $set: {
+                    "profil.userName": req.body.userName,
+                    "profil.nameAvatar": req.body.nameAvatar
                 }
             }, {
                 upsert: true,
@@ -91,60 +112,37 @@ export default class Profile {
             });
     }
 
+    findByName(req, res) {
+        if (isCurrentProfil === true) {
 
-    changeProfil(req, res) {
-        model.findOne({
-            user: req.body.user._id
-        }, function(err, user) {
-            if (err) {
-                res.status(500).send(err.message);
-            } else if (!user.profil) {
-              console.log('404', user.profil);
-                res.status(404).send("Aucun profil pour cet id d'utilisateur");
+            model.find({
+                "profil.userName": req.params.userName,
+                "profil.nameAvatar": req.params.nameAvatar
+            }, (err, userName) => {
+                if (err || !userName) {
+                    console.log("403", err);
+                    res.sendStatus(403);
+
+                } else {
+                    res.json(userName);
+                }
+            });
+        }
+    }
+
+
+    getAll(req, res) {
+        model.find({}, (err, profiles) => {
+            if (err || !profiles) {
+                res.sendStatus(403);
+                console.error(profiles, err);
+
             } else {
-                user.profil = user.profil.map(function(element) {
-                    if (element.userName != req.body.userName) {
-                        element.isCurrentProfil = false;
-                    } else {
-                        element.isCurrentProfil = true;
-                    }
-                    return element;
-                });
-                user.save(function(err) {
-                    res.json(user);
-                });
+                console.log('OK', profiles);
+                res.json(profiles);
             }
         });
     }
-
-
-
-    findOneAndUpdateName(req, res) {
-        model.findOneAndUpdate({
-                "user": req.body.user,
-                "profil.isCurrentProfil": true,
-            }, {
-                $set: {
-                    "profil.userName": req.body.userName,
-                    "profil.nameAvatar": req.body.nameAvatar
-                }
-            }, {
-                new: true,
-            },
-            function(err, name) {
-                if (err || !name) {
-                    console.log("500", err);
-                    res.status(500).send(err.message);
-                } else {
-                    res.json(name);
-                }
-            });
-    }
-
-
-
-
-
 
 
 }

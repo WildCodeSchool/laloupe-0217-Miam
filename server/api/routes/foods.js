@@ -10,11 +10,11 @@ module.exports = (app) => {
 
     router.get('/', Auth.hasAuthorization, food.findAll);
 
-    router.post('/like', Auth.hasAuthorization, food.like);
+    router.post('/', Auth.hasAuthorization, food.like);
 
-    router.post('/taste', Auth.hasAuthorization, food.taste);
+    router.post('/', Auth.hasAuthorization, food.taste);
 
-    router.post('/notEating', Auth.hasAuthorization, food.notEating);
+    router.post('/', Auth.hasAuthorization, food.notEating);
 
     app.use('/foods', router);
 

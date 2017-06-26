@@ -6,11 +6,11 @@ angular.module('app')
             },
             taste: function(choice){
               console.log(choice);
-              return $http.post('/foods/taste', { food: choice });
+              return $http.post('/foods', { food: choice });
             },
             like: function(like){
               console.log(like);
-              return $http.post('/foods/like', { food: like });
+              return $http.post('/foods', { food: like });
             },
         };
     });
