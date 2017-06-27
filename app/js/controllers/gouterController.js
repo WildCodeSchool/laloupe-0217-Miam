@@ -17,12 +17,9 @@ angular.module('app')
 
     // GENERALITY
     var i = 0;
-
     $scope.user = CurrentUser.user();
-
     $scope.foodList = FoodFactory;
     $scope.categories = Object.keys($scope.foodList);
-    console.log($scope.foodList);
 
     // DO NOT SHOW ALIM WITH CONTRAINDICATION
     $scope.foodNotEaten = [];
@@ -81,95 +78,24 @@ angular.module('app')
 
     // SEE VOTED/LIKED FOOD
     $scope.votes = [];
-    $scope.currentCategorie = $scope.categories[i];
-    $scope.currentAliments = $scope.foodList[$scope.currentCategorie].aliments;
-
-    // function voted (food) {
-    //   GouterService.findLiked(CurrentUser.user()._id).then(function(res) {
-    //     $scope.votes = res.data;
-    //     $scope.votes.forEach(function(votes) {
-    //       $scope.foodKey = votes;
-    //       $scope.foodNameVote = votes.food.nameFood;
-    //       $scope.foodVotes = votes.food.countVote;
-    //       $scope.categories.forEach(function(categories) {
-    //         $scope.currentCategorie = categories;
-    //         $scope.currentAliments = $scope.foodList[$scope.currentCategorie].aliments;
-    //
-    //         $scope.currentAliments.forEach(function(currentAliments) {
-    //
-    //           if ($scope.foodNameVote === currentAliments.name) {
-    //             console.log("One food voted on match!", $scope.foodNameVote, $scope.foodVotes);
-    //
-    //             $scope.foodVotes.forEach(function(foodVotes) {
-    //               var isLiked = true;
-    //               var isDisliked = false;
-    //               console.log("$scope.foodLiked = ($scope.foodVotes.indexOf(isLiked) !== -1)", $scope.foodVotes.indexOf(isLiked) !== -1);
-    //               $scope.foodLiked = ($scope.foodVotes.indexOf(isLiked) !== -1);
-    //               $scope.foodDisliked = ($scope.foodVotes.indexOf(isDisliked) !== -1);
-    //               if ($scope.foodLiked) {
-    //                 console.log("$scope.foodVotes.indexOf(isLiked)", $scope.foodVotes.indexOf(isLiked));
-    //                 console.log($scope.foodVotes.splice($scope.foodVotes.indexOf(true), 1));
-    //                 console.log("$scope.foodVotes after splice", $scope.foodVotes);
-    //
-    //                   // console.log("This aliment was liked", $scope.foodLiked);
-    //                   // var sliced = $scope.foodVotes.slice($scope.foodVotes.indexOf(true), 1);
-    //                   // console.log("sliced", sliced);
-    //
-    //               } else if ($scope.foodDisliked) {
-    //                 // console.log("This aliment was disliked", $scope.foodDisliked);
-    //               } else {
-    //                 console.log("Do nothing, there is no voted food here.");
-    //               }
-    //             });
-    //
-    //
-    //           } else {
-    //             console.log("Those two aliments are not equals");
-    //           }
-    //
-    //         });
-    //
-    //       });
-    //
-    //     });
-    //   }, function(err) {
-    //     console.log("$scope.votes not working!");
-    //   });
-    // }
-    // $scope.currentAliments.filter(voted);
-
-
-    function voted(food) {
-      return GouterService.findLiked(CurrentUser.user()._id).then(function(res) {
+    function filterVote() {
+      return GouterService.findAll(CurrentUser.user()._id).then(function(res) {
         $scope.votes = res.data;
-        $scope.categories.forEach(function(categories) {
-          $scope.currentCategorie = categories;
-          $scope.currentAliments = $scope.foodList[$scope.currentCategorie].aliments;
-          $scope.votes.forEach(function(votes) {
-            $scope.currentAliments.forEach(function(currentAliments) {
-              if (currentAliments.name === votes.food.nameFood) {
-
-                votes.food.countVote.forEach(function(countVote) {
-                  $scope.isLiked = countVote === true;
-                  $scope.isDisliked = countVote === false;
-                  if($scope.isLiked) {
-                    console.log("Vote TRUE", currentAliments.name, votes.food.countVote);
-                  } else if ($scope.isDisliked) {
-                    console.log("Vote FALSE", currentAliments.name, votes.food.countVote);
-                  } else {
-                    console.log("No countVote");
-                  }
-                });
-
-              } else {
-                console.log("Not a match");
-              }
-            });
+        var nameVote = $scope.votes.map(function(vote) {
+          return vote.food.nameFood;
+        });
+        $scope.categories.forEach(function(categorie) {
+          $scope.foodList[categorie].aliments.forEach(function(aliment, i) {
+            var index = nameVote.indexOf(aliment.name);
+            if(index != -1) {
+              $scope.foodList[categorie].aliments[i].votes = $scope.votes[index].food.countVote;
+            }
           });
         });
       });
     }
-    $scope.currentAliments.filter(voted);
+    filterVote();
+    console.log($scope.foodList);
 
 
     // TO TASTE FOOD
