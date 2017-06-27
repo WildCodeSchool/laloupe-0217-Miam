@@ -69,34 +69,35 @@ export default class Profile {
     findOneAndUpdateProfil(req, res) {
         console.log('post (name)', req.body, req.body.profil.userName, req.body.profil.nameAvatar);
         model.findOneAndUpdate({
-                "user": req.body.user,
-            },
-            user.profil = user.profil.map(function(element) {
-                if (element.userName != req.body.userName) {
-                    element.isCurrentProfil = false;
-                } else {
+              user: req.body.user._id,
+        }, function(err, user) {
+          console.log("user profil", user.profil);
+          profil = profil.map(function(element) {
+                    if (element.userName != req.body.userName) {
+                        element.isCurrentProfil = false;
+                    } else {
 
-                    $push: {
-                        profil: {
-                            userName = req.body.profil.userName,
-                            nameAvatar = req.body.profil.nameAvatar,
-                            isCurrentProfil = true;
+                        $push: {
+                            profil: {
+                                userName = req.body.profil.userName,
+                                nameAvatar = req.body.profil.nameAvatar,
+                                isCurrentProfil = true;
+                            }
                         }
                     }
-                }
-                return element;
-            }),
-            {
-                upsert: true,
-            },
-            function(err, name) {
-                if (err || !name) {
-                    console.log("500", err);
-                    res.status(500).send(err.message);
-                } else {
-                    res.json(name);
-                }
-            });
+                    return element;
+                }), {
+                    upsert: true,
+                },
+                function(err, name) {
+                    if (err || !name) {
+                        console.log("500", err);
+                        res.status(500).send(err.message);
+                    } else {
+                        res.json(name);
+                    }
+                };
+        });
     }
 
 
@@ -117,6 +118,7 @@ export default class Profile {
                         element.isCurrentProfil = true;
                     }
                     return element;
+
                 });
                 user.save(function(err) {
                     res.json(user);
@@ -124,6 +126,7 @@ export default class Profile {
             }
         });
     }
+
 
 
 
