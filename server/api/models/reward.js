@@ -32,4 +32,27 @@ export default class Reward {
       });
     }
 
-}
+      locked(req, res) {
+        model.findOneAndUpdate({
+            "reward.nameReward": req.body.reward.nameReward
+          }, {
+            $set: {
+              "profile": req.body.profile,
+            },
+            $push: {
+              "reward.isLocked": req.body.reward.isLocked,
+            },
+          }, {
+            upsert: true,
+            multi: true,
+            new: true
+          },
+          function(err, reward) {
+            if (err || !reward) {
+              res.status(500).send(err.message);
+            } else {
+              res.json(reward);
+            }
+          });
+      }
+    }
