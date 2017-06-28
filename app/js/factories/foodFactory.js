@@ -98,14 +98,14 @@ angular.module('app')
             },
             Féculents: {
                 portion: "Il faut manger des féculents plusieurs fois par jour sous différentes formes (pain, pâtes, pommes de terre).",
-                aliments: [{
-
-                        name: "Céréales",
-                        picto: "/img/cereale.svg",
-                        description: "A Paris, il existe des 'bars à céréales' où l'on peut choisir la taille de son bol, ses cérérales, son lait et même des fruits et un nappage.",
-                        suggestions: ["seules", "avec du lait chaud ou froid", "en barres", "roses des sables", "nuggets de poulet"],
-                        composition: ["Gluten"]
-                    },
+                aliments: [
+                  {
+                      name: "Riz",
+                      picto: "/img/riz.svg",
+                      description: "En moyenne, un Français mange 4.5 kilos de riz par an contre près de 90 kilos pour un chinois.",
+                      suggestions: ["en salade", "en gratin", "paëlla", "risotto", "riz cantonais", "riz pilaf", "sushi", "maki", "riz au lait", "gâteau", "vapeur"],
+                      composition: [""]
+                  },
                     {
                         name: "Maïs",
                         picto: "/img/mais.svg",
@@ -121,6 +121,13 @@ angular.module('app')
                         composition: ["Gluten"]
                     },
                     {
+                          name: "Céréales",
+                          picto: "/img/cereale.svg",
+                          description: "A Paris, il existe des 'bars à céréales' où l'on peut choisir la taille de son bol, ses cérérales, son lait et même des fruits et un nappage.",
+                          suggestions: ["seules", "avec du lait chaud ou froid", "en barres", "roses des sables", "nuggets de poulet"],
+                          composition: ["Gluten"]
+                      },
+                    {
                         name: "Petits_pois",
                         picto: "/img/petits_pois.svg",
                         description: "Malgré leur petite taille de départ, les plants de petits pois peuvent atteindre 1,80 m de hauteur.",
@@ -134,25 +141,11 @@ angular.module('app')
                         suggestions: ["à l'eau", "à la vapeur", "frites", "sautées", "au four", "en salade", "en gratin", "en purée", "en soupe"],
                         composition: [""]
                     },
-                    {
-                        name: "Riz",
-                        picto: "/img/riz.svg",
-                        description: "En moyenne, un Français mange 4.5 kilos de riz par an contre près de 90 kilos pour un chinois.",
-                        suggestions: ["en salade", "en gratin", "paëlla", "risotto", "riz cantonais", "riz pilaf", "sushi", "maki", "riz au lait", "gâteau", "vapeur"],
-                        composition: [""]
-                    },
                 ]
             },
             Viandes_Poissons_Œufs: {
                 portion: "Il faut en manger 1 fois par jour, 2 maximum.",
-                aliments: [{
-
-                        name: "Crevette",
-                        picto: "/img/crevette.svg",
-                        description: "La durée de vie d'une crevette est de 7 ans.",
-                        suggestions: ["cuites", "en apéritif", "en beignet", "crues", "sautées", "en sauce", "à l'ail", "en verrines", "en bouchées vapeur", "en salade"],
-                        composition: ["Poisson"]
-                    },
+                aliments: [
                     {
                         name: "Œuf",
                         picto: "/img/oeuf.svg",
@@ -168,6 +161,13 @@ angular.module('app')
                         composition: ["Viande"]
                     },
                     {
+                        name: "Steak",
+                        picto: "/img/steak.svg",
+                        description: "En 2002, un groupe de bouchers français a fait un steak de 27 mètres de long, c'est le record du monde !",
+                        suggestions: ["crue", "en carpaccio", "en tartare", "cuite", "grillée", "rôtie", "bouillie", "au barbecue", "à la plancha", "en fondue", "en pierrade"],
+                        composition: ["Viande"]
+                    },
+                    {
                         name: "Saucisse",
                         picto: "/img/saucisse.svg",
                         description: "Le marie de la Reine d'Angleterre la surnomme parfois 'sausage', soit 'saucisse' en français.",
@@ -175,18 +175,18 @@ angular.module('app')
                         composition: ["Viande"]
                     },
                     {
+                            name: "Crevette",
+                            picto: "/img/crevette.svg",
+                            description: "La durée de vie d'une crevette est de 7 ans.",
+                            suggestions: ["cuites", "en apéritif", "en beignet", "crues", "sautées", "en sauce", "à l'ail", "en verrines", "en bouchées vapeur", "en salade"],
+                            composition: ["Poisson"]
+                        },
+                    {
                         name: "Saumon",
                         picto: "/img/saumon.svg",
                         description: "Le saumon peut parcourir plusieurs milliers de km au cours de sa vie et sauter jusqu'à 3 mètres de haut.",
                         suggestions: ["fumé", "en papillote", "en croûte", "pané", "à la vapeur", "poêlé", "grillé", "meunière", "à l'anglaise", "frit", "poché"],
                         composition: ["Poisson"]
-                    },
-                    {
-                        name: "Steak",
-                        picto: "/img/steak.svg",
-                        description: "En 2002, un groupe de bouchers français a fait un steak de 27 mètres de long, c'est le record du monde !",
-                        suggestions: ["crue", "en carpaccio", "en tartare", "cuite", "grillée", "rôtie", "bouillie", "au barbecue", "à la plancha", "en fondue", "en pierrade"],
-                        composition: ["Viande"]
                     },
                 ]
             },
@@ -237,21 +237,7 @@ angular.module('app')
             },
             Produits_sucrés: {
                 portion: "Il faut en consommer avec modération.",
-                aliments: [{
-
-                        name: "Chocolat",
-                        picto: "/img/chocolat.svg",
-                        description: "Avant d'être mangé sous forme de tablette, le chocolat était consommé en boisson amère, sous le règne des rois de Versailles.",
-                        suggestions: ["noir", "blanc", "au lait", "contenant du riz soufflé, des céréales, des noisettes", "en mousse ou glace", "en tablette", "en pâte à tartiner", "avec du lait chaud", "dans un gâteau (fondant, moelleux, muffins, brownies...)"],
-                        composition: [""]
-                    },
-                    {
-                        name: "Confiture",
-                        picto: "/img/confiture.svg",
-                        description: "Au Moyen-Age, la confiture était appelée 'électuaire', ce qui signifie : médicament à lécher.",
-                        suggestions: ["de fruits", "de lait", "sur une tartine de pain ou de brioche", "sur les crêpes ou gaufres", "dans le fromage blanc", "en gâteau (roulé, sablé, tarte, beignet, muffin, chausson...)"],
-                        composition: [""]
-                    },
+                aliments: [
                     {
                         name: "Glace",
                         picto: "/img/glace.svg",
@@ -266,6 +252,20 @@ angular.module('app')
                         suggestions: ["nougat", "dans une vinaigrette", "badigeonné sur de la viande (boeuf, canard, ribs...)", "dans le yaourt ou dans le lait chaud", "dans un gâteau (pain d'épices, madeleines, sablés..)", "sur une tartine"],
                         composition: [""]
                     },
+                    {
+                            name: "Chocolat",
+                            picto: "/img/chocolat.svg",
+                            description: "Avant d'être mangé sous forme de tablette, le chocolat était consommé en boisson amère, sous le règne des rois de Versailles.",
+                            suggestions: ["noir", "blanc", "au lait", "contenant du riz soufflé, des céréales, des noisettes", "en mousse ou glace", "en tablette", "en pâte à tartiner", "avec du lait chaud", "dans un gâteau (fondant, moelleux, muffins, brownies...)"],
+                            composition: [""]
+                        },
+                        {
+                            name: "Confiture",
+                            picto: "/img/confiture.svg",
+                            description: "Au Moyen-Age, la confiture était appelée 'électuaire', ce qui signifie : médicament à lécher.",
+                            suggestions: ["de fruits", "de lait", "sur une tartine de pain ou de brioche", "sur les crêpes ou gaufres", "dans le fromage blanc", "en gâteau (roulé, sablé, tarte, beignet, muffin, chausson...)"],
+                            composition: [""]
+                        },
                     {
                         name: "Pâte_à_tartiner",
                         picto: "/img/nutella.svg",
