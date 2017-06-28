@@ -103,6 +103,14 @@ angular.module('app')
 
 
     // TO TASTE FOOD
+
+    $scope.foods = [];
+
+    GouterService.findAll(CurrentUser.user()._id).then(function(res) {
+      $scope.foods = res.data;
+      console.log("Food to taste in database", $scope.foods);
+    });
+
     $scope.filterTaste = function(food) {
       if (food.food.toTaste === true) {
         return true;
@@ -110,68 +118,10 @@ angular.module('app')
       return false;
     };
 
-    // $scope.toTaste = [];
-    // $scope.listTaste = [];
-    // function filterTaste() {
-    //   return GouterService.findAll(CurrentUser.user()._id).then(function(res) {
-    //     $scope.toTaste = res.data;
-    //     var nameTaste = $scope.toTaste.map(function(taste) {
-    //       return taste.food.nameFood;
-    //     });
-    //     $scope.categories.forEach(function(categorie) {
-    //       $scope.foodList[categorie].aliments.forEach(function(aliment, i) {
-    //         var index = nameTaste.indexOf(aliment.name);
-    //         if(index != -1) {
-    //           if($scope.toTaste[index].food.toTaste === true) {
-    //             var alimToTaste = {
-    //               'nameFood': aliment.name,
-    //               'toTaste': true
-    //             };
-    //             console.log(alimToTaste);
-    //             $scope.listTaste.push(alimToTaste);
-    //             console.log("$scope.listTaste.push(alimToTaste)", $scope.listTaste.push(alimToTaste));
-    //             console.log($scope.listTaste);
-    //             // $scope.foodList[categorie].aliments[i].toTaste = $scope.toTaste[index].food.toTaste;
-    //             // console.log("$scope.foodList[categorie].aliments[i].toTaste", $scope.foodList[categorie].aliments[i].toTaste);
-    //           } else {
-    //             $scope.listTaste.splice($scope.toTaste[index].food.toTaste, 0);
-    //           }
-    //
-    //         }
-    //       });
-    //     });
-    //   });
-    // }
-    // filterTaste();
-    // console.log($scope.foodList);
-
-    // $scope.toTaste = [];
-    // function filterTaste() {
-    //   return GouterService.findAll(CurrentUser.user()._id).then(function(res) {
-    //     $scope.toTaste = res.data;
-    //     var nameTaste = $scope.toTaste.map(function(taste) {
-    //       return taste.food.nameFood;
-    //     });
-    //     $scope.categories.forEach(function(categorie) {
-    //       $scope.foodList[categorie].aliments.forEach(function(aliment, i) {
-    //         var index = nameTaste.indexOf(aliment.name);
-    //         if(index != -1) {
-    //           if($scope.toTaste[index].food.toTaste === true) {
-    //             $scope.foodList[categorie].aliments[i].toTaste = $scope.toTaste[index].food.toTaste;
-    //             console.log("$scope.foodList[categorie].aliments[i].toTaste", $scope.foodList[categorie].aliments[i].toTaste);
-    //           }
-    //         }
-    //       });
-    //     });
-    //   });
-    // }
-    // filterTaste();
-    // console.log($scope.foodList);
-
     $scope.addChoice = function(name) {
       var choice = {
         nameFood: name,
-        toTaste: true
+        // toTaste: true
       };
       if ($scope.user.email !== undefined) {
         console.log("Database", choice);
@@ -186,7 +136,7 @@ angular.module('app')
     $scope.deselect = function(name) {
       var choice = {
         nameFood: name,
-        toTaste: false
+        // toTaste: false
       };
       if ($scope.user.email !== undefined) {
         GouterService.taste(choice).then(function(res) {}, function(err) {});
