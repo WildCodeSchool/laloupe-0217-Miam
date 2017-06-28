@@ -53,14 +53,11 @@ export default class Food {
         $set: {
           "profile": req.body.profile,
           "food.countVote": req.body.food.countVote,
+          "food.doNotEat": true,
           "food.toTaste": req.body.food.toTaste
-        },
-        $push: {
-          "food.doNotEat": req.body.food.doNotEat,
         },
       }, {
         upsert: true,
-        multi: true,
         new: true
       },
       function(err, food) {
@@ -78,15 +75,34 @@ export default class Food {
       }, {
         $set: {
           "profile": req.body.profile,
-          "food.countVote": req.body.food.countVote,
           "food.doNotEat": req.body.food.doNotEat,
-        },
-        $push: {
-          "food.toTaste": req.body.food.toTaste
+          "food.toTaste": req.body.food.toTaste,
         },
       }, {
         upsert: true,
-        multi: true,
+        new: true
+      },
+      function(err, food) {
+        if (err || !food) {
+          res.status(500).send(err.message);
+        } else {
+          res.json(food);
+        }
+      });
+  }
+
+  likeAll(req, res) {
+    model.findOneAndUpdate({
+        "food.nameFood": req.body.food.nameFood
+      }, {
+        $set: {
+          "profile": req.body.profile,
+          "food.countVote": [true, true, true],
+          "food.doNotEat": req.body.food.doNotEat,
+          "food.toTaste": req.body.food.toTaste,
+        },
+      }, {
+        upsert: true,
         new: true
       },
       function(err, food) {
@@ -124,29 +140,5 @@ export default class Food {
         }
       });
   }
-
-
-    // findOneAndUpdate(req, res) {
-    //     model.findOneAndUpdate({
-    //         "food.nameFood": req.body.food.nameFood
-    //     }, {
-    //         $push: {
-    //             "food.countVote": req.body.food.countVote
-    //         }
-    //     }, {
-    //         upsert: true,
-    //     },
-    //
-    //     function (err, like) {
-    //         if (err || !like) {
-    //
-    //             console.log("error", err.message, nameFood);
-    //             res.status(500).send(err.message);
-    //         } else {
-    //             res.json(like);
-    //         }
-    //     });
-    // }
-
 
 }

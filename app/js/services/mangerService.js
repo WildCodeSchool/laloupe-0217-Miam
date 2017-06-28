@@ -4,9 +4,9 @@ angular.module('app')
             findAll: function() {
               return $http.get('/foods');
             },
-            like: function(food){
+            likeAll: function(food){
               console.log(food);
-              return $http.post('/foods/like', { food: food });
+              return $http.post('/foods/likeAll/', { food: food });
             },
         };
     });

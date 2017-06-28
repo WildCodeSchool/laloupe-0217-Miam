@@ -112,7 +112,6 @@ angular.module('app')
           var alreadyEaten = {
             categorie: $scope.currentCategorie,
             nameFood: $scope.currentAliments[l].name,
-            countVote: [true, true, true],
           };
 
           $scope.alimentsForDatabase.push(alreadyEaten);
@@ -163,7 +162,7 @@ angular.module('app')
         console.log("dataBase");
         for (var j = 0; j < $scope.alimentsForDatabase.length; j++) {
 
-          MangerService.like($scope.alimentsForDatabase[j], $scope.user._id).then(function(res) {
+          MangerService.likeAll($scope.alimentsForDatabase[j], $scope.user._id).then(function(res) {
 
           }, function(err) {});
         }
