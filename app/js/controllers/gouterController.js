@@ -121,7 +121,7 @@ angular.module('app')
     $scope.addChoice = function(name) {
       var choice = {
         nameFood: name,
-        // toTaste: true
+        toTaste: true
       };
       if ($scope.user.email !== undefined) {
         console.log("Database", choice);
@@ -136,7 +136,7 @@ angular.module('app')
     $scope.deselect = function(name) {
       var choice = {
         nameFood: name,
-        // toTaste: false
+        toTaste: false
       };
       if ($scope.user.email !== undefined) {
         GouterService.taste(choice).then(function(res) {}, function(err) {});
