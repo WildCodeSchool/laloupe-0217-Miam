@@ -87,7 +87,7 @@ angular.module('app')
         $scope.categories.forEach(function(categorie) {
           $scope.foodList[categorie].aliments.forEach(function(aliment, i) {
             var index = nameVote.indexOf(aliment.name);
-            if(index != -1) {
+            if(index !== -1) {
               $scope.foodList[categorie].aliments[i].votes = $scope.votes[index].food.countVote;
               $scope.foodList[categorie].aliments[i].votes.length = 3;
             } else {
@@ -104,7 +104,7 @@ angular.module('app')
 
     // TO TASTE FOOD
     $scope.foods = [];
-    
+
     GouterService.findAll(CurrentUser.user()._id).then(function(res) {
       $scope.foods = res.data;
       console.log("Food to taste in database", $scope.foods);
