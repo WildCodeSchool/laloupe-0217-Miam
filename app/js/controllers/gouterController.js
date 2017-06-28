@@ -89,6 +89,10 @@ angular.module('app')
             var index = nameVote.indexOf(aliment.name);
             if(index != -1) {
               $scope.foodList[categorie].aliments[i].votes = $scope.votes[index].food.countVote;
+              $scope.foodList[categorie].aliments[i].votes.length = 3;
+            } else {
+              $scope.foodList[categorie].aliments[i].votes = [];
+              $scope.foodList[categorie].aliments[i].votes.length = 3;
             }
           });
         });

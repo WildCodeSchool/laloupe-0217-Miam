@@ -43,7 +43,7 @@
         <img src="{{ food.picto }}" alt="{{ food.name }}" />
         <h3>{{ underscore(food.name) }}</h3>
         <span class="circle-vote" ng-repeat="vote in food.votes track by $index| limitTo : 3">
-          <i class="fa fa-circle" aria-hidden="true" ng-class="{ liked: vote, disliked: !vote }"></i>
+          <i class="fa fa-circle" aria-hidden="true" ng-class="{ 'liked': vote === true, 'disliked': vote === false, 'white': votes.length === undefined }"></i>
         </span>
       </div>
 
@@ -66,7 +66,7 @@
               <div class="row">
                 <div class="col-xs-offset-3 col-xs-6">
                   <span class="circle-vote" ng-repeat="vote in food.votes track by $index| limitTo : 3">
-                    <i class="fa fa-circle" aria-hidden="true" ng-class="{ liked: vote, disliked: !vote }"></i>
+                    <i class="fa fa-circle" aria-hidden="true" ng-class="{ 'liked': vote === true, 'disliked': vote === false, 'white': votes.length === undefined }"></i>
                   </span>
                 </div>
               </div>
