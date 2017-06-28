@@ -775,13 +775,14 @@ td h3 {
 }
 
 .dropdown {
+  text-align: left;
   padding: 0;
   margin: 0.2rem 0;
 }
 
 .dropdown .dropdown-toggle {
   background-color: @second-color;
-  padding: 0.2rem 0;
+  padding: 0.2rem 0 0.2rem 0.8rem;
   border: none;
 }
 
@@ -804,13 +805,6 @@ td h3 {
   border: none;
 }
 
-.overlay-content h1 {
-  font-size: 2em;
-  color: @main-color;
-  margin: 25px 0;
-  padding: 0;
-}
-
 .overlay {
   height: 100%;
   width: 0;
@@ -823,19 +817,12 @@ td h3 {
   transition: 0.5s;
 }
 
-.overlay-content {
-  position: relative;
-  top: 30%;
-  width: 100%;
+.overlay-content,
+.overlay .closebtn {
+  font-size: 1.6rem;
+  padding: 1rem;
   color: white;
-}
-
-.overlay-content h2 {
-  font-size: 1.8em;
-}
-
-.glyphicon-menu-hamburger {
-  margin-left: 6rem;
+  float: right;
 }
 
 .glyphicon-menu-hamburger,
@@ -843,13 +830,25 @@ td h3 {
   opacity: 0.6;
 }
 
-.menu a {
-  color: white;
-  font-size: 50px;
+.center-menu {
+  min-height: 90vh;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-justify-content: center;
+  justify-content: center;
 }
 
-ul {
+.menu {
+  padding: 0;
   list-style-type: none;
+}
+
+.menu a {
+  color: white;
+  font-size: 2em;
+  line-height: 1.5em;
 }
 /* ------------------------------ NAVBAR USER ------------------------------ */
 .mini-avatar {
