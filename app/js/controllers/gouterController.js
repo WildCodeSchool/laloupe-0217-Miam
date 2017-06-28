@@ -109,6 +109,8 @@ angular.module('app')
     GouterService.findAll(CurrentUser.user()._id).then(function(res) {
       $scope.foods = res.data;
       console.log("Food to taste in database", $scope.foods);
+    }, function(err) {
+      console.log("Doesn't work!");
     });
 
     $scope.filterTaste = function(food) {
