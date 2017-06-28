@@ -27,18 +27,6 @@
 
   <section class="row taste">
     <h2>À goûter</h2>
-    <!-- <div class="" ng-repeat="categorie in categories">
-      <div class="" ng-repeat="food in foodList[categorie].aliments track by $index | limitTo : 6" ng-show="food.toTaste === true">
-        <div class="col-xs-6">
-          <div class="to-taste">
-            <span class="glyphicon glyphicon-remove cancel" aria-hidden="true" ng-click="deselect(food.name)"></span>
-            <img class="img-responsive" src="img/{{ correct(food.name) }}.svg" alt="{{ correct(food.name) }}" />
-            <h3>{{ underscore(food.name) }}</h3>
-          </div>
-        </div>
-      </div>
-    </div> -->
-
     <div class="col-xs-6" ng-repeat="food in foods | filter: filterTaste | limitTo : 6">
       <div class="to-taste">
         <span class="glyphicon glyphicon-remove cancel" aria-hidden="true" ng-click="deselect(food.food.nameFood)"></span>
@@ -47,7 +35,7 @@
       </div>
     </div>
   </section>
-
+  
   <section class="row" ng-repeat="categorie in categories">
     <h2>{{ underscore(categorie) }}</h2>
     <div id="_{{ food.name }}" class="gouter" ng-repeat="food in foodList[categorie].aliments">

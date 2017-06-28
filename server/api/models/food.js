@@ -76,7 +76,7 @@ export default class Food {
         $set: {
           "profile": req.body.profile,
           "food.doNotEat": req.body.food.doNotEat,
-          "food.toTaste": true,
+          "food.toTaste": req.body.food.toTaste,
         },
       }, {
         upsert: true,
