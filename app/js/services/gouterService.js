@@ -4,9 +4,6 @@ angular.module('app')
             findAll: function() {
               return $http.get('/foods');
             },
-            findLiked: function() {
-              return $http.get('/foods/findLiked/');
-            },
             taste: function(choice){
               console.log(choice);
               return $http.post('/foods/taste/', { food: choice });

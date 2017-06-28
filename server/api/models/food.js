@@ -46,18 +46,6 @@ export default class Food {
       });
   }
 
-  findLiked(req, res) {
-    model.find({
-      "food.countVote": "food.countVote",
-    }, "food.nameFood food.countVote", function(err, foods) {
-      if (err || !foods) {
-        res.sendStatus(403);
-      } else {
-        res.json(foods);
-      }
-    });
-  }
-
   notEating(req, res) {
     model.findOneAndUpdate({
         "food.nameFood": req.body.food.nameFood
@@ -87,7 +75,6 @@ export default class Food {
       }, {
         $set: {
           "profile": req.body.profile,
-          "food.countVote": req.body.food.countVote,
           "food.doNotEat": req.body.food.doNotEat,
           "food.toTaste": true,
         },

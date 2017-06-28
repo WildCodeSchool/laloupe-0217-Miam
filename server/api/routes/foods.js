@@ -8,8 +8,6 @@ module.exports = (app) => {
 
     var food = new Food();
 
-    router.get('/findLiked', Auth.hasAuthorization, food.findLiked);
-
     router.get('/', Auth.hasAuthorization, food.findAll);
 
     router.post('/likeAll', Auth.hasAuthorization, food.likeAll);
