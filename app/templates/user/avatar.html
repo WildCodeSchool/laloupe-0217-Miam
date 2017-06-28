@@ -1,30 +1,29 @@
 <div class="container-fluid">
-    <div class="col-xs-12 advice">
 
+  <div class="col-xs-12 advice">
+    <div class="col-xs-12 bubble bottom ">
+      <p>Indique-moi ton prénom et choisi un avatar !</p>
+    </div>
+  </div>
 
-        <div class="col-xs-12 bubble bottom ">
-            <p>Indique-moi ton prénom et choisi un avatar !</p>
+  <div class="row">
+    <div class="col-xs-12 choice-avatar">
+      <img type="button" class="col-xs-3" src="/img/arrow-left.svg" alt="Précédent" ng-click="prev()" />
+      <div ng-swipe-left="prev()" ng-swipe-right="next()">
+        <img class="avatar col-xs-12" ng-src="{{currentAvatar}}" alt="">
+      </div>
+      <img type="button" class="col-xs-3" src="/img/arrow-right.svg" alt="Précédent" ng-click="next()" />
+    </div>
+  </div>
 
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-xs-12 choice-avatar">
-            <img type="button" class="col-xs-3" src="/img/arrow-left.svg" alt="Précédent" ng-click="prev()" />
-            <div ng-swipe-left="prev()" ng-swipe-right="next()">
-              <img class="avatar col-xs-12" ng-src="{{currentAvatar}}" alt="">
-            </div>
-            <img type="button" class="col-xs-3" src="/img/arrow-right.svg" alt="Précédent" ng-click="next()" />
-        </div>
-    </div>
-    <div class="row">
-      <!-- <div class="col-xs-12"> -->
-        <input class="col-xs-offset-2 col-xs-8 input-name" type="text" placeholder="Dis moi ton nom" ng-model="userName">
-      <!-- </div> -->
-    </div>
+  <div class="row">
+    <input class="col-xs-offset-2 col-xs-8 input-name" type="text" placeholder="Dis moi ton nom" ng-model="userName">
+  </div>
 
-    <div class="row">
-        <div class="col-xs-offset-4 col-xs-4 name">
-          <button class="btn btn-primary btn-lg ok" type="submit" ng-click="validProfil()">OK</button>
-        </div>
+  <div class="row">
+    <div class="col-xs-offset-4 col-xs-4 name">
+      <button class="btn btn-primary btn-lg ok" type="submit" ng-click="validProfil()">OK</button>
     </div>
+  </div>
+
 </div>

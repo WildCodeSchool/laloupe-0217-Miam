@@ -3,48 +3,47 @@
         <div class="navbar-header">
             <div id="myNav" class="overlay">
 
-                <button class="col-xs-offset-10 col-xs-1" type="button" class="btn btn-default btn-md closebtn" ng-click="closeNav()">
+                <div type="button" class="closebtn" ng-click="closeNav()">
                   <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                </button>
+                </div>
 
                 <div class="row">
-                    <div class="col-xs-12">
-                        <ul>
-                            <li class="menu"><a ui-sref="anon.home">Accueil</a></li>
-                            <li class="menu"><a ui-sref="anon.gouter">J'ai goûté</a></li>
-                            <li class="menu"><a ui-sref="user.profil">Mon profil</a></li>
+                    <div class="col-xs-12 center-menu">
+                        <ul class="menu">
+                            <li><a ui-sref="anon.home">Accueil</a></li>
+                            <li><a ui-sref="anon.gouter">J'ai goûté</a></li>
+                            <li><a ui-sref="user.profil">Mon profil</a></li>
                         </ul>
 
                     </div>
                 </div>
             </div>
+
         </div>
 
-        <div class="col-xs-4 dropdown">
-          <button class="col-xs-12 dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-            <!-- <img class="mini-avatar" ng-src="{{currentAvatar}}" alt="avatar"> -->
-            <img class="mini-avatar" ng-src="../../img/penguin.svg" alt="avatar">
-            <span class="caret"></span>
-          </button>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-              <li ng-repeat="avatar in avatars track by $index">
-                <a><img class="mini-avatar" ng-src='{{avatar}}' alt='{{avatar}}' ng-click="changeProfil($index)"</a>
-              </li>
-              <li>
-                <a ui-sref="user.avatar">
-                  <button type="button" class="btn btn-circle add-kids btn-lg" ng-click="addKid()"><i class="glyphicon glyphicon-plus"></i></button>
-                </a>
-              </li>
-          </ul>
-        </div>
+        <div class="row navigation">
 
-        <!-- <h1 class="col-xs-10" >Mon profil</h1> -->
+          <div class="col-xs-4 dropdown">
+            <button class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              <img class="mini-avatar" ng-src="{{currentAvatarName}}" alt="avatar">
+              <span class="caret">{{currentProfilName}}</span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                <li ng-repeat="avatar in avatars track by $index">
+                  <a><img class="mini-avatar" ng-src='{{avatar.nameAvatar}}' alt='{{avatar}}' ng-click="changeProfil($index)"</a>
+                  <p>{{avatar.userName}}</p>
+                </li>
+                <li>
+                  <a ui-sref="user.avatar">
+                    <button type="button" class="btn btn-circle add-kids btn-lg" ng-click="addKid()"><i class="glyphicon glyphicon-plus"></i></button>
+                  </a>
+                </li>
+            </ul>
+          </div>
 
-        <div class="overlay-content" ng-controller="NavbarController">
-
-          <!-- <button class="col-xs-1" type="button" class="btn btn-default btn-md hamburger-menu" ng-click="openNav()"> -->
-            <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true" ng-click="openNav()"></span>
-          <!-- </button> -->
+          <div class="overlay-content" ng-controller="NavbarController">
+                <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true" ng-click="openNav()"></span>
+          </div>
 
         </div>
 
