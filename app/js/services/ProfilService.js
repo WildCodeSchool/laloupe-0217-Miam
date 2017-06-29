@@ -7,16 +7,6 @@ angular.module('app')
               return $http.post('/profiles/updateProfil', {user: userId, userName: name, nameAvatar: nameAvatar});
             },
 
-            // getOne: function(name){
-            //   console.log(name);
-            //   return $http.get('/profiles', {userName: name});
-            // }
-
-            // getOne: function(content){
-            //   console.log("service", content);
-            //   return $http.get('/profiles', + content);
-            // },
-
             getAll: function() {
                           return $http.get('/profiles');
                       },

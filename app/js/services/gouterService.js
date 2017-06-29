@@ -4,13 +4,17 @@ angular.module('app')
             findAll: function() {
               return $http.get('/foods');
             },
-            taste: function(choice){
-              console.log(choice);
-              return $http.post('/foods/taste/', { food: choice });
+            findByProfile: function(id) {
+              console.log("GouterService", id);
+              return $http.get('/foods/' + id);
             },
-            like: function(like){
-              console.log(like);
-              return $http.post('/foods/like/', { food: like });
+            taste: function(choice, profile){
+              console.log(choice, profile);
+              return $http.post('/foods/taste/', { food: choice, profile: profile });
+            },
+            like: function(like, profile){
+              console.log(like, profile);
+              return $http.post('/foods/like/', { food: like, profile: profile });
             },
         };
     });

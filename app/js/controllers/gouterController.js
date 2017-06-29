@@ -50,127 +50,115 @@ angular.module('app')
       $anchorScroll();
     };
 
-    // LIKE/DISLIKE FOOD
+    // PROFIL & FOOD
+    // $scope.profile = [];
+    $scope.profile = "";
 
-    // $scope.activeProfil = [];
-    //
-    // ProfilService.getAll().then(function(res) {
-    //    var data = res.data[0];
-    //    for (var i = 0; i < data.profil.length; i++) {
-    //      if(data.profil[i].isCurrentProfil === true) {
-    //        $scope.activeProfil.push(data.profil[i].userName);
-    //      }
-    //    }
-    //    console.log("$scope.activeProfil", $scope.activeProfil);
-    //    $scope.like = function(name) {
-    //      var like = {
-    //        nameFood: name,
-    //        countVote: true,
-    //        profile: $scope.activeProfil
-    //      };
-    //      if ($scope.user.email !== undefined) {
-    //        GouterService.like(like).then(function(res) {}, function(err) {});
-    //      } else {
-    //        LocalService.set("I like", JSON.stringify(like)).then(function(res) {}, function(err) {});
-    //      }
-    //      location.reload(true);
-    //    };
-    //  });
+    ProfilService.getAll().then(function(res) {
+       var data = res.data;
+       console.log("data", data);
+       for (var i = 0; i < data.length; i++) {
+         if(res.data[i].isCurrentProfil === true) {
+          //  $scope.profile.push(res.data[i]._id);
+          $scope.profile += res.data[i]._id;
+           console.log("$scope.profile", $scope.profile);
+         }
+       }
 
-    $scope.like = function(name) {
-      var like = {
-        nameFood: name,
-        countVote: true,
-      };
-      if ($scope.user.email !== undefined) {
-        GouterService.like(like).then(function(res) {}, function(err) {});
-      } else {
-        LocalService.set("I like", JSON.stringify(like)).then(function(res) {}, function(err) {});
-      }
-      location.reload(true);
-    };
-    $scope.dislike = function(name) {
-      var like = {
-        nameFood: name,
-        countVote: false,
-      };
-      if ($scope.user.email !== undefined) {
-        GouterService.like(like).then(function(res) {}, function(err) {});
-      } else {
-        LocalService.set("I like", JSON.stringify(like)).then(function(res) {}, function(err) {});
-      }
-      location.reload(true);
-    };
+       // LIKE/DISLIKE FOOD
+       $scope.like = function(name) {
+         var like = {
+           nameFood: name,
+           countVote: true,
+         };
+         console.log("like", like);
+         if ($scope.user.email !== undefined) {
+           GouterService.like(like, $scope.profile).then(function(res) {}, function(err) {});
+         } else {
+           LocalService.set("I like", JSON.stringify(like)).then(function(res) {}, function(err) {});
+         }
+         location.reload(true);
+       };
+       $scope.dislike = function(name) {
+         var like = {
+           nameFood: name,
+           countVote: false,
+         };
+         if ($scope.user.email !== undefined) {
+           GouterService.like(like, $scope.profile).then(function(res) {}, function(err) {});
+         } else {
+           LocalService.set("I like", JSON.stringify(like)).then(function(res) {}, function(err) {});
+         }
+         location.reload(true);
+       };
 
-    // SEE VOTED/LIKED FOOD
-    $scope.votes = [];
-    function filterVote() {
-      return GouterService.findAll(CurrentUser.user()._id).then(function(res) {
-        $scope.votes = res.data;
-        var nameVote = $scope.votes.map(function(vote) {
-          return vote.food.nameFood;
-        });
-        $scope.categories.forEach(function(categorie) {
-          $scope.foodList[categorie].aliments.forEach(function(aliment, i) {
-            var index = nameVote.indexOf(aliment.name);
-            if(index !== -1) {
-              $scope.foodList[categorie].aliments[i].votes = $scope.votes[index].food.countVote;
-              $scope.foodList[categorie].aliments[i].votes.length = 3;
-            } else {
-              $scope.foodList[categorie].aliments[i].votes = [];
-              $scope.foodList[categorie].aliments[i].votes.length = 3;
-            }
-          });
-        });
-      });
-    }
-    filterVote();
-    console.log($scope.foodList);
+       // SEE VOTED/LIKED FOOD
+       $scope.votes = [];
+       function filterVote() {
+         return GouterService.findByProfile($scope.profile).then(function(res) {
+           $scope.votes = res.data;
+           console.log("$scope.votes liked", $scope.votes, res.data);
+           var nameVote = $scope.votes.map(function(vote) {
+             return vote.food.nameFood;
+           });
+           $scope.categories.forEach(function(categorie) {
+             $scope.foodList[categorie].aliments.forEach(function(aliment, i) {
+               var index = nameVote.indexOf(aliment.name);
+               if(index !== -1) {
+                 $scope.foodList[categorie].aliments[i].votes = $scope.votes[index].food.countVote;
+                 $scope.foodList[categorie].aliments[i].votes.length = 3;
+               } else {
+                 $scope.foodList[categorie].aliments[i].votes = [];
+                 $scope.foodList[categorie].aliments[i].votes.length = 3;
+               }
+             });
+           });
+         });
+       }
+       filterVote();
+       console.log($scope.foodList);
 
+       // TO TASTE FOOD
+       $scope.foods = [];
+       GouterService.findByProfile($scope.profile).then(function(res) {
+         $scope.foods = res.data;
+         console.log("Food in database by profile", $scope.foods);
+       }, function(err) {
+         console.log("Doesn't work!");
+       });
+       $scope.filterTaste = function(food) {
+        if (food.food.toTaste === true) {
+         return true;
+        }
+        return false;
+       };
+       $scope.addChoice = function(name) {
+         var choice = {
+           nameFood: name,
+           toTaste: true
+         };
+         if ($scope.user.email !== undefined) {
+           console.log("Database", choice);
+           GouterService.taste(choice, $scope.profile).then(function(res) {}, function(err) {});
+         } else {
+           console.log("LocalStorage");
+           LocalService.set("gouter", JSON.stringify(choice)).then(function(res) {}, function(err) {});
+         }
+         location.reload(true);
+       };
+       $scope.deselect = function(name) {
+         var choice = {
+           nameFood: name,
+           toTaste: false
+         };
+         if ($scope.user.email !== undefined) {
+           GouterService.taste(choice, $scope.profile).then(function(res) {}, function(err) {});
+         } else {
+           LocalService.set("gouter", JSON.stringify(choice)).then(function(res) {}, function(err) {});
+         }
+         location.reload(true);
+       };
 
-    // TO TASTE FOOD
-    $scope.foods = [];
-
-    GouterService.findAll(CurrentUser.user()._id).then(function(res) {
-      $scope.foods = res.data;
-      console.log("Food to taste in database", $scope.foods);
-    }, function(err) {
-      console.log("Doesn't work!");
-    });
-
-    $scope.filterTaste = function(food) {
-      if (food.food.toTaste === true) {
-        return true;
-      }
-      return false;
-    };
-
-    $scope.addChoice = function(name) {
-      var choice = {
-        nameFood: name,
-        toTaste: true
-      };
-      if ($scope.user.email !== undefined) {
-        console.log("Database", choice);
-        GouterService.taste(choice).then(function(res) {}, function(err) {});
-      } else {
-        console.log("LocalStorage");
-        LocalService.set("gouter", JSON.stringify(choice)).then(function(res) {}, function(err) {});
-      }
-      location.reload(true);
-    };
-
-    $scope.deselect = function(name) {
-      var choice = {
-        nameFood: name,
-        toTaste: false
-      };
-      if ($scope.user.email !== undefined) {
-        GouterService.taste(choice).then(function(res) {}, function(err) {});
-      } else {
-        LocalService.set("gouter", JSON.stringify(choice)).then(function(res) {}, function(err) {});
-      }
-      location.reload(true);
-    };
+     });
 
   });
