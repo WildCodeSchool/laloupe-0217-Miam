@@ -95,12 +95,11 @@ angular.module('app')
            console.log("$scope.profile", $scope.profile);
          }
        }
-
        $scope.validate = function() {
          if ($scope.user.email !== undefined) {
            console.log("Database");
            for (var k = 0; k < $scope.items.length; k++) {
-             ContreIndicationService.notEating($scope.items[k], $scope.user._id, $scope.profile).then(function(res) {}, function(err) {});
+             ContreIndicationService.notEating($scope.items[k], $scope.profile).then(function(res) {}, function(err) {});
              console.log("Items and profile", $scope.items[k], $scope.profile);
            }
            $state.go('anon.manger');
@@ -110,7 +109,6 @@ angular.module('app')
            $state.go('anon.manger');
          }
        };
-
     });
 
   });
