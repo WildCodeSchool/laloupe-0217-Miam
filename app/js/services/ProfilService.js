@@ -2,9 +2,9 @@ angular.module('app')
     .service('ProfilService', function($http) {
         return {
 
-            findOneAndUpdateName: function(userId, name, nameAvatar){
-              console.log(name, nameAvatar);
-              return $http.post('/profiles/updateProfil', {user: userId, userName: name, nameAvatar: nameAvatar});
+            findOneAndUpdateName: function(user, isCurrentProfil, name, nameAvatar){
+              console.log(user, isCurrentProfil, name, nameAvatar);
+              return $http.post('/profiles/updateProfil', { user: user, isCurrentProfil: isCurrentProfil, userName: name, nameAvatar: nameAvatar });
             },
 
             getAll: function() {

@@ -11,15 +11,28 @@ angular.module('app')
       ProfilService.getAll().then(function(res) {
           var data = res.data;
           console.log("data profile", data);
-          for (var i = 0; i < data.profil.length; i++) {
-              $scope.avatars.push(data.profil[i]);
+          for (var i = 0; i < data.length; i++) {
+              $scope.avatars.push(data[i]);
               console.log("$scope.avatars", $scope.avatars);
           }
 
-          data.profil.forEach(function(el){
+          data.forEach(function(el){
             if(el.isCurrentProfil){
               $scope.currentProfilName = el.userName;
               $scope.currentAvatarName = el.nameAvatar;
+
+              var newName = '';
+
+              $scope.validUser = function() {
+                  if (newName === []) {
+                      newName = $scope.userName;
+                  } else {
+                      newName = $scope.userName;
+                  }
+                  ProfilService.findOneAndUpdateName(CurrentUser.user()._id, el.isCurrentProfil, $scope.userName, $scope.currentAvatar).then(function(res) {
+                    console.log(CurrentUser.user()._id, el.isCurrentProfil, $scope.userName, $scope.currentAvatar);
+                  }, function(err) {});
+              };
             }
           });
           console.log("$scope.currentProfilName", $scope.currentProfilName);
@@ -87,22 +100,6 @@ angular.module('app')
               $scope.goHome = function() {
                   $scope.hideModal = true;
                   $state.go('anon.home');
-              };
-
-
-              var newName = '';
-
-              $scope.validUser = function() {
-                  if (newName === []) {
-                      newName = $scope.userName;
-
-                  } else {
-
-                      newName = $scope.userName;
-                  }
-                  ProfilService.findOneAndUpdateName($scope.user._id, $scope.userName, $scope.currentAvatar).then(function(res) {
-      console.log($scope.user._id, $scope.userName, $scope.currentAvatar);
-                  }, function(err) {});
               };
 
 
