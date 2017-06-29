@@ -20,6 +20,7 @@ angular.module('app')
                 $scope.currentAvatarName = el.nameAvatar;
               }
             });
+            console.log("$scope.currentProfilName", $scope.currentProfilName);
 
         });
 

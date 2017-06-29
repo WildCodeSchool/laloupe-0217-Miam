@@ -1,4 +1,3 @@
-
 angular.module('app')
     .service('ProfilService', function($http) {
         return {

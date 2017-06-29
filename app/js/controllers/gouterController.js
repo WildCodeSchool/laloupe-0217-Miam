@@ -1,5 +1,5 @@
 angular.module('app')
-  .controller('GouterController', function($scope, FoodFactory, $location, $anchorScroll, Auth, CurrentUser, LocalService, GouterService) {
+  .controller('GouterController', function($scope, FoodFactory, AvatarFactory, $location, $anchorScroll, Auth, CurrentUser, LocalService, GouterService, ProfilService) {
 
     // SIMPLIFY FOOD NAMES
     $scope.underscore = function(string) {
@@ -51,6 +51,32 @@ angular.module('app')
     };
 
     // LIKE/DISLIKE FOOD
+
+    // $scope.activeProfil = [];
+    //
+    // ProfilService.getAll().then(function(res) {
+    //    var data = res.data[0];
+    //    for (var i = 0; i < data.profil.length; i++) {
+    //      if(data.profil[i].isCurrentProfil === true) {
+    //        $scope.activeProfil.push(data.profil[i].userName);
+    //      }
+    //    }
+    //    console.log("$scope.activeProfil", $scope.activeProfil);
+    //    $scope.like = function(name) {
+    //      var like = {
+    //        nameFood: name,
+    //        countVote: true,
+    //        profile: $scope.activeProfil
+    //      };
+    //      if ($scope.user.email !== undefined) {
+    //        GouterService.like(like).then(function(res) {}, function(err) {});
+    //      } else {
+    //        LocalService.set("I like", JSON.stringify(like)).then(function(res) {}, function(err) {});
+    //      }
+    //      location.reload(true);
+    //    };
+    //  });
+
     $scope.like = function(name) {
       var like = {
         nameFood: name,
