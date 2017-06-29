@@ -34,13 +34,14 @@ export default class Reward {
 
       locked(req, res) {
         model.findOneAndUpdate({
-            "reward.nameReward": req.body.reward.nameReward
+            "nameReward": req.body.nameReward
           }, {
             $set: {
               "profile": req.body.profile,
             },
             $push: {
-              "reward.isLocked": req.body.reward.isLocked,
+              "isLocked": false,
+              $slice: 1
             },
           }, {
             upsert: true,
@@ -55,4 +56,5 @@ export default class Reward {
             }
           });
       }
+
     }
