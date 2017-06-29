@@ -51,7 +51,6 @@ angular.module('app')
     };
 
     // PROFIL & FOOD
-    // $scope.profile = [];
     $scope.profile = "";
 
     ProfilService.getAll().then(function(res) {
@@ -59,7 +58,6 @@ angular.module('app')
        console.log("data", data);
        for (var i = 0; i < data.length; i++) {
          if(res.data[i].isCurrentProfil === true) {
-          //  $scope.profile.push(res.data[i]._id);
           $scope.profile += res.data[i]._id;
            console.log("$scope.profile", $scope.profile);
          }
