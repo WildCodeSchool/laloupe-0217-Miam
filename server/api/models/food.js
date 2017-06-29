@@ -41,9 +41,24 @@ export default class Food {
         if (err || !foods) {
           res.sendStatus(403);
         } else {
+          console.log("FOOD POPULATE", 'profile');
           res.json(foods);
         }
       });
+  }
+
+  findByProfile(req, res) {
+    model.find({
+      profile: req.params.id
+    })
+    .exec(function(err, foods) {
+      if (err || !foods) {
+        res.sendStatus(403);
+        console.log("findByProfile does not work");
+      } else {
+        res.json(foods);
+      }
+    });
   }
 
   notEating(req, res) {
@@ -81,8 +96,9 @@ export default class Food {
       }, {
         upsert: true,
         new: true
-      },
-      function(err, food) {
+      })
+      .populate('profile')
+      .exec(function(err, food) {
         if (err || !food) {
           res.status(500).send(err.message);
         } else {
@@ -90,6 +106,28 @@ export default class Food {
         }
       });
   }
+
+  // taste(req, res) {
+  //   model.findOneAndUpdate({
+  //       "food.nameFood": req.body.food.nameFood
+  //     }, {
+  //       $set: {
+  //         "profile": req.body.profile,
+  //         "food.doNotEat": req.body.food.doNotEat,
+  //         "food.toTaste": req.body.food.toTaste,
+  //       },
+  //     }, {
+  //       upsert: true,
+  //       new: true
+  //     },
+  //     function(err, food) {
+  //       if (err || !food) {
+  //         res.status(500).send(err.message);
+  //       } else {
+  //         res.json(food);
+  //       }
+  //     });
+  // }
 
   likeAll(req, res) {
     model.findOneAndUpdate({
@@ -131,11 +169,13 @@ export default class Food {
         upsert: true,
         multi: true,
         new: true
-      },
-      function(err, food) {
+      })
+      .populate('profile')
+      .exec(function(err, food) {
         if (err || !food) {
           res.status(500).send(err.message);
         } else {
+          console.log("req.body.profile", req.body.profile);
           res.json(food);
         }
       });

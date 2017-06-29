@@ -5,153 +5,234 @@ import User from './user.js';
 
 
 const profileSchema = new mongoose.Schema({
-    user: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User'
-    },
-    profil: [{
-        userName: {
-            type: String
-        },
-        isCurrentProfil: {
-            type: Boolean
-        },
-        nameAvatar: {
-            type: String
-        },
-        reward: [{
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'Reward'
-        }],
-        food: [{
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'Food'
-        }]
-    }]
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User'
+  },
+  userName: {
+    type: String
+  },
+  isCurrentProfil: {
+    type: Boolean
+  },
+  nameAvatar: {
+    type: String
+  },
 });
-
 
 let model = mongoose.model('Profile', profileSchema);
 
 export default class Profile {
 
-    getAll(req, res) {
-        model.find({}, (err, profiles) => {
-            if (err || !profiles) {
-                res.sendStatus(403);
-                console.error(profiles, err);
+  getAll(req, res) {
+    model.find({}, (err, profiles) => {
+      if (err || !profiles) {
+        res.sendStatus(403);
+        console.error(profiles, err);
 
+      } else {
+        // console.log('GetAll OK', profiles);
+        res.json(profiles);
+      }
+    });
+  }
+
+  findOneAndUpdateName(req, res) {
+    model.findOneAndUpdate({
+        "user": req.body.user,
+        "isCurrentProfil": true,
+      }, {
+        $set: {
+          "userName": req.body.userName,
+          "nameAvatar": req.body.nameAvatar
+        }
+      }, {
+        new: true,
+      },
+      function(err, profile) {
+        if (err || !profile) {
+          console.log("500", err);
+          res.status(500).send(err.message);
+        } else {
+          res.json(profile);
+        }
+      });
+  }
+
+
+  // findByName(req, res) {
+  //     if (isCurrentProfil === true) {
+  //
+  //         model.find({
+  //             "profil.userName": req.params.userName,
+  //             "profil.nameAvatar": req.params.nameAvatar
+  //         }, (err, userName) => {
+  //             if (err || !userName) {
+  //                 console.log("403", err);
+  //                 res.sendStatus(403);
+  //
+  //             } else {
+  //                 res.json(userName);
+  //             }
+  //         });
+  //     }
+  // }
+
+  /*  findOneAndUpdateProfil(req, res) {
+      // console.log('post (name)', req.body, req.body.profil.userName, req.body.profil.nameAvatar);
+      model.findOneAndUpdate({
+        user: req.body.user._id,
+      }, function(err, user) {
+        // console.log("user profil", user.profil);
+        profil = profil.map(function(element) {
+            if (element.userName != req.body.userName) {
+              element.isCurrentProfil = false;
             } else {
-                console.log('GetAll OK', profiles);
-                res.json(profiles);
+
+              $push: {
+                profil: {
+                  userName = req.body.profil.userName,
+                  nameAvatar = req.body.profil.nameAvatar,
+                  isCurrentProfil = true;
+                }
+              }
             }
-        });
-    }
-
-    // findByName(req, res) {
-    //     if (isCurrentProfil === true) {
-    //
-    //         model.find({
-    //             "profil.userName": req.params.userName,
-    //             "profil.nameAvatar": req.params.nameAvatar
-    //         }, (err, userName) => {
-    //             if (err || !userName) {
-    //                 console.log("403", err);
-    //                 res.sendStatus(403);
-    //
-    //             } else {
-    //                 res.json(userName);
-    //             }
-    //         });
-    //     }
-    // }
-
-    findOneAndUpdateProfil(req, res) {
-        console.log('post (name)', req.body, req.body.profil.userName, req.body.profil.nameAvatar);
-        model.findOneAndUpdate({
-              user: req.body.user._id,
-        }, function(err, user) {
-          console.log("user profil", user.profil);
-          profil = profil.map(function(element) {
-                    if (element.userName != req.body.userName) {
-                        element.isCurrentProfil = false;
-                    } else {
-
-                        $push: {
-                            profil: {
-                                userName = req.body.profil.userName,
-                                nameAvatar = req.body.profil.nameAvatar,
-                                isCurrentProfil = true;
-                            }
-                        }
-                    }
-                    return element;
-                }), {
-                    upsert: true,
-                },
-                function(err, name) {
-                    if (err || !name) {
-                        console.log("500", err);
-                        res.status(500).send(err.message);
-                    } else {
-                        res.json(name);
-                    }
-                };
-        });
-    }
-
-
-    changeProfil(req, res) {
-        model.findOne({
-            user: req.body.user._id
-        }, function(err, user) {
-            if (err) {
-                res.status(500).send(err.message);
-            } else if (!user.profil) {
-                console.log('404', user.profil);
-                res.status(404).send("Aucun profil pour cet id d'utilisateur");
+            return element;
+          }), {
+            upsert: true,
+          },
+          function(err, name) {
+            if (err || !name) {
+              console.log("500", err);
+              res.status(500).send(err.message);
             } else {
-                user.profil = user.profil.map(function(element) {
-                    if (element.userName != req.body.userName) {
-                        element.isCurrentProfil = false;
-                    } else {
-                        element.isCurrentProfil = true;
-                    }
-                    return element;
-
-                });
-                user.save(function(err) {
-                    res.json(user);
-                });
+              res.json(name);
             }
-        });
-    }
+          };
+      });
+    }*/
 
 
+  // changeProfil(req, res) {
+  //   console.log("req.body.userName", req.body.userName);
+  //   model.findOneAndUpdate({
+  //       "user": req.body.user,
+  //     }, function(userName) {
+  //       if (userName !== req.body.userName) {
+  //         console.log("req.body.userName", req.body.userName);
+  //         $set: {
+  //           isCurrentProfil = false;
+  //           console.log("isCurrentProfil", isCurrentProfil);
+  //         }
+  //       } else {
+  //         $set: {
+  //           isCurrentProfil = true;
+  //           console.log("isCurrentProfil true", isCurrentProfil);
+  //         }
+  //       }
+  //     }, {
+  //       upsert: true,
+  //       new: true,
+  //     },
+  //     function(err, profile) {
+  //       if (err || !profile) {
+  //         console.log("500", err);
+  //         res.status(500).send(err.message);
+  //       } else {
+  //         res.json(profile);
+  //       }
+  //     });
+  // }
 
-
-    findOneAndUpdateName(req, res) {
-        model.findOneAndUpdate({
-                "user": req.body.user,
-                "profil.isCurrentProfil": true,
-            }, {
-                $set: {
-                    "profil.userName": req.body.userName,
-                    "profil.nameAvatar": req.body.nameAvatar
-                }
-            }, {
-                new: true,
-            },
-            function(err, name) {
-                if (err || !name) {
-                    console.log("500", err);
-                    res.status(500).send(err.message);
-                } else {
-                    res.json(name);
-                }
+  changeProfil(req, res) {
+    model.findOne(
+      { user: req.body.user },
+      function (err, isCurrentProfil, userName){
+        if(err) return res.status(500).send(err);
+        if (!isCurrentProfil){
+            console.log(req.body + " not found!");
+            var newisCurrentProfil = new changeProfil(req.body);
+            newisCurrentProfil.save(function(err){
+                if(err) return res.status(500).send(err);
+                console.log("newisCurrentProfil.isCurrentProfil", newisCurrentProfil.isCurrentProfil);
+                return res.status(200).send({ isCurrentProfil: newisCurrentProfil.isCurrentProfil });
             });
-    }
+            return res.status(200).send('test');
+        } else {
+            console.log(req.body.userName + " found!");
+            for (var m = 0; m < 2; m++){
+                // isCurrentProfil[m] = req.body.userName;
+                if (userName != req.body.userName) {
+                    isCurrentProfil = false;
+                  } else {
+                    isCurrentProfil = true;
+                }
+            }
+            isCurrentProfil.save(function(err) {
+                if(err) return res.status(500).send(err);
+                return res.status(200).send({ isCurrentProfil: newisCurrentProfil.isCurrentProfil });
+            });
+        }
+  });
+}
 
 
+  // changeProfil(req, res) {
+  //   model.findOneAndUpdate({
+  //       user: req.body.user
+  //     }, function(err, user) {
+  //       if (err) {
+  //         console.log("Nope, NOPE");
+  //         res.status(500).send(err.message);
+  //       } else if (!user) {
+  //         console.log('404', user);
+  //         res.status(404).send("Aucun profil pour cet id d'utilisateur");
+  //       } else {
+  //         if (userName != req.body.userName) {
+  //           isCurrentProfil = false;
+  //         } else {
+  //           isCurrentProfil = true;
+  //         }
+  //       }
+  //     },
+  //     // user.save(function(err) {
+  //     //   res.json(user);
+  //     // })
+  //     // );
+  //     function(err, profile) {
+  //       if (err || !profile) {
+  //         console.log("500", err);
+  //         res.status(500).send(err.message);
+  //       } else {
+  //         res.json(profile);
+  //       }
+  //     });
+  // }
+
+  // changeProfil(req, res) {
+  //   model.findOne({
+  //     user: req.body.user._id
+  //   }, function(err, user) {
+  //     if (err) {
+  //       res.status(500).send(err.message);
+  //     } else if (!user) {
+  //       console.log('404', user);
+  //       res.status(404).send("Aucun profil pour cet id d'utilisateur");
+  //     } else {
+  //       user = user.map(function(element) {
+  //         if (element.userName != req.body.userName) {
+  //           element.isCurrentProfil = false;
+  //         } else {
+  //           element.isCurrentProfil = true;
+  //         }
+  //         return element;
+  //
+  //       });
+  //       user.save(function(err) {
+  //         res.json(user);
+  //       });
+  //     }
+  //   });
+  // }
 
 }

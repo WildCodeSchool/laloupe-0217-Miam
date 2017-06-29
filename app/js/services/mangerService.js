@@ -4,9 +4,12 @@ angular.module('app')
             findAll: function() {
               return $http.get('/foods');
             },
-            likeAll: function(food){
-              console.log(food);
-              return $http.post('/foods/likeAll/', { food: food });
+            findByProfile: function(id) {
+              return $http.get('/foods/' + id);
+            },
+            likeAll: function(food, profile){
+              console.log(food, profile);
+              return $http.post('/foods/likeAll/', { food: food, profile: profile });
             },
         };
     });

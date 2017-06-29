@@ -1,5 +1,5 @@
 angular.module('app')
-  .controller('ContreIndicationController', function($scope, $state, $filter, $interval, FoodFactory, LocalService, ContreIndicationService, Auth, CurrentUser) {
+  .controller('ContreIndicationController', function($scope, $state, $filter, $interval, FoodFactory, AvatarFactory, LocalService, ContreIndicationService, Auth, CurrentUser, ProfilService) {
 
     $scope.foodList = FoodFactory;
 
@@ -19,6 +19,7 @@ angular.module('app')
     $scope.correct = function(string) {
       return $scope.regAccent(string);
     };
+
 
     // FILTER FOOD
     var i = 0;
@@ -83,18 +84,31 @@ angular.module('app')
       console.log("Deselect all", $scope.items);
     };
 
-    $scope.validate = function() {
-      if ($scope.user.email !== undefined) {
-        console.log("Database");
-        for (var k = 0; k < $scope.items.length; k++) {
-          ContreIndicationService.notEating($scope.items[k], $scope.user._id).then(function(res) {}, function(err) {});
-        }
-        $state.go('anon.manger');
-      } else {
-        console.log("LocalStorage");
-        LocalService.set("contreindication", JSON.stringify($scope.items)).then(function(res) {}, function(err) {});
-        $state.go('anon.manger');
-      }
-    };
+    // CONTRAINDICATION BY PROFILE
+    $scope.profile = "";
+    ProfilService.getAll().then(function(res) {
+       var data = res.data;
+       console.log("data", data);
+       for (var i = 0; i < data.length; i++) {
+         if(res.data[i].isCurrentProfil === true) {
+          $scope.profile += res.data[i]._id;
+           console.log("$scope.profile", $scope.profile);
+         }
+       }
+       $scope.validate = function() {
+         if ($scope.user.email !== undefined) {
+           console.log("Database");
+           for (var k = 0; k < $scope.items.length; k++) {
+             ContreIndicationService.notEating($scope.items[k], $scope.profile).then(function(res) {}, function(err) {});
+             console.log("Items and profile", $scope.items[k], $scope.profile);
+           }
+           $state.go('anon.manger');
+         } else {
+           console.log("LocalStorage");
+           LocalService.set("contreindication", JSON.stringify($scope.items)).then(function(res) {}, function(err) {});
+           $state.go('anon.manger');
+         }
+       };
+    });
 
   });

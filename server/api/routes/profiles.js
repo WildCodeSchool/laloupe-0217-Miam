@@ -12,12 +12,11 @@ module.exports = (app) => {
 
         // router.get('/name', Auth.hasAuthorization, profile.findByName);
 
-        router.post('/updateProfil', Auth.hasAuthorization, profile.findOneAndUpdateProfil);
-
-        router.post('/changeProfil', Auth.hasAuthorization, profile.changeProfil);
-
         router.post('/name', Auth.hasAuthorization, profile.findOneAndUpdateName);
 
+        // router.post('/updateProfil', Auth.hasAuthorization, profile.findOneAndUpdateProfil);
+
+        router.post('/changeProfil', Auth.hasAuthorization, profile.changeProfil);
 
             app.use('/profiles', router);
 
