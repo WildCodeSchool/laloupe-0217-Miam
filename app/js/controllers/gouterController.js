@@ -21,26 +21,6 @@ angular.module('app')
     $scope.foodList = FoodFactory;
     $scope.categories = Object.keys($scope.foodList);
 
-    // DO NOT SHOW ALIM WITH CONTRAINDICATION
-    $scope.foodNotEaten = [];
-    GouterService.findAll(CurrentUser.user()._id).then(function(res) {
-      $scope.foodNotEaten = res.data;
-      $scope.categories.forEach(function(categories) {
-        $scope.currentCategorie = categories;
-        $scope.currentAliments = $scope.foodList[$scope.currentCategorie].aliments;
-        $scope.foodNotEaten.forEach(function(foodNotEaten) {
-          $scope.currentAliments.forEach(function(currentAliments) {
-            if (currentAliments.name === foodNotEaten.food.nameFood) {
-              if (foodNotEaten.food.doNotEat === true) {
-                console.log("One food match!", currentAliments.name);
-                $scope.currentAliments.splice($scope.currentAliments.indexOf(currentAliments), 1);
-              }
-            }
-          });
-        });
-      });
-    });
-
     // SEARCH - GO TO FOOD
     $scope.selectFood = function(foodname) {
       $scope.appearance = foodname;
@@ -52,7 +32,6 @@ angular.module('app')
 
     // PROFIL & FOOD
     $scope.profile = "";
-
     ProfilService.getAll().then(function(res) {
        var data = res.data;
        console.log("data", data);
@@ -62,6 +41,26 @@ angular.module('app')
            console.log("$scope.profile", $scope.profile);
          }
        }
+
+       // DO NOT SHOW ALIM WITH CONTRAINDICATION
+       $scope.foodNotEaten = [];
+       GouterService.findByProfile($scope.profile).then(function(res) {
+         $scope.foodNotEaten = res.data;
+         $scope.categories.forEach(function(categories) {
+           $scope.currentCategorie = categories;
+           $scope.currentAliments = $scope.foodList[$scope.currentCategorie].aliments;
+           $scope.foodNotEaten.forEach(function(foodNotEaten) {
+             $scope.currentAliments.forEach(function(currentAliments) {
+               if (currentAliments.name === foodNotEaten.food.nameFood) {
+                 if (foodNotEaten.food.doNotEat === true) {
+                   console.log("One food match!", currentAliments.name);
+                   $scope.currentAliments.splice($scope.currentAliments.indexOf(currentAliments), 1);
+                 }
+               }
+             });
+           });
+         });
+       });
 
        // LIKE/DISLIKE FOOD
        $scope.like = function(name) {
