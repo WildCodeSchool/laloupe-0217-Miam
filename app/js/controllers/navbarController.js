@@ -52,7 +52,7 @@ angular.module('app')
       };
       console.log("changeprofil", changeprofil);
       ProfilService.changeProfil(changeprofil).then(function(res) {
-        // location.reload(true);
+        location.reload(true);
       }, function(err) {});
     };
 
