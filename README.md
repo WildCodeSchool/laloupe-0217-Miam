@@ -1,31 +1,35 @@
-![Lineman build](https://travis-ci.org/JbPasquier/mean-lineman.svg?branch=master)
+# Miam!
 
-# [MEAN](http://mean.io/) Starter with [Lineman](http://linemanjs.com/)
+Miam! is a website developed with a mobile-first focus, that aims to encourage children to taste new aliments in a playful way.
+As such, it is also a tool for parents to diversify the diet of their children.
 
-## Angular
+![](https://image.noelshack.com/fichiers/2017/27/1/1499074349-capture-d-ecran-2017-07-03-a-11-31-30.png "Main Page – Miam!")
 
-### Requirements
+![](https://image.noelshack.com/fichiers/2017/27/1/1499074355-capture-d-ecran-2017-07-03-a-11-31-18.png "Example of food card – Miam!")
+
+
+## Dependencies
 
 -   [Node](https://doc.ubuntu-fr.org/nodejs#depuis_un_ppa)
 -   [MongoDB](https://doc.ubuntu-fr.org/mongodb#installation)
 
-### Execution
+## Execution
 
-#### Installation
+### Installation
 
 ```bash
-git clone git@github.com:JbPasquier/mean-lineman.git
-cd mean-lineman
+git clone https://github.com/WildCodeSchool/laloupe-0217-Miam.git
+cd laloupe-0217-Miam
 npm install
 ```
 
-#### Development
+### Development
 
 ```bash
 npm start
 ```
 
-#### Production
+### Production
 
 ```bash
 npm run production
