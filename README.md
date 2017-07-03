@@ -5,10 +5,6 @@ As such, it is also a tool for parents to diversify the diet of their children.
 
 ![](https://image.noelshack.com/fichiers/2017/27/1/1499074845-miam-website.jpg "Example of food card – Miam!")
 
-![](https://image.noelshack.com/fichiers/2017/27/1/1499074349-capture-d-ecran-2017-07-03-a-11-31-30.png "Main Page – Miam!")
-
-![](https://image.noelshack.com/fichiers/2017/27/1/1499074355-capture-d-ecran-2017-07-03-a-11-31-18.png "Example of food card – Miam!")
-
 ## Dependencies
 
 -   [Node](https://doc.ubuntu-fr.org/nodejs#depuis_un_ppa)
