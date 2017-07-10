@@ -5,6 +5,9 @@ As such, it is also a tool for parents to diversify the diet of their children.
 
 ![](https://image.noelshack.com/fichiers/2017/27/1/1499074845-miam-website.jpg "Example of food card – Miam!")
 
+## How to play Miam!
+
+
 ## Getting started
 
 ### Prerequisites
