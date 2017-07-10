@@ -23,7 +23,7 @@
 
         <div class="row navigation">
 
-          <div class="col-xs-4 dropdown">
+          <div class="col-xs-4 dropdown" ng-show="auth.isAuthenticated()">
             <button class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
               <img class="mini-avatar" ng-src="{{currentAvatarName}}" alt="avatar">
               <span class="caret">{{currentProfilName}}</span>
