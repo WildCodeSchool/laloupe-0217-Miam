@@ -39,7 +39,7 @@ angular.module('app').controller('ContreIndicationController', function($scope, 
         for (var j = 0; j < allNames.length; j++) {
           var nameAlim = allNames[j];
           var compoAlim = allCompo[j];
-          if ($scope.query === nameAlim || $scope.query == compoAlim || $scope.query === nameCateg) {
+          if ($scope.query === nameAlim || String($scope.query) === String(compoAlim) || $scope.query === nameCateg) {
             var alimNotEating = {
               categorie: nameCateg,
               nameFood: nameAlim,
