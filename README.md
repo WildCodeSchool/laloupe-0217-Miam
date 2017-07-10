@@ -8,45 +8,40 @@ As such, it is also a tool for parents to diversify the diet of their children.
 ## How to use MIAM!
 
 ### 1. Create an account.
-
 We recommend to send the parents's mail address.
-
 -   Write your email.
 -   Choose a password.
 -   Click "OK".
 
-### 2. Create a profile / Change / Update.
-
+### 2. Create / Change / Update your profile.
 You can create multiple profiles with the same account.
-
 -   Choose an Avatar.
 -   Write your name.
-
--   **To create another profile** just click on the avatar on the left of the navbar and then click on the "+" in the dropdown menu.
-
--   **To change one's user profile** just click on the avatar on the left of the navbar and then click the avatar who's got your name.
-
--   **To update your profile** just click on the burger menu on the navbar. Then choose profile. Click on the avatar here. You can see your avatars collection, just pick the one you want. To change your name, click on the pen next to your name. Write your new name down then click "OK".
+#### To create another profile
+To create another profile just click on the avatar on the left of the navbar and then click on the "+" in the dropdown menu.
+#### To change one's user profile
+To change one's user profile just click on the avatar on the left of the navbar and then click the avatar who's got your name.
+#### To update your profile
+To update your profile just click on the burger menu on the navbar. Then choose profile. Click on the avatar here. You can see your avatars collection, just pick the one you want. To change your name, click on the pen next to your name. Write your new name down then click "OK".
 
 ### 3. Tell us about you.
-
--   **Contre indications** is the page where you can tell us about things you can not eat. ATTENTION ! We'll never show you again the aliments you pick there.
--   **Je mange déjà** is the page where you can tell us things you already eat.
+#### Contre indications
+Contre indications is the page where you can tell us about things you can not eat. ATTENTION ! We'll never show you again the aliments you pick there.
+#### Je mange déjà
+Je mange déjà is the page where you can tell us things you already eat.
 Aliments are ordered by categories. If you like the whole category you can click on "tout selectionner". Click on "->" to pass to the next category, "<-" to get back on the previous category.
 
 ### 4. Let's play !
-
 After eating, if you tasted new aliments, ask your parents phone and go on your MIAM!'s profile.
 -   On the page "J'ai gouté" click on the aliment you have tasted.
 -   On the bottom of the product file you can say if you liked it (green button) or not (red button).
-
--   If on this list you see an aliment that you want to **taste**, click on it.
+#### To taste
+-   If on this list you see an aliment that you want to taste, click on it.
 -   At the very bottom of the product file click on the button "à gouter".
 -   This aliment will be added to your "à gouter" list on the top of the page "J'ai gouté".
 
 ### 5. Check the rewards
 On the profile page you can switch to the "recompences" section.
-
 -   Click on the "récompences" button.
 -   There you can see chalenges.
 -   For each chalenge there is a descrition of what you have to do to finish the challenge.
