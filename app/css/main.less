@@ -182,19 +182,17 @@ header h1 {
   padding: 0;
 }
 
-.connect button,
-.discover button {
-  .general-button;
-  margin-bottom: 0.5rem;
-}
-
-.connect button:active,
-.connect button:focus,
-.connect button:hover,
-.discover button:active,
-.discover button:focus,
-.discover button:hover {
-  .button-interaction();
+.connect,
+.discover {
+  button {
+    .general-button();
+    margin-bottom: 0.5rem;
+  }
+  button:active,
+  button:focus,
+  button:hover {
+    .button-interaction();
+  }
 }
 /* ------------------------------ JE MANGE DEJA ------------------------------ */
 .advice {
@@ -214,6 +212,16 @@ section h2 {
   -webkit-filter: grayscale(100%);
   filter: grayscale(100%);
   cursor: pointer;
+  img {
+    margin: 0;
+    padding: 0;
+  }
+  h3 {
+    font-size: 1em;
+    color: @main-color;
+    margin: 0.5rem 0 0.8em;
+    .text-wrap();
+  }
 }
 
 .color-food {
@@ -221,43 +229,33 @@ section h2 {
   filter: none;
 }
 
-.manger-item img {
-  margin: 0;
-  padding: 0;
-}
-
-.manger-item h3 {
-  font-size: 1em;
-  color: @main-color;
-  margin: 0.5rem 0 0.8em;
-  .text-wrap();
-}
-
-.select button {
-  .general-button;
-  font-size: 1em;
-  margin: 0 0 0.7rem;
-}
-
-.select button:active,
-.select button:focus,
-.select button:hover {
-  .button-interaction();
+.select {
+  button {
+    .general-button;
+    font-size: 1em;
+    margin: 0 0 0.7rem;
+  }
+  button:active,
+  button:focus,
+  button:hover {
+    .button-interaction();
+  }
 }
 
 .page-item i {
   font-size: 0.7rem;
 }
 
-.page-link .ok {
-  .general-button();
-  font-size: 1.4em;
-}
-
-.page-link .ok:active,
-.page-link .ok:focus,
-.page-link .ok:hover {
-  .button-interaction();
+.page-link {
+  .ok {
+    .general-button();
+    font-size: 1.4em;
+  }
+  .ok:active,
+  .ok:focus,
+  .ok:hover {
+    .button-interaction();
+  }
 }
 
 .currentclass {
@@ -282,15 +280,16 @@ section h2 {
   border-radius: 0.3em;
 }
 
-.name button {
-  .general-button();
-  margin-top: 1rem;
-}
-
-.name button:active,
-.name button:focus,
-.name button:hover {
-  .button-interaction();
+.name {
+  button {
+    .general-button();
+    margin-top: 1rem;
+  }
+  button:active,
+  button:focus,
+  button:hover {
+    .button-interaction();
+  }
 }
 /* ------------------------------ PROFIL - MODIFIER ------------------------------ */
 .nav.nav-tabs {
@@ -314,83 +313,97 @@ section h2 {
 .changename h2 {
   font-size: 1.4em;
   color: @main-color;
+  button {
+    .general-button();
+    font-size: 1rem;
+    line-height: 0;
+    padding: 0.3em;
+  }
+  button:active,
+  button:focus,
+  button:hover {
+    .button-interaction();
+  }
 }
 
-.changename h2 button {
-  .general-button();
-  font-size: 1rem;
-  line-height: 0;
-  padding: 0.3em;
+.close-modal,
+.deconnect-modal {
+  .close span {
+   font-size: 1.4rem;
+   background-color: transparent;
+   position: absolute;
+   top: 0.3rem;
+   right: 0.3rem;
+ }
 }
 
-.changename h2 button:active,
-.changename h2 button:focus,
-.changename h2 button:hover {
-  .button-interaction();
+.deconnect-modal {
+  .close {
+    background-color: transparent;
+    border-color: transparent;
+  }
+  .close:active,
+  .close:focus,
+  .close:hover {
+    background-color: transparent;
+    border-color: transparent;
+  }
+  label {
+    color: @main-color;
+  }
 }
 
-.close-modal .close span,
-.deconnect-modal .close span {
-  font-size: 1.4rem;
-  background-color: transparent;
-  position: absolute;
-  top: 0.3rem;
-  right: 0.3rem;
+.cancel-valid {
+  button {
+    .general-button();
+    margin: 0.7rem 0 0;
+    color: white;
+  }
+  button:active,
+  button:focus,
+  button:hover {
+    .button-interaction();
+    border-color: @main-color;
+    color: @main-color;
+  }
 }
 
-.deconnect-modal .close {
-  background-color: transparent;
-  border-color: transparent;
+.name-modal {
+  label {
+    color: @main-color;
+  }
+  input {
+    margin: 0.3rem 0 0;
+  }
+  .valid-name {
+    .general-button();
+    margin: 0.7rem 0 0;
+    color: white;
+  }
+  .valid-name:active
+  .valid-name:focus,
+  .valid-name:hover {
+    .button-interaction();
+    border-color: @main-color;
+    color: @main-color;
+  }
 }
 
-.deconnect-modal .close:active,
-.deconnect-modal .close:focus,
-.deconnect-modal .close:hover {
-  background-color: transparent;
-  border-color: transparent;
-}
-
-.deconnect-modal label,
-.name-modal label {
-  color: @main-color;
-}
-
-.name-modal input {
-  margin: 0.3rem 0 0;
-}
-
-.cancel-valid button,
-.name-modal .valid-name {
-  .general-button();
-  margin: 0.7rem 0 0;
-  color: white;
-}
-
-.cancel-valid button:active,
-.cancel-valid button:focus,
-.cancel-valid button:hover,
-.name-modal .valid-name:active,
-.name-modal .valid-name:focus,
-.name-modal .valid-name:hover {
-  .button-interaction();
-  border-color: @main-color;
-  color: @main-color;
-}
-
-.deconnect button {
-  .general-button();
-  font-size: 1em;
-  background-color: red;
-  border-color: red;
-  margin: 1rem 0 0;
-}
-
-.deconnect button:active,
-.deconnect button:focus,
-.deconnect button:hover {
-  .button-interaction();
-  color: red;
-  border-color: red;
+.deconnect {
+  button {
+    .general-button();
+    font-size: 1em;
+    background-color: red;
+    border-color: red;
+    margin: 1rem 0 0;
+  }
+  button:active,
+  button:focus,
+  button:hover {
+    .button-interaction();
+    color: red;
+    border-color: red;
+  }
 }
 /* ------------------------------ PROFIL - RECOMPENSE ------------------------------ */
 .challenge {
@@ -422,39 +435,35 @@ section h2 {
 
 .table-bordered tbody tr {
   border-bottom: solid 0.2rem @main-color;
+  .img-column {
+    border-right: solid 0.2rem @main-color;
+  }
 }
 
-.table-bordered tbody tr .img-column {
-  border-right: solid 0.2rem @main-color;
-}
-
-td h3,
-td p {
-  margin: 0;
-}
-
-td h3 {
-  font-size: 1rem;
-  color: @comp-color;
+td {
+  h3 {
+    font-size: 1rem;
+    color: @comp-color;
+    margin: 0;
+  }
+  p {
+    margin: 0;
+  }
 }
 /* ------------------------------ LOGIN & REGISTER ------------------------------ */
-.login p,
-.register p {
-  margin: 0 auto 0.5rem;
-}
-
-.login button,
-.register button {
-  .general-button;
-}
-
-.login button:active,
-.login button:focus,
-.login button:hover,
-.register button:active,
-.register button:focus,
-.register button:hover {
-  .button-interaction();
+.login,
+.register {
+  p {
+    margin: 0 auto 0.5rem;
+  }
+  button {
+    .general-button;
+  }
+  button:active,
+  button:focus,
+  button:hover {
+    .button-interaction();
+  }
 }
 /* ------------------------------ J'AI GOUTER ------------------------------ */
 .searchbar {
@@ -463,46 +472,38 @@ td h3 {
 }
 
 .gouter-item {
-  // min-height: 9rem;
   margin-bottom: 1rem;
   cursor: pointer;
-}
-
-.gouter-item h3 {
-  font-size: 1em;
-  color: @main-color;
-  margin: 0.5rem 0 0;
-  .text-wrap();
-}
-
-.gouter-item img {
-  margin: 0;
-  padding: 0;
+  h3 {
+    font-size: 1em;
+    color: @main-color;
+    margin: 0.5rem 0 0;
+    .text-wrap();
+  }
+  img {
+    margin: 0;
+    padding: 0;
+  }
 }
 
 .circle-vote {
   margin: 0 0 1rem;
+  i {
+    font-weight: bold;
+    font-size: 0.7em;
+    margin: 0;
+    padding: 0;
+  }
+  .liked {
+    color: @green;
+  }
+  .disliked {
+    color: @red;
+  }
+  .white {
+    color: white;
+  }
 }
-
-.circle-vote i {
-  font-weight: bold;
-  font-size: 0.7em;
-  margin: 0;
-  padding: 0;
-}
-
-.circle-vote .liked {
-  color: @green;
-}
-
-.circle-vote .disliked {
-  color: @red;
-}
-
-.circle-vote .white {
-  color: white;
-}
-
 /* ------------------------------ MODAL - GOUTER ------------------------------ */
 .modal-content {
   background-color: @background;
@@ -517,106 +518,101 @@ td h3 {
   background-color: transparent;
 }
 
-.modal-header h1 {
-  font-size: 2em;
-  color: @main-color;
-  margin: 0.5rem 0 0;
-  padding: 0;
-}
-
 .modal-header {
   padding-bottom: 0;
+  h1 {
+    font-size: 2em;
+    color: @main-color;
+    margin: 0.5rem 0 0;
+    padding: 0;
+  }
 }
 
 .modal-body {
   padding: 0.5rem 1rem;
-}
-
-.modal-body h2 {
-  font-size: 1.4em;
-  color: @main-color;
-  margin: 0.5rem 0 0.3rem;
-}
-
-.modal-body p {
-  font-size: 1em;
-  line-height: 1.1em;
-  color: @dark-comp-color;
+  h2 {
+    font-size: 1.4em;
+    color: @main-color;
+    margin: 0.5rem 0 0.3rem;
+  }
+  p {
+    font-size: 1em;
+    line-height: 1.1em;
+    color: @dark-comp-color;
+  }
 }
 
 .vote {
   margin-top: 0.5rem;
   margin-bottom: 0.7rem;
+  button {
+    font-size: 1.6em;
+    line-height: 0;
+    border-radius: 100%;
+    padding: 0.5rem;
+  }
+  button i {
+    opacity: 1;
+    background-color: rgba(255, 255, 255, 0);
+  }
+  h3 {
+    font-size: 1em;
+    margin: 0.5rem 0 0;
+  }
 }
 
-.vote button {
-  font-size: 1.6em;
-  line-height: 0;
-  border-radius: 100%;
-  padding: 0.5rem;
+.green {
+  button {
+    background-color: @green;
+    border: solid 0.2rem @green;
+  }
+  button:active,
+  button:focus,
+  button:hover {
+    color: @green;
+  }
+  h3 {
+    color: @green;
+  }
 }
 
-.green button {
-  background-color: @green;
-  border: solid 0.2rem @green;
+.red {
+  button {
+    background-color: @red;
+    border: solid 0.2rem @red;
+  }
+  button:active,
+  button:focus,
+  button:hover {
+    color: @red;
+  }
+  h3 {
+    color: @red;
+  }
 }
 
-.red button {
-  background-color: @red;
-  border: solid 0.2rem @red;
+.green,
+.red {
+  button:active,
+  button:focus,
+  button:hover {
+    background-color: white;
+    outline: none !important;
+  }
 }
 
-.vote button i {
-  opacity: 1;
-  background-color: rgba(255, 255, 255, 0);
-}
-
-.green button:active,
-.green button:focus,
-.green button:hover,
-.red button:active,
-.red button:focus,
-.red button:hover {
-  background-color: white;
-  outline: none !important;
-}
-
-.green button:active,
-.green button:focus,
-.green button:hover {
-  color: @green;
-}
-
-.red button:active,
-.red button:focus,
-.red button:hover {
-  color: @red;
-}
-
-.vote h3 {
-  font-size: 1em;
-  margin: 0.5rem 0 0;
-}
-
-.green h3 {
-  color: @green;
-}
-
-.red h3 {
-  color: @red;
-}
-
-.a-gouter button {
-  .general-button;
-  font-size: 1.4em;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-}
-
-.a-gouter button:active,
-.a-gouter button:focus,
-.a-gouter button:hover {
-  .button-interaction();
+.a-gouter {
+  button {
+    .general-button;
+    font-size: 1.4em;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+  button:active,
+  button:focus,
+  button:hover {
+    .button-interaction();
+  }
 }
 /* ------------------------------ CONTRE-INDICATION & GOUTER - TO TASTE ------------------------------ */
 .contraindication.bubble.top {
@@ -649,7 +645,7 @@ td h3 {
 
 .contre-item,
 .to-taste {
-  min-height: 10rem;
+  min-height: 9rem;
   display: -webkit-flex;
   display: flex;
   -webkit-flex-direction: column;
@@ -662,148 +658,117 @@ td h3 {
   padding: 0.4rem;
   border: solid @main-color 0.2rem;
   .rounded-bubble();
+  .cancel {
+    font-size: 1.4em;
+    line-height: 0;
+    color: @main-color;
+    opacity: 1;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    cursor: pointer;
+  }
+  img {
+    margin: 0;
+    padding: 0;
+  }
+  h3 {
+    font-size: 1em;
+    color: @main-color;
+    margin: 0.5rem 0 0;
+    .text-wrap();
+  }
 }
 
-.to-taste {
-  min-height: 9rem;
-}
-
-.contre-item .cancel,
-.to-taste .cancel {
-  font-size: 1.4em;
-  line-height: 0;
-  color: @main-color;
-  opacity: 1;
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  cursor: pointer;
-}
-
-.contre-item img,
-.to-taste img {
-  margin: 0;
-  padding: 0;
-}
-
-.contre-item h3,
-.to-taste h3 {
-  font-size: 1em;
-  color: @main-color;
-  margin: 0.5rem 0 0;
-  .text-wrap();
-}
-
-.contre-item h4,
-.contre-item h5 {
-  font-size: 0.7em;
-}
-
-.contre-item h4 {
-  color: @comp-color;
-  margin: 0.1rem 0 0;
-}
-
-.contre-item h5 {
-  color: @dark-comp-color;
-  margin: 0.2rem 0 0;
-}
-
-.cancel-all,
-.contre-ok {
-  .general-button;
-  .text-wrap();
+.contre-item {
+  h4,
+  h5 {
+    font-size: 0.7em;
+  }
+  h4 {
+    color: @comp-color;
+    margin: 0.1rem 0 0;
+  }
+  h5 {
+    color: @dark-comp-color;
+    margin: 0.2rem 0 0;
+  }
 }
 
 .cancel-all {
-  font-size: 1em;
-  margin-bottom: 0.5rem;
+  button {
+    .general-button;
+    .text-wrap();
+    font-size: 1em;
+    margin-bottom: 0.5rem;
+  }
+  button:active,
+  button:focus,
+  button:hover {
+    .button-interaction();
+  }
 }
 
-.cancel-all:active,
-.cancel-all:focus,
-.cancel-all:hover,
-.contre-ok:active,
-.contre-ok:focus,
-.contre-ok:hover {
-  .button-interaction();
-}
-/* ------------------------------ TUTORIEL ------------------------------ */
-.tutoriel-page {
-  opacity: 0.5;
-}
-
-.search-tutoriel {
-  margin-top: 20px;
-}
-
-.tutoriel {
-  position: fixed;
-  z-index: 1;
-}
-
-.tutoriel-avatar {
-  margin-top: 30px;
-}
-
-.tutoriel.bubble.top {
-  margin-top: 20px;
-  height: 190px;
-  font-size: 1.7em;
+.contre-ok {
+  button {
+    .general-button;
+    .text-wrap();
+  }
+  button:active,
+  button:focus,
+  button:hover {
+    .button-interaction();
+  }
 }
 /* ------------------------------ acceder à mon compte ------------------------------ */
 .avatar-compte {
   padding: 0 0 1rem;
 }
 
-.compte button {
-  .general-button;
-  padding: 0.3rem;
-}
-
-.compte button:first-of-type,
-.compte p {
-  margin-bottom: 0.5rem;
-}
-
-.compte button:active,
-.compte button:focus,
-.compte button:hover {
-  .button-interaction();
+.compte {
+  button {
+    .general-button;
+    padding: 0.3rem;
+  }
+  button:first-of-type,
+  p {
+    margin-bottom: 0.5rem;
+  }
+  button:active,
+  button:focus,
+  button:hover {
+    .button-interaction();
+  }
 }
 /* ------------------------------  NAVBAR ANON  ------------------------------ */
 .navbar-default {
   border: none;
-}
-
-.navbar-default .container-fluid {
-  background-color: @second-color;
-  border: none;
+  .container-fluid {
+    background-color: @second-color;
+    border: none;
+  }
 }
 
 .dropdown {
   text-align: left;
   padding: 0;
   margin: 0.2rem 0;
-}
-
-.dropdown .dropdown-toggle {
-  background-color: @second-color;
-  padding: 0.2rem 0 0.2rem 0.8rem;
-  border: none;
-}
-
-.dropdown .dropdown-toggle:active,
-.dropdown .dropdown-toggle:focus,
-.dropdown .dropdown-toggle:hover {
-  background-color: @second-color;
-  color: white;
-  border: none;
-}
-
-.dropdown-toggle img {
-  margin: 0;
-  padding: 0;
+  .dropdown-toggle {
+    background-color: @second-color;
+    padding: 0.2rem 0 0.2rem 0.8rem;
+    border: none;
+  }
+  .dropdown-toggle:active,
+  .dropdown-toggle:focus,
+  .dropdown-toggle:hover {
+    background-color: @second-color;
+    color: white;
+    border: none;
+  }
+  .dropdown-toggle img {
+    margin: 0;
+    padding: 0;
+  }
 }
 
 .dropdown-menu {
@@ -850,12 +815,11 @@ td h3 {
 .menu {
   padding: 0;
   list-style-type: none;
-}
-
-.menu a {
-  color: white;
-  font-size: 2em;
-  line-height: 1.5em;
+  a {
+    color: white;
+    font-size: 2em;
+    line-height: 1.5em;
+  }
 }
 /* ------------------------------ NAVBAR USER ------------------------------ */
 .mini-avatar {
