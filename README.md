@@ -7,7 +7,7 @@ As such, it is also a tool for parents to diversify the diet of their children.
 
 ## How to use MIAM!
 
-1. Create an account.
+### 1. Create an account.
 
 We recommend to send the parents's mail address.
 
@@ -15,7 +15,7 @@ We recommend to send the parents's mail address.
 -   Choose a password.
 -   Click "OK".
 
-2. Create a profile / Change / Update.
+### 2. Create a profile / Change / Update.
 
 You can create multiple profiles with the same account.
 
@@ -28,13 +28,13 @@ You can create multiple profiles with the same account.
 
 -   **To update your profile** just click on the burger menu on the navbar. Then choose profile. Click on the avatar here. You can see your avatars collection, just pick the one you want. To change your name, click on the pen next to your name. Write your new name down then click "OK".
 
-3. Tell us about you.
+### 3. Tell us about you.
 
 -   **Contre indications** is the page where you can tell us about things you can not eat. ATTENTION ! We'll never show you again the aliments you pick there.
 -   **Je mange déjà** is the page where you can tell us things you already eat.
 Aliments are ordered by categories. If you like the whole category you can click on "tout selectionner". Click on "->" to pass to the next category, "<-" to get back on the previous category.
 
-4. Let's play !
+### 4. Let's play !
 
 After eating, if you tasted new aliments, ask your parents phone and go on your MIAM!'s profile.
 -   On the page "J'ai gouté" click on the aliment you have tasted.
@@ -44,7 +44,7 @@ After eating, if you tasted new aliments, ask your parents phone and go on your 
 -   At the very bottom of the product file click on the button "à gouter".
 -   This aliment will be added to your "à gouter" list on the top of the page "J'ai gouté".
 
-4. Check the rewards
+### 5. Check the rewards
 On the profile page you can switch to the "recompences" section.
 
 -   Click on the "récompences" button.
