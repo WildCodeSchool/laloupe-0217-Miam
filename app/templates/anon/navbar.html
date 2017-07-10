@@ -10,7 +10,7 @@
             <ul class="menu">
               <li><a ui-sref="anon.home">Accueil</a></li>
               <li><a ui-sref="anon.gouter">J'ai goûté</a></li>
-              <li><a ui-sref="user.profil">Mon profil</a></li>
+              <li><a ui-sref="user.profil" ng-show="auth.isAuthenticated()">Mon profil</a></li>
             </ul>
           </div>
         </div>
@@ -30,8 +30,8 @@
           </li>
           <li>
             <a ui-sref="user.avatar">
-                    <button type="button" class="btn btn-circle add-kids btn-lg" ng-click="addKid()"><i class="glyphicon glyphicon-plus"></i></button>
-                  </a>
+              <button type="button" class="btn btn-circle add-kids btn-lg" ng-click="addKid()"><i class="glyphicon glyphicon-plus"></i></button>
+            </a>
           </li>
         </ul>
       </div>
