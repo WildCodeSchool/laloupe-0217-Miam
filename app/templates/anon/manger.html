@@ -36,30 +36,21 @@
 
   <footer>
     <div class="row">
-
       <div class="col-xs-3" aria-label="Previous" ng-click="prevCategorie()" ng-disabled="limitPrev">
         <img class="img-responsive" type="button" src="/img/arrow-left.svg" alt="Précédent" />
         <span class="sr-only">Précédent</span>
       </div>
-
       <div class="col-xs-6">
         <div class="page-item" ng-repeat="categorie in categories">
-          <!-- <div class="col-xs-1">
-            <i class="fa fa-circle" aria-hidden="true"></i>
-            <div class="currentclass" ng-style="set_color(currentcatsymbol)">{{ categorie }}</div>
-          </div> -->
         </div>
       </div>
-
       <div class="col-xs-3" aria-label="Next" ng-click="nextCategorie()" ng-hide="limitNext">
         <img class="img-responsive" type="button" src="/img/arrow-right.svg" alt="Suivant" />
         <span class="sr-only">Suivant</span>
       </div>
-
       <div class="col-xs-8 page-link" aria-label="Next" ng-click="nextCategorie()" ng-show="limitNext">
         <button class="btn btn-primary btn-lg ok" type="button" name="button" ng-click="ok()">Valider</button>
       </div>
-
     </div>
   </footer>
 
