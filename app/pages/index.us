@@ -1,27 +1,23 @@
 <!DOCTYPE html>
 <html ng-app="app">
 
-<head>
+  <head>
     <meta charset="utf-8">
+    <meta name="description" content="Bienvenu sur Miam! Le jeu qui fait découvrir de nouveaux aliments à vos enfants.">
+    <meta name="keywords" content="miam, manger, gouter, aliment, nouveaux, nutrition, conseil, enfant, parent, famille">
+    <meta name="author" content="Clément Filleul, Stéphane Coulomb, Cendrine Buisson">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <title>Miam!</title>
-
-    <link rel="stylesheet" type="text/css" href="<%= css %>" media="all" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link href="https://fonts.googleapis.com/css?family=Baloo" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="<%= css %>" media="all" />
+  </head>
 
-
-</head>
-
-<body>
-
+  <body>
     <div ui-view='navbar'></div>
     <div ui-view='content'></div>
-
-    <script type="text/javascript" src="<%= js %>"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/lodash/4.17.4/lodash.min.js"></script>
-
-</body>
+    <script type="text/javascript" src="<%= js %>"></script>
+  </body>
 
 </html>
