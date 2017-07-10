@@ -28,11 +28,9 @@ angular.module('app').controller('AvatarController', function($scope, AvatarFact
 
   $scope.validProfil = function() {
     if ($scope.user.email !== undefined) {
-      AvatarService.findOneAndUpdateProfil($scope.user._id, $scope.userName, $scope.currentAvatar).then(function(res) {}, function(err) {});
+      AvatarService.findOneAndUpdateProfil($scope.user._id, $scope.userName, $scope.currentAvatar);
     } else {
-      LocalService.set("profil", JSON.stringify($scope.profil)).then(function(res) {
-        $state.go('anon.manger');
-      }, function(err) {});
+      LocalService.set("profil", JSON.stringify($scope.profil));
       $state.go('anon.manger');
     }
   };

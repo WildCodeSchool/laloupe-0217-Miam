@@ -81,11 +81,11 @@ angular.module('app').controller('ContreIndicationController', function($scope, 
     $scope.validate = function() {
       if ($scope.user.email !== undefined) {
         for (var k = 0; k < $scope.items.length; k++) {
-          ContreIndicationService.notEating($scope.items[k], $scope.profile).then(function(res) {}, function(err) {});
+          ContreIndicationService.notEating($scope.items[k], $scope.profile);
         }
         $state.go('anon.manger');
       } else {
-        LocalService.set("contreindication", JSON.stringify($scope.items)).then(function(res) {}, function(err) {});
+        LocalService.set("contreindication", JSON.stringify($scope.items));
         $state.go('anon.manger');
       }
     };

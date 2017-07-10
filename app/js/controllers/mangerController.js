@@ -144,11 +144,11 @@ angular.module('app').controller('MangerController', function($scope, $state, Fo
     $scope.ok = function() {
       if ($scope.user.email !== undefined) {
         for (var j = 0; j < $scope.alimentsForDatabase.length; j++) {
-          MangerService.likeAll($scope.alimentsForDatabase[j], $scope.profile).then(function(res) {}, function(err) {});
+          MangerService.likeAll($scope.alimentsForDatabase[j], $scope.profile);
         }
         $state.go('anon.gouter');
       } else {
-        LocalService.set("jeMangeDeja", JSON.stringify($scope.alimentsForDatabase)).then(function(res) {}, function(err) {});
+        LocalService.set("jeMangeDeja", JSON.stringify($scope.alimentsForDatabase));
         $state.go('anon.gouter');
       }
     };

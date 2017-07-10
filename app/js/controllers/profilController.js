@@ -22,7 +22,7 @@ angular.module('app').controller('ProfilController', function($scope, RewardFact
           } else {
             newName = $scope.userName;
           }
-          ProfilService.findOneAndUpdateName(CurrentUser.user()._id, el.isCurrentProfil, $scope.userName, $scope.currentAvatar).then(function(res) {}, function(err) {});
+          ProfilService.findOneAndUpdateName(CurrentUser.user()._id, el.isCurrentProfil, $scope.userName, $scope.currentAvatar);
         };
       }
     });

@@ -65,9 +65,9 @@ angular.module('app').controller('GouterController', function($scope, FoodFactor
         countVote: true
       };
       if ($scope.user.email !== undefined) {
-        GouterService.like(like, $scope.profile).then(function(res) {}, function(err) {});
+        GouterService.like(like, $scope.profile);
       } else {
-        LocalService.set("I like", JSON.stringify(like)).then(function(res) {}, function(err) {});
+        LocalService.set("I like", JSON.stringify(like));
       }
       location.reload(true);
     };
@@ -77,9 +77,9 @@ angular.module('app').controller('GouterController', function($scope, FoodFactor
         countVote: false
       };
       if ($scope.user.email !== undefined) {
-        GouterService.like(like, $scope.profile).then(function(res) {}, function(err) {});
+        GouterService.like(like, $scope.profile);
       } else {
-        LocalService.set("I like", JSON.stringify(like)).then(function(res) {}, function(err) {});
+        LocalService.set("I like", JSON.stringify(like));
       }
       location.reload(true);
     };
@@ -112,7 +112,7 @@ angular.module('app').controller('GouterController', function($scope, FoodFactor
     $scope.foods = [];
     GouterService.findByProfile($scope.profile).then(function(res) {
       $scope.foods = res.data;
-    }, function(err) {});
+    });
     $scope.filterTaste = function(food) {
       if (food.food.toTaste === true) {
         return true;
@@ -125,9 +125,9 @@ angular.module('app').controller('GouterController', function($scope, FoodFactor
         toTaste: true
       };
       if ($scope.user.email !== undefined) {
-        GouterService.taste(choice, $scope.profile).then(function(res) {}, function(err) {});
+        GouterService.taste(choice, $scope.profile);
       } else {
-        LocalService.set("gouter", JSON.stringify(choice)).then(function(res) {}, function(err) {});
+        LocalService.set("gouter", JSON.stringify(choice));
       }
       location.reload(true);
     };
@@ -137,9 +137,9 @@ angular.module('app').controller('GouterController', function($scope, FoodFactor
         toTaste: false
       };
       if ($scope.user.email !== undefined) {
-        GouterService.taste(choice, $scope.profile).then(function(res) {}, function(err) {});
+        GouterService.taste(choice, $scope.profile);
       } else {
-        LocalService.set("gouter", JSON.stringify(choice)).then(function(res) {}, function(err) {});
+        LocalService.set("gouter", JSON.stringify(choice));
       }
       location.reload(true);
     };

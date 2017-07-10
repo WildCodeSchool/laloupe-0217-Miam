@@ -37,7 +37,7 @@ angular.module('app').controller('NavbarController', function($scope, Auth, Curr
     };
     ProfilService.changeProfil(changeprofil).then(function(res) {
       location.reload(true);
-    }, function(err) {});
+    });
   };
 
 });
