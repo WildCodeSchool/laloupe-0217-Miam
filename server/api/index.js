@@ -24,11 +24,9 @@ app.use(methodOverride('X-HTTP-Method-Override'));
 db(() => {
     app.use('/', api(app));
     process.on('SIGINT', () => {
-        console.log("\nStopping...");
         process.exit();
     });
     app.server.listen(process.env.PORT || 3000);
-    console.log(`Server started on port ${app.server.address().port}`);
 });
 
 export default app;

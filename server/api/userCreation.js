@@ -26,11 +26,9 @@ db(() => {
     var user = new User();
     app.post('/', user.create);
     process.on('SIGINT', () => {
-        console.log("\nStopping...");
         process.exit();
     });
     app.server.listen(process.env.PORT || 3000);
-    console.log(`You can now post to port ${app.server.address().port} to create new users`);
 });
 
 export default app;

@@ -34,7 +34,6 @@ export default class Food {
       if (err || !foods) {
         res.sendStatus(403);
       } else {
-        console.log("FOOD POPULATE", 'profile');
         res.json(foods);
       }
     });
@@ -44,7 +43,6 @@ export default class Food {
     model.find({profile: req.params.id}).exec(function(err, foods) {
       if (err || !foods) {
         res.sendStatus(403);
-        console.log("findByProfile does not work");
       } else {
         res.json(foods);
       }
@@ -139,7 +137,6 @@ export default class Food {
       if (err || !food) {
         res.status(500).send(err.message);
       } else {
-        console.log("req.body.profile", req.body.profile);
         res.json(food);
       }
     });

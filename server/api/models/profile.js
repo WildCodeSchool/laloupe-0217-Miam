@@ -38,7 +38,6 @@ export default class Profile {
     }, {
       multi: true
     }, function(err, profils) {
-      console.log(profils);
       if (err)
         return res.status(500).send(err);
       if (!profils) {
@@ -56,7 +55,6 @@ export default class Profile {
         }, {
           new: true
         }, function(err, profil) {
-          console.log(profil);
           if (!profil) {
             res.status(404);
           } else if (err) {
